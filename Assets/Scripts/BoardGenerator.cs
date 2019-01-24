@@ -1,36 +1,31 @@
 ﻿using UnityEngine;
 
-public class BoardGenerator : MonoBehaviour, IBorderGenerator
+namespace Mathc3Project
 {
-    public int BoardColumnCount { get; set; }
-    public int BoardRowCount { get; set; }
-
-    private void Start()
+    public class BoardGenerator : MonoBehaviour, IBorderGenerator
     {
-        BoardColumnCount = 5;
-        BoardRowCount = 4;
+        public int boardColumnCount;
+        public int boardRowCount;
 
-        CreateEmptyBoard();
-    }
+        private void Start()
+        {
+            CreateEmptyBoard();
+        }
 
-    public void CreateEmptyBoard()
-    {
-        GameObject board = new GameObject("Board");
-        board.AddComponent<Board>();
+        public void CreateEmptyBoard()
+        {
+            GameObject board = new GameObject("Board");
 
-        board.GetComponent<Board>().BoardRowCount = BoardColumnCount;
-        board.GetComponent<Board>().BoardRowCount = BoardRowCount;
+            for (int i = 0; i < boardRowCount; i++)
+                for (int j = 0; j < boardColumnCount; j++)
+                {
+                    GameObject quadObject = GameObject.CreatePrimitive(PrimitiveType.Quad);
 
-        for (int i = 0; i < BoardRowCount; i++)
-            for (int j = 0; j < BoardColumnCount; j++)
-            {
-                GameObject quadObject = GameObject.CreatePrimitive(PrimitiveType.Quad);
-
-                quadObject.transform.parent = board.transform;
-                quadObject.transform.position = new Vector3(i, j, 0f);
-                quadObject.transform.localScale *= 0.8f;
-                quadObject.name = $"(Cell: {i}, {j} )";
-
-            }
+                    quadObject.transform.parent = board.transform;
+                    quadObject.transform.position = new Vector3(i, j, 0f);
+                    quadObject.transform.localScale *= 0.8f;
+                    quadObject.name = $"{i}x{j}";
+                }
+        }
     }
 }

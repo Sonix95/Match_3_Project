@@ -60,12 +60,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Board.cs" />
     <Compile Include="Assets\Scripts\BoardGenerator.cs" />
-    <Compile Include="Assets\Scripts\IBoard.cs" />
-    <Compile Include="Assets\Scripts\IBorderGenerator.cs" />
-    <Compile Include="Assets\Scripts\Test Scripts\BoardCell.cs" />
-    <Compile Include="Assets\Scripts\Test Scripts\BoardTest.cs" />
+    <Compile Include="Assets\Scripts\Cell.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IBoardGenerator.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ICell.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
