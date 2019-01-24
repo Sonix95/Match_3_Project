@@ -62,8 +62,12 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BoardGenerator.cs" />
     <Compile Include="Assets\Scripts\Cell.cs" />
+    <Compile Include="Assets\Scripts\CellSpawner.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IBoardGenerator.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICell.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ICellSpawner.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IManagerGenerator.cs" />
+    <Compile Include="Assets\Scripts\ManagerGenerator.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

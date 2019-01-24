@@ -18,12 +18,21 @@ namespace Mathc3Project
             board = GameObject.Find("Board");
         }
 
+        private void Update()
+        {
+            MoveDown();
+        }
+
         public void CheckDownCell()
         {
         }
 
         public void MoveDown()
         {
+            currentPosition = transform.position;
+            currentPosition.y -= gravity * Time.deltaTime;
+            transform.position = currentPosition;
+
         }
     }
 }

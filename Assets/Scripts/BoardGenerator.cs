@@ -4,11 +4,20 @@ namespace Mathc3Project
 {
     public class BoardGenerator : MonoBehaviour, IBorderGenerator
     {
-        public int boardColumnCount;
-        public int boardRowCount;
+        #region Fields
 
+        private int _boardColumnCount;
+        private int _boardRowCount;
+
+        public int BoardColumnCount { get => _boardColumnCount; set => _boardColumnCount = value; }
+        public int BoardRowCount { get => _boardRowCount; set => _boardRowCount = value; }
+
+        #endregion
         private void Start()
         {
+            _boardColumnCount = 5;
+            _boardRowCount = 9;
+
             CreateEmptyBoard();
         }
 
@@ -16,8 +25,8 @@ namespace Mathc3Project
         {
             GameObject board = new GameObject("Board");
 
-            for (int i = 0; i < boardRowCount; i++)
-                for (int j = 0; j < boardColumnCount; j++)
+            for (int i = 0; i < _boardRowCount; i++)
+                for (int j = 0; j < _boardColumnCount; j++)
                 {
                     GameObject quadObject = GameObject.CreatePrimitive(PrimitiveType.Quad);
 
