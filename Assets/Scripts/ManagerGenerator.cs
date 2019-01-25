@@ -4,6 +4,9 @@ namespace Mathc3Project
 {
     public class ManagerGenerator : MonoBehaviour, IManagerGenerator
     {
+        public int borderRows;
+        public int borderColumn;
+
         void Start()
         {
             CreateBoardGenerator();
@@ -16,6 +19,9 @@ namespace Mathc3Project
         {
             GameObject boardGenerator = new GameObject("Board Generator");
             boardGenerator.AddComponent<BoardGenerator>();
+
+            boardGenerator.GetComponent<BoardGenerator>().BoardRowCount = borderRows;
+            boardGenerator.GetComponent<BoardGenerator>().BoardColumnCount = borderColumn;
         }
 
         public void CreateCellSpawner()

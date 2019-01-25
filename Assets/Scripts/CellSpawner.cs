@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Mathc3Project
 {
@@ -34,27 +35,25 @@ namespace Mathc3Project
         {
             for (int i = 0; i < spawnPositionCount; i++)
             {
-                GameObject sphereObj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-
-                sphereObj.transform.position = spawnPosition[i];
-                sphereObj.transform.localScale *= 0.6f;
-                sphereObj.GetComponent<Renderer>().material.color = GenerateColor();
-                sphereObj.name = $"{sphereObj.GetComponent<Renderer>().material.color.ToString("N1")}";
-                sphereObj.AddComponent<Cell>();
+                CreateNewElement(i);
             }
         }
-
-        Color GenerateColor()
+        void CreateNewElement(int position)
         {
-            int g = Random.Range(0, 3);
+            GameObject sphereObj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 
-            int b = Random.Range(0, 3);
+            sphereObj.transform.position = spawnPosition[position];
+            sphereObj.transform.localScale *= 0.6f;
+            sphereObj.GetComponent<Renderer>().material.color = new Color(0, Random.Range(0, 3), Random.Range(0, 3));
+            sphereObj.name = $"{sphereObj.GetComponent<Renderer>().material.color.ToString("N1")}";
+            sphereObj.AddComponent<Cell>();
+        }
 
-            Color color = new Color(0, g, b);
+        public IEnumerator NewElement()
+        {
+            yield return new WaitForSeconds(3f);
 
-            return color;
-
-
+            //----
         }
 
     }

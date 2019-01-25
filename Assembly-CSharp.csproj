@@ -60,10 +60,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Board.cs" />
     <Compile Include="Assets\Scripts\BoardGenerator.cs" />
     <Compile Include="Assets\Scripts\Cell.cs" />
     <Compile Include="Assets\Scripts\CellSpawner.cs" />
-    <Compile Include="Assets\Scripts\Interfaces\Board.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IBoard.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IBoardGenerator.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICell.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICellSpawner.cs" />

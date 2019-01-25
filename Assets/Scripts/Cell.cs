@@ -6,56 +6,72 @@ namespace Mathc3Project
 {
     public class Cell : MonoBehaviour, ICell
     {
-        public float gravity = 10f;
-        public bool canFall = true;        
+        #region Fields
+
+        public float speed = 3f;
+        public bool canFall = true;
 
         public Board board;
         public Vector3 endPosition;
-        IBorderGenerator boardInfo;
+
+        private int selfColomn;
+        private int selfRow;
+
+        #endregion
+
+        #region Methods
 
         private void Start()
         {
             board = FindObjectOfType<Board>();
-            boardInfo = FindObjectOfType<BoardGenerator>();
+            endPosition = Vector3.zero;
         }
 
         private void Update()
         {
-            if(canFall)
-            {
+            if (canFall)
+            {                
                 MoveDown();
-                CheckDownCell();
-            }
-        }       
-
-        public void CheckDownCell()
-        {            
-            
+            }            
         }
-
-        IEnumerator BubleBeforeStop()
-        {
-             
-            yield return new WaitForSeconds(.2f);
-            transform.position = endPosition;
-        }
-
         public void MoveDown()
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y - gravity * Time.deltaTime, 0f);
-            int i = (int)transform.position.x;
-            int j = (int)Mathf.Round(transform.position.y);
-            float offset = transform.position.y - j;
+            transform.position = new Vector3(transform.position.x, transform.position.y - speed * Time.deltaTime, 0f);
 
-            if (transform.position.y < boardInfo.BoardColumnCount && transform.position.y > 0)
-            {
-                Debug.Log($"offset {offset}");
-                if (offset < 0.4)
-                    board.cells[i, j] = this.gameObject;
-                else board.cells[i, j-1] = null;
-                Debug.Log(board.cells[i, j] == null ? "NULL" : board.cells[i, j].ToString());
+            selfColomn = (int)transform.position.x;
+            selfRow = (int)Mathf.Round(transform.position.y);
 
-            }
+            CheckDownCell();
         }
+
+        public void CheckDownCell()
+        {
+            int nextCell_y = (int)Mathf.Round(transform.position.y) - 1;
+
+            if(nextCell_y < board.rows && nextCell_y >= 0)
+            {
+                if (board.cells[selfColomn, nextCell_y] != null)
+                {                   
+                    StartCoroutine(BubbleBeforeStop(nextCell_y));                    
+                }
+            }
+            if (nextCell_y < 0)
+            {                
+                StartCoroutine(BubbleBeforeStop(nextCell_y));
+            }            
+        }
+
+        IEnumerator BubbleBeforeStop(int nextCell)
+        {
+            canFall = false;
+            endPosition = transform.position;
+            endPosition.y = nextCell + 1;
+            yield return new WaitForSeconds(.1f);
+            transform.position = endPosition;
+            if (selfRow < board.rows)
+                board.cells[selfColomn, selfRow] = this.gameObject;
+        }
+
+        #endregion
     }
 }
