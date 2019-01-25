@@ -6,6 +6,11 @@ namespace Mathc3Project
 {
     public interface IBoard
     {
+        GameObject[,] Cells { get; set; }
+        int Rows { get; set; }
+        int Columns { get; set; }
+        bool FillFakeElements { get; set; }
 
+        void InitBoard();
     }
 }

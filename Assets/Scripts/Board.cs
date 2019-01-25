@@ -4,38 +4,64 @@ using UnityEngine;
 
 namespace Mathc3Project
 {
-    public class Board : MonoBehaviour
+    public class Board : MonoBehaviour, IBoard
     {
-        public GameObject[,] cells;
-        public int rows;
-        public int column;
+        #region Fields
 
+        private int _rows;
+        private int _columns;
+        private GameObject[,] _cells;
+        private bool _fillFakeElements;
+
+        public int Rows { get => _rows; set => _rows = value; }
+        public int Columns { get => _columns; set => _columns = value; }
+        public GameObject[,] Cells { get => _cells; set => _cells = value; }
+        public bool FillFakeElements { get => _fillFakeElements; set => _fillFakeElements = value; }
+
+        #endregion
+
+        #region Methods
         private void Start()
         {
             InitBoard();
+            if(_fillFakeElements)
+            {
+                TEST_FAKE_DATA();
+            }
         }
         
-        void InitBoard()
+        public void InitBoard()
         {
-            cells = new GameObject[column, rows];
+            _cells = new GameObject[_columns, _rows];   
+        }
+        
+        #endregion
 
-            //cells[0, 1] = GameObject.Find("Main Camera");
-            //cells[2, 0] = GameObject.Find("Main Camera");
+        #region Mathods to Fake Data -- DELETE
 
-            //CreateTempObj(0, 1, 1);
-            //CreateTempObj(2, 0, 2);
-
-            //foreach (GameObject g in cells)
-            //    Debug.Log(g);
+        public void TEST_FAKE_DATA()
+        {
+            for (int i = 0; i < _columns-1; i++)
+                for (int j = 0; j < _rows; j++)
+                {
+                    int RANDOM = Random.Range(0, 10);
+                    if(RANDOM > 8) 
+                        _cells[i, j] = GenerateElement(i,j);
+                }            
         }
 
-        //void CreateTempObj(float x, float y, int i)
-        //{
-        //    GameObject Temp = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-        //    Temp.transform.position = new Vector3(x, y, 0f);
-        //    Temp.transform.localScale *= 0.4f;
-        //    Temp.GetComponent<Renderer>().material.color = Color.gray;
-        //    Temp.name = $"TEMP {i}";
-        //}
+        public GameObject GenerateElement(int i, int j)
+        {
+            GameObject testOBJ = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+
+            testOBJ.transform.position = new Vector3(i, j, 0f);
+            testOBJ.transform.localScale *= .5f;
+            testOBJ.GetComponent<Renderer>().material.color = Color.gray;
+            testOBJ.name = $"TEST OBJECT";
+
+            return testOBJ;
+        }
+
+        #endregion
     }
 }

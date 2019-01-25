@@ -8,14 +8,22 @@ namespace Mathc3Project
     {
         #region Fields
 
-        public float speed = 3f;
-        public bool canFall = true;
+        private const float TIME = .05f;
 
-        public Board board;
-        public Vector3 endPosition;
+        private float _gravity = 9.81f;
+        private bool _canFall = true;
+        private Vector3 _endPosition;
+        private int _selfColomn;
+        private int _selfRow;
+        private IBoard _board;
 
-        private int selfColomn;
-        private int selfRow;
+        public float Speed { get => _gravity; set => _gravity = value; }
+        public bool CanFall { get => _canFall; set => _canFall = value; }
+        public IBoard Board { get => _board; set => _board = value; }
+        public Vector3 EndPosition { get => _endPosition; set => _endPosition = value; }
+        public int SelfColomn { get => _selfColomn; set => _selfColomn = value; }
+        public int SelfRow { get => _selfRow; set => _selfRow = value; }
+        public float Gravity { get => _gravity; set => _gravity = value; }
 
         #endregion
 
@@ -23,34 +31,34 @@ namespace Mathc3Project
 
         private void Start()
         {
-            board = FindObjectOfType<Board>();
-            endPosition = Vector3.zero;
+            _board = FindObjectOfType<Board>();
+            _endPosition = Vector3.zero;
         }
 
         private void Update()
         {
-            if (canFall)
-            {                
+            if (_canFall)
+            {
+                CheckDownCell();
                 MoveDown();
             }            
         }
+
         public void MoveDown()
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y - speed * Time.deltaTime, 0f);
+            transform.position = new Vector3(transform.position.x, transform.position.y - _gravity * Time.deltaTime, 0f);
 
-            selfColomn = (int)transform.position.x;
-            selfRow = (int)Mathf.Round(transform.position.y);
-
-            CheckDownCell();
+            _selfColomn = (int)transform.position.x;
+            _selfRow = (int)Mathf.Round(transform.position.y);
         }
 
         public void CheckDownCell()
         {
             int nextCell_y = (int)Mathf.Round(transform.position.y) - 1;
 
-            if(nextCell_y < board.rows && nextCell_y >= 0)
+            if(nextCell_y < _board.Rows && nextCell_y >= 0)
             {
-                if (board.cells[selfColomn, nextCell_y] != null)
+                if (_board.Cells[_selfColomn, nextCell_y] != null)
                 {                   
                     StartCoroutine(BubbleBeforeStop(nextCell_y));                    
                 }
@@ -63,13 +71,14 @@ namespace Mathc3Project
 
         IEnumerator BubbleBeforeStop(int nextCell)
         {
-            canFall = false;
-            endPosition = transform.position;
-            endPosition.y = nextCell + 1;
-            yield return new WaitForSeconds(.1f);
-            transform.position = endPosition;
-            if (selfRow < board.rows)
-                board.cells[selfColomn, selfRow] = this.gameObject;
+            _canFall = false;
+            if (_selfRow < _board.Rows)
+                _board.Cells[_selfColomn, _selfRow] = this.gameObject;
+            _endPosition = transform.position;
+            yield return new WaitForSeconds(TIME);
+            _endPosition.y = nextCell + 1;
+            transform.position = _endPosition;
+            
         }
 
         #endregion

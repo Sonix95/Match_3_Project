@@ -8,11 +8,17 @@ namespace Mathc3Project
 
         private int _boardColumnCount;
         private int _boardRowCount;
+        private bool _fillFakeElements;
+        private float _cellSize;
 
         public int BoardColumnCount { get => _boardColumnCount; set => _boardColumnCount = value; }
         public int BoardRowCount { get => _boardRowCount; set => _boardRowCount = value; }
+        public bool FillFakeElements { get => _fillFakeElements; set => _fillFakeElements = value; }
+        public float CellSize { get => _cellSize; set => _cellSize = value; }
 
-        #endregion
+        #endregion 
+        
+        #region Methods
         private void Start()
         {
             CreateEmptyBoard();
@@ -23,9 +29,11 @@ namespace Mathc3Project
             GameObject boardObject = new GameObject("Board");
             boardObject.AddComponent<Board>();
 
-            Board board = boardObject.GetComponent<Board>();
-            board.rows = _boardRowCount;
-            board.column = _boardColumnCount;
+            IBoard board = boardObject.GetComponent<Board>();
+
+            board.Rows = _boardRowCount;
+            board.Columns = _boardColumnCount;
+            board.FillFakeElements = _fillFakeElements;
 
             for (int i = 0; i < _boardColumnCount; i++)
                 for (int j = 0; j < _boardRowCount; j++)
@@ -34,9 +42,11 @@ namespace Mathc3Project
 
                     quadObject.transform.parent = boardObject.transform;
                     quadObject.transform.position = new Vector3(i, j, 0f);
-                    quadObject.transform.localScale *= 0.8f;
+                    quadObject.transform.localScale *= _cellSize;
                     quadObject.name = $"R{i} C{j}";
                 }
         }
+
+        #endregion
     }
 }
