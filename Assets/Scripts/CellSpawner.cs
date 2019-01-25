@@ -13,19 +13,19 @@ namespace Mathc3Project
         private Vector3[] _spawnPositions;
         private int _minRandomColor;
         private int _maxRandomColor;
-        private float _spawnTime = 1f;
-        private float _elementSize = 0.6f;
-        private float _gravityElemet = 10f;
+        private float _spawnTime;
+        private float _elementSize;
+        private float _gravityElemet;
 
-        public IBoard Board { get => _board; set => _board = value; }
-        public int SpawnPositionsCount { get => _spawnPositionsCount; set => _spawnPositionsCount = value; }
-        public int SpawnStartPositionY { get => _spawnStartPositionY; set => _spawnStartPositionY = value; }
-        public Vector3[] SpawnPositions { get => _spawnPositions; set => _spawnPositions = value; }
-        public int MinRandomColor { get => _minRandomColor; set => _minRandomColor = value; }
-        public int MaxRandomColor { get => _maxRandomColor; set => _maxRandomColor = value; }
-        public float SpawnTime { get => _spawnTime; set => _spawnTime = value; }
-        public float ElementSize { get => _elementSize; set => _elementSize = value; }
-        public float GravityElement { get => _gravityElemet; set => _gravityElemet = value; }
+        public IBoard Board { get { return _board; } set { _board = value; } }
+        public int SpawnPositionsCount { get { return _spawnPositionsCount; } set { _spawnPositionsCount = value; } }
+        public int SpawnStartPositionY { get { return _spawnStartPositionY; } set { _spawnStartPositionY = value; } }
+        public Vector3[] SpawnPositions { get { return _spawnPositions; } set { _spawnPositions = value; } }
+        public int MinRandomColor { get { return _minRandomColor; } set { _minRandomColor = value; } }
+        public int MaxRandomColor { get { return _maxRandomColor; } set { _maxRandomColor = value; } }
+        public float SpawnTime { get { return _spawnTime; } set { _spawnTime = value; } }
+        public float ElementSize { get { return _elementSize; } set { _elementSize = value; } }
+        public float GravityElement { get { return _gravityElemet; } set { _gravityElemet = value; } }
 
         #endregion
 
@@ -72,7 +72,7 @@ namespace Mathc3Project
             sphereObj.transform.position = _spawnPositions[position];
             sphereObj.transform.localScale *= _elementSize;
             sphereObj.GetComponent<Renderer>().material.color = new Color(0, Random.Range(_minRandomColor, _maxRandomColor), Random.Range(_minRandomColor, _maxRandomColor));
-            sphereObj.name = $"{sphereObj.GetComponent<Renderer>().material.color.ToString("N1")}";
+            sphereObj.name = sphereObj.GetComponent<Renderer>().material.color.ToString("N1");
             sphereObj.AddComponent<Cell>();
             sphereObj.GetComponent<Cell>().Gravity = _gravityElemet;
         }

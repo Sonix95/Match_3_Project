@@ -17,13 +17,12 @@ namespace Mathc3Project
         private int _selfRow;
         private IBoard _board;
 
-        public float Speed { get => _gravity; set => _gravity = value; }
-        public bool CanFall { get => _canFall; set => _canFall = value; }
-        public IBoard Board { get => _board; set => _board = value; }
-        public Vector3 EndPosition { get => _endPosition; set => _endPosition = value; }
-        public int SelfColomn { get => _selfColomn; set => _selfColomn = value; }
-        public int SelfRow { get => _selfRow; set => _selfRow = value; }
-        public float Gravity { get => _gravity; set => _gravity = value; }
+        public float Gravity { get { return _gravity; } set { _gravity = value; } }
+        public bool CanFall { get { return _canFall; } set { _canFall = value; } }
+        public IBoard Board { get { return _board; } set { _board = value; } }
+        public Vector3 EndPosition { get { return _endPosition; } set { _endPosition = value; } }
+        public int SelfColomn { get { return _selfColomn; } set { _selfColomn = value; } }
+        public int SelfRow { get { return _selfRow; } set { _selfRow = value; } }
 
         #endregion
 

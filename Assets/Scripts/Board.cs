@@ -13,10 +13,10 @@ namespace Mathc3Project
         private GameObject[,] _cells;
         private bool _fillFakeElements;
 
-        public int Rows { get => _rows; set => _rows = value; }
-        public int Columns { get => _columns; set => _columns = value; }
-        public GameObject[,] Cells { get => _cells; set => _cells = value; }
-        public bool FillFakeElements { get => _fillFakeElements; set => _fillFakeElements = value; }
+        public int Rows { get { return _rows; } set { _rows = value; } }
+        public int Columns { get { return _columns; } set { _columns = value; } }
+        public GameObject[,] Cells { get { return _cells; } set { _cells = value; } }
+        public bool FillFakeElements { get { return _fillFakeElements; } set { _fillFakeElements = value; } }
 
         #endregion
 
@@ -57,7 +57,7 @@ namespace Mathc3Project
             testOBJ.transform.position = new Vector3(i, j, 0f);
             testOBJ.transform.localScale *= .5f;
             testOBJ.GetComponent<Renderer>().material.color = Color.gray;
-            testOBJ.name = $"TEST OBJECT";
+            testOBJ.name = "TEST OBJECT";
 
             return testOBJ;
         }

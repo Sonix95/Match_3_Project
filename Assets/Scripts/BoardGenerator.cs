@@ -9,15 +9,33 @@ namespace Mathc3Project
         private int _boardColumnCount;
         private int _boardRowCount;
         private bool _fillFakeElements;
-        private float _cellSize;
+        private float _cellSize;        
 
-        public int BoardColumnCount { get => _boardColumnCount; set => _boardColumnCount = value; }
-        public int BoardRowCount { get => _boardRowCount; set => _boardRowCount = value; }
-        public bool FillFakeElements { get => _fillFakeElements; set => _fillFakeElements = value; }
-        public float CellSize { get => _cellSize; set => _cellSize = value; }
+        public int BoardColumnCount
+        {
+            get { return _boardColumnCount; }
+            set { _boardColumnCount = value; }
+        }
 
-        #endregion 
-        
+        public int BoardRowCount
+        {
+            get { return _boardRowCount; }
+            set { _boardRowCount = value; }
+        }
+
+        public bool FillFakeElements
+        {
+            get { return _fillFakeElements; }
+            set { _fillFakeElements = value; }
+        }
+        public float CellSize
+        {
+            get { return _cellSize; }
+            set { _cellSize = value; }
+        }
+                
+        #endregion
+
         #region Methods
         private void Start()
         {
@@ -43,7 +61,7 @@ namespace Mathc3Project
                     quadObject.transform.parent = boardObject.transform;
                     quadObject.transform.position = new Vector3(i, j, 0f);
                     quadObject.transform.localScale *= _cellSize;
-                    quadObject.name = $"R{i} C{j}";
+                    quadObject.name = "R" + i + " C" + j;
                 }
         }
 

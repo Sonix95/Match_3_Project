@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc8efe1876fbd24a83fd329ecffd71b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillFakeElements: 0
+  fillFakeElements: 1
   borderRows: 30
   borderColumn: 30
   cellSize: 0.8
