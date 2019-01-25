@@ -15,13 +15,13 @@ namespace Mathc3Project
             FirstGenerate();
         }
 
-        void InitSpawner()
+        public void InitSpawner()
         {
             IBorderGenerator board = FindObjectOfType<BoardGenerator>();
 
-            spawnYPosition = board.BoardColumnCount + 1;
+            spawnYPosition = board.BoardRowCount + 1;
 
-            spawnPositionCount = board.BoardRowCount;
+            spawnPositionCount = board.BoardColumnCount;
             spawnPosition = new Vector3[spawnPositionCount];
 
             for (int i = 0; i < spawnPositionCount; i++)
@@ -30,7 +30,7 @@ namespace Mathc3Project
             }
         }
 
-        void FirstGenerate()
+        public void FirstGenerate()
         {
             for (int i = 0; i < spawnPositionCount; i++)
             {
@@ -39,7 +39,8 @@ namespace Mathc3Project
                 sphereObj.transform.position = spawnPosition[i];
                 sphereObj.transform.localScale *= 0.6f;
                 sphereObj.GetComponent<Renderer>().material.color = GenerateColor();
-                sphereObj.name = $"{i}";
+                sphereObj.name = $"{sphereObj.GetComponent<Renderer>().material.color.ToString("N1")}";
+                sphereObj.AddComponent<Cell>();
             }
         }
 

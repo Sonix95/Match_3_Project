@@ -2,6 +2,7 @@
 {
     public interface ICellSpawner
     {
-
+        void InitSpawner();
+        void FirstGenerate();
     }
 }

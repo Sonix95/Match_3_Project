@@ -15,8 +15,8 @@ namespace Mathc3Project
         #endregion
         private void Start()
         {
-            _boardColumnCount = 5;
-            _boardRowCount = 9;
+            _boardColumnCount = 3;
+            _boardRowCount = 4;
 
             CreateEmptyBoard();
         }
@@ -24,16 +24,17 @@ namespace Mathc3Project
         public void CreateEmptyBoard()
         {
             GameObject board = new GameObject("Board");
+            board.AddComponent<Board>();
 
-            for (int i = 0; i < _boardRowCount; i++)
-                for (int j = 0; j < _boardColumnCount; j++)
+            for (int i = 0; i < _boardColumnCount; i++)
+                for (int j = 0; j < _boardRowCount; j++)
                 {
                     GameObject quadObject = GameObject.CreatePrimitive(PrimitiveType.Quad);
 
                     quadObject.transform.parent = board.transform;
                     quadObject.transform.position = new Vector3(i, j, 0f);
                     quadObject.transform.localScale *= 0.8f;
-                    quadObject.name = $"{i}x{j}";
+                    quadObject.name = $"R{i} C{j}";
                 }
         }
     }
