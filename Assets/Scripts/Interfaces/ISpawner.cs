@@ -1,16 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Mathc3Project
+namespace Mathc3Project.Interfaces
 {
     public interface ISpawner
     {
-        IBoardManager BoardManager { get; set; }
-        Vector3[] SpawningPositions { get; set; }
-        int SpawnPositionsCount { get; set; }
-        int SpawnStartPositionY { get; set; }
+        ICreateManager CreateManager { get; set; }
 
-        void SetSpawner(IBoardManager boardManager);
-        void Spawn();
+        void SpawnGameobject(int column);
+        IGameElement SpawnGameobject(int column, int row);
     }
 }

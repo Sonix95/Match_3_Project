@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mathc3Project.Interfaces;
 
 namespace Mathc3Project
 {
@@ -9,45 +10,22 @@ namespace Mathc3Project
         public int boardRows;
         public int boardColumns;
 
-        private IBoardManager _boardManager;
+        private IBoard _boardManager;
+        private IGameLogicManager _gameManager;
+        private ICreateManager _createManager;
         private ISpawner _spawner;
 
-
-        void Start()
+        private void Start()
         {
-            _boardManager = new BoardManager(boardRows, boardColumns);
-            _spawner = new Spawner(_boardManager);
-            StartCoroutine(ie());
+            _gameManager = new GameObject("Game Logic Manager").AddComponent<GameLogicManager>();
+            _createManager = new CreateManager(_gameManager);
+            _boardManager = new Board(boardRows, boardColumns);
+            _spawner = new Spawner(_boardManager.RowCount);
+
+            _spawner.CreateManager = _createManager;            
+            _gameManager.Spawner = _spawner;
+            _gameManager.BoardManager = _boardManager;
         }
-
-        IEnumerator ie()
-        {
-            _spawner.Spawn();
-            yield return new WaitForSeconds(.5f);
-            StartCoroutine(ie());
-        }
-
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                _boardManager.SetBoard(boardRows, boardColumns);
-                _spawner.SetSpawner(_boardManager);
-                _spawner.Spawn();
-            }
-
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                for (int i = 0; i < _boardManager.Rows; i++)
-                    for (int j = 0; j < _boardManager.Columns; j++)
-                    {
-                        Debug.Log(_boardManager.Cells[i, j]);
-                    }
-            }
-        }
-
-
 
     }
 }
