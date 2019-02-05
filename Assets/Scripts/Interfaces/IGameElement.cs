@@ -9,11 +9,12 @@ namespace Mathc3Project.Interfaces
         string Name { get; set; }
         bool IsUpdate { get; set; }
         Vector3 CurrentPosition { get; set; }
+        IBoard Board { get; set; }
 
-
-        void SetUpdate(bool isUpdate);
         void SetPosition();
+        void CustomUpdate();
 
+        void DestroyElement();
     }
 }
 

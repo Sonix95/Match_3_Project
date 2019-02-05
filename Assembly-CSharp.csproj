@@ -62,16 +62,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Board.cs" />
-    <Compile Include="Assets\Scripts\CreateManager.cs" />
     <Compile Include="Assets\Scripts\GameElement.cs" />
-    <Compile Include="Assets\Scripts\GameLogicManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IBoard.cs" />
-    <Compile Include="Assets\Scripts\Interfaces\ICreateManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IGameElement.cs" />
-    <Compile Include="Assets\Scripts\Interfaces\IGameLogicManager.cs" />
-    <Compile Include="Assets\Scripts\Interfaces\ISceneManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ISpawner.cs" />
-    <Compile Include="Assets\Scripts\SceneManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\CreateManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\GameLogicManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\Interfaces\ICreateManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\Interfaces\IGameLogicManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\Interfaces\ISceneManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\SceneManager.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
