@@ -1,11 +1,9 @@
-﻿using UnityEngine;
-
-namespace Mathc3Project.Interfaces
+﻿namespace Mathc3Project.Interfaces
 {
     public interface IBoard
     {
-        int RowCount { get; set; }
-        int ColumnCount { get; set; }
-        IGameElement[,] Cells { get; set; }        
+        int Width { get; set; }
+        int Height { get; set; }
+        ICell[,] Cells { get; set; }
     }
 }
