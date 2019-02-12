@@ -20,10 +20,9 @@ namespace Mathc3Project
             if (Input.GetMouseButtonDown(0))
             {
                 Object o = new Object();
-                
                 o = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                _notifier.Notify(EventTypeEnum.MouseDown, o);
                 
+                _notifier.Notify(EventTypeEnum.MouseDown, o);
                 return;
             }
         
@@ -31,8 +30,8 @@ namespace Mathc3Project
             {
                 Object o = new Object();
                 o = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                _notifier.Notify(EventTypeEnum.MouseUp, o);
                 
+                _notifier.Notify(EventTypeEnum.MouseUp, o);
                 return;
             }
 

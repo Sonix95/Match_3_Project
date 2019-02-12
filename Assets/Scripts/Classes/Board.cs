@@ -37,7 +37,7 @@ namespace Mathc3Project
                 int cellIndex = Random.Range(0, prefArray.Length);
                 pref = Resources.Load("Prefabs/Elements/" + prefArray[cellIndex].name.ToString()) as GameObject;
                 ICell cell = Object.Instantiate(pref, tempPos, Quaternion.identity).AddComponent<Cell>();
-
+                
                 _cells[i, j] = cell;
             }
         }

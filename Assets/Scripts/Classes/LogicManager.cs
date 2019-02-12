@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Boo.Lang;
+using UnityEngine;
 using Mathc3Project.Enums;
 using Mathc3Project.Interfaces;
 
@@ -14,14 +19,16 @@ namespace Mathc3Project
         private ICell _cellA;
         private ICell _cellB;
 
-        private Vector2 _tempPosA;
-        private Vector2 _tempPosB;
-
         public LogicManager(IBoard board)
         {
             _board = board;
         }
 
+        private void Start()
+        {
+            //StartCoroutine(DetectMatchedCells());
+        }
+        
         private void Update()
         {
             MovePiece();
@@ -31,28 +38,68 @@ namespace Mathc3Project
         {
             if (_cellA != null && _cellB != null)
             {
+                Vector2 tempPosA = new Vector2(_cellA.TargetX, _cellA.TargetY);
+                Vector2 tempPosB = new Vector2(_cellB.TargetX, _cellB.TargetY);
+
                 if (Mathf.Abs(_cellA.TargetX - _cellA.Self.x) > .1f || Mathf.Abs(_cellA.TargetY - _cellA.Self.y) > .1f)
                 {
-                    _tempPosA = new Vector2(_cellA.TargetX, _cellA.TargetY);
-                    _tempPosB = new Vector2(_cellB.TargetX, _cellB.TargetY);
-
-                    _cellA.Self = Vector2.Lerp(_cellA.Self, _tempPosA, .3f);
-                    _cellB.Self = Vector2.Lerp(_cellB.Self, _tempPosB, .3f);
+                    _cellA.Self = Vector2.Lerp(_cellA.Self, tempPosA, .3f);
+                    _cellB.Self = Vector2.Lerp(_cellB.Self, tempPosB, .3f);
                 }
                 else
                 {
-                    _tempPosA = new Vector2(_cellA.TargetX, _cellA.TargetY);
-                    _tempPosB = new Vector2(_cellB.TargetX, _cellB.TargetY);
-
-                    _cellA.Self = new Vector2(_cellA.TargetX, _cellA.TargetY);
-                    _cellB.Self = new Vector2(_cellB.TargetX, _cellB.TargetY);
+                    _cellA.Self = tempPosA;
+                    _cellB.Self = tempPosB;
 
                     _board.Cells[_cellA.TargetX, _cellA.TargetY] = _cellA;
                     _board.Cells[_cellB.TargetX, _cellB.TargetY] = _cellB;
+                    
+                    DetectMatch(_cellA);
+                    //DetectMatch(_cellB);
 
                     _cellA = _cellB = null;
+                    
+                    MatchedCell();
+                   /*
+
+                    if (_cellA.IsMatched || _cellB.IsMatched)
+                    {
+                        Debug.Log("Match");
+                        
+                        _cellA.PrevTargetX = _cellA.TargetX;
+                        _cellA.PrevTargetY = _cellA.TargetY;
+                        _cellB.PrevTargetX = _cellB.TargetX;
+                        _cellB.PrevTargetY = _cellB.TargetY;
+                        
+                        _board.Cells[_cellA.TargetX, _cellA.TargetY] = _cellA;
+                        _board.Cells[_cellB.TargetX, _cellB.TargetY] = _cellB;
+
+                        _cellA = _cellB = null;
+
+                        StartCoroutine(DetectMatchedCells());
+                    }
+                    else
+                    {
+                        Debug.Log("Not Match");
+                        
+                        _cellA.TargetX = _cellA.PrevTargetX;
+                        _cellA.TargetY = _cellA.PrevTargetY;
+                        _cellB.TargetX = _cellB.PrevTargetX;
+                        _cellB.TargetY = _cellB.PrevTargetY;
+                    }
+                    
+                    */
                 }
+                
+                
             }
+        }
+
+        IEnumerator DetectMatchedCells()
+        {
+            yield return new WaitForSeconds(.1f);
+            
+            MatchedCell();
         }
 
         public void OnEvent(EventTypeEnum eventTypeEnum, object messageData)
@@ -75,7 +122,6 @@ namespace Mathc3Project
                                       Mathf.PI;
                         moveDirectionType = FindDirection(angle);
                     }
-
                     break;
 
                 case EventTypeEnum.CellsInfo:
@@ -84,7 +130,6 @@ namespace Mathc3Project
                     {
                         Debug.Log(" cell[" + i + "," + j + "] " + _board.Cells[i, j].ToString());
                     }
-
                     break;
 
                 default:
@@ -101,6 +146,107 @@ namespace Mathc3Project
                 {
                     GetTwoCellsByDirection(moveDirectionType, xPos, yPos);
                     SetCellsTarget(moveDirectionType, _cellA, _cellB);
+                }
+            }
+        }
+
+        private void DetectMatch(ICell cell)
+        {
+            int column = (int) cell.TargetX;
+            int row = (int) cell.TargetY;
+            
+            IList<ICell> horizontalCellList = new System.Collections.Generic.List<ICell>();
+
+            if (column >= 0 && column < _board.Width - 1)
+            {
+                ICell sideCell;
+
+                horizontalCellList.Add(cell);
+
+                for (int i = column + 1; i < _board.Width; i++)
+                {
+                    sideCell = _board.Cells[i, row];
+                    if (sideCell.Self.x - horizontalCellList[horizontalCellList.Count - 1].Self.x < 1.1f &&
+                        sideCell.CurrentGameObject.tag == cell.CurrentGameObject.tag)
+                        horizontalCellList.Add(sideCell);
+                    else break;
+                }
+
+                for (int i = column - 1; i >= 0; i--)
+                {
+                    sideCell = _board.Cells[i, row];
+                    if (horizontalCellList[horizontalCellList.Count - 1].Self.x - sideCell.Self.x < 1.1f &&
+                        sideCell.CurrentGameObject.tag == cell.CurrentGameObject.tag)
+                        horizontalCellList.Add(sideCell);
+                    else break;
+                }
+            }
+
+            IList<ICell> verticalUpCellList = new System.Collections.Generic.List<ICell>();
+            IList<ICell> verticalDownCellList = new System.Collections.Generic.List<ICell>();
+
+            if (row >= 0 && row < _board.Height)
+            {
+                ICell sideCell;
+                for (int i = row + 1; i < _board.Height; i++)
+                {
+                    sideCell = _board.Cells[column, i];
+
+                    if (sideCell.Self.y - _board.Cells[column, i - 1].Self.y < 1.1f &&
+                        sideCell.CurrentGameObject.tag == cell.CurrentGameObject.tag)
+                    {
+                        verticalUpCellList.Add(sideCell);
+                    }
+                    else break;
+                }
+            }
+
+            if (row > 0 && row < _board.Height)
+            {
+                ICell sideCell;
+                for (int i = row - 1; i > 0; i--)
+                {
+                    sideCell = _board.Cells[column, i];
+                    
+                    if ( Mathf.Abs(_board.Cells[column, i - 1].Self.y - sideCell.Self.y)  < 1.2f &&
+                        sideCell.CurrentGameObject.tag == cell.CurrentGameObject.tag)
+                    {
+                        verticalDownCellList.Add(sideCell);
+                    }
+                    else break;
+                }
+
+
+            }
+
+
+
+/*
+            if (horizontalCellList.Count > 2)
+            {
+                foreach (var cel in horizontalCellList)
+                {
+                    Debug.Log("sideCell[" + cel.Self.x + "x"+ cel.Self.y +"]: " + cel.CurrentGameObject.tag);
+                }
+            }
+            */
+            
+                foreach (var cel in verticalDownCellList)
+                {
+                    Debug.Log("sideCell[" + cel.Self.x + "x"+ cel.Self.y +"]: " + cel.CurrentGameObject.tag);
+                }
+
+           
+        }
+
+        private void MatchedCell()
+        {
+            foreach (var cell in _board.Cells)
+            {
+                if (cell.IsMatched)
+                {
+                    SpriteRenderer render = cell.CurrentGameObject.GetComponent<SpriteRenderer>();
+                    render.color = new Color(render.color.r,render.color.g,render.color.b,.2f);
                 }
             }
         }

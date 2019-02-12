@@ -8,12 +8,18 @@ namespace Mathc3Project
         private Vector2 _self;
         private int _targetX;
         private int _targetY;
+        private int _prevTargetX;
+        private int _prevTargetY;
+        private bool _isMatched;
+        private GameObject _currentGameObject;
 
         private void Start()
         {
             _self = transform.position;
-            _targetX = (int) _self.x;
-            _targetY = (int) _self.y;
+            _prevTargetX = _targetX = (int) _self.x;
+            _prevTargetY = _targetY = (int) _self.y;
+            _isMatched = false;
+            _currentGameObject = gameObject;
         }
 
         public Vector2 Self
@@ -36,13 +42,30 @@ namespace Mathc3Project
         {
             get { return _targetY; }
             set { _targetY = value; }
-        }
-
-        public bool isUpdated { get; set; }
-
-        public void UpdateSelf()
+        } 
+        
+        public int PrevTargetX
         {
-            //TODO Add update
+            get { return _prevTargetX; }
+            set { _prevTargetX = value; }
         }
+
+        public int PrevTargetY
+        {
+            get { return _prevTargetY; }
+            set { _prevTargetY = value; }
+        } 
+        
+        public bool IsMatched
+        {
+            get { return _isMatched; }
+            set { _isMatched = value; }
+        } 
+        public GameObject CurrentGameObject
+        {
+            get { return _currentGameObject; }
+            set { _currentGameObject = value; }
+        }
+       
     }
 }
