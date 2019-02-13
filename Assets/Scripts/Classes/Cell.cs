@@ -56,11 +56,18 @@ namespace Mathc3Project
             set { _prevTargetY = value; }
         } 
         
+        public string Name
+        {
+            get { return gameObject.name; }
+            set { gameObject.name = value; }
+        } 
+        
         public bool IsMatched
         {
             get { return _isMatched; }
             set { _isMatched = value; }
         } 
+        
         public GameObject CurrentGameObject
         {
             get { return _currentGameObject; }

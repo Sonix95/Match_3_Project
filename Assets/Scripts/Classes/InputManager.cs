@@ -40,12 +40,6 @@ namespace Mathc3Project
                 _notifier.Notify(EventTypeEnum.CellsInfo, null);
                 return;
             }
-            
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                _notifier.Notify(EventTypeEnum.UnMatch, null);
-                return;
-            }
         }
 
         public void AddSubscriber(ISubscriber subscriber)

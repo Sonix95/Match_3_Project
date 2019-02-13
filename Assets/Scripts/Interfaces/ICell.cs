@@ -10,6 +10,7 @@ namespace Mathc3Project.Interfaces
         int PrevTargetX { get; set; }
         int PrevTargetY { get; set; }
         bool IsMatched{ get; set; }
+        string Name { get; set; }
         GameObject CurrentGameObject{ get; set; }
     }
 }

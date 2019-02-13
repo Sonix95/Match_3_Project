@@ -5,7 +5,6 @@ namespace Mathc3Project.Enums
         MouseUp,
         MouseDown,
     
-        CellsInfo,
-        UnMatch
+        CellsInfo
     }
 }

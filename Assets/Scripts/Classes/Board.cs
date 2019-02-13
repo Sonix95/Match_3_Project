@@ -8,40 +8,30 @@ namespace Mathc3Project
         private int _width;
         private int _height;
         private ICell[,] _cells;
-
-        public Board(int width, int height)
+        private ISpawnManager _spawnManager;
+        
+        public Board(int width, int height, ISpawnManager spawnManager)
         {
             _width = width;
             _height = height;
             _cells = new Cell[_width, _height];
-
+            _spawnManager = spawnManager;
+            
             Initial();
         }
 
         private void Initial()
         {
-            var backCellsMain = new GameObject("Back");
-            
-            Object[] objTempArray = Resources.LoadAll("Prefabs/Elements/");
-            GameObject[] prefArray = new GameObject[objTempArray.Length];
-            for (int i = 0; i < objTempArray.Length; i++)
-                prefArray[i] = objTempArray[i] as GameObject;
-        
+            GameObject boardParent = new GameObject("Board");
+
             for (int i = 0; i < _width; i++)
             for (int j = 0; j < _height; j++)
             {
                 Vector3 tempPos = new Vector3(i, j, 0f);
 
-                var pref = Resources.Load("Prefabs/Empty") as GameObject;
-                GameObject backTile = Object.Instantiate(pref, tempPos + Vector3.forward, Quaternion.identity);
-                backTile.name = "(" + tempPos.x + ", " + tempPos.y + ")";
-                backTile.transform.parent = backCellsMain.transform;
+                _spawnManager.GenerateBackTile(tempPos, boardParent);
 
-                int cellIndex = Random.Range(0, prefArray.Length);
-                pref = Resources.Load("Prefabs/Elements/" + prefArray[cellIndex].name.ToString()) as GameObject;
-                ICell cell = Object.Instantiate(pref, tempPos, Quaternion.identity).AddComponent<Cell>();
-                
-                _cells[i, j] = cell;
+                _cells[i, j] = _spawnManager.GenerateGameElement(tempPos);
             }
         }
 
@@ -50,17 +40,23 @@ namespace Mathc3Project
             get { return _width; }
             set { _width = value; }
         }
+        
         public int Height
         {
             get { return _height; }
             set { _height = value; }
         }
+        
         public ICell[,] Cells
         {
             get { return _cells; }
             set { _cells = value; }
         }
-
-
+        
+        public ISpawnManager SpawnManager
+        {
+            get { return _spawnManager; }
+            set { _spawnManager = value; }
+        }
     }
 }

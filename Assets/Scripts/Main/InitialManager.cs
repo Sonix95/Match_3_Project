@@ -10,20 +10,32 @@ namespace Mathc3Project
 
         private IBoard _board;
         private INotifier _notifier;
+        private IObjectStorage _objectStorage;
         private ILogicManager _logicManager;
         private IInputManager _inputManager;
+        private ISpawnManager _spawnManager;
 
         private void Start()
         {
-            _notifier = new Notifier();
+            Initial();
+            SetUp();
+        }
+
+        private void Initial()
+        {
             _logicManager = new GameObject("Logic Manager").AddComponent<LogicManager>();
             _inputManager = new GameObject("Input Manager").AddComponent<InputManager>();
+            GameObject emptyGO = new GameObject("--------------");
+            _notifier = new Notifier();
+            _objectStorage = new ObjectStorage();
+            _spawnManager = new SpawnManager(_objectStorage);
+            _board = new Board(_boardWidth, _boardHeight, _spawnManager);
+        }
+
+        private void SetUp()
+        {
             _inputManager.Notifier = _notifier;
             _inputManager.AddSubscriber(_logicManager);
-
-            GameObject emptyGO = new GameObject("--------------");
-
-            _board = new Board(_boardWidth, _boardHeight);
             _logicManager.Board = _board;
         }
 

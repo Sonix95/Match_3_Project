@@ -64,7 +64,10 @@
     <Compile Include="Assets\Scripts\Classes\InputManager.cs" />
     <Compile Include="Assets\Scripts\Classes\LogicManager.cs" />
     <Compile Include="Assets\Scripts\Classes\Notifier.cs" />
+    <Compile Include="Assets\Scripts\Classes\ObjectStorage.cs" />
+    <Compile Include="Assets\Scripts\Classes\SpawnManager.cs" />
     <Compile Include="Assets\Scripts\Enums\EventTypeEnum.cs" />
+    <Compile Include="Assets\Scripts\Enums\GameElementsType.cs" />
     <Compile Include="Assets\Scripts\Enums\LineDirectionEnum.cs" />
     <Compile Include="Assets\Scripts\Enums\MoveDirectionType.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IBoard.cs" />
@@ -72,6 +75,8 @@
     <Compile Include="Assets\Scripts\Interfaces\IInputManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ILogicManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\INotifier.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IObjectStorage.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ISpawnManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ISubscriber.cs" />
     <Compile Include="Assets\Scripts\Main\InitialManager.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

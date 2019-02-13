@@ -10,6 +10,7 @@ namespace Mathc3Project
     class LogicManager : MonoBehaviour, ILogicManager
     {
         private IBoard _board;
+        private ISpawnManager _spawnManager;
 
         private Vector3 _firstClick;
         private Vector3 _lastClick;
@@ -58,10 +59,6 @@ namespace Mathc3Project
                     {
                         Debug.Log(" cell[" + i + "," + j + "] " + _board.Cells[i, j].ToString());
                     }
-                    break;
-                
-                case EventTypeEnum.UnMatch:
-                    UnMatchedCell();
                     break;
 
                 default:
@@ -125,6 +122,7 @@ namespace Mathc3Project
                 }
                 
                 _cellA = _cellB = null;
+                
                 MatchedCell();
             }
         }
@@ -154,7 +152,7 @@ namespace Mathc3Project
                         {
                             sideCell = _board.Cells[i, row];
 
-                            if (sideCell.CurrentGameObject.CompareTag(currentCell.CurrentGameObject.tag))
+                            if (sideCell != null && sideCell.CurrentGameObject.CompareTag(currentCell.CurrentGameObject.tag))
                                 sideAList.Add(sideCell);
                             else break;
                         }
@@ -165,7 +163,7 @@ namespace Mathc3Project
                         {
                             sideCell = _board.Cells[i, row];
 
-                            if (sideCell.CurrentGameObject.CompareTag(currentCell.CurrentGameObject.tag))
+                            if (sideCell != null && sideCell.CurrentGameObject.CompareTag(currentCell.CurrentGameObject.tag))
                                 sideBList.Add(sideCell);
                             else break;
                         }
@@ -179,7 +177,7 @@ namespace Mathc3Project
                         {
                             sideCell = _board.Cells[column, i];
 
-                            if (sideCell.CurrentGameObject.CompareTag(currentCell.CurrentGameObject.tag))
+                            if (sideCell != null && sideCell.CurrentGameObject.CompareTag(currentCell.CurrentGameObject.tag))
                                 sideAList.Add(sideCell);
                             else break;
                         }
@@ -190,7 +188,7 @@ namespace Mathc3Project
                         {
                             sideCell = _board.Cells[column, i];
                     
-                            if(sideCell.CurrentGameObject.CompareTag(currentCell.CurrentGameObject.tag))
+                            if(sideCell != null && sideCell.CurrentGameObject.CompareTag(currentCell.CurrentGameObject.tag))
                                 sideBList.Add(sideCell);
                             else break;
                         }
@@ -221,20 +219,6 @@ namespace Mathc3Project
             }
             
             StartCoroutine(DestroyMatched());
-        }
-        
-        private void UnMatchedCell()
-        {
-            foreach (var cell in _board.Cells)
-            {
-                if (cell.IsMatched)
-                {
-                    SpriteRenderer render = cell.CurrentGameObject.GetComponent<SpriteRenderer>();
-                    render.color = new Color(render.color.r,render.color.g,render.color.b,1f);
-                }
-
-                cell.IsMatched = false;
-            }
         }
 
         private MoveDirectionType FindDirection(float angle)
@@ -335,6 +319,12 @@ namespace Mathc3Project
         {
             get { return _board; }
             set { _board = value; }
+        } 
+        
+        public ISpawnManager SpawnManager
+        {
+            get { return _spawnManager; }
+            set { _spawnManager = value; }
         }
     }
 }
