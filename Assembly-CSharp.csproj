@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Classes\LogicManager.cs" />
     <Compile Include="Assets\Scripts\Classes\Notifier.cs" />
     <Compile Include="Assets\Scripts\Enums\EventTypeEnum.cs" />
+    <Compile Include="Assets\Scripts\Enums\LineDirectionEnum.cs" />
     <Compile Include="Assets\Scripts\Enums\MoveDirectionType.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IBoard.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICell.cs" />

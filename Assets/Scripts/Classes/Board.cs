@@ -20,6 +20,8 @@ namespace Mathc3Project
 
         private void Initial()
         {
+            var backCellsMain = new GameObject("Back");
+            
             Object[] objTempArray = Resources.LoadAll("Prefabs/Elements/");
             GameObject[] prefArray = new GameObject[objTempArray.Length];
             for (int i = 0; i < objTempArray.Length; i++)
@@ -33,6 +35,7 @@ namespace Mathc3Project
                 var pref = Resources.Load("Prefabs/Empty") as GameObject;
                 GameObject backTile = Object.Instantiate(pref, tempPos + Vector3.forward, Quaternion.identity);
                 backTile.name = "(" + tempPos.x + ", " + tempPos.y + ")";
+                backTile.transform.parent = backCellsMain.transform;
 
                 int cellIndex = Random.Range(0, prefArray.Length);
                 pref = Resources.Load("Prefabs/Elements/" + prefArray[cellIndex].name.ToString()) as GameObject;
