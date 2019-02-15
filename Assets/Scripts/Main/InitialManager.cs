@@ -26,6 +26,7 @@ namespace Mathc3Project
             _logicManager = new GameObject("Logic Manager").AddComponent<LogicManager>();
             _inputManager = new GameObject("Input Manager").AddComponent<InputManager>();
             GameObject emptyGO = new GameObject("--------------");
+            
             _notifier = new Notifier();
             _objectStorage = new ObjectStorage();
             _spawnManager = new SpawnManager(_objectStorage);

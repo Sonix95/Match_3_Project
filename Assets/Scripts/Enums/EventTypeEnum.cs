@@ -5,6 +5,11 @@ namespace Mathc3Project.Enums
         MouseUp,
         MouseDown,
     
-        CellsInfo
+        CellsInfo,
+        
+        MoveDown,
+        MoveUp,
+        MoveLeft,
+        MoveRight
     }
 }

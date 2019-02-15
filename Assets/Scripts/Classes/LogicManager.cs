@@ -10,25 +10,28 @@ namespace Mathc3Project
     class LogicManager : MonoBehaviour, ILogicManager
     {
         private IBoard _board;
-        private ISpawnManager _spawnManager;
+        private ICommand _command;
 
         private Vector3 _firstClick;
         private Vector3 _lastClick;
 
-        private ICell _cellA;
-        private ICell _cellB;
+        private ICell _cell;
+
+        private const float SWIPE_SENSTIVITY = 0.3f;
 
         private void Start()
         {
             StartCoroutine(StartDetect());
         }
 
-        private void Update()
+        public void SetCommand(ICommand command)
         {
-            if (_cellA != null && _cellB != null)
-            {
-                MovePiece();
-            }
+            _command = command;
+        }
+
+        public void ExecuteCommand()
+        {
+            _command.Execute();
         }
 
         public void OnEvent(EventTypeEnum eventTypeEnum, object messageData)
@@ -44,21 +47,63 @@ namespace Mathc3Project
                 case EventTypeEnum.MouseUp:
                     _lastClick = (Vector3) messageData;
 
-                    if (Mathf.Abs(_lastClick.x - _firstClick.x) > 0.3f ||
-                        Mathf.Abs(_lastClick.y - _firstClick.y) > 0.3f)
+                    if (Mathf.Abs(_lastClick.x - _firstClick.x) > SWIPE_SENSTIVITY ||
+                        Mathf.Abs(_lastClick.y - _firstClick.y) > SWIPE_SENSTIVITY)
                     {
                         float angle = Mathf.Atan2(_lastClick.y - _firstClick.y, _lastClick.x - _firstClick.x) * 180 /
                                       Mathf.PI;
                         moveDirectionType = FindDirection(angle);
                     }
+
                     break;
 
                 case EventTypeEnum.CellsInfo:
                     for (int i = 0; i < _board.Width; i++)
                     for (int j = 0; j < _board.Height; j++)
                     {
-                        Debug.Log(" cell[" + i + "," + j + "] " + _board.Cells[i, j].ToString());
+                        Debug.Log(" cell[" + i + "," + j + "] " + _board.Cells[i, j]);
                     }
+
+                    break;
+
+                case EventTypeEnum.MoveUp:
+                    if (_cell != null)
+                    {
+                        ICommand moveUpCommand = new MoveUpCommand(_cell);
+                        SetCommand(moveUpCommand);
+                        ExecuteCommand();
+                    }
+
+                    break;
+
+                case EventTypeEnum.MoveDown:
+                    if (_cell != null)
+                    {
+                        ICommand moveDownCommand = new MoveDownCommand(_cell);
+                        SetCommand(moveDownCommand);
+                        ExecuteCommand();
+                    }
+
+                    break;
+
+                case EventTypeEnum.MoveRight:
+                    if (_cell != null)
+                    {
+                        ICommand moveRightCommand = new MoveRightCommand(_cell);
+                        SetCommand(moveRightCommand);
+                        ExecuteCommand();
+                    }
+
+                    break;
+
+                case EventTypeEnum.MoveLeft:
+                    if (_cell != null)
+                    {
+                        ICommand moveLeftCommand = new MoveLeftCommand(_cell);
+                        SetCommand(moveLeftCommand);
+                        ExecuteCommand();
+                    }
+
                     break;
 
                 default:
@@ -73,57 +118,8 @@ namespace Mathc3Project
 
                 if (xPos >= 0 && xPos < _board.Width && yPos >= 0 && yPos < _board.Height)
                 {
-                    GetTwoCellsByDirection(moveDirectionType, xPos, yPos);
-                    SetCellsTarget(moveDirectionType, _cellA, _cellB);
+                    SwipeCells(moveDirectionType, xPos, yPos);
                 }
-            }
-        }
-        
-        void MovePiece()
-        {
-            Vector2 tempPosA = new Vector2(_cellA.TargetX, _cellA.TargetY);
-            Vector2 tempPosB = new Vector2(_cellB.TargetX, _cellB.TargetY);
-
-            if (Mathf.Abs(_cellA.TargetX - _cellA.Self.x) > .1f || Mathf.Abs(_cellA.TargetY - _cellA.Self.y) > .1f)
-            {
-                _cellA.Self = Vector2.Lerp(_cellA.Self, tempPosA, .3f);
-                _cellB.Self = Vector2.Lerp(_cellB.Self, tempPosB, .3f);
-            }
-            else
-            {
-                _cellA.Self = tempPosA;
-                _cellB.Self = tempPosB;
-
-                _board.Cells[_cellA.TargetX, _cellA.TargetY] = _cellA;
-                _board.Cells[_cellB.TargetX, _cellB.TargetY] = _cellB;
-
-                DetectMatch(_cellA);
-                DetectMatch(_cellB);
-
-                if (!_cellA.IsMatched && !_cellB.IsMatched)
-                { 
-                    _cellA.TargetX = _cellA.PrevTargetX;
-                    _cellA.TargetY = _cellA.PrevTargetY;
-                    _cellB.TargetX = _cellB.PrevTargetX;
-                    _cellB.TargetY = _cellB.PrevTargetY;
-
-                    if (Mathf.Abs(_cellA.TargetX - _cellA.Self.x) > .1f ||
-                        Mathf.Abs(_cellA.TargetY - _cellA.Self.y) > .1f)
-                    {
-                        return;
-                    }
-                }
-                else
-                {
-                    _cellA.PrevTargetX = _cellA.TargetX;
-                    _cellA.PrevTargetY = _cellA.TargetY;
-                    _cellB.PrevTargetX = _cellB.TargetX;
-                    _cellB.PrevTargetY = _cellB.TargetY;
-                }
-                
-                _cellA = _cellB = null;
-                
-                MatchedCell();
             }
         }
 
@@ -133,11 +129,11 @@ namespace Mathc3Project
             CheckMatchByLine(LineDirectionEnum.Vertical, cell);
         }
 
-        private void CheckMatchByLine(LineDirectionEnum lineDirection ,ICell currentCell)
-        { 
+        private void CheckMatchByLine(LineDirectionEnum lineDirection, ICell currentCell)
+        {
             int column = currentCell.TargetX;
-            int row =  currentCell.TargetY;
-            
+            int row = currentCell.TargetY;
+
             IList<ICell> sideAList = new List<ICell>();
             IList<ICell> sideBList = new List<ICell>();
 
@@ -152,24 +148,30 @@ namespace Mathc3Project
                         {
                             sideCell = _board.Cells[i, row];
 
-                            if (sideCell != null && sideCell.CurrentGameObject.CompareTag(currentCell.CurrentGameObject.tag))
-                                sideAList.Add(sideCell);
-                            else break;
+                            if (sideCell != null)
+                                if (sideCell.CurrentGameObject.CompareTag(currentCell.CurrentGameObject.tag))
+                                    sideAList.Add(sideCell);
+                                else
+                                    break;
                         }
                     }
+
                     if (column >= 0 && column < _board.Width)
                     {
                         for (int i = column + 1; i < _board.Width; i++)
                         {
                             sideCell = _board.Cells[i, row];
 
-                            if (sideCell != null && sideCell.CurrentGameObject.CompareTag(currentCell.CurrentGameObject.tag))
-                                sideBList.Add(sideCell);
-                            else break;
+                            if (sideCell != null)
+                                if (sideCell.CurrentGameObject.CompareTag(currentCell.CurrentGameObject.tag))
+                                    sideBList.Add(sideCell);
+                                else
+                                    break;
                         }
                     }
+
                     break;
-                
+
                 case LineDirectionEnum.Vertical:
                     if (row >= 0 && row < _board.Height)
                     {
@@ -177,47 +179,56 @@ namespace Mathc3Project
                         {
                             sideCell = _board.Cells[column, i];
 
-                            if (sideCell != null && sideCell.CurrentGameObject.CompareTag(currentCell.CurrentGameObject.tag))
-                                sideAList.Add(sideCell);
-                            else break;
+                            if (sideCell != null)
+                                if (sideCell.CurrentGameObject.CompareTag(currentCell.CurrentGameObject.tag))
+                                    sideAList.Add(sideCell);
+                                else
+                                    break;
                         }
                     }
+
                     if (row > 0 && row < _board.Height)
-                    { 
+                    {
                         for (int i = row - 1; i >= 0; i--)
                         {
                             sideCell = _board.Cells[column, i];
-                    
-                            if(sideCell != null && sideCell.CurrentGameObject.CompareTag(currentCell.CurrentGameObject.tag))
-                                sideBList.Add(sideCell);
-                            else break;
+
+                            if (sideCell != null)
+                                if (sideCell.CurrentGameObject.CompareTag(currentCell.CurrentGameObject.tag))
+                                    sideBList.Add(sideCell);
+                                else
+                                    break;
                         }
                     }
+
                     break;
             }
-            
-            if (sideAList.Count + sideBList.Count  > 1)
+
+            if (sideAList.Count + sideBList.Count > 1)
             {
                 foreach (var cell in sideAList)
                     cell.IsMatched = true;
                 foreach (var cell in sideBList)
                     cell.IsMatched = true;
-                
+
                 currentCell.IsMatched = true;
             }
         }
-        
+
         private void MatchedCell()
         {
             foreach (var cell in _board.Cells)
             {
-                if (cell.CurrentGameObject != null && cell.IsMatched)
+                if (cell != null)
                 {
-                    SpriteRenderer render = cell.CurrentGameObject.GetComponent<SpriteRenderer>();
-                    render.color = new Color(render.color.r,render.color.g,render.color.b,.2f);
+                    if (cell.IsMatched)
+                    {
+                        SpriteRenderer render = cell.CurrentGameObject.GetComponent<SpriteRenderer>();
+                        render.color = new Color(render.color.r, render.color.g, render.color.b, .2f);
+                    }
                 }
             }
-            
+
             StartCoroutine(DestroyMatched());
         }
 
@@ -245,73 +256,106 @@ namespace Mathc3Project
             return moveDirectionType;
         }
 
-        private void GetTwoCellsByDirection(MoveDirectionType directionType, int xPos, int yPos)
+        private void SwipeCells(MoveDirectionType directionType, int xPos, int yPos)
         {
-            _cellA = _board.Cells[xPos, yPos];
+            ICell tempCell = null;
+
+            _cell = _board.Cells[xPos, yPos];
 
             switch (directionType)
             {
                 case MoveDirectionType.Right:
                     if (xPos < _board.Width - 1)
-                        _cellB = _board.Cells[xPos + 1, yPos];
+                    {
+                        OnEvent(EventTypeEnum.MoveRight, null);
+
+                        tempCell = _board.Cells[xPos + 1, yPos];
+                        _board.Cells[xPos + 1, yPos] = _cell;
+
+                        _cell = tempCell;
+                        OnEvent(EventTypeEnum.MoveLeft, null);
+                    }
+
                     break;
+
                 case MoveDirectionType.Left:
                     if (xPos > 0)
-                        _cellB = _board.Cells[xPos - 1, yPos];
+                    {
+                        OnEvent(EventTypeEnum.MoveLeft, null);
+
+                        tempCell = _board.Cells[xPos - 1, yPos];
+                        _board.Cells[xPos - 1, yPos] = _cell;
+
+                        _cell = tempCell;
+                        OnEvent(EventTypeEnum.MoveRight, null);
+                    }
+
                     break;
+
                 case MoveDirectionType.Up:
                     if (yPos < _board.Height - 1)
-                        _cellB = _board.Cells[xPos, yPos + 1];
+                    {
+                        OnEvent(EventTypeEnum.MoveUp, null);
+
+                        tempCell = _board.Cells[xPos, yPos + 1];
+                        _board.Cells[xPos, yPos + 1] = _cell;
+
+                        _cell = tempCell;
+                        OnEvent(EventTypeEnum.MoveDown, null);
+                    }
+
                     break;
+
                 case MoveDirectionType.Down:
                     if (yPos > 0)
-                        _cellB = _board.Cells[xPos, yPos - 1];
+                    {
+                        OnEvent(EventTypeEnum.MoveDown, null);
+
+                        tempCell = _board.Cells[xPos, yPos - 1];
+                        _board.Cells[xPos, yPos - 1] = _cell;
+
+                        _cell = tempCell;
+                        OnEvent(EventTypeEnum.MoveUp, null);
+                    }
+
                     break;
             }
+
+            _board.Cells[xPos, yPos] = _cell;
         }
 
-        private void SetCellsTarget(MoveDirectionType directionType, ICell cellA, ICell cellB)
-        {
-            switch (directionType)
-            {
-                case MoveDirectionType.Right:
-                    _cellB.TargetX -= 1;
-                    _cellA.TargetX += 1;
-                    break;
-                case MoveDirectionType.Left:
-                    _cellB.TargetX += 1;
-                    _cellA.TargetX -= 1;
-                    break;
-                case MoveDirectionType.Up:
-                    _cellB.TargetY -= 1;
-                    _cellA.TargetY += 1;
-                    break;
-                case MoveDirectionType.Down:
-                    _cellB.TargetY += 1;
-                    _cellA.TargetY -= 1;
-                    break;
-            }
-        }
-        
         IEnumerator StartDetect()
         {
             yield return new WaitForSeconds(.2f);
             foreach (var cell in _board.Cells)
             {
-                if(cell != null && !cell.IsMatched)
-                    DetectMatch(cell);
+                if (cell != null)
+                    if (!cell.IsMatched)
+                        DetectMatch(cell);
             }
+
             MatchedCell();
         }
-        
+
         IEnumerator DestroyMatched()
         {
             yield return new WaitForSeconds(.2f);
 
             foreach (var cell in _board.Cells)
             {
-                if(cell.IsMatched)
-                    Destroy(cell.CurrentGameObject);
+                if (cell != null)
+                {
+                    if (cell.IsMatched)
+                        Destroy(cell.CurrentGameObject);
+                }
+            }
+
+            for (int i = 0; i < _board.Width; i++)
+            for (int j = 0; j < _board.Height; j++)
+            {
+                if (_board.Cells[i, j] != null)
+                    if (_board.Cells[i, j].IsMatched)
+                        _board.Cells[i, j] = null;
             }
         }
 
@@ -319,12 +363,7 @@ namespace Mathc3Project
         {
             get { return _board; }
             set { _board = value; }
-        } 
-        
-        public ISpawnManager SpawnManager
-        {
-            get { return _spawnManager; }
-            set { _spawnManager = value; }
         }
+
     }
 }
