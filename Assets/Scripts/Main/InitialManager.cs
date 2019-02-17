@@ -29,7 +29,7 @@ namespace Mathc3Project
             
             _notifier = new Notifier();
             _objectStorage = new ObjectStorage();
-            _spawnManager = new SpawnManager(_objectStorage);
+            _spawnManager = new SpawnManager(_objectStorage,_logicManager,_notifier);
             _board = new Board(_boardWidth, _boardHeight, _spawnManager);
         }
 

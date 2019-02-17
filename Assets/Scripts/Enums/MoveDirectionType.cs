@@ -2,7 +2,7 @@ namespace Mathc3Project.Enums
 {
     public enum MoveDirectionType
     {
-        None,
+        none,
     
         Up,
         Down,

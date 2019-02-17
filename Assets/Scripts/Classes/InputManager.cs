@@ -22,7 +22,7 @@ namespace Mathc3Project
                 Object dataMessage = new Object();
                 dataMessage = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                _notifier.Notify(EventTypeEnum.MouseDown, dataMessage);
+                _notifier.Notify(EventTypeEnum.MOUSE_down, dataMessage);
                 return;
             }
 
@@ -31,37 +31,37 @@ namespace Mathc3Project
                 Object dataMessage = new Object();
                 dataMessage = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                _notifier.Notify(EventTypeEnum.MouseUp, dataMessage);
+                _notifier.Notify(EventTypeEnum.MOUSE_up, dataMessage);
                 return;
             }
 
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                _notifier.Notify(EventTypeEnum.CellsInfo, null);
+                _notifier.Notify(EventTypeEnum.UTILITY_boardCellsInfo, null);
                 return;
             }
 
             if (Input.GetKeyDown(KeyCode.W))
             {
-                _notifier.Notify(EventTypeEnum.MoveUp, null);
+                _notifier.Notify(EventTypeEnum.MOVE_up, null);
                 return;
             }
 
             if (Input.GetKeyDown(KeyCode.A))
             {
-                _notifier.Notify(EventTypeEnum.MoveLeft, null);
+                _notifier.Notify(EventTypeEnum.MOVE_left, null);
                 return;
             }
 
             if (Input.GetKeyDown(KeyCode.S))
             {
-                _notifier.Notify(EventTypeEnum.MoveDown, null);
+                _notifier.Notify(EventTypeEnum.MOVE_down, null);
                 return;
             }
 
             if (Input.GetKeyDown(KeyCode.D))
             {
-                _notifier.Notify(EventTypeEnum.MoveRight, null);
+                _notifier.Notify(EventTypeEnum.MOVE_right, null);
                 return;
             }
         }

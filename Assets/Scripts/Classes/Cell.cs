@@ -1,4 +1,5 @@
 ﻿using System;
+using Mathc3Project.Enums;
 using UnityEngine;
 using Mathc3Project.Interfaces;
 
@@ -6,23 +7,21 @@ namespace Mathc3Project
 {
     public class Cell : MonoBehaviour, ICell
     {
-        private Vector2 _self;
+        private INotifier _notifier;
+        private GameObject _currentGameObject;
         private int _targetX;
         private int _targetY;
-        private int _prevTargetX;
-        private int _prevTargetY;
-        private bool _isMatched;
         private bool _isMoving;
-        private GameObject _currentGameObject;
+        private bool _isMovingBack;
+        private bool _isMatched;
 
         private void Start()
         {
-            _self = transform.position;
-            _prevTargetX = _targetX = (int) _self.x;
-            _prevTargetY = _targetY = (int) _self.y;
-            _isMatched = false;
-            _isMoving = false;
             _currentGameObject = gameObject;
+            _targetX = (int) transform.position.x;
+            _targetY = (int) transform.position.y;
+            _isMoving = _isMovingBack = false;
+            _isMatched = false;
         }
 
         private void Update()
@@ -33,8 +32,9 @@ namespace Mathc3Project
 
         public void Move()
         {
-            Vector2 tempPos = new Vector2(_targetX , _targetY);
-            if (Mathf.Abs(_targetX - transform.position.x) > .01f || Mathf.Abs(_targetY - transform.position.y) > .01f)
+            Vector2 tempPos = new Vector2(_targetX, _targetY);
+
+            if (Mathf.Abs(_targetX - transform.position.x) > .1f || Mathf.Abs(_targetY - transform.position.y) > .1f)
             {
                 transform.position = Vector2.Lerp(transform.position, tempPos, .3f);
             }
@@ -42,23 +42,43 @@ namespace Mathc3Project
             {
                 transform.position = tempPos;
                 _isMoving = false;
+                if (!_isMovingBack)
+                    _notifier.Notify(EventTypeEnum.CELL_endingMove, this);
+                else
+                {
+                    _isMovingBack = false;
+                    _notifier.Notify(EventTypeEnum.CELL_endingMoveBack, this);
+                }
             }
         }
 
-        public bool IsMoving
+        public void AddSubscriber(ISubscriber subscriber)
         {
-            get { return _isMoving; }
-            set { _isMoving = value; }
+            _notifier.AddSubscriber(subscriber);
+        }
+
+        public INotifier Notifier
+        {
+            get { return _notifier; }
+            set { _notifier = value; }
+        }
+
+        public string Name
+        {
+            get { return gameObject.name; }
+            set { gameObject.name = value; }
+        }
+
+        public GameObject CurrentGameObject
+        {
+            get { return _currentGameObject; }
+            set { _currentGameObject = value; }
         }
 
         public Vector2 Self
         {
-            get { return _self; }
-            set
-            {
-                _self = value;
-                transform.position = _self;
-            }
+            get { return transform.position; }
+            set { transform.position = value; }
         }
 
         public int TargetX
@@ -81,35 +101,22 @@ namespace Mathc3Project
             }
         }
 
-        public int PrevTargetX
+        public bool IsMoving
         {
-            get { return _prevTargetX; }
-            set { _prevTargetX = value; }
+            get { return _isMoving; }
+            set { _isMoving = value; }
         }
 
-        public int PrevTargetY
+        public bool IsMovingBack
         {
-            get { return _prevTargetY; }
-            set { _prevTargetY = value; }
-        } 
-        
-        public string Name
-        {
-            get { return gameObject.name; }
-            set { gameObject.name = value; }
-        } 
-        
+            get { return _isMovingBack; }
+            set { _isMovingBack = value; }
+        }
+
         public bool IsMatched
         {
             get { return _isMatched; }
             set { _isMatched = value; }
-        } 
-        
-        public GameObject CurrentGameObject
-        {
-            get { return _currentGameObject; }
-            set { _currentGameObject = value; }
         }
-       
     }
 }

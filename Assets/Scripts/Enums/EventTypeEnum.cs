@@ -2,14 +2,17 @@ namespace Mathc3Project.Enums
 {
     public enum EventTypeEnum
     {
-        MouseUp,
-        MouseDown,
-    
-        CellsInfo,
+        UTILITY_boardCellsInfo,
         
-        MoveDown,
-        MoveUp,
-        MoveLeft,
-        MoveRight
+        MOUSE_up,
+        MOUSE_down,
+        
+        MOVE_down,
+        MOVE_up,
+        MOVE_left,
+        MOVE_right,
+        
+        CELL_endingMove,
+        CELL_endingMoveBack,
     }
 }

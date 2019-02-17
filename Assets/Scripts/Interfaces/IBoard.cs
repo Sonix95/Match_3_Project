@@ -5,6 +5,7 @@
         int Width { get; set; }
         int Height { get; set; }
         ICell[,] Cells { get; set; }
+        
         ISpawnManager SpawnManager { get; set; }
     }
 }

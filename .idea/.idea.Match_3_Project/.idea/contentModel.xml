@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\User\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\User\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Match_3_Project.110013616.00" t="ExcludeRecursive" />
+    <e p="E:\Documents\UNITY couses\Match_3_Project" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="Classes" t="Include">
+            <e p="Board.cs" t="Include" />
+            <e p="Cell.cs" t="Include" />
+            <e p="Commands" t="Include">
+              <e p="FallCommand.cs" t="Include" />
+              <e p="MacroCommand.cs" t="Include" />
+              <e p="MoveDownCommand.cs" t="Include" />
+              <e p="MoveLeftCommand.cs" t="Include" />
+              <e p="MoveRightCommand.cs" t="Include" />
+              <e p="MoveUpCommand.cs" t="Include" />
+            </e>
+            <e p="InputManager.cs" t="Include" />
+            <e p="LogicManager.cs" t="Include" />
+            <e p="Notifier.cs" t="Include" />
+            <e p="ObjectStorage.cs" t="Include" />
+            <e p="SpawnManager.cs" t="Include" />
+          </e>
+          <e p="Enums" t="Include">
+            <e p="EventTypeEnum.cs" t="Include" />
+            <e p="GameElementsType.cs" t="Include" />
+            <e p="LineDirectionType.cs" t="Include" />
+            <e p="MoveDirectionType.cs" t="Include" />
+          </e>
+          <e p="Interfaces" t="Include">
+            <e p="IBoard.cs" t="Include" />
+            <e p="ICell.cs" t="Include" />
+            <e p="ICommand.cs" t="Include" />
+            <e p="IInputManager.cs" t="Include" />
+            <e p="ILogicManager.cs" t="Include" />
+            <e p="INotifier.cs" t="Include" />
+            <e p="IObjectStorage.cs" t="Include" />
+            <e p="ISpawnManager.cs" t="Include" />
+            <e p="ISubscriber.cs" t="Include" />
+          </e>
+          <e p="Main" t="Include">
+            <e p="InitialManager.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="Match_3_Project.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>
