@@ -13,6 +13,7 @@ namespace Mathc3Project
         private int _targetY;
         private bool _isMoving;
         private bool _isMovingBack;
+        private bool _isFall;
         private bool _isMatched;
 
         private void Start()
@@ -20,7 +21,7 @@ namespace Mathc3Project
             _currentGameObject = gameObject;
             _targetX = (int) transform.position.x;
             _targetY = (int) transform.position.y;
-            _isMoving = _isMovingBack = false;
+            _isMoving = _isMovingBack = _isFall = false;
             _isMatched = false;
         }
 
@@ -36,18 +37,26 @@ namespace Mathc3Project
 
             if (Mathf.Abs(_targetX - transform.position.x) > .1f || Mathf.Abs(_targetY - transform.position.y) > .1f)
             {
-                transform.position = Vector2.Lerp(transform.position, tempPos, .3f);
+                transform.position = Vector2.Lerp(transform.position, tempPos, 9.81f * Time.deltaTime);
             }
             else
             {
                 transform.position = tempPos;
                 _isMoving = false;
-                if (!_isMovingBack)
-                    _notifier.Notify(EventTypeEnum.CELL_endingMove, this);
-                else
+
+                if (_isFall)
+                {
+                    _isFall = false;
+                    _notifier.Notify(EventTypeEnum.CELL_fall, this);
+                }
+                else if (_isMovingBack)
                 {
                     _isMovingBack = false;
                     _notifier.Notify(EventTypeEnum.CELL_endingMoveBack, this);
+                }
+                else
+                {
+                    _notifier.Notify(EventTypeEnum.CELL_endingMove, this);
                 }
             }
         }
@@ -73,12 +82,6 @@ namespace Mathc3Project
         {
             get { return _currentGameObject; }
             set { _currentGameObject = value; }
-        }
-
-        public Vector2 Self
-        {
-            get { return transform.position; }
-            set { transform.position = value; }
         }
 
         public int TargetX
@@ -111,6 +114,12 @@ namespace Mathc3Project
         {
             get { return _isMovingBack; }
             set { _isMovingBack = value; }
+        }
+        
+        public bool IsFall
+        {
+            get { return _isFall; }
+            set { _isFall = value; }
         }
 
         public bool IsMatched

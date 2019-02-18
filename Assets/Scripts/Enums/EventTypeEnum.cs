@@ -14,5 +14,8 @@ namespace Mathc3Project.Enums
         
         CELL_endingMove,
         CELL_endingMoveBack,
+        CELL_fall,
+        
+        BOARD_collapse
     }
 }

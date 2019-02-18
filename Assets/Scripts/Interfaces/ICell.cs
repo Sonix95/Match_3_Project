@@ -11,6 +11,7 @@ namespace Mathc3Project.Interfaces
         int TargetY { get; set; }
         bool IsMoving { get; set; }
         bool IsMovingBack { get; set; }
+        bool IsFall { get; set; }
         bool IsMatched{ get; set; }
        
         void AddSubscriber(ISubscriber subscriber);
