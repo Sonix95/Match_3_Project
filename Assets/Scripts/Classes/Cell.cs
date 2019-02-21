@@ -35,9 +35,13 @@ namespace Mathc3Project
         {
             Vector2 tempPos = new Vector2(_targetX, _targetY);
 
+           
+            
             if (Mathf.Abs(_targetX - transform.position.x) > .1f || Mathf.Abs(_targetY - transform.position.y) > .1f)
             {
                 transform.position = Vector2.Lerp(transform.position, tempPos, 9.81f * Time.deltaTime);
+                if (_isFall)
+                    NotifyEveryRoundY();
             }
             else
             {
@@ -46,6 +50,7 @@ namespace Mathc3Project
 
                 if (_isFall)
                 {
+                    NotifyEveryRoundY();
                     _isFall = false;
                     _notifier.Notify(EventTypeEnum.CELL_fall, this);
                 }
@@ -59,11 +64,39 @@ namespace Mathc3Project
                     _notifier.Notify(EventTypeEnum.CELL_endingMove, this);
                 }
             }
+            
         }
+
+        private int _prevPosY;
+
+        public void SetPrevY()
+        {
+            _prevPosY = (int) transform.position.y;
+        }
+        
+        private void NotifyEveryRoundY()
+        {
+            if (_prevPosY - transform.position.y >= 1)
+            {
+                _notifier.Notify(EventTypeEnum.CELL_fallOnePoint, this);
+                _prevPosY = Mathf.CeilToInt(transform.position.y);
+            }
+        }
+
+        
+    //    private void OnDestroy()
+    //    {
+    //        _notifier.Notify(EventTypeEnum.CELL_destroyed, this.ToString());
+    //    }
 
         public void AddSubscriber(ISubscriber subscriber)
         {
             _notifier.AddSubscriber(subscriber);
+        }
+
+        public override string ToString()
+        {
+            return "Это была ячейка (" + _targetX + "x" + +_targetY + "): " + gameObject.name;
         }
 
         public INotifier Notifier
@@ -115,7 +148,7 @@ namespace Mathc3Project
             get { return _isMovingBack; }
             set { _isMovingBack = value; }
         }
-        
+
         public bool IsFall
         {
             get { return _isFall; }

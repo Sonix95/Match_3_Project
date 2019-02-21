@@ -40,6 +40,12 @@ namespace Mathc3Project
                 _notifier.Notify(EventTypeEnum.UTILITY_boardCellsInfo, null);
                 return;
             }
+            
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                _notifier.Notify(EventTypeEnum.UTILITY_boardListOfHigherCells, null);
+                return;
+            }
 
             if (Input.GetKeyDown(KeyCode.W))
             {

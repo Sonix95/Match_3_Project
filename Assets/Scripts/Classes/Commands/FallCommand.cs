@@ -10,6 +10,7 @@ namespace Mathc3Project.Commands
         public FallCommand(ICell cell, int shiftYPosition)
         {
             _cell = cell;
+            _cell.SetPrevY();
             _shiftYPosition = shiftYPosition;
         }
         

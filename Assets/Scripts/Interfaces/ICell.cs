@@ -8,12 +8,13 @@ namespace Mathc3Project.Interfaces
         string Name { get; set; }
         GameObject CurrentGameObject{ get; set; }
         int TargetX { get; set; }
-        int TargetY { get; set; }
+        int TargetY { get; set; } 
         bool IsMoving { get; set; }
         bool IsMovingBack { get; set; }
         bool IsFall { get; set; }
         bool IsMatched{ get; set; }
        
         void AddSubscriber(ISubscriber subscriber);
+        void SetPrevY();
     }
 }

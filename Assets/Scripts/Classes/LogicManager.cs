@@ -1,7 +1,8 @@
 ﻿ using System;
 using System.Collections;
 using System.Collections.Generic;
-using Mathc3Project.Commands;
+ using System.Linq;
+ using Mathc3Project.Commands;
 using UnityEngine;
 using Mathc3Project.Enums;
 using Mathc3Project.Interfaces;
@@ -14,24 +15,27 @@ using UnityEditor;
      {
          private const float SWIPE_SENSTIVITY = 0.3f;
 
+         private IList<ICell> lastCellInColumn;
+         
          private IBoard _board;
          private ICommand _macroCommand;
 
          private Vector3 _clickA;
          private Vector3 _clickB;
-         
-         private bool _isMarket = false;
-         private int _TryCheckedCounter = 0;
-         
+
+         private bool _isMarket;
+         private int _tryCheckSwipedCellsCounter;
+
          private void Start()
          {
-             StartCoroutine(FirstTryChecks());
+             lastCellInColumn = new List<ICell>();
+             StartCoroutine(TryCheckBoard());
          }
 
          //TODO ADD method to generate unique board cells and after delete THIS method
-         IEnumerator FirstTryChecks()
+         IEnumerator TryCheckBoard()
          {
-             yield return new WaitForSeconds(.2f);
+             yield return new WaitForSeconds(.1f);
 
              foreach (var cell in _board.Cells)
              {
@@ -39,7 +43,7 @@ using UnityEditor;
                  MarkMatchedCell(cell);
              }
 
-             yield return new WaitForSeconds(.4f);
+             yield return new WaitForSeconds(.2f);
 
              for (int i = 0; i < _board.Width; i++)
              for (int j = 0; j < _board.Height; j++)
@@ -51,31 +55,9 @@ using UnityEditor;
                  }
              }
 
-             yield return new WaitForSeconds(.4f);
+             yield return new WaitForSeconds(.2f);
 
-             DecrieaseRow();
-         }
-
-         private void DecrieaseRow()
-         {
-             int nullCount = 0;
-             for (int i = 0; i < _board.Width; i++)
-             {
-                 for (int j = 0; j < _board.Height; j++)
-                 {
-                     if (_board.Cells[i, j] == null)
-                         nullCount++;
-                     else if (nullCount > 0)
-                     {
-                         ICommand[] commands = {new FallCommand(_board.Cells[i, j], nullCount)};
-                         SetMacroCommand(commands);
-
-                         OnEvent(EventTypeEnum.BOARD_collapse, new int[] {i, j});
-                     }
-                 }
-
-                 nullCount = 0;
-             }
+             DecreaseRow();
          }
 
          public void OnEvent(EventTypeEnum eventTypeEnum, object messageData)
@@ -97,12 +79,12 @@ using UnityEditor;
                      }
                      else
                      {
-                         int Xpos = (int) _clickA.x;
-                         int Ypos = (int) _clickA.y;
+                         int xPos = (int) _clickA.x;
+                         int yPos = (int) _clickA.y;
 
-                         if (Xpos >= 0 && Ypos >= 0 && Xpos < _board.Width && Ypos < _board.Height)
+                         if (xPos >= 0 && yPos >= 0 && xPos < _board.Width && yPos < _board.Height)
                          {
-                             Debug.Log(_board.Cells[Xpos, Ypos]);
+                             Debug.Log(_board.Cells[xPos, yPos]);
                          }
                      }
 
@@ -125,7 +107,7 @@ using UnityEditor;
                      break;
 
                  case EventTypeEnum.CELL_endingMove:
-                     TryCheckCell((ICell) messageData);
+                     TryCheckSwipedCells((ICell) messageData);
                      break;
 
                  case EventTypeEnum.CELL_endingMoveBack:
@@ -133,22 +115,45 @@ using UnityEditor;
 
                      _board.Cells[cellAfterBack.TargetX, cellAfterBack.TargetY] = cellAfterBack;
                      break;
+
+
                  case EventTypeEnum.CELL_fall:
                      ICell cellAfterFall = (ICell) messageData;
-                     
                      _board.Cells[cellAfterFall.TargetX, cellAfterFall.TargetY] = cellAfterFall;
-                     TryCheckCell((ICell) messageData);
+
+                     if (lastCellInColumn.Count == 0)
+                        StartCoroutine(TryCheckBoard());
                      break;
+
+                 case EventTypeEnum.CELL_fallOnePoint:
+                     ICell c = (ICell) messageData;
+
+                     if (lastCellInColumn.Contains(c) && c.TargetY < _board.Height - 1)
+                         Spawn(c.TargetY, c.TargetX, _board.Height);
+
+                     lastCellInColumn.Remove(c);
+                     break;
+
 
                  case EventTypeEnum.BOARD_collapse:
                      int[] cellParams = (int[]) messageData;
 
+                     if (cellParams != null)
+                         _board.Cells[cellParams[0], cellParams[1]] = null;
+
                      ExecuteMacroCommand();
-                     _board.Cells[cellParams[0], cellParams[1]] = null;
                      break;
 
                  case EventTypeEnum.UTILITY_boardCellsInfo:
                      foreach (var cell in _board.Cells)
+                     {
+                         Debug.Log(cell);
+                     }
+
+                     break;
+
+                 case EventTypeEnum.UTILITY_boardListOfHigherCells:
+                     foreach (var cell in lastCellInColumn)
                      {
                          Debug.Log(cell);
                      }
@@ -161,30 +166,121 @@ using UnityEditor;
              }
          }
 
-         private void TryCheckCell(ICell cell)
-         { 
-             _TryCheckedCounter++;
-             if (_TryCheckedCounter > 2)
+         IEnumerator MarkAndCollapseCells()
+         {
+             yield return new WaitForSeconds(.4f);
+
+             foreach (var cell in _board.Cells)
+                 MarkMatchedCell(cell);
+
+             yield return new WaitForSeconds(.4f);
+
+             for (int i = 0; i < _board.Width; i++)
+             for (int j = 0; j < _board.Height; j++)
              {
-                 _TryCheckedCounter = 1;
-                 _isMarket = false;
+                 if (_board.Cells[i, j] != null && _board.Cells[i, j].IsMatched)
+                 {
+                     Destroy(_board.Cells[i, j].CurrentGameObject);
+                     _board.Cells[i, j] = null;
+                 }
              }
+
+             yield return new WaitForSeconds(.4f);
+
+             DecreaseRow();
+         }
+
+         private void DecreaseRow()
+         {
+             int nullCount = 0;
+             int highestColumnCell = 0;
+             ICell cell = null;
+             lastCellInColumn.Clear();
+
+             for (int i = 0; i < _board.Width; i++)
+             {
+                 for (int j = 0; j < _board.Height; j++)
+                 {
+                     if (_board.Cells[i, j] == null)
+                         nullCount++;
+                     
+                     else if ( nullCount > 0 && _board.Cells[i, j] != null)
+                     {
+                         if (j > highestColumnCell)
+                         {
+                             highestColumnCell = j;
+                             cell = _board.Cells[i, j];
+                         }
+
+                        ICommand[] commands = {new FallCommand(cell, nullCount)};
+                        SetMacroCommand(commands);
+
+                        OnEvent(EventTypeEnum.BOARD_collapse, new int[] {i, j});
+                     }
+                 }
+
+                if (cell != null)
+                    lastCellInColumn.Add(cell);
+                
+                if(cell == null && nullCount > 0)
+                {
+                    int notNullHigherCellIndex = (_board.Height - 1) - nullCount;
+                    Spawn(notNullHigherCellIndex,i,_board.Height);
+                }
+
+                 cell = null;
+                 nullCount = 0;
+                 highestColumnCell = 0;
+             }
+         }
+
+         private void Spawn(int highterCellYPos, int xPos, int yPos)
+         {
+             int offset = _board.Height - 1 - highterCellYPos;
+             
+             ICell newCell = _board.SpawnManager.GenerateGameElement(new Vector3(xPos, yPos, 0));
+             lastCellInColumn.Add(newCell);
+             
+             StartCoroutine(StartFall(newCell,offset));
+         }
+
+         IEnumerator StartFall(ICell cell, int offset)
+         {
+             yield return new WaitForSeconds(.05f);
+             
+             ICommand[] commands = {new FallCommand(cell, offset)};
+             SetMacroCommand(commands);
+
+             OnEvent(EventTypeEnum.BOARD_collapse, null);
+         }
+
+         private void TryCheckSwipedCells(ICell cell)
+         {
+             _tryCheckSwipedCellsCounter++;
 
              CheckCell(cell);
 
-             if (cell.IsMatched || _isMarket)
+             if (cell.IsMatched)
              {
                  _isMarket = true;
-                 StartCoroutine(MarkAndCollapseCells());
              }
-             else
+
+             if (_tryCheckSwipedCellsCounter > 1)
              {
-                 if (_TryCheckedCounter > 1)
-                 {
-                     _isMarket = false;
+                 if (_isMarket)
+                     StartCoroutine(MarkAndCollapseCells());
+                 else
                      UndoMacroCommand();
-                 }
+
+                 _isMarket = false;
+                 _tryCheckSwipedCellsCounter = 0;
              }
+         }
+
+         private void CheckCell(ICell cell)
+         {
+             CheckMatchByLine(LineDirectionType.Vertical, cell);
+             CheckMatchByLine(LineDirectionType.Horizontal, cell);
          }
 
          private void CheckMatchByLine(LineDirectionType lineDirection, ICell cell)
@@ -215,16 +311,16 @@ using UnityEditor;
              {
                  for (int i = axis - 1; i >= 0; i--)
                  {
-                     if (lineDirection == LineDirectionType.Horizontal)
-                         sideCell = _board.Cells[i, row];
-                     else
-                         sideCell = _board.Cells[column, i];
+                     sideCell = (lineDirection == LineDirectionType.Horizontal)
+                         ? _board.Cells[i, row]
+                         : _board.Cells[column, i];
 
-                     if (sideCell != null)
-                         if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
-                             sideAList.Add(sideCell);
-                         else
-                             break;
+                     if (sideCell == null)
+                         break;
+                     else if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
+                         sideAList.Add(sideCell);
+                     else
+                         break;
                  }
              }
 
@@ -232,16 +328,16 @@ using UnityEditor;
              {
                  for (int i = axis + 1; i < boardLimit; i++)
                  {
-                     if (lineDirection == LineDirectionType.Horizontal)
-                         sideCell = _board.Cells[i, row];
-                     else
-                         sideCell = _board.Cells[column, i];
+                     sideCell = (lineDirection == LineDirectionType.Horizontal)
+                         ? _board.Cells[i, row]
+                         : _board.Cells[column, i];
 
-                     if (sideCell != null)
-                         if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
-                             sideBList.Add(sideCell);
-                         else
-                             break;
+                     if (sideCell == null)
+                         break;
+                     else if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
+                         sideBList.Add(sideCell);
+                     else
+                         break;
                  }
              }
 
@@ -255,12 +351,6 @@ using UnityEditor;
                  cell.IsMatched = true;
              }
          }
-         
-         private void CheckCell(ICell cell)
-         {
-             CheckMatchByLine(LineDirectionType.Vertical, cell);
-             CheckMatchByLine(LineDirectionType.Horizontal, cell);
-         }
 
          private void MarkMatchedCell(ICell cell)
          {
@@ -271,41 +361,15 @@ using UnityEditor;
              }
          }
 
-         IEnumerator MarkAndCollapseCells()
-         {
-             foreach (var cell in _board.Cells)
-             {
-                 MarkMatchedCell(cell);
-             }
-
-             yield return new WaitForSeconds(.4f);
-
-             for (int i = 0; i < _board.Width; i++)
-             for (int j = 0; j < _board.Height; j++)
-             {
-                 if (_board.Cells[i, j] != null && _board.Cells[i, j].IsMatched)
-                 {
-                     Destroy(_board.Cells[i, j].CurrentGameObject);
-                     _board.Cells[i, j] = null;
-                 }
-             }
-
-             yield return new WaitForSeconds(.4f);
-
-             DecrieaseRow();
-         }
-
          private void SwipeCells(MoveDirectionType direction)
          {
              int xPos = (int) Mathf.Round(_clickA.x);
              int yPos = (int) Mathf.Round(_clickA.y);
 
-             ICell cellA = null;
-             ICell cellB = null;
-
              if (xPos >= 0 && xPos < _board.Width && yPos >= 0 && yPos < _board.Height)
              {
-                 cellA = _board.Cells[xPos, yPos];
+                 ICell cellA = _board.Cells[xPos, yPos];
+                 ICell cellB;
 
                  switch (direction)
                  {
@@ -409,6 +473,8 @@ using UnityEditor;
              return moveDirectionType;
          }
 
+         #region Command Implimentation
+
          public void SetMacroCommand(ICommand[] commands)
          {
              _macroCommand = new MacroCommand(commands);
@@ -423,6 +489,8 @@ using UnityEditor;
          {
              _macroCommand.Undo();
          }
+
+         #endregion
 
          public IBoard Board
          {
