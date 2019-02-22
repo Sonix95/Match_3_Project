@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Classes\Board.cs" />
     <Compile Include="Assets\Scripts\Classes\Cell.cs" />
+    <Compile Include="Assets\Scripts\Classes\CheckAndMarkManager.cs" />
     <Compile Include="Assets\Scripts\Classes\Commands\FallCommand.cs" />
     <Compile Include="Assets\Scripts\Classes\Commands\MacroCommand.cs" />
     <Compile Include="Assets\Scripts\Classes\Commands\MoveDownCommand.cs" />

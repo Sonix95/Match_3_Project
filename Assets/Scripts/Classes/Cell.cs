@@ -9,6 +9,7 @@ namespace Mathc3Project
     {
         private INotifier _notifier;
         private GameObject _currentGameObject;
+        private int _prevPosY;
         private int _targetX;
         private int _targetY;
         private bool _isMoving;
@@ -34,8 +35,6 @@ namespace Mathc3Project
         public void Move()
         {
             Vector2 tempPos = new Vector2(_targetX, _targetY);
-
-           
             
             if (Mathf.Abs(_targetX - transform.position.x) > .1f || Mathf.Abs(_targetY - transform.position.y) > .1f)
             {
@@ -67,7 +66,6 @@ namespace Mathc3Project
             
         }
 
-        private int _prevPosY;
 
         public void SetPrevY()
         {
@@ -82,7 +80,6 @@ namespace Mathc3Project
                 _prevPosY = Mathf.CeilToInt(transform.position.y);
             }
         }
-
         
     //    private void OnDestroy()
     //    {

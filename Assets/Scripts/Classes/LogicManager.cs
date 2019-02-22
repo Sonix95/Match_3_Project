@@ -16,7 +16,7 @@ using UnityEditor;
          private const float SWIPE_SENSTIVITY = 0.3f;
 
          private IList<ICell> lastCellInColumn;
-         
+
          private IBoard _board;
          private ICommand _macroCommand;
 
@@ -30,34 +30,6 @@ using UnityEditor;
          {
              lastCellInColumn = new List<ICell>();
              StartCoroutine(TryCheckBoard());
-         }
-
-         //TODO ADD method to generate unique board cells and after delete THIS method
-         IEnumerator TryCheckBoard()
-         {
-             yield return new WaitForSeconds(.1f);
-
-             foreach (var cell in _board.Cells)
-             {
-                 CheckCell(cell);
-                 MarkMatchedCell(cell);
-             }
-
-             yield return new WaitForSeconds(.2f);
-
-             for (int i = 0; i < _board.Width; i++)
-             for (int j = 0; j < _board.Height; j++)
-             {
-                 if (_board.Cells[i, j] != null && _board.Cells[i, j].IsMatched)
-                 {
-                     Destroy(_board.Cells[i, j].CurrentGameObject);
-                     _board.Cells[i, j] = null;
-                 }
-             }
-
-             yield return new WaitForSeconds(.2f);
-
-             DecreaseRow();
          }
 
          public void OnEvent(EventTypeEnum eventTypeEnum, object messageData)
@@ -76,16 +48,6 @@ using UnityEditor;
                      {
                          MoveDirectionType swipeDirection = GetDirection(_clickA, _clickB);
                          SwipeCells(swipeDirection);
-                     }
-                     else
-                     {
-                         int xPos = (int) _clickA.x;
-                         int yPos = (int) _clickA.y;
-
-                         if (xPos >= 0 && yPos >= 0 && xPos < _board.Width && yPos < _board.Height)
-                         {
-                             Debug.Log(_board.Cells[xPos, yPos]);
-                         }
                      }
 
                      break;
@@ -122,7 +84,7 @@ using UnityEditor;
                      _board.Cells[cellAfterFall.TargetX, cellAfterFall.TargetY] = cellAfterFall;
 
                      if (lastCellInColumn.Count == 0)
-                        StartCoroutine(TryCheckBoard());
+                         StartCoroutine(TryCheckBoard());
                      break;
 
                  case EventTypeEnum.CELL_fallOnePoint:
@@ -144,36 +106,23 @@ using UnityEditor;
                      ExecuteMacroCommand();
                      break;
 
-                 case EventTypeEnum.UTILITY_boardCellsInfo:
-                     foreach (var cell in _board.Cells)
-                     {
-                         Debug.Log(cell);
-                     }
-
-                     break;
-
-                 case EventTypeEnum.UTILITY_boardListOfHigherCells:
-                     foreach (var cell in lastCellInColumn)
-                     {
-                         Debug.Log(cell);
-                     }
-
-                     break;
-
                  default:
                      Debug.Log("EVENT NOT FOUND!!!");
                      break;
              }
          }
 
-         IEnumerator MarkAndCollapseCells()
+         private IEnumerator TryCheckBoard()
          {
-             yield return new WaitForSeconds(.4f);
+             yield return new WaitForSeconds(.1f);
 
              foreach (var cell in _board.Cells)
-                 MarkMatchedCell(cell);
+             {
+                 CheckAndMarkManager.CheckCell(cell, _board);
+                 CheckAndMarkManager.MarkCell(cell);
+             }
 
-             yield return new WaitForSeconds(.4f);
+             yield return new WaitForSeconds(.2f);
 
              for (int i = 0; i < _board.Width; i++)
              for (int j = 0; j < _board.Height; j++)
@@ -185,7 +134,7 @@ using UnityEditor;
                  }
              }
 
-             yield return new WaitForSeconds(.4f);
+             yield return new WaitForSeconds(.2f);
 
              DecreaseRow();
          }
@@ -203,8 +152,8 @@ using UnityEditor;
                  {
                      if (_board.Cells[i, j] == null)
                          nullCount++;
-                     
-                     else if ( nullCount > 0 && _board.Cells[i, j] != null)
+
+                     else if (nullCount > 0 && _board.Cells[i, j] != null)
                      {
                          if (j > highestColumnCell)
                          {
@@ -212,21 +161,18 @@ using UnityEditor;
                              cell = _board.Cells[i, j];
                          }
 
-                        ICommand[] commands = {new FallCommand(cell, nullCount)};
-                        SetMacroCommand(commands);
-
-                        OnEvent(EventTypeEnum.BOARD_collapse, new int[] {i, j});
+                         StartCoroutine(StartFall(cell, nullCount, new int[] {i, j}));
                      }
                  }
 
-                if (cell != null)
-                    lastCellInColumn.Add(cell);
-                
-                if(cell == null && nullCount > 0)
-                {
-                    int notNullHigherCellIndex = (_board.Height - 1) - nullCount;
-                    Spawn(notNullHigherCellIndex,i,_board.Height);
-                }
+                 if (cell != null)
+                     lastCellInColumn.Add(cell);
+
+                 if (cell == null && nullCount > 0)
+                 {
+                     int notNullHigherCellIndex = (_board.Height - 1) - nullCount;
+                     Spawn(notNullHigherCellIndex, i, _board.Height);
+                 }
 
                  cell = null;
                  nullCount = 0;
@@ -234,31 +180,31 @@ using UnityEditor;
              }
          }
 
-         private void Spawn(int highterCellYPos, int xPos, int yPos)
-         {
-             int offset = _board.Height - 1 - highterCellYPos;
-             
-             ICell newCell = _board.SpawnManager.GenerateGameElement(new Vector3(xPos, yPos, 0));
-             lastCellInColumn.Add(newCell);
-             
-             StartCoroutine(StartFall(newCell,offset));
-         }
-
-         IEnumerator StartFall(ICell cell, int offset)
+         private IEnumerator StartFall(ICell cell, int offset, int[] cellParams)
          {
              yield return new WaitForSeconds(.05f);
-             
+
              ICommand[] commands = {new FallCommand(cell, offset)};
              SetMacroCommand(commands);
 
-             OnEvent(EventTypeEnum.BOARD_collapse, null);
+             OnEvent(EventTypeEnum.BOARD_collapse, cellParams);
+         }
+
+         private void Spawn(int highterCellYPos, int xPos, int yPos)
+         {
+             int offset = _board.Height - 1 - highterCellYPos;
+
+             ICell newCell = _board.SpawnManager.GenerateGameElement(new Vector3(xPos, yPos, 0));
+             lastCellInColumn.Add(newCell);
+
+             StartCoroutine(StartFall(newCell, offset, null));
          }
 
          private void TryCheckSwipedCells(ICell cell)
          {
              _tryCheckSwipedCellsCounter++;
 
-             CheckCell(cell);
+             CheckAndMarkManager.CheckCell(cell, _board);
 
              if (cell.IsMatched)
              {
@@ -268,96 +214,12 @@ using UnityEditor;
              if (_tryCheckSwipedCellsCounter > 1)
              {
                  if (_isMarket)
-                     StartCoroutine(MarkAndCollapseCells());
+                     StartCoroutine(TryCheckBoard());
                  else
                      UndoMacroCommand();
 
                  _isMarket = false;
                  _tryCheckSwipedCellsCounter = 0;
-             }
-         }
-
-         private void CheckCell(ICell cell)
-         {
-             CheckMatchByLine(LineDirectionType.Vertical, cell);
-             CheckMatchByLine(LineDirectionType.Horizontal, cell);
-         }
-
-         private void CheckMatchByLine(LineDirectionType lineDirection, ICell cell)
-         {
-             IList<ICell> sideAList = new List<ICell>();
-             IList<ICell> sideBList = new List<ICell>();
-
-             int column = cell.TargetX;
-             int row = cell.TargetY;
-
-             int boardLimit = 0;
-             int axis = 0;
-
-             ICell sideCell = null;
-
-             if (lineDirection == LineDirectionType.Horizontal)
-             {
-                 boardLimit = _board.Width;
-                 axis = column;
-             }
-             else
-             {
-                 boardLimit = _board.Height;
-                 axis = row;
-             }
-
-             if (axis > 0 && axis < boardLimit)
-             {
-                 for (int i = axis - 1; i >= 0; i--)
-                 {
-                     sideCell = (lineDirection == LineDirectionType.Horizontal)
-                         ? _board.Cells[i, row]
-                         : _board.Cells[column, i];
-
-                     if (sideCell == null)
-                         break;
-                     else if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
-                         sideAList.Add(sideCell);
-                     else
-                         break;
-                 }
-             }
-
-             if (axis >= 0 && axis < boardLimit)
-             {
-                 for (int i = axis + 1; i < boardLimit; i++)
-                 {
-                     sideCell = (lineDirection == LineDirectionType.Horizontal)
-                         ? _board.Cells[i, row]
-                         : _board.Cells[column, i];
-
-                     if (sideCell == null)
-                         break;
-                     else if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
-                         sideBList.Add(sideCell);
-                     else
-                         break;
-                 }
-             }
-
-             if (sideAList.Count + sideBList.Count > 1)
-             {
-                 foreach (var cellInListA in sideAList)
-                     cellInListA.IsMatched = true;
-                 foreach (var cellInListB in sideBList)
-                     cellInListB.IsMatched = true;
-
-                 cell.IsMatched = true;
-             }
-         }
-
-         private void MarkMatchedCell(ICell cell)
-         {
-             if (cell != null && cell.IsMatched)
-             {
-                 SpriteRenderer render = cell.CurrentGameObject.GetComponent<SpriteRenderer>();
-                 render.color = new Color(render.color.r, render.color.g, render.color.b, .2f);
              }
          }
 
