@@ -29,7 +29,6 @@ using UnityEditor;
          private void Start()
          {
              lastCellInColumn = new List<ICell>();
-             StartCoroutine(TryCheckBoard());
          }
 
          public void OnEvent(EventTypeEnum eventTypeEnum, object messageData)
@@ -78,9 +77,9 @@ using UnityEditor;
                      _board.Cells[cellAfterBack.TargetX, cellAfterBack.TargetY] = cellAfterBack;
                      break;
 
-
                  case EventTypeEnum.CELL_fall:
                      ICell cellAfterFall = (ICell) messageData;
+
                      _board.Cells[cellAfterFall.TargetX, cellAfterFall.TargetY] = cellAfterFall;
 
                      if (lastCellInColumn.Count == 0)
@@ -96,6 +95,9 @@ using UnityEditor;
                      lastCellInColumn.Remove(c);
                      break;
 
+                 case EventTypeEnum.CELL_destroyed:
+                     //TODO Add later
+                     break;
 
                  case EventTypeEnum.BOARD_collapse:
                      int[] cellParams = (int[]) messageData;
@@ -144,7 +146,6 @@ using UnityEditor;
              int nullCount = 0;
              int highestColumnCell = 0;
              ICell cell = null;
-             lastCellInColumn.Clear();
 
              for (int i = 0; i < _board.Width; i++)
              {

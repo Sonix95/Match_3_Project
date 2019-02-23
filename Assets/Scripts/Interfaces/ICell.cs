@@ -5,6 +5,7 @@ namespace Mathc3Project.Interfaces
     public interface ICell
     { 
         INotifier Notifier { get; set; }
+        string Tag { get; }
         string Name { get; set; }
         GameObject CurrentGameObject{ get; set; }
         int TargetX { get; set; }

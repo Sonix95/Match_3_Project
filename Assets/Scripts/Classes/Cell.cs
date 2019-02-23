@@ -6,7 +6,10 @@ using Mathc3Project.Interfaces;
 namespace Mathc3Project
 {
     public class Cell : MonoBehaviour, ICell
-    {
+    { 
+        private const float SPEED = 9.81f;
+        private const float POSITION_DELTA = 0.01f;
+        
         private INotifier _notifier;
         private GameObject _currentGameObject;
         private int _prevPosY;
@@ -19,7 +22,7 @@ namespace Mathc3Project
 
         private void Start()
         {
-            _currentGameObject = gameObject;
+            _currentGameObject = this.gameObject;
             _targetX = (int) transform.position.x;
             _targetY = (int) transform.position.y;
             _isMoving = _isMovingBack = _isFall = false;
@@ -36,9 +39,9 @@ namespace Mathc3Project
         {
             Vector2 tempPos = new Vector2(_targetX, _targetY);
             
-            if (Mathf.Abs(_targetX - transform.position.x) > .1f || Mathf.Abs(_targetY - transform.position.y) > .1f)
+            if (Mathf.Abs(_targetX - transform.position.x) > POSITION_DELTA || Mathf.Abs(_targetY - transform.position.y) > POSITION_DELTA)
             {
-                transform.position = Vector2.Lerp(transform.position, tempPos, 9.81f * Time.deltaTime);
+                transform.position = Vector2.Lerp(transform.position, tempPos, SPEED * Time.deltaTime);
                 if (_isFall)
                     NotifyEveryRoundY();
             }
@@ -66,7 +69,6 @@ namespace Mathc3Project
             
         }
 
-
         public void SetPrevY()
         {
             _prevPosY = (int) transform.position.y;
@@ -81,19 +83,14 @@ namespace Mathc3Project
             }
         }
         
-    //    private void OnDestroy()
-    //    {
-    //        _notifier.Notify(EventTypeEnum.CELL_destroyed, this.ToString());
-    //    }
+        private void OnDestroy()
+        {
+            _notifier.Notify(EventTypeEnum.CELL_destroyed, _currentGameObject.tag);
+        }
 
         public void AddSubscriber(ISubscriber subscriber)
         {
             _notifier.AddSubscriber(subscriber);
-        }
-
-        public override string ToString()
-        {
-            return "Это была ячейка (" + _targetX + "x" + +_targetY + "): " + gameObject.name;
         }
 
         public INotifier Notifier
@@ -106,6 +103,11 @@ namespace Mathc3Project
         {
             get { return gameObject.name; }
             set { gameObject.name = value; }
+        }
+        
+        public string Tag
+        {
+            get { return gameObject.tag; }
         }
 
         public GameObject CurrentGameObject

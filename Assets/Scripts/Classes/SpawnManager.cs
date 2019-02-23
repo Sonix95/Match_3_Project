@@ -32,9 +32,10 @@ namespace Mathc3Project
         {
             GameObject gameElement = _objectStorage.GetObjectByType(GameElementsType.RandomPrefab);
             gameElement.transform.position = position;
-
+            
             ICell cell = gameElement.AddComponent<Cell>();
-            cell.Name = "PREF_" + cell.Name.Substring(0, cell.Name.Length - 7);
+            cell.Name = "PREFAB_" + gameElement.tag;
+            cell.CurrentGameObject = gameElement;
             cell.Notifier = _notifier;
             cell.AddSubscriber(_logicManager);
 

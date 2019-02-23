@@ -15,6 +15,9 @@ namespace Mathc3Project
 
         private static void CheckLine(LineDirectionType lineDirection, ICell cell, IBoard board)
         {
+            if(cell == null)
+                return;
+            
             IList<ICell> sideAList = new List<ICell>();
             IList<ICell> sideBList = new List<ICell>();
 
@@ -80,6 +83,55 @@ namespace Mathc3Project
 
                 cell.IsMatched = true;
             }
+        }
+
+        public static bool SimpleCheck(ICell cell, IBoard board)
+        {
+            int column = (int) cell.CurrentGameObject.transform.position.x;
+            int row = (int) cell.CurrentGameObject.transform.position.y;
+
+            if (row > 1 && column > 1)
+            {
+                ICell[] sideCells =
+                {
+                    board.Cells[column, row - 1], board.Cells[column, row - 2],
+                    board.Cells[column - 1, row], board.Cells[column - 2, row]
+                };
+
+                foreach (var sideCell in sideCells)
+                {
+                    if (sideCell.Tag == cell.Tag)
+                        return true;
+                }
+            }
+            else if (row <= 1 || column <= 1)
+            {
+                if (row > 1)
+                {
+                    ICell[] sideHorizontalCells =
+                        {board.Cells[column, row - 1], board.Cells[column, row - 2]};
+
+                    foreach (var sideCell in sideHorizontalCells)
+                    {
+                        if (sideCell.Tag == cell.Tag)
+                            return true;
+                    }
+                }
+
+                if (column > 1)
+                {
+                    ICell[] sideVerticalCells =
+                        {board.Cells[column - 1, row], board.Cells[column - 2, row]};
+
+                    foreach (var sideCell in sideVerticalCells)
+                    {
+                        if (sideCell.Tag == cell.Tag)
+                            return true;
+                    }
+                }
+            }
+
+            return false;
         }
 
         public static void MarkCell(ICell cell)

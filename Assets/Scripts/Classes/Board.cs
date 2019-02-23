@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Mathc3Project.Interfaces;
 
 namespace Mathc3Project
@@ -17,9 +18,10 @@ namespace Mathc3Project
             _cells = new Cell[_width, _height];
             _spawnManager = spawnManager;
             
-            Initial();
+             Initial();
         }
 
+        
         private void Initial()
         {
             GameObject boardParent = new GameObject("Board");
@@ -30,8 +32,20 @@ namespace Mathc3Project
                 Vector3 tempPos = new Vector3(i, j, 0f);
 
                 _spawnManager.GenerateBackTile(tempPos, boardParent);
+                
+                ICell newCell =  _spawnManager.GenerateGameElement(tempPos);
 
-                _cells[i, j] = _spawnManager.GenerateGameElement(tempPos);
+                int maxLimit = 0;
+                while (CheckAndMarkManager.SimpleCheck(newCell,this) && maxLimit < 100)
+                {
+                    GameObject.Destroy(newCell.CurrentGameObject);
+                    newCell =  _spawnManager.GenerateGameElement(tempPos);
+                    
+                    maxLimit++;
+                }
+                maxLimit = 0;
+                
+                _cells[i, j] = newCell;
             }
         }
 
