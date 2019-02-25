@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Classes\Board.cs" />
+    <Compile Include="Assets\Scripts\Classes\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Classes\Cell.cs" />
     <Compile Include="Assets\Scripts\Classes\CheckAndMarkManager.cs" />
     <Compile Include="Assets\Scripts\Classes\Commands\FallCommand.cs" />
@@ -73,11 +74,14 @@
     <Compile Include="Assets\Scripts\Classes\Notifier.cs" />
     <Compile Include="Assets\Scripts\Classes\ObjectStorage.cs" />
     <Compile Include="Assets\Scripts\Classes\SpawnManager.cs" />
+    <Compile Include="Assets\Scripts\Classes\TileType.cs" />
+    <Compile Include="Assets\Scripts\Enums\CellType.cs" />
     <Compile Include="Assets\Scripts\Enums\EventTypeEnum.cs" />
-    <Compile Include="Assets\Scripts\Enums\GameElementsType.cs" />
+    <Compile Include="Assets\Scripts\Enums\GameStates.cs" />
     <Compile Include="Assets\Scripts\Enums\LineDirectionType.cs" />
     <Compile Include="Assets\Scripts\Enums\MoveDirectionType.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IBoard.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ICameraManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICell.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICommand.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IInputManager.cs" />

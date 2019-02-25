@@ -14,6 +14,7 @@ namespace Mathc3Project
         private ILogicManager _logicManager;
         private IInputManager _inputManager;
         private ISpawnManager _spawnManager;
+        private ICameraManager _cameraManager;
 
         private void Start()
         {
@@ -27,6 +28,7 @@ namespace Mathc3Project
             _inputManager = new GameObject("Input Manager").AddComponent<InputManager>();
             GameObject emptyGO = new GameObject("--------------");
             
+            _cameraManager = new CameraManager(_boardWidth,_boardHeight);
             _notifier = new Notifier();
             _objectStorage = new ObjectStorage();
             _spawnManager = new SpawnManager(_objectStorage,_logicManager,_notifier);

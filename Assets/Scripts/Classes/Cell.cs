@@ -6,27 +6,28 @@ using Mathc3Project.Interfaces;
 namespace Mathc3Project
 {
     public class Cell : MonoBehaviour, ICell
-    { 
+    {
         private const float SPEED = 9.81f;
         private const float POSITION_DELTA = 0.01f;
-        
+
         private INotifier _notifier;
         private GameObject _currentGameObject;
-        private int _prevPosY;
+        
         private int _targetX;
         private int _targetY;
+        
+        private bool _isMatched;
+        
         private bool _isMoving;
         private bool _isMovingBack;
         private bool _isFall;
-        private bool _isMatched;
 
         private void Start()
         {
-            _currentGameObject = this.gameObject;
             _targetX = (int) transform.position.x;
             _targetY = (int) transform.position.y;
-            _isMoving = _isMovingBack = _isFall = false;
             _isMatched = false;
+            _isMoving = _isMovingBack = _isFall = false;
         }
 
         private void Update()
@@ -38,12 +39,11 @@ namespace Mathc3Project
         public void Move()
         {
             Vector2 tempPos = new Vector2(_targetX, _targetY);
-            
-            if (Mathf.Abs(_targetX - transform.position.x) > POSITION_DELTA || Mathf.Abs(_targetY - transform.position.y) > POSITION_DELTA)
+
+            if (Mathf.Abs(_targetX - transform.position.x) > POSITION_DELTA ||
+                Mathf.Abs(_targetY - transform.position.y) > POSITION_DELTA)
             {
                 transform.position = Vector2.Lerp(transform.position, tempPos, SPEED * Time.deltaTime);
-                if (_isFall)
-                    NotifyEveryRoundY();
             }
             else
             {
@@ -52,7 +52,6 @@ namespace Mathc3Project
 
                 if (_isFall)
                 {
-                    NotifyEveryRoundY();
                     _isFall = false;
                     _notifier.Notify(EventTypeEnum.CELL_fall, this);
                 }
@@ -66,23 +65,8 @@ namespace Mathc3Project
                     _notifier.Notify(EventTypeEnum.CELL_endingMove, this);
                 }
             }
-            
         }
-
-        public void SetPrevY()
-        {
-            _prevPosY = (int) transform.position.y;
-        }
-        
-        private void NotifyEveryRoundY()
-        {
-            if (_prevPosY - transform.position.y >= 1)
-            {
-                _notifier.Notify(EventTypeEnum.CELL_fallOnePoint, this);
-                _prevPosY = Mathf.CeilToInt(transform.position.y);
-            }
-        }
-        
+       
         private void OnDestroy()
         {
             _notifier.Notify(EventTypeEnum.CELL_destroyed, _currentGameObject.tag);
@@ -99,15 +83,15 @@ namespace Mathc3Project
             set { _notifier = value; }
         }
 
+        public string Tag
+        {
+            get { return gameObject.tag; }
+        }
+
         public string Name
         {
             get { return gameObject.name; }
             set { gameObject.name = value; }
-        }
-        
-        public string Tag
-        {
-            get { return gameObject.tag; }
         }
 
         public GameObject CurrentGameObject
@@ -136,6 +120,12 @@ namespace Mathc3Project
             }
         }
 
+        public bool IsMatched
+        {
+            get { return _isMatched; }
+            set { _isMatched = value; }
+        }
+
         public bool IsMoving
         {
             get { return _isMoving; }
@@ -152,12 +142,6 @@ namespace Mathc3Project
         {
             get { return _isFall; }
             set { _isFall = value; }
-        }
-
-        public bool IsMatched
-        {
-            get { return _isMatched; }
-            set { _isMatched = value; }
         }
     }
 }

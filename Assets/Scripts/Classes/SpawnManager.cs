@@ -21,25 +21,37 @@ namespace Mathc3Project
 
         public void GenerateBackTile(Vector3 position, GameObject parent)
         {
-            GameObject backTile = _objectStorage.GetObjectByType(GameElementsType.BackTile);
+            GameObject backTile = _objectStorage.GetBackTile();
 
             backTile.transform.parent = parent.transform;
             backTile.transform.position = position + Vector3.forward;
-            backTile.name = "PREF_(" + position.x + ", " + position.y + ")";
+            backTile.name = "(" + position.x + ", " + position.y + ")";
         }
 
-        public ICell GenerateGameElement(Vector3 position)
+        public ICell GenerateHollowCell(Vector3 position)
         {
-            GameObject gameElement = _objectStorage.GetObjectByType(GameElementsType.RandomPrefab);
-            gameElement.transform.position = position;
-            
-            ICell cell = gameElement.AddComponent<Cell>();
-            cell.Name = "PREFAB_" + gameElement.tag;
-            cell.CurrentGameObject = gameElement;
-            cell.Notifier = _notifier;
-            cell.AddSubscriber(_logicManager);
+            GameObject hollowGO = _objectStorage.GetHollowCell();
+            hollowGO.transform.position = position + Vector3.back;
 
-            return cell;
+            ICell hollowCell = hollowGO.AddComponent<Cell>();
+            hollowCell.Name = "Hollow";
+            hollowCell.CurrentGameObject = null;
+
+            return hollowCell;
+        }
+
+        public ICell GenerateRandomGameElement(Vector3 position)
+        {
+            GameObject randomGO = _objectStorage.GetRandomGameElement();
+            randomGO.transform.position = position;
+
+            ICell randomCell = randomGO.AddComponent<Cell>();
+            randomCell.Name = "Random";
+            randomCell.CurrentGameObject = randomGO;
+            randomCell.Notifier = _notifier;
+            randomCell.AddSubscriber(_logicManager);
+
+            return randomCell;
         }
     }
 }

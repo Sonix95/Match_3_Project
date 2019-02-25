@@ -9,6 +9,8 @@ TagManager:
   - Red
   - White
   - Yellow
+  - Purple
+  - Hollow
   layers:
   - Default
   - TransparentFX

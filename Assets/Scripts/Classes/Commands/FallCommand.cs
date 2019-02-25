@@ -4,31 +4,27 @@ namespace Mathc3Project.Commands
 {
     public class FallCommand : ICommand
     {
-        private ICell _cell;
-        private int _shiftYPosition;
+        private readonly ICell _cell;
+        private readonly int _newTargetY;
+        private readonly IBoard _board;
 
-        public FallCommand(ICell cell, int shiftYPosition)
+        public FallCommand(ICell cell, int newTargetY, IBoard board)
         {
             _cell = cell;
-            _cell.SetPrevY();
-            _shiftYPosition = shiftYPosition;
+            _newTargetY = newTargetY;
+            _board = board;
         }
-        
-        public string Discription  {
-            get { return "Fall";}
-        }
-
         public void Execute()
         {
-            _cell.TargetY -= _shiftYPosition;
-            
+            _cell.TargetY = _newTargetY;
+            _board.Cells[_cell.TargetX, _cell.TargetY] = _cell;
             _cell.IsFall = true;
             _cell.IsMoving = true;
         }
 
         public void Undo()
         {
-            
+            // ----
         }
     }
 }

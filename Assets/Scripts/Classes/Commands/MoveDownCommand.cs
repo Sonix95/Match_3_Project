@@ -10,7 +10,6 @@ namespace Mathc3Project.Commands
         public MoveDownCommand(ICell cell)
         {
             _cell = cell;
-            _cell.SetPrevY();
         }
         
         public void Execute()

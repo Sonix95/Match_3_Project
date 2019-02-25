@@ -1,13 +1,11 @@
-﻿ using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
- using System.Linq;
- using Mathc3Project.Commands;
+using Mathc3Project.Commands;
 using UnityEngine;
 using Mathc3Project.Enums;
 using Mathc3Project.Interfaces;
 using UnityEditor;
- using Object = System.Object;
 
  namespace Mathc3Project
  {
@@ -15,21 +13,19 @@ using UnityEditor;
      {
          private const float SWIPE_SENSTIVITY = 0.3f;
 
-         private IList<ICell> lastCellInColumn;
-
          private IBoard _board;
+         
          private ICommand _macroCommand;
+
+         private GameStates _currentGameState = GameStates.Ready;
 
          private Vector3 _clickA;
          private Vector3 _clickB;
+         
+         private bool _isMatchedSwipe;
+         private int _swipeCounter;
 
-         private bool _isMarket;
-         private int _tryCheckSwipedCellsCounter;
-
-         private void Start()
-         {
-             lastCellInColumn = new List<ICell>();
-         }
+         private ICell _lastSpawnedCell = null;
 
          public void OnEvent(EventTypeEnum eventTypeEnum, object messageData)
          {
@@ -42,28 +38,35 @@ using UnityEditor;
                  case EventTypeEnum.MOUSE_up:
                      _clickB = (Vector3) messageData;
 
-                     if (Mathf.Abs(_clickB.x - _clickA.x) > SWIPE_SENSTIVITY ||
-                         Mathf.Abs(_clickB.y - _clickA.y) > SWIPE_SENSTIVITY)
+                     if (_currentGameState == GameStates.Ready)
                      {
-                         MoveDirectionType swipeDirection = GetDirection(_clickA, _clickB);
-                         SwipeCells(swipeDirection);
+                         if (Mathf.Abs(_clickB.x - _clickA.x) > SWIPE_SENSTIVITY ||
+                             Mathf.Abs(_clickB.y - _clickA.y) > SWIPE_SENSTIVITY)
+                         {
+                             MoveDirectionType swipeDirection = GetDirection(_clickA, _clickB);
+                             SwipeCells(swipeDirection);
+                         }
                      }
 
                      break;
 
                  case EventTypeEnum.MOVE_up:
+                     _currentGameState = GameStates.Wait;
                      ExecuteMacroCommand();
                      break;
 
                  case EventTypeEnum.MOVE_down:
+                     _currentGameState = GameStates.Wait;
                      ExecuteMacroCommand();
                      break;
 
                  case EventTypeEnum.MOVE_left:
+                     _currentGameState = GameStates.Wait;
                      ExecuteMacroCommand();
                      break;
 
                  case EventTypeEnum.MOVE_right:
+                     _currentGameState = GameStates.Wait;
                      ExecuteMacroCommand();
                      break;
 
@@ -72,39 +75,24 @@ using UnityEditor;
                      break;
 
                  case EventTypeEnum.CELL_endingMoveBack:
-                     ICell cellAfterBack = (ICell) messageData;
+                     ICell cell = (ICell) messageData;
 
-                     _board.Cells[cellAfterBack.TargetX, cellAfterBack.TargetY] = cellAfterBack;
+                     _board.Cells[cell.TargetX, cell.TargetY] = cell;
+                     _currentGameState = GameStates.Ready;
                      break;
 
                  case EventTypeEnum.CELL_fall:
-                     ICell cellAfterFall = (ICell) messageData;
+                     ICell fallenCell = (ICell) messageData;
 
-                     _board.Cells[cellAfterFall.TargetX, cellAfterFall.TargetY] = cellAfterFall;
-
-                     if (lastCellInColumn.Count == 0)
-                         StartCoroutine(TryCheckBoard());
-                     break;
-
-                 case EventTypeEnum.CELL_fallOnePoint:
-                     ICell c = (ICell) messageData;
-
-                     if (lastCellInColumn.Contains(c) && c.TargetY < _board.Height - 1)
-                         Spawn(c.TargetY, c.TargetX, _board.Height);
-
-                     lastCellInColumn.Remove(c);
+                     if (_lastSpawnedCell == fallenCell)
+                         CheckBoard();
+                     
                      break;
 
                  case EventTypeEnum.CELL_destroyed:
-                     //TODO Add later
                      break;
 
                  case EventTypeEnum.BOARD_collapse:
-                     int[] cellParams = (int[]) messageData;
-
-                     if (cellParams != null)
-                         _board.Cells[cellParams[0], cellParams[1]] = null;
-
                      ExecuteMacroCommand();
                      break;
 
@@ -114,114 +102,130 @@ using UnityEditor;
              }
          }
 
-         private IEnumerator TryCheckBoard()
-         {
-             yield return new WaitForSeconds(.1f);
-
-             foreach (var cell in _board.Cells)
-             {
-                 CheckAndMarkManager.CheckCell(cell, _board);
-                 CheckAndMarkManager.MarkCell(cell);
-             }
-
-             yield return new WaitForSeconds(.2f);
-
-             for (int i = 0; i < _board.Width; i++)
-             for (int j = 0; j < _board.Height; j++)
-             {
-                 if (_board.Cells[i, j] != null && _board.Cells[i, j].IsMatched)
-                 {
-                     Destroy(_board.Cells[i, j].CurrentGameObject);
-                     _board.Cells[i, j] = null;
-                 }
-             }
-
-             yield return new WaitForSeconds(.2f);
-
-             DecreaseRow();
-         }
-
-         private void DecreaseRow()
-         {
-             int nullCount = 0;
-             int highestColumnCell = 0;
-             ICell cell = null;
-
-             for (int i = 0; i < _board.Width; i++)
-             {
-                 for (int j = 0; j < _board.Height; j++)
-                 {
-                     if (_board.Cells[i, j] == null)
-                         nullCount++;
-
-                     else if (nullCount > 0 && _board.Cells[i, j] != null)
-                     {
-                         if (j > highestColumnCell)
-                         {
-                             highestColumnCell = j;
-                             cell = _board.Cells[i, j];
-                         }
-
-                         StartCoroutine(StartFall(cell, nullCount, new int[] {i, j}));
-                     }
-                 }
-
-                 if (cell != null)
-                     lastCellInColumn.Add(cell);
-
-                 if (cell == null && nullCount > 0)
-                 {
-                     int notNullHigherCellIndex = (_board.Height - 1) - nullCount;
-                     Spawn(notNullHigherCellIndex, i, _board.Height);
-                 }
-
-                 cell = null;
-                 nullCount = 0;
-                 highestColumnCell = 0;
-             }
-         }
-
-         private IEnumerator StartFall(ICell cell, int offset, int[] cellParams)
-         {
-             yield return new WaitForSeconds(.05f);
-
-             ICommand[] commands = {new FallCommand(cell, offset)};
-             SetMacroCommand(commands);
-
-             OnEvent(EventTypeEnum.BOARD_collapse, cellParams);
-         }
-
-         private void Spawn(int highterCellYPos, int xPos, int yPos)
-         {
-             int offset = _board.Height - 1 - highterCellYPos;
-
-             ICell newCell = _board.SpawnManager.GenerateGameElement(new Vector3(xPos, yPos, 0));
-             lastCellInColumn.Add(newCell);
-
-             StartCoroutine(StartFall(newCell, offset, null));
-         }
-
          private void TryCheckSwipedCells(ICell cell)
          {
-             _tryCheckSwipedCellsCounter++;
+             _swipeCounter++;
 
              CheckAndMarkManager.CheckCell(cell, _board);
 
              if (cell.IsMatched)
-             {
-                 _isMarket = true;
-             }
+                 _isMatchedSwipe = true;
 
-             if (_tryCheckSwipedCellsCounter > 1)
+             if (_swipeCounter > 1)
              {
-                 if (_isMarket)
-                     StartCoroutine(TryCheckBoard());
+                 if (_isMatchedSwipe)
+                     StartCoroutine(MarkAndDestroyMatches());
                  else
                      UndoMacroCommand();
 
-                 _isMarket = false;
-                 _tryCheckSwipedCellsCounter = 0;
+                 _isMatchedSwipe = false;
+                 _swipeCounter = 0;
              }
+         }
+
+         private void CheckBoard()
+         {
+             foreach (var cell in _board.Cells)
+                 CheckAndMarkManager.CheckCell(cell, _board);
+
+             StartCoroutine(MarkAndDestroyMatches());
+         }
+
+         private IEnumerator MarkAndDestroyMatches()
+         {
+             for (int i = 0; i < _board.Width; i++)
+             for (int j = 0; j < _board.Height; j++)
+             {
+                 if (_board.Cells[i, j] != null && _board.Cells[i, j].IsMatched)
+                     CheckAndMarkManager.MarkCell(_board.Cells[i, j]);
+             }
+
+             yield return new WaitForSeconds(0.4f);
+
+             for (int i = 0; i < _board.Width; i++)
+             for (int j = 0; j < _board.Height; j++)
+             {
+                 if (_board.Cells[i, j] != null)
+                 {
+                     if (_board.Cells[i, j].IsMatched)
+                     {
+                         Destroy(_board.Cells[i, j].CurrentGameObject);
+                         _board.Cells[i, j] = null;
+                     }
+                 }
+             }
+
+             StartCoroutine(DecreaseRow());
+         }
+
+         private IEnumerator DecreaseRow()
+         {
+             for (int i = 0; i < _board.Width; i++)
+             for (int j = 0; j < _board.Height; j++)
+                 if (!_board.HollowCells[i, j] && _board.Cells[i, j] == null)
+                 {
+                     for (int k = j + 1; k < _board.Height; k++)
+                     {
+                         if (_board.Cells[i, k] != null)
+                         {
+                             ICell tempCell = _board.Cells[i, k];
+                             _board.Cells[i, k] = null;
+
+                             StartCoroutine(Fall(tempCell, j));
+                             break;
+                         }
+                     }
+                 }
+
+             yield return new WaitForSeconds(.4f);
+             FillBoard();
+         }
+
+         private void FillBoard()
+         {
+             RefillBoard();
+
+             while (HaveMatches())
+                 MarkAndDestroyMatches();
+             
+             _currentGameState = GameStates.Ready;
+         }
+
+         private void RefillBoard()
+         {
+             for (int i = 0; i < _board.Width; i++)
+             for (int j = 0; j < _board.Height; j++)
+             {
+                 if (_board.Cells[i, j] == null && !_board.HollowCells[i,j])
+                 {
+                     Vector3 tempPos = new Vector3(i, _board.Height + 5, 0f);
+                     ICell newCell = _board.SpawnManager.GenerateRandomGameElement(tempPos);
+
+                     StartCoroutine(Fall(newCell, j));
+                 }
+             }
+         }
+
+         IEnumerator Fall(ICell cell, int newTarget)
+         {
+             yield return new WaitForSeconds(0.05f);
+
+             ICommand[] commands = {new FallCommand(cell, newTarget, _board)};
+             SetMacroCommand(commands);
+             _lastSpawnedCell = cell;
+             OnEvent(EventTypeEnum.BOARD_collapse, null);
+         }
+
+         private bool HaveMatches()
+         {
+             for (int i = 0; i < _board.Width; i++)
+             for (int j = 0; j < _board.Height; j++)
+             {
+                 if (_board.Cells[i, j] != null)
+                     if (_board.Cells[i, j].IsMatched)
+                         return true;
+             }
+             return false;
          }
 
          private void SwipeCells(MoveDirectionType direction)
@@ -232,81 +236,83 @@ using UnityEditor;
              if (xPos >= 0 && xPos < _board.Width && yPos >= 0 && yPos < _board.Height)
              {
                  ICell cellA = _board.Cells[xPos, yPos];
-                 ICell cellB;
 
-                 switch (direction)
+                 if (cellA != null)
                  {
-                     case MoveDirectionType.Up:
-                         if (yPos < _board.Height - 1)
-                         {
-                             cellB = _board.Cells[xPos, yPos + 1];
-                             if (cellB != null)
+                     switch (direction)
+                     {
+                         case MoveDirectionType.Up:
+                             if (yPos < _board.Height - 1)
                              {
-                                 _board.Cells[xPos, yPos + 1] = cellA;
-                                 _board.Cells[xPos, yPos] = cellB;
+                                 ICell cellB = _board.Cells[xPos, yPos + 1];
+                                 if (cellB != null)
+                                 {
+                                     _board.Cells[xPos, yPos + 1] = cellA;
+                                     _board.Cells[xPos, yPos] = cellB;
 
-                                 ICommand[] commands = {new MoveUpCommand(cellA), new MoveDownCommand(cellB)};
-                                 SetMacroCommand(commands);
+                                     ICommand[] commands = {new MoveUpCommand(cellA), new MoveDownCommand(cellB)};
+                                     SetMacroCommand(commands);
 
-                                 OnEvent(EventTypeEnum.MOVE_up, null);
+                                     OnEvent(EventTypeEnum.MOVE_up, null);
+                                 }
                              }
-                         }
 
-                         break;
+                             break;
 
-                     case MoveDirectionType.Down:
-                         if (yPos > 0)
-                         {
-                             cellB = _board.Cells[xPos, yPos - 1];
-                             if (cellB != null)
+                         case MoveDirectionType.Down:
+                             if (yPos > 0)
                              {
-                                 _board.Cells[xPos, yPos - 1] = cellA;
-                                 _board.Cells[xPos, yPos] = cellB;
+                                 ICell cellB = _board.Cells[xPos, yPos - 1];
+                                 if (cellB != null)
+                                 {
+                                     _board.Cells[xPos, yPos - 1] = cellA;
+                                     _board.Cells[xPos, yPos] = cellB;
 
-                                 ICommand[] commands = {new MoveDownCommand(cellA), new MoveUpCommand(cellB)};
-                                 SetMacroCommand(commands);
+                                     ICommand[] commands = {new MoveDownCommand(cellA), new MoveUpCommand(cellB)};
+                                     SetMacroCommand(commands);
 
-                                 OnEvent(EventTypeEnum.MOVE_down, null);
+                                     OnEvent(EventTypeEnum.MOVE_down, null);
+                                 }
                              }
-                         }
 
-                         break;
+                             break;
 
-                     case MoveDirectionType.Left:
-                         if (xPos > 0)
-                         {
-                             cellB = _board.Cells[xPos - 1, yPos];
-                             if (cellB != null)
+                         case MoveDirectionType.Left:
+                             if (xPos > 0)
                              {
-                                 _board.Cells[xPos - 1, yPos] = cellA;
-                                 _board.Cells[xPos, yPos] = cellB;
+                                 ICell cellB = _board.Cells[xPos - 1, yPos];
+                                 if (cellB != null)
+                                 {
+                                     _board.Cells[xPos - 1, yPos] = cellA;
+                                     _board.Cells[xPos, yPos] = cellB;
 
-                                 ICommand[] commands = {new MoveLeftCommand(cellA), new MoveRightCommand(cellB)};
-                                 SetMacroCommand(commands);
+                                     ICommand[] commands = {new MoveLeftCommand(cellA), new MoveRightCommand(cellB)};
+                                     SetMacroCommand(commands);
 
-                                 OnEvent(EventTypeEnum.MOVE_left, null);
+                                     OnEvent(EventTypeEnum.MOVE_left, null);
+                                 }
                              }
-                         }
 
-                         break;
+                             break;
 
-                     case MoveDirectionType.Right:
-                         if (xPos < _board.Width - 1)
-                         {
-                             cellB = _board.Cells[xPos + 1, yPos];
-                             if (cellB != null)
+                         case MoveDirectionType.Right:
+                             if (xPos < _board.Width - 1)
                              {
-                                 _board.Cells[xPos + 1, yPos] = cellA;
-                                 _board.Cells[xPos, yPos] = cellB;
+                                 ICell cellB = _board.Cells[xPos + 1, yPos];
+                                 if (cellB != null)
+                                 {
+                                     _board.Cells[xPos + 1, yPos] = cellA;
+                                     _board.Cells[xPos, yPos] = cellB;
 
-                                 ICommand[] commands = {new MoveRightCommand(cellA), new MoveLeftCommand(cellB)};
-                                 SetMacroCommand(commands);
+                                     ICommand[] commands = {new MoveRightCommand(cellA), new MoveLeftCommand(cellB)};
+                                     SetMacroCommand(commands);
 
-                                 OnEvent(EventTypeEnum.MOVE_right, null);
+                                     OnEvent(EventTypeEnum.MOVE_right, null);
+                                 }
                              }
-                         }
 
-                         break;
+                             break;
+                     }
                  }
              }
          }

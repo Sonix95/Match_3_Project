@@ -92,41 +92,55 @@ namespace Mathc3Project
 
             if (row > 1 && column > 1)
             {
-                ICell[] sideCells =
+                if (board.Cells[column, row - 1] != null &&
+                    board.Cells[column, row - 2] != null &&
+                    board.Cells[column - 1, row] != null &&
+                    board.Cells[column - 2, row] != null)
                 {
-                    board.Cells[column, row - 1], board.Cells[column, row - 2],
-                    board.Cells[column - 1, row], board.Cells[column - 2, row]
-                };
+                    ICell[] sideCells =
+                    {
+                        board.Cells[column, row - 1], board.Cells[column, row - 2],
+                        board.Cells[column - 1, row], board.Cells[column - 2, row]
+                    };
 
-                foreach (var sideCell in sideCells)
-                {
-                    if (sideCell.Tag == cell.Tag)
-                        return true;
+                    foreach (var sideCell in sideCells)
+                    {
+                        if (sideCell.Tag == cell.Tag)
+                            return true;
+                    }
                 }
             }
             else if (row <= 1 || column <= 1)
             {
                 if (row > 1)
                 {
-                    ICell[] sideHorizontalCells =
-                        {board.Cells[column, row - 1], board.Cells[column, row - 2]};
-
-                    foreach (var sideCell in sideHorizontalCells)
+                    if (board.Cells[column, row - 1] != null &&
+                        board.Cells[column, row - 2] != null)
                     {
-                        if (sideCell.Tag == cell.Tag)
-                            return true;
+                        ICell[] sideHorizontalCells =
+                            {board.Cells[column, row - 1], board.Cells[column, row - 2]};
+
+                        foreach (var sideCell in sideHorizontalCells)
+                        {
+                            if (sideCell.Tag == cell.Tag)
+                                return true;
+                        }
                     }
                 }
 
                 if (column > 1)
                 {
-                    ICell[] sideVerticalCells =
-                        {board.Cells[column - 1, row], board.Cells[column - 2, row]};
-
-                    foreach (var sideCell in sideVerticalCells)
+                    if (board.Cells[column - 1, row] != null &&
+                        board.Cells[column - 2, row] != null)
                     {
-                        if (sideCell.Tag == cell.Tag)
-                            return true;
+                        ICell[] sideVerticalCells =
+                            {board.Cells[column - 1, row], board.Cells[column - 2, row]};
+
+                        foreach (var sideCell in sideVerticalCells)
+                        {
+                            if (sideCell.Tag == cell.Tag)
+                                return true;
+                        }
                     }
                 }
             }
