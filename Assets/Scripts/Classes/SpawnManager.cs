@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using Mathc3Project.Enums;
 using Mathc3Project.Interfaces;
 using UnityEngine;
@@ -9,49 +7,48 @@ namespace Mathc3Project
     public class SpawnManager : ISpawnManager
     {
         private IObjectStorage _objectStorage;
-        private ILogicManager _logicManager;
-        private INotifier _notifier;
+        private IObjectSetter _objectSetter;
 
-        public SpawnManager(IObjectStorage objectStorage, ILogicManager logicManager, INotifier notifier)
+        public SpawnManager(IObjectStorage objectStorage, IObjectSetter objectSetter)
         {
             _objectStorage = objectStorage;
-            _logicManager = logicManager;
-            _notifier = notifier;
+            _objectSetter = objectSetter;
         }
 
         public void GenerateBackTile(Vector3 position, GameObject parent)
         {
             GameObject backTile = _objectStorage.GetBackTile();
+            _objectSetter.SetNonGameplayObject(backTile, parent, position);
+        }
 
-            backTile.transform.parent = parent.transform;
-            backTile.transform.position = position + Vector3.forward;
-            backTile.name = "(" + position.x + ", " + position.y + ")";
+        public ICell GenerateNormalCell(Vector3 position)
+        {
+            GameObject normalGameObject = _objectStorage.GetRandomGameElement();
+            normalGameObject.transform.position = position;
+
+            ICell normalCell = _objectSetter.SetGameplayObject(CellTypes.Normal, normalGameObject);
+
+            return normalCell;
         }
 
         public ICell GenerateHollowCell(Vector3 position)
         {
-            GameObject hollowGO = _objectStorage.GetHollowCell();
-            hollowGO.transform.position = position + Vector3.back;
+            GameObject hollowGameObject = new GameObject("Hollow");
+            hollowGameObject.transform.position = position;
 
-            ICell hollowCell = hollowGO.AddComponent<Cell>();
-            hollowCell.Name = "Hollow";
-            hollowCell.CurrentGameObject = null;
+            ICell hollowCell = _objectSetter.SetGameplayObject(CellTypes.Hollow, hollowGameObject);
 
             return hollowCell;
         }
 
-        public ICell GenerateRandomGameElement(Vector3 position)
+        public ICell GenerateBreakableCell(Vector3 position)
         {
-            GameObject randomGO = _objectStorage.GetRandomGameElement();
-            randomGO.transform.position = position;
+            GameObject breakableGameObject = _objectStorage.GetBreackableCell();
+            breakableGameObject.transform.position = position;
 
-            ICell randomCell = randomGO.AddComponent<Cell>();
-            randomCell.Name = "Random";
-            randomCell.CurrentGameObject = randomGO;
-            randomCell.Notifier = _notifier;
-            randomCell.AddSubscriber(_logicManager);
+            ICell breakableCell = _objectSetter.SetGameplayObject(CellTypes.Breakable, breakableGameObject);
 
-            return randomCell;
+            return breakableCell;
         }
     }
 }

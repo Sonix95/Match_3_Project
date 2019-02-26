@@ -10,7 +10,7 @@ TagManager:
   - White
   - Yellow
   - Purple
-  - Hollow
+  - Breackable
   layers:
   - Default
   - TransparentFX

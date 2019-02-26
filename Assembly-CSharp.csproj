@@ -59,10 +59,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Classes\BackgroundTile.cs" />
     <Compile Include="Assets\Scripts\Classes\Board.cs" />
     <Compile Include="Assets\Scripts\Classes\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Classes\Cell.cs" />
-    <Compile Include="Assets\Scripts\Classes\CheckAndMarkManager.cs" />
+    <Compile Include="Assets\Scripts\Classes\CheckManager.cs" />
     <Compile Include="Assets\Scripts\Classes\Commands\FallCommand.cs" />
     <Compile Include="Assets\Scripts\Classes\Commands\MacroCommand.cs" />
     <Compile Include="Assets\Scripts\Classes\Commands\MoveDownCommand.cs" />
@@ -72,10 +73,11 @@
     <Compile Include="Assets\Scripts\Classes\InputManager.cs" />
     <Compile Include="Assets\Scripts\Classes\LogicManager.cs" />
     <Compile Include="Assets\Scripts\Classes\Notifier.cs" />
+    <Compile Include="Assets\Scripts\Classes\ObjectSetter.cs" />
     <Compile Include="Assets\Scripts\Classes\ObjectStorage.cs" />
     <Compile Include="Assets\Scripts\Classes\SpawnManager.cs" />
     <Compile Include="Assets\Scripts\Classes\TileType.cs" />
-    <Compile Include="Assets\Scripts\Enums\CellType.cs" />
+    <Compile Include="Assets\Scripts\Enums\CellTypes.cs" />
     <Compile Include="Assets\Scripts\Enums\EventTypeEnum.cs" />
     <Compile Include="Assets\Scripts\Enums\GameStates.cs" />
     <Compile Include="Assets\Scripts\Enums\LineDirectionType.cs" />
@@ -83,10 +85,12 @@
     <Compile Include="Assets\Scripts\Interfaces\IBoard.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICameraManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICell.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ICheckManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICommand.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IInputManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ILogicManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\INotifier.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IObjectSetter.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IObjectStorage.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ISpawnManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ISubscriber.cs" />

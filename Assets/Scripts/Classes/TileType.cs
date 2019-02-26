@@ -6,13 +6,13 @@ namespace Mathc3Project
     {
         private int _x;
         private int _y;
-        private CellType _cellType;
+        private CellTypes _cellTypes;
 
-        public TileType(int x, int y, CellType cellType)
+        public TileType(int x, int y, CellTypes cellTypes)
         {
             _x = x;
             _y = y;
-            _cellType = cellType;
+            _cellTypes = cellTypes;
         }
         
         public int X
@@ -27,10 +27,10 @@ namespace Mathc3Project
             set { _y = value; }
         }
         
-        public CellType CellType
+        public CellTypes CellTypes
         {
-            get { return _cellType; }
-            set { _cellType = value; }
+            get { return _cellTypes; }
+            set { _cellTypes = value; }
         }
         
     }

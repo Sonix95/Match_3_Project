@@ -3,7 +3,6 @@ namespace Mathc3Project.Enums
     public enum EventTypeEnum
     {
         UTILITY_boardCellsInfo,
-        UTILITY_boardListOfHigherCells,
         
         MOUSE_up,
         MOUSE_down,
@@ -17,7 +16,6 @@ namespace Mathc3Project.Enums
         CELL_endingMoveBack,
         CELL_fall,
         CELL_destroyed,
-        CELL_fallOnePoint,
         
         BOARD_collapse
     }

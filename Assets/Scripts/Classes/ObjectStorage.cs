@@ -10,14 +10,14 @@ namespace Mathc3Project
     public class ObjectStorage : IObjectStorage
     {
         private GameObject backtilePref;
-        private GameObject hollowtilePref;
+        private GameObject _breackablePref;
         private IList<GameObject> prefabsList;
 
         public ObjectStorage()
         {
             prefabsList = new List<GameObject>();
             backtilePref = Resources.Load("Prefabs/Empty") as GameObject;
-            hollowtilePref = Resources.Load("Prefabs/Hollow") as GameObject;
+            _breackablePref = Resources.Load("Prefabs/Breackable") as GameObject;
 
             Object[] objTempArray = Resources.LoadAll("Prefabs/Elements/");
             for (int i = 0; i < objTempArray.Length; i++)
@@ -31,9 +31,9 @@ namespace Mathc3Project
             return Object.Instantiate(backtilePref);
         }
 
-        public GameObject GetHollowCell()
+        public GameObject GetBreackableCell()
         {
-            return Object.Instantiate(hollowtilePref);
+            return Object.Instantiate(_breackablePref);
         }
 
         public GameObject GetGameElement(int cellIndex)

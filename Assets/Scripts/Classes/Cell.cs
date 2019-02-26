@@ -7,10 +7,12 @@ namespace Mathc3Project
 {
     public class Cell : MonoBehaviour, ICell
     {
+        #region Fields
+        
         private const float SPEED = 9.81f;
         private const float POSITION_DELTA = 0.01f;
-
-        private INotifier _notifier;
+        
+        private CellTypes _cellTypes;
         private GameObject _currentGameObject;
         
         private int _targetX;
@@ -21,13 +23,15 @@ namespace Mathc3Project
         private bool _isMoving;
         private bool _isMovingBack;
         private bool _isFall;
-
+        
+        private INotifier _notifier;
+        
+        #endregion
+        
         private void Start()
         {
             _targetX = (int) transform.position.x;
             _targetY = (int) transform.position.y;
-            _isMatched = false;
-            _isMoving = _isMovingBack = _isFall = false;
         }
 
         private void Update()
@@ -71,29 +75,25 @@ namespace Mathc3Project
         {
             _notifier.Notify(EventTypeEnum.CELL_destroyed, _currentGameObject.tag);
         }
-
+        
         public void AddSubscriber(ISubscriber subscriber)
         {
             _notifier.AddSubscriber(subscriber);
         }
-
-        public INotifier Notifier
+        
+        #region Properties
+        
+        public CellTypes CellTypes
         {
-            get { return _notifier; }
-            set { _notifier = value; }
+            get { return _cellTypes; }
+            set { _cellTypes = value; }
         }
 
         public string Tag
         {
             get { return gameObject.tag; }
         }
-
-        public string Name
-        {
-            get { return gameObject.name; }
-            set { gameObject.name = value; }
-        }
-
+        
         public GameObject CurrentGameObject
         {
             get { return _currentGameObject; }
@@ -143,5 +143,13 @@ namespace Mathc3Project
             get { return _isFall; }
             set { _isFall = value; }
         }
+        
+        public INotifier Notifier
+        {
+            get { return _notifier; }
+            set { _notifier = value; }
+        }
+        
+        #endregion
     }
 }
