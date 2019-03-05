@@ -1,11 +1,11 @@
-using Mathc3Project.Enums;
+using Mathc3Project.Interfaces.Cells;
 using UnityEngine;
 
 namespace Mathc3Project.Interfaces
 {
     public interface IObjectSetter
     {
-        ICell SetGameplayObject(CellTypes type, GameObject go);
-        void SetNonGameplayObject(GameObject go, GameObject parent, Vector3 position);
+        void SetGameObject(GameObject go, Vector3 position);
+        void SetNormalCell(INormalCell normalCell,GameObject go);
     }
 }

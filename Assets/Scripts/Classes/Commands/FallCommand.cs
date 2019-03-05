@@ -1,30 +1,26 @@
-using Mathc3Project.Interfaces;
+using Mathc3Project.Enums;
+using Mathc3Project.Interfaces.Cells;
+using Mathc3Project.Interfaces.Command;
 
-namespace Mathc3Project.Commands
+namespace Mathc3Project.Classes.Commands
 {
     public class FallCommand : ICommand
     {
         private readonly ICell _cell;
-        private readonly int _newTargetY;
-        private readonly IBoard _board;
 
-        public FallCommand(ICell cell, int newTargetY, IBoard board)
+        public FallCommand(ICell cell)
         {
             _cell = cell;
-            _newTargetY = newTargetY;
-            _board = board;
         }
         public void Execute()
         {
-            _cell.TargetY = _newTargetY;
-            _board.Cells[_cell.TargetX, _cell.TargetY] = _cell;
-            _cell.IsFall = true;
-            _cell.IsMoving = true;
+            _cell.CellState = CellStates.Fall;  
+            _cell.Move();
         }
 
         public void Undo()
         {
-            // ----
+            // ---- Why we need undo fall ?
         }
     }
 }

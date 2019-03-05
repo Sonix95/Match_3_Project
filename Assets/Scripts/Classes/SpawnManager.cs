@@ -1,8 +1,10 @@
+using Mathc3Project.Classes.Cells;
 using Mathc3Project.Enums;
 using Mathc3Project.Interfaces;
+using Mathc3Project.Interfaces.Cells;
 using UnityEngine;
 
-namespace Mathc3Project
+namespace Mathc3Project.Classes
 {
     public class SpawnManager : ISpawnManager
     {
@@ -15,40 +17,31 @@ namespace Mathc3Project
             _objectSetter = objectSetter;
         }
 
-        public void GenerateBackTile(Vector3 position, GameObject parent)
+        public GameObject SpawnPrefab(Vector3 position)
         {
-            GameObject backTile = _objectStorage.GetBackTile();
-            _objectSetter.SetNonGameplayObject(backTile, parent, position);
+            GameObject newGameObject = _objectStorage.GetRandomGameElement();
+            _objectSetter.SetGameObject(newGameObject, position);
+            
+            return newGameObject;
         }
 
-        public ICell GenerateNormalCell(Vector3 position)
+        public GameObject SpawnPowerPrefab(PowerTypes powerType, Vector3 position)
         {
-            GameObject normalGameObject = _objectStorage.GetRandomGameElement();
-            normalGameObject.transform.position = position;
-
-            ICell normalCell = _objectSetter.SetGameplayObject(CellTypes.Normal, normalGameObject);
-
-            return normalCell;
+            GameObject powerGameObject = _objectStorage.GetPowerElement(powerType);
+            _objectSetter.SetGameObject(powerGameObject, position);
+            
+            return powerGameObject;
         }
-
-        public ICell GenerateHollowCell(Vector3 position)
+        
+        public ICell SpawnNormalCell(Vector3 position)
         {
-            GameObject hollowGameObject = new GameObject("Hollow");
-            hollowGameObject.transform.position = position;
-
-            ICell hollowCell = _objectSetter.SetGameplayObject(CellTypes.Hollow, hollowGameObject);
-
-            return hollowCell;
+            GameObject newGameObject = _objectStorage.GetRandomGameElement();
+            ICell newNormalCell = new NormalCell((int) position.x, (int) position.y);
+            
+            _objectSetter.SetGameObject(newGameObject, position);
+            _objectSetter.SetNormalCell(newNormalCell as INormalCell, newGameObject);
+            return newNormalCell;
         }
-
-        public ICell GenerateBreakableCell(Vector3 position)
-        {
-            GameObject breakableGameObject = _objectStorage.GetBreackableCell();
-            breakableGameObject.transform.position = position;
-
-            ICell breakableCell = _objectSetter.SetGameplayObject(CellTypes.Breakable, breakableGameObject);
-
-            return breakableCell;
-        }
+        
     }
 }

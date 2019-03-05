@@ -4,13 +4,19 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - White
+  - Red
+  - Purple
   - Blue
   - Green
-  - Red
-  - White
   - Yellow
-  - Purple
-  - Breackable
+  - Orange
+  - Brown
+  - Bomb
+  - ColorBomb
+  - Horizontal
+  - Vertical
+  - Power
   layers:
   - Default
   - TransparentFX

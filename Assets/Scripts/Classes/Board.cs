@@ -1,22 +1,19 @@
-﻿using System;
-using Mathc3Project.Enums;
-using UnityEngine;
+﻿using Mathc3Project.Classes.Cells;
 using Mathc3Project.Interfaces;
+using Mathc3Project.Interfaces.Cells;
+using UnityEngine;
 
-namespace Mathc3Project
+namespace Mathc3Project.Classes
 {
     public class Board : IBoard
     {
         private int _width;
         private int _height;
+        
         private ISpawnManager _spawnManager;
         private ICheckManager _checkManager;
-        private ICell[,] _cells;
-       
-        private TileType[] _boardLayout;
         
-        private bool[,] _hollowCells;
-        private BackgroundTile[,] _breakableCells;
+        private ICell[,] _cells;
         
         public Board(int width, int height, ISpawnManager spawnManager,ICheckManager checkManager)
         {
@@ -24,59 +21,45 @@ namespace Mathc3Project
             _height = height;
             _spawnManager = spawnManager;
             _checkManager = checkManager;
-            _cells = new Cell[_width, _height];
-            
-            _hollowCells = new bool[_width, _height];
-            _breakableCells = new BackgroundTile[_width, _height];
+            _cells = new ICell[_width, _height];
 
             _checkManager.Board = this;
 
-            SetCells();
+            PreSettings();
             Initial();
         }
         
-        //TODO create method to place a some diffirent cell
-        public void SetCells()
+        private void PreSettings()
         {
-            _boardLayout = new TileType[5];
-            _boardLayout[4] = new TileType(2, 2, CellTypes.Breakable);
-
-            GenerateHollowCellAt(4, 3);
-            GenerateHollowCellAt(5, 3);
-            GenerateHollowCellAt(4, 4);
-            GenerateHollowCellAt(5, 4);
+            GenerateHollowCell(2, 2);
+            GenerateHollowCell(2, 3);
         }
 
-        private void GenerateHollowCellAt(int x, int y)
+        private void GenerateHollowCell(int x, int y)
         {
-            _cells[x,y] =  _spawnManager.GenerateHollowCell(new Vector3(x,y,0));
+            _cells[x,y] = new HollowCell(x,y);
         }
 
         private void Initial()
         {
-            GameObject boardParent = new GameObject("Board");
-
             for (int i = 0; i < _width; i++)
             for (int j = 0; j < _height; j++)
             {
                 if (_cells[i, j] == null)
                 {
-                    Vector3 tempPos = new Vector3(i, j, 0f);
+                    Vector2 tempPos = new Vector2(i, j);
 
-                    _spawnManager.GenerateBackTile(tempPos, boardParent);
-                    
-                    if (_cells[i, j] != null)
-                    {
-                        continue;
-                    }
-
-                    ICell newCell = _spawnManager.GenerateNormalCell(tempPos);
+                    ICell newCell = _spawnManager.SpawnNormalCell(tempPos);
+                    _checkManager.Board = this;
 
                     int maxLimit = 0;
-                    while (_checkManager.SimpleCheck(newCell) && maxLimit < 2)
+
+                    while (_checkManager.SimpleCheck(newCell) && maxLimit < 10)
                     {
                         GameObject.Destroy(newCell.CurrentGameObject);
-                        newCell = _spawnManager.GenerateNormalCell(tempPos);
+                        
+                        newCell = _spawnManager.SpawnNormalCell(tempPos);
+                        _checkManager.Board = this;
 
                         maxLimit++;
                     }
@@ -106,28 +89,5 @@ namespace Mathc3Project
             set { _cells = value; }
         }
         
-        public ISpawnManager SpawnManager
-        {
-            get { return _spawnManager; }
-            set { _spawnManager = value; }
-        }
-        
-        public ICheckManager CheckManager
-        {
-            get { return _checkManager; }
-            set { _checkManager = value; }
-        }
-
-        public bool[,] HollowCells
-        {
-            get { return _hollowCells; }
-            set { _hollowCells = value; }
-        }
-        
-        public BackgroundTile[,] BreakableCells
-        {
-            get { return _breakableCells; }
-            set { _breakableCells = value; }
-        }
     }
 }

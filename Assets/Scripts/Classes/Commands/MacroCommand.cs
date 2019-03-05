@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
-using Mathc3Project.Interfaces;
+using Mathc3Project.Interfaces.Command;
 
-namespace Mathc3Project.Commands
+namespace Mathc3Project.Classes.Commands
 {
     public class MacroCommand : ICommand
     {
@@ -12,7 +10,7 @@ namespace Mathc3Project.Commands
         {
             _commands = commands;
         }
-        
+
         public void Execute()
         {
             foreach (var command in _commands)

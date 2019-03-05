@@ -1,12 +1,13 @@
+using Mathc3Project.Enums;
+using Mathc3Project.Interfaces.Cells;
 using UnityEngine;
 
 namespace Mathc3Project.Interfaces
 {
     public interface ISpawnManager
     {
-        void GenerateBackTile(Vector3 position, GameObject parent);
-        ICell GenerateNormalCell(Vector3 position);
-        ICell GenerateHollowCell(Vector3 position);
-        ICell GenerateBreakableCell(Vector3 position);
+        GameObject SpawnPrefab(Vector3 position);
+        GameObject SpawnPowerPrefab(PowerTypes powerType, Vector3 position);
+        ICell SpawnNormalCell(Vector3 position);
     }
 }

@@ -1,27 +1,145 @@
 using System.Collections.Generic;
 using Mathc3Project.Enums;
 using Mathc3Project.Interfaces;
-using UnityEngine;
+using Mathc3Project.Interfaces.Cells;
 
-namespace Mathc3Project
+namespace Mathc3Project.Classes
 {
     public class CheckManager : ICheckManager
     {
         private IBoard _board;
         
-        public void CheckCell(ICell cell)
+        public bool HaveMatch(ICell cell)
         {
-            CheckLine(LineDirectionType.Vertical, cell);
-            CheckLine(LineDirectionType.Horizontal, cell);
+            IList<ICell> horizontalCellsList = CheckLine(LineDirectionTypes.Horizontal, cell);
+            IList<ICell> verticalCellsList = CheckLine(LineDirectionTypes.Vertical, cell);
+
+            if (horizontalCellsList.Count + verticalCellsList.Count > 2)
+                return true;
+
+            return false;
         }
 
-        private void CheckLine(LineDirectionType lineDirection, ICell cell)
+        #region bool JustCheckCell(...
+        
+        public bool JustCheckCell(ICell cell)
         {
-            if(cell == null || cell.CellTypes == CellTypes.Hollow)
-                return;
+            IList<ICell> allCellList = CheckCell(cell);
+
+            if (allCellList.Count > 0)
+            {
+                foreach (var oneCell in allCellList)
+                    oneCell.CellState = CellStates.Check;
+
+                return true;
+            }
             
-            IList<ICell> sideAList = new List<ICell>();
-            IList<ICell> sideBList = new List<ICell>();
+            return false;
+        }
+        
+        public bool JustCheckCell(ICell cell, out IList<ICell> allCellList)
+        {
+            allCellList = CheckCell(cell);
+
+            if (allCellList.Count > 0)
+            {
+                foreach (var oneCell in allCellList)
+                    oneCell.CellState = CellStates.Check;
+
+                return true;
+            }
+            
+            return false;
+        }
+        
+        public bool JustCheckCell(ICell cell, out IList<ICell> allCellList, out LineDirectionTypes highedDirection)
+        {
+            allCellList = CheckCell(cell, out highedDirection);
+
+            if (allCellList.Count > 0)
+            {
+                foreach (var oneCell in allCellList)
+                    oneCell.CellState = CellStates.Check;
+
+                return true;
+            }
+            
+            return false;
+        }
+        
+        #endregion
+
+        #region IList<ICell> CheckCell(...
+        
+        public IList<ICell> CheckCell(ICell cell)
+        {
+            IList<ICell> allCellList = new List<ICell>();
+            
+            IList<ICell> horizontalCellsList = CheckLine(LineDirectionTypes.Horizontal, cell);
+            IList<ICell> verticalCellsList = CheckLine(LineDirectionTypes.Vertical, cell);
+            
+            if(horizontalCellsList.Count > 1)
+                foreach (var horCell in horizontalCellsList)
+                {
+                    if(allCellList.Contains(horCell) == false)
+                        allCellList.Add(horCell);
+                }
+            
+            if(verticalCellsList.Count > 1)
+                foreach (var vertCell in verticalCellsList)
+                {
+                    if(allCellList.Contains(vertCell) == false)
+                        allCellList.Add(vertCell);
+                }
+            
+            if(allCellList.Count > 1)
+                allCellList.Add(cell);
+
+            return allCellList;
+        }
+        
+        public IList<ICell> CheckCell(ICell cell, out  LineDirectionTypes highedDirection)
+        {
+            IList<ICell> allCellList = new List<ICell>();
+            
+            IList<ICell> horizontalCellsList = CheckLine(LineDirectionTypes.Horizontal, cell);
+            IList<ICell> verticalCellsList = CheckLine(LineDirectionTypes.Vertical, cell);
+            
+            if(horizontalCellsList.Count > 1)
+                foreach (var horCell in horizontalCellsList)
+                {
+                    if(allCellList.Contains(horCell) == false)
+                        allCellList.Add(horCell);
+                }
+            
+            if(verticalCellsList.Count > 1)
+                foreach (var vertCell in verticalCellsList)
+                {
+                    if(allCellList.Contains(vertCell) == false)
+                        allCellList.Add(vertCell);
+                }
+
+            if (horizontalCellsList.Count > verticalCellsList.Count)
+                highedDirection = LineDirectionTypes.Horizontal;
+            else if (horizontalCellsList.Count < verticalCellsList.Count)
+                highedDirection = LineDirectionTypes.Vertical;
+            else
+                highedDirection = LineDirectionTypes.Undefined;
+            
+            if(allCellList.Count > 1)
+                allCellList.Add(cell);
+
+            return allCellList;
+        }
+        
+        #endregion
+
+        private IList<ICell> CheckLine(LineDirectionTypes lineDirection, ICell cell)
+        {
+            if (cell == null || cell.CellType == CellTypes.Hollow || cell.CurrentGameObject == null)
+                return null;
+
+            IList<ICell> sideCells = new List<ICell>();
 
             int column = cell.TargetX;
             int row = cell.TargetY;
@@ -31,7 +149,7 @@ namespace Mathc3Project
 
             ICell sideCell = null;
 
-            if (lineDirection == LineDirectionType.Horizontal)
+            if (lineDirection == LineDirectionTypes.Horizontal)
             {
                 boardLimit = _board.Width;
                 axis = column;
@@ -41,63 +159,58 @@ namespace Mathc3Project
                 boardLimit = _board.Height;
                 axis = row;
             }
-
+            
             if (axis > 0 && axis < boardLimit)
             {
                 for (int i = axis - 1; i >= 0; i--)
                 {
-                    sideCell = (lineDirection == LineDirectionType.Horizontal)
+                    sideCell = (lineDirection == LineDirectionTypes.Horizontal)
                         ? _board.Cells[i, row]
                         : _board.Cells[column, i];
 
-                    if (sideCell == null || sideCell.CellTypes == CellTypes.Hollow)
+                    if (sideCell == null || sideCell.CellType == CellTypes.Hollow || sideCell.CurrentGameObject == null)
                         break;
-                    else if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
-                        sideAList.Add(sideCell);
+                    if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
+                        sideCells.Add(sideCell);
                     else
                         break;
                 }
             }
-
+            
             if (axis >= 0 && axis < boardLimit)
             {
                 for (int i = axis + 1; i < boardLimit; i++)
                 {
-                    sideCell = (lineDirection == LineDirectionType.Horizontal)
+                    sideCell = (lineDirection == LineDirectionTypes.Horizontal)
                         ? _board.Cells[i, row]
                         : _board.Cells[column, i];
 
-                    if (sideCell == null || sideCell.CellTypes == CellTypes.Hollow)
+                    if (sideCell == null || sideCell.CellType == CellTypes.Hollow || sideCell.CurrentGameObject == null)
                         break;
-                    else if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
-                        sideBList.Add(sideCell);
+                    if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
+                        sideCells.Add(sideCell);
                     else
                         break;
                 }
             }
-
-            if (sideAList.Count + sideBList.Count > 1)
-            {
-                foreach (var cellInListA in sideAList)
-                    cellInListA.IsMatched = true;
-                foreach (var cellInListB in sideBList)
-                    cellInListB.IsMatched = true;
-
-                cell.IsMatched = true;
-            }
+            
+            return sideCells;
         }
 
         public bool SimpleCheck(ICell cell)
         {
-            int column = (int) cell.CurrentGameObject.transform.position.x;
-            int row = (int) cell.CurrentGameObject.transform.position.y;
-
+            if (cell.CellType == CellTypes.Hollow)
+                return false;
+            
+            int column = cell.TargetX;
+            int row = cell.TargetY;
+            
             if (row > 1 && column > 1)
             {
-                if (_board.Cells[column, row - 1] != null &&
-                    _board.Cells[column, row - 2] != null &&
-                    _board.Cells[column - 1, row] != null &&
-                    _board.Cells[column - 2, row] != null)
+                if(!CellIsEmpty(_board.Cells[column, row - 1]) && 
+                   !CellIsEmpty(_board.Cells[column, row - 2]) && 
+                   !CellIsEmpty(_board.Cells[column - 1, row]) && 
+                   !CellIsEmpty(_board.Cells[column - 2, row]))
                 {
                     ICell[] sideCells =
                     {
@@ -107,7 +220,7 @@ namespace Mathc3Project
 
                     foreach (var sideCell in sideCells)
                     {
-                        if (sideCell.Tag == cell.Tag)
+                        if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
                             return true;
                     }
                 }
@@ -116,15 +229,15 @@ namespace Mathc3Project
             {
                 if (row > 1)
                 {
-                    if (_board.Cells[column, row - 1] != null &&
-                        _board.Cells[column, row - 2] != null)
+                    if (!CellIsEmpty(_board.Cells[column, row - 1]) && 
+                        !CellIsEmpty(_board.Cells[column, row - 2]))
                     {
                         ICell[] sideHorizontalCells =
                             {_board.Cells[column, row - 1], _board.Cells[column, row - 2]};
 
                         foreach (var sideCell in sideHorizontalCells)
                         {
-                            if (sideCell.Tag == cell.Tag)
+                            if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
                                 return true;
                         }
                     }
@@ -132,20 +245,28 @@ namespace Mathc3Project
 
                 if (column > 1)
                 {
-                    if (_board.Cells[column - 1, row] != null &&
-                        _board.Cells[column - 2, row] != null)
+                    if (!CellIsEmpty(_board.Cells[column - 1, row]) && 
+                        !CellIsEmpty(_board.Cells[column - 2, row]))
                     {
                         ICell[] sideVerticalCells =
                             {_board.Cells[column - 1, row], _board.Cells[column - 2, row]};
 
                         foreach (var sideCell in sideVerticalCells)
                         {
-                            if (sideCell.Tag == cell.Tag)
+                            if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
                                 return true;
                         }
                     }
                 }
             }
+
+            return false;
+        }
+
+        public bool CellIsEmpty(ICell cell)
+        {
+            if (cell == null || cell.CellType == CellTypes.Hollow || cell.CurrentGameObject == null)
+                return true;
 
             return false;
         }

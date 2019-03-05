@@ -1,28 +1,34 @@
-using Object = System.Object;
-using UnityEngine;
+using System.Collections.Generic;
 using Mathc3Project.Enums;
 using Mathc3Project.Interfaces;
+using Mathc3Project.Interfaces.Observer;
+using UnityEngine;
+using Object = System.Object;
 
-namespace Mathc3Project
+namespace Mathc3Project.Classes
 {
-    public class InputManager : MonoBehaviour, IInputManager
+    public class InputManager : IInputManager, IUpdatable
     {
+        private bool _canUpdate;
         private INotifier _notifier;
 
-        public INotifier Notifier
-        {
-            get { return _notifier; }
-            set { _notifier = value; }
-        }
+        private IList<ISubscriber> _subscribes;
 
-        private void Update()
+        public InputManager(INotifier notifier)
+        {
+            _notifier = notifier;
+            _subscribes = new List<ISubscriber>();
+            _canUpdate = true;
+        }
+       
+        public void DoUpdate()
         {
             if (Input.GetMouseButtonDown(0))
             {
                 Object dataMessage = new Object();
                 dataMessage = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                _notifier.Notify(EventTypeEnum.MOUSE_down, dataMessage);
+                Notify(EventTypes.MOUSE_Down, dataMessage);
                 return;
             }
 
@@ -31,20 +37,43 @@ namespace Mathc3Project
                 Object dataMessage = new Object();
                 dataMessage = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                _notifier.Notify(EventTypeEnum.MOUSE_up, dataMessage);
+                Notify(EventTypes.MOUSE_Up, dataMessage);
                 return;
             }
-
+            
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                _notifier.Notify(EventTypeEnum.UTILITY_boardCellsInfo, null);
+                Notify(EventTypes.UTILITY_BoardCellsInfo, null);
                 return;
             }
-        }
-
+        } 
+        
         public void AddSubscriber(ISubscriber subscriber)
         {
-            _notifier.AddSubscriber(subscriber);
+            if(subscriber != null && !_subscribes.Contains(subscriber))
+                _notifier.AddSubscriber(subscriber);
+        }
+        
+        public void RemoveSubscriber(ISubscriber subscriber)
+        { 
+            if(subscriber != null && _subscribes.Contains(subscriber) )
+                _notifier.RemoveSubscriber(subscriber);
+        }
+
+        public void Notify(EventTypes eventType, Object messageData)
+        {
+            _notifier.Notify(eventType,messageData);
+        }
+        
+        public bool canUpdate  {
+            get { return _canUpdate; }
+            set { _canUpdate = value; }
+        }
+        
+        public INotifier Notifier
+        {
+            get { return _notifier; }
+            set { _notifier = value; }
         }
     }
 }

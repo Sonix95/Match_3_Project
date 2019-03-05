@@ -1,48 +1,32 @@
-using Mathc3Project.Enums;
 using Mathc3Project.Interfaces;
+using Mathc3Project.Interfaces.Cells;
+using Mathc3Project.Interfaces.Observer;
 using UnityEngine;
 
-namespace Mathc3Project
+namespace Mathc3Project.Classes
 {
     public class ObjectSetter : IObjectSetter
     {
-        private ILogicManager _logicManager;
+        private IUpdateManager _updateManager;
         private INotifier _notifier;
 
-        public ObjectSetter(ILogicManager logicManager, INotifier notifier)
+        public ObjectSetter(IUpdateManager updateManager,INotifier notifier)
         {
-            _logicManager = logicManager;
+            _updateManager = updateManager;
             _notifier = notifier;
         }
 
-        public ICell SetGameplayObject(CellTypes type, GameObject go)
+        public void SetGameObject(GameObject go, Vector3 position)
         {
-            ICell cell = go.AddComponent<Cell>();
-
-            switch (type)
-            {
-                case CellTypes.Normal:
-                    cell.CurrentGameObject = go;
-                    cell.CellTypes = CellTypes.Normal;
-                    cell.Notifier = _notifier;
-                    cell.AddSubscriber(_logicManager);
-                    break;
-                case CellTypes.Hollow:
-                    cell.CellTypes = CellTypes.Hollow;
-                    break;
-                case CellTypes.Breakable:
-                    cell.CellTypes = CellTypes.Breakable;
-                    break;
-            }
-
-            return cell;
+            go.name = "CELL[" + position.x + "x" + position.y + "]:" + go.tag;
+            go.transform.position = position;
         }
 
-        public void SetNonGameplayObject(GameObject go, GameObject parent, Vector3 position)
+        public void SetNormalCell(INormalCell normalCell,GameObject go)
         {
-            go.transform.parent = parent.transform;
-            go.transform.position = position + Vector3.forward;
-            go.name = "(" + position.x + ", " + position.y + ")";
+            normalCell.CurrentGameObject = go;
+            normalCell.Notifier = _notifier;
+            _updateManager.AddUpdatable(normalCell);
         }
     }
 }

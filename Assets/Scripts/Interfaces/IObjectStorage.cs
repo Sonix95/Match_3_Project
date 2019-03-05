@@ -5,9 +5,7 @@ namespace Mathc3Project.Interfaces
 {
     public interface IObjectStorage
     {
-        GameObject GetBackTile();
-        GameObject GetBreackableCell();
-        GameObject GetGameElement(int cellIndex);
         GameObject GetRandomGameElement();
+        GameObject GetPowerElement(PowerTypes powerType);
     }
 }
