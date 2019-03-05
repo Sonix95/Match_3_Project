@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Mathc3Project.Classes
 {
-    class LogicManager : MonoBehaviour, ILogicManager
+    public class LogicManager : MonoBehaviour, ILogicManager
     {
         private const float SWIPE_D = 0.1f;
 
@@ -22,6 +22,8 @@ namespace Mathc3Project.Classes
         private Vector3 _clickA;
         private Vector3 _clickB;
 
+        private MoveDirectionTypes _swipeDirection;
+
         private ICommand _macroCommand;
 
         private GameStates _gameState = GameStates.Ready;
@@ -31,6 +33,7 @@ namespace Mathc3Project.Classes
 
         private readonly IDictionary<ICell, IList<ICell>> _matchedCellsDictionary = new Dictionary<ICell, IList<ICell>>();
         private readonly IDictionary<GameObject, Vector2> _fallCellsDictionary = new Dictionary<GameObject, Vector2>();
+        private readonly IDictionary<Vector2, PowerTypes> _powersDictionary = new Dictionary<Vector2, PowerTypes>();
         private ICell _lastFallCell;
         private bool _lastSpawnedCell;
 
@@ -39,39 +42,39 @@ namespace Mathc3Project.Classes
         {
             switch (eventType)
             {
-                case EventTypes.MOUSE_Down:
+                case EventTypes.LMB_Down:
                     _clickA = (Vector3) messageData;
                     break;
 
-                case EventTypes.MOUSE_Up:
+                case EventTypes.LMB_Up:
                     _clickB = (Vector3) messageData;
 
                     if (_gameState == GameStates.Ready &&
                         _clickA.x >= 0 && _clickA.x < _board.Width && _clickA.y >= 0 && _clickA.y < _board.Height &&
                         (Mathf.Abs(_clickB.x - _clickA.x) > SWIPE_D || Mathf.Abs(_clickB.y - _clickA.y) > SWIPE_D))
                     {
-                        MoveDirectionTypes swipeDirection = Helper.FindMoveDirection(_clickA, _clickB);
-                        SwipeCells(swipeDirection);
+                        _swipeDirection = Helper.FindMoveDirection(_clickA, _clickB);
+                        SwipeCells(_swipeDirection);
                     }
 
                     break;
 
-                case EventTypes.Move_Up:
+                case EventTypes.Swipe_Up:
                     _gameState = GameStates.Wait;
                     ExecuteMacroCommand();
                     break;
 
-                case EventTypes.Move_Down:
+                case EventTypes.Swipe_Down:
                     _gameState = GameStates.Wait;
                     ExecuteMacroCommand();
                     break;
 
-                case EventTypes.Move_Left:
+                case EventTypes.Swipe_Left:
                     _gameState = GameStates.Wait;
                     ExecuteMacroCommand();
                     break;
 
-                case EventTypes.Move_Right:
+                case EventTypes.Swipe_Right:
                     _gameState = GameStates.Wait;
                     ExecuteMacroCommand();
                     break;
@@ -98,14 +101,43 @@ namespace Mathc3Project.Classes
                         CheckBoard();
                     break;
 
+                case EventTypes.POWER_Use:
+                    GameObject powerGO = (GameObject) messageData;
+                    Debug.Log("Power" + powerGO.gameObject.tag + " - " + powerGO.transform.position.x + "x" +
+                              powerGO.transform.position.y);
+
+                    string powerType = powerGO.gameObject.tag;
+                    PowerTypes power = PowerTypes.None;
+
+                    switch (powerType)
+                    {
+                        case "Horizontal":
+                            power = PowerTypes.Horizontal;
+                            break;
+                        case "Vertical":
+                            power = PowerTypes.Vertical;
+                            break;
+                        case "Bomb":
+                            power = PowerTypes.Bomb;
+                            break;
+                    }
+
+                    if (_powersDictionary.Contains(
+                            new KeyValuePair<Vector2, PowerTypes>(powerGO.transform.position, power)) == false)
+                        _powersDictionary.Add(powerGO.transform.position, power);
+                    break;
+
                 case EventTypes.BOARD_collapse:
                     ExecuteMacroCommand();
                     break;
 
                 //TODO DELETE ON FINISH
                 case EventTypes.UTILITY_BoardCellsInfo:
-                    foreach (var c in _board.Cells)
-                        Debug.Log(c.CellState);
+                    foreach (var _powers in _powersDictionary)
+                    {
+                        Debug.Log((_powers.Key + " - " + _powers.Value));
+                    }
+
                     break;
 
                 default:
@@ -120,10 +152,35 @@ namespace Mathc3Project.Classes
 
             IList<ICell> cellsList = new List<ICell>(_checkManager.CheckCell(cell));
 
-            if (cellsList.Count > 2)
+            if (cellsList.Count > 2) 
             {
                 _isMatchedSwipe = true;
                 _matchedCellsDictionary.Add(cell, cellsList);
+            }
+
+            if (cell.CurrentGameObject.CompareTag("Power"))
+            {
+                //TODO поменять на другое
+                string powerType = cell.CurrentGameObject.transform.GetChild(0).tag;
+                PowerTypes power = PowerTypes.None;
+                switch (powerType)
+                {
+                    case "Horizontal":
+                        power = PowerTypes.Horizontal;
+                        break;
+                    case "Vertical":
+                        power = PowerTypes.Vertical;
+                        break;
+                    case "Bomb":
+                        power = PowerTypes.Bomb;
+                        break;
+                }
+
+                cellsList = new List<ICell>(_checkManager.PowerCheck(power, cell.CurrentGameObject.transform.position));
+
+                _matchedCellsDictionary.Add(cell, cellsList);
+                _powersDictionary.Add(cell.CurrentGameObject.transform.position, power);
+                _isMatchedSwipe = true;
             }
 
             if (_swipeCounter > 1)
@@ -133,6 +190,7 @@ namespace Mathc3Project.Classes
                 else
                 {
                     _matchedCellsDictionary.Clear();
+                    _powersDictionary.Clear();
                     UndoMacroCommand();
                 }
 
@@ -147,9 +205,9 @@ namespace Mathc3Project.Classes
             _fallCellsDictionary.Clear();
 
             ICell firstMatchedCell = null;
+            
             if (HaveMatches(out firstMatchedCell))
             {
-                Debug.Log("Все еще есть совпадения: " + firstMatchedCell);
                 FindMatches();
                 return;
             }
@@ -173,8 +231,7 @@ namespace Mathc3Project.Classes
             cell = null;
             return false;
         }
-
-        // TODO тут сделать перебор каждой ячейки и сверка на совпадения и если есть то добавляем её в словарь(нужно переделать методы марикровки и удаления на список)
+       
         private void FindMatches()
         {
             foreach (var cell in _board.Cells)
@@ -206,8 +263,10 @@ namespace Mathc3Project.Classes
                 WorkAfterMatch(cellList.Value);
             }
 
-            cellsDictionary.Clear();
-
+            //TODO Цикл на вызов power'ов
+            // -----> Сюда <--------------
+            
+            
             yield return new WaitForSeconds(0.3f);
             DecreaseBoard();
 
@@ -282,7 +341,7 @@ namespace Mathc3Project.Classes
             StartFallCommand(cells);
         }
 
-        public void DecreaseBoard()
+        private void DecreaseBoard()
         {
             for (int i = 0; i < _board.Width; i++)
             for (int j = 0; j < _board.Height; j++)
@@ -330,19 +389,20 @@ namespace Mathc3Project.Classes
             OnEvent(EventTypes.BOARD_collapse, null);
         }
 
-        public void MarkMatchedCells(IList<ICell> cellsToMarkList)
+        private void MarkMatchedCells(IList<ICell> cellsToMarkList)
         {
             foreach (var cell in cellsToMarkList)
+                if(cell.CurrentGameObject != null && cell.CurrentGameObject.CompareTag("Power") == false)
                 MarkCell(cell);
         }
 
-        public void WorkAfterMatch(IList<ICell> cellsAfterMarkList)
+        private void WorkAfterMatch(IList<ICell> cellsAfterMarkList)
         {
             foreach (var cell in cellsAfterMarkList)
                 cell.DoAfterMatch();
         }
 
-        public void MarkCell(ICell cell)
+        private void MarkCell(ICell cell)
         {
             SpriteRenderer render = cell.CurrentGameObject.GetComponent<SpriteRenderer>();
             render.color = new Color(render.color.r, render.color.g, render.color.b, .2f);
@@ -371,7 +431,7 @@ namespace Mathc3Project.Classes
                                 ICommand[] commands = {new SwipeUpCommand(cellA), new SwipeDownCommand(cellB),};
                                 SetMacroCommand(commands);
 
-                                OnEvent(EventTypes.Move_Up, null);
+                                OnEvent(EventTypes.Swipe_Up, null);
                             }
                         }
 
@@ -389,7 +449,7 @@ namespace Mathc3Project.Classes
                                 ICommand[] commands = {new SwipeDownCommand(cellA), new SwipeUpCommand(cellB),};
                                 SetMacroCommand(commands);
 
-                                OnEvent(EventTypes.Move_Down, null);
+                                OnEvent(EventTypes.Swipe_Down, null);
                             }
                         }
 
@@ -407,7 +467,7 @@ namespace Mathc3Project.Classes
                                 ICommand[] commands = {new SwipeLeftCommand(cellA), new SwipeRightCommand(cellB),};
                                 SetMacroCommand(commands);
 
-                                OnEvent(EventTypes.Move_Left, null);
+                                OnEvent(EventTypes.Swipe_Left, null);
                             }
                         }
 
@@ -425,7 +485,7 @@ namespace Mathc3Project.Classes
                                 ICommand[] commands = {new SwipeRightCommand(cellA), new SwipeLeftCommand(cellB),};
                                 SetMacroCommand(commands);
 
-                                OnEvent(EventTypes.Move_Right, null);
+                                OnEvent(EventTypes.Swipe_Right, null);
                             }
                         }
 
@@ -436,17 +496,17 @@ namespace Mathc3Project.Classes
 
         #region Command Implimentation
 
-        public void SetMacroCommand(ICommand[] commands)
+        private void SetMacroCommand(ICommand[] commands)
         {
             _macroCommand = new MacroCommand(commands);
         }
 
-        public void ExecuteMacroCommand()
+        private void ExecuteMacroCommand()
         {
             _macroCommand.Execute();
         }
 
-        public void UndoMacroCommand()
+        private void UndoMacroCommand()
         {
             _macroCommand.Undo();
         }

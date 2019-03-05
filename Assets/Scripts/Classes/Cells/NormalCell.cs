@@ -63,6 +63,12 @@ namespace Mathc3Project.Classes.Cells
 
         public void DoAfterMatch()
         {
+            if (_currentGameObject != null && _currentGameObject.CompareTag("Power"))
+            {
+                GameObject powerGameObject = _currentGameObject.transform.GetChild(0).transform.gameObject;
+                _notifier.Notify(EventTypes.POWER_Use, powerGameObject);
+            }
+            
             GameObject.Destroy(_currentGameObject);
             _currentGameObject = null;
         }

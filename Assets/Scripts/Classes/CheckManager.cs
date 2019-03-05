@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Mathc3Project.Enums;
 using Mathc3Project.Interfaces;
 using Mathc3Project.Interfaces.Cells;
+using UnityEngine;
 
 namespace Mathc3Project.Classes
 {
@@ -19,6 +20,82 @@ namespace Mathc3Project.Classes
 
             return false;
         }
+
+        #region Powers
+        
+        public IList<ICell> PowerCheck(PowerTypes powerType, Vector2 position)
+        {
+            IList<ICell> checkedCells = new List<ICell>();
+
+            int posX = (int) position.x;
+            int posY = (int) position.y;
+            
+            switch (powerType)
+            {
+                case PowerTypes.Horizontal:
+                    checkedCells = HorizontalPower(posY);
+                    break;
+                case PowerTypes.Vertical:
+                    checkedCells = VerticalPower(posX);
+                    break;
+                case PowerTypes.Bomb:
+                    checkedCells = BombPower(posX,posY);
+                    break;
+                
+                default:
+                    checkedCells.Add(_board.Cells[posX, posY]);
+                    break;
+            }
+
+            return checkedCells;
+        }
+
+        private IList<ICell> HorizontalPower(int positionY)
+        {
+            IList<ICell> checkedCells = new List<ICell>();
+
+            foreach (var cell in _board.Cells)
+                if (cell.CellType != CellTypes.Hollow && cell.TargetY == positionY)
+                    checkedCells.Add(cell);
+
+            return checkedCells;
+        }
+
+        private IList<ICell> VerticalPower(int positionX)
+        {
+            IList<ICell> checkedCells = new List<ICell>();
+
+            foreach (var cell in _board.Cells)
+                if (cell.CellType != CellTypes.Hollow && cell.TargetX == positionX)
+                    checkedCells.Add(cell);
+
+            return checkedCells;
+        }
+
+        private IList<ICell> BombPower(int posX, int posY)
+        {
+            IList<ICell> checkedCells = new List<ICell>();
+
+            foreach (var cell in _board.Cells)
+                if (cell.CellType != CellTypes.Hollow)
+                {
+                    int x = Mathf.Abs(cell.TargetX - posX);
+                    int y = Mathf.Abs(cell.TargetY - posY);
+
+                    if (x < 3 && x > 0 && y < 2)
+                        checkedCells.Add(cell);
+                    else if (y < 3 && y > 0 && x < 2)
+                        checkedCells.Add(cell);
+                    else if (x == 1 && y == 1 || x == 1 && y == 0 || x == 0 && y == 1)
+                        checkedCells.Add(cell);
+                    else if (x == 0 && y == 0)
+                        checkedCells.Add(cell);
+                }
+
+            return checkedCells;
+        }
+
+        #endregion
 
         #region bool JustCheckCell(...
         
@@ -168,7 +245,7 @@ namespace Mathc3Project.Classes
                         ? _board.Cells[i, row]
                         : _board.Cells[column, i];
 
-                    if (sideCell == null || sideCell.CellType == CellTypes.Hollow || sideCell.CurrentGameObject == null)
+                    if (sideCell == null || sideCell.CellType == CellTypes.Hollow || sideCell.CurrentGameObject == null || sideCell.CurrentGameObject.CompareTag("Power"))
                         break;
                     if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
                         sideCells.Add(sideCell);
@@ -185,7 +262,7 @@ namespace Mathc3Project.Classes
                         ? _board.Cells[i, row]
                         : _board.Cells[column, i];
 
-                    if (sideCell == null || sideCell.CellType == CellTypes.Hollow || sideCell.CurrentGameObject == null)
+                    if (sideCell == null || sideCell.CellType == CellTypes.Hollow || sideCell.CurrentGameObject == null || sideCell.CurrentGameObject.CompareTag("Power"))
                         break;
                     if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
                         sideCells.Add(sideCell);

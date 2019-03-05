@@ -28,7 +28,7 @@ namespace Mathc3Project.Classes
                 Object dataMessage = new Object();
                 dataMessage = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                Notify(EventTypes.MOUSE_Down, dataMessage);
+                Notify(EventTypes.LMB_Down, dataMessage);
                 return;
             }
 
@@ -37,7 +37,7 @@ namespace Mathc3Project.Classes
                 Object dataMessage = new Object();
                 dataMessage = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                Notify(EventTypes.MOUSE_Up, dataMessage);
+                Notify(EventTypes.LMB_Up, dataMessage);
                 return;
             }
             

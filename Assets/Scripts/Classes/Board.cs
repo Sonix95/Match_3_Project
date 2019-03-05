@@ -1,4 +1,5 @@
 ﻿using Mathc3Project.Classes.Cells;
+using Mathc3Project.Enums;
 using Mathc3Project.Interfaces;
 using Mathc3Project.Interfaces.Cells;
 using UnityEngine;
@@ -33,6 +34,13 @@ namespace Mathc3Project.Classes
         {
             GenerateHollowCell(2, 2);
             GenerateHollowCell(2, 3);
+            GenerateHollowCell(0, 0);
+            
+            GeneratePower(PowerTypes.Vertical, 4,4);
+            GeneratePower(PowerTypes.Horizontal, 4,3);
+            GeneratePower(PowerTypes.Bomb, 5,3);
+            GeneratePower(PowerTypes.Horizontal, 4,7);
+
         }
 
         private void GenerateHollowCell(int x, int y)
@@ -40,6 +48,14 @@ namespace Mathc3Project.Classes
             _cells[x,y] = new HollowCell(x,y);
         }
 
+        private void GeneratePower(PowerTypes powerType,int x, int y)
+        {
+            Vector2 pos = new Vector2(x,y);
+            _cells[x, y] = _spawnManager.SpawnNormalCell(pos);
+            GameObject.Destroy(_cells[x, y].CurrentGameObject);
+            _cells[x, y].CurrentGameObject = _spawnManager.SpawnPowerPrefab(powerType, pos);
+        }
+        
         private void Initial()
         {
             for (int i = 0; i < _width; i++)
@@ -63,6 +79,7 @@ namespace Mathc3Project.Classes
 
                         maxLimit++;
                     }
+                    
 
                     maxLimit = 0;
 
