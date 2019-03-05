@@ -19,5 +19,6 @@ namespace Mathc3Project.Enums
         POWER_Use,
         
         BOARD_collapse,
+        BOARD_EndDestroyMatchedCells
     }
 }

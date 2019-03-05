@@ -30,5 +30,25 @@ namespace Mathc3Project.Classes.StaticClasses
             
             return moveDirection;
         }
+
+        public static PowerTypes StringToPowerType(string powerTypeString)
+        {
+            PowerTypes powerType = PowerTypes.None;
+
+            switch (powerTypeString)
+            {
+                case "Horizontal":
+                    powerType = PowerTypes.Horizontal;
+                    break;
+                case "Vertical":
+                    powerType = PowerTypes.Vertical;
+                    break;
+                case "Bomb":
+                    powerType = PowerTypes.Bomb;
+                    break;
+            }
+
+            return powerType;
+        }
     }
 }

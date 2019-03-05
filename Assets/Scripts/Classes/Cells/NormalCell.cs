@@ -1,3 +1,4 @@
+using System.Collections;
 using Mathc3Project.Enums;
 using Mathc3Project.Interfaces.Cells;
 using Mathc3Project.Interfaces.Observer;
@@ -66,7 +67,11 @@ namespace Mathc3Project.Classes.Cells
             if (_currentGameObject != null && _currentGameObject.CompareTag("Power"))
             {
                 GameObject powerGameObject = _currentGameObject.transform.GetChild(0).transform.gameObject;
-                _notifier.Notify(EventTypes.POWER_Use, powerGameObject);
+                ArrayList typeAndPos = new ArrayList();
+                typeAndPos.Add(powerGameObject.tag);
+                typeAndPos.Add(_currentGameObject.transform.position);
+                
+                _notifier.Notify(EventTypes.POWER_Use, typeAndPos);
             }
             
             GameObject.Destroy(_currentGameObject);

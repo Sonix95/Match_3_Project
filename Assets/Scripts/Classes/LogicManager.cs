@@ -102,35 +102,36 @@ namespace Mathc3Project.Classes
                     break;
 
                 case EventTypes.POWER_Use:
-                    GameObject powerGO = (GameObject) messageData;
-                    Debug.Log("Power" + powerGO.gameObject.tag + " - " + powerGO.transform.position.x + "x" +
-                              powerGO.transform.position.y);
+                    ArrayList arr = (ArrayList) messageData;
 
-                    string powerType = powerGO.gameObject.tag;
-                    PowerTypes power = PowerTypes.None;
+                    PowerTypes power = Helper.StringToPowerType(arr[0].ToString());
+                    Vector3 position = (Vector3) arr[1];
 
-                    switch (powerType)
-                    {
-                        case "Horizontal":
-                            power = PowerTypes.Horizontal;
-                            break;
-                        case "Vertical":
-                            power = PowerTypes.Vertical;
-                            break;
-                        case "Bomb":
-                            power = PowerTypes.Bomb;
-                            break;
-                    }
-
-                    if (_powersDictionary.Contains(
-                            new KeyValuePair<Vector2, PowerTypes>(powerGO.transform.position, power)) == false)
-                        _powersDictionary.Add(powerGO.transform.position, power);
+                    _powersDictionary.Add(position,power);
                     break;
 
                 case EventTypes.BOARD_collapse:
                     ExecuteMacroCommand();
                     break;
 
+                case EventTypes.BOARD_EndDestroyMatchedCells:
+                    if (_powersDictionary.Count > 0)
+                    {
+                        Vector2 pos = _powersDictionary.First().Key;
+                        PowerTypes powerType = _powersDictionary.First().Value;
+                        
+                        List<ICell> cellsList = new List<ICell>(_checkManager.PowerCheck(powerType,pos));
+                        ICell cell = _board.Cells[(int) pos.x, (int) pos.y];
+                        
+                        _matchedCellsDictionary.Add(cell, cellsList);
+                        _powersDictionary.Remove(_powersDictionary.First());
+                        
+                        StartCoroutine(MarkAndDestroy(_matchedCellsDictionary));
+                    }
+                    else
+                        StartCoroutine(RefillBoard());
+                    break;
+                
                 //TODO DELETE ON FINISH
                 case EventTypes.UTILITY_BoardCellsInfo:
                     foreach (var _powers in _powersDictionary)
@@ -152,35 +153,15 @@ namespace Mathc3Project.Classes
 
             IList<ICell> cellsList = new List<ICell>(_checkManager.CheckCell(cell));
 
-            if (cellsList.Count > 2) 
+            if (cellsList.Count > 2 || cell.CurrentGameObject.CompareTag("Power")) 
             {
-                _isMatchedSwipe = true;
-                _matchedCellsDictionary.Add(cell, cellsList);
-            }
-
-            if (cell.CurrentGameObject.CompareTag("Power"))
-            {
-                //TODO поменять на другое
-                string powerType = cell.CurrentGameObject.transform.GetChild(0).tag;
-                PowerTypes power = PowerTypes.None;
-                switch (powerType)
+                if (cell.CurrentGameObject.CompareTag("Power"))
                 {
-                    case "Horizontal":
-                        power = PowerTypes.Horizontal;
-                        break;
-                    case "Vertical":
-                        power = PowerTypes.Vertical;
-                        break;
-                    case "Bomb":
-                        power = PowerTypes.Bomb;
-                        break;
+                    cellsList.Add(cell);
                 }
-
-                cellsList = new List<ICell>(_checkManager.PowerCheck(power, cell.CurrentGameObject.transform.position));
-
-                _matchedCellsDictionary.Add(cell, cellsList);
-                _powersDictionary.Add(cell.CurrentGameObject.transform.position, power);
+                
                 _isMatchedSwipe = true;
+                _matchedCellsDictionary.Add(cell, cellsList);
             }
 
             if (_swipeCounter > 1)
@@ -203,10 +184,8 @@ namespace Mathc3Project.Classes
         {
             _lastSpawnedCell = false;
             _fallCellsDictionary.Clear();
-
-            ICell firstMatchedCell = null;
             
-            if (HaveMatches(out firstMatchedCell))
+            if (HaveMatches())
             {
                 FindMatches();
                 return;
@@ -215,20 +194,16 @@ namespace Mathc3Project.Classes
             _gameState = GameStates.Ready;
         }
 
-        private bool HaveMatches(out ICell cell)
+        private bool HaveMatches()
         {
             for (int i = 0; i < _board.Width; i++)
             for (int j = 0; j < _board.Height; j++)
             {
                 if (_board.Cells[i, j].CellType != CellTypes.Hollow && _board.Cells[i, j].CurrentGameObject != null)
                     if (_checkManager.HaveMatch(_board.Cells[i, j]))
-                    {
-                        cell = _board.Cells[i, j];
                         return true;
-                    }
             }
 
-            cell = null;
             return false;
         }
        
@@ -256,21 +231,23 @@ namespace Mathc3Project.Classes
                 MarkMatchedCells(cellList.Value);
             }
 
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.2f);
 
             foreach (var cellList in cellsDictionary)
             {
                 WorkAfterMatch(cellList.Value);
             }
+            
+            _matchedCellsDictionary.Clear();
 
-            //TODO Цикл на вызов power'ов
-            // -----> Сюда <--------------
-            
-            
-            yield return new WaitForSeconds(0.3f);
+            OnEvent(EventTypes.BOARD_EndDestroyMatchedCells, null);
+        }
+        
+        IEnumerator RefillBoard()
+        {            
             DecreaseBoard();
 
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.2f);
             SpawnNewCells();
         }
 
