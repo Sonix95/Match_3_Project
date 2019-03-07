@@ -24,7 +24,7 @@ namespace Mathc3Project.Classes.Observer
 
         public void RemoveSubscriber(ISubscriber subscriber)
         {
-            if (_subscribersList != null && _subscribersList.Contains(subscriber) == true)
+            if (_subscribersList != null && _subscribersList.Contains(subscriber))
             {
                 _subscribersList.Remove(subscriber);
             }

@@ -8,8 +8,8 @@ namespace Mathc3Project.Classes
 {
     public class SpawnManager : ISpawnManager
     {
-        private IObjectStorage _objectStorage;
-        private IObjectSetter _objectSetter;
+        private readonly IObjectStorage _objectStorage;
+        private readonly IObjectSetter _objectSetter;
 
         public SpawnManager(IObjectStorage objectStorage, IObjectSetter objectSetter)
         {
@@ -25,9 +25,9 @@ namespace Mathc3Project.Classes
             return newGameObject;
         }
 
-        public GameObject SpawnPowerPrefab(PowerTypes powerType, Vector3 position)
+        public GameObject SpawnPowerPrefab(PowerUpTypes powerUpType, Vector3 position)
         {
-            GameObject powerGameObject = _objectStorage.GetPowerElement(powerType);
+            GameObject powerGameObject = _objectStorage.GetPowerElement(powerUpType);
             _objectSetter.SetGameObject(powerGameObject, position);
             
             return powerGameObject;

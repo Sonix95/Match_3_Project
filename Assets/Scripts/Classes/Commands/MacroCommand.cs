@@ -4,7 +4,7 @@ namespace Mathc3Project.Classes.Commands
 {
     public class MacroCommand : ICommand
     {
-        private ICommand[] _commands;
+        private readonly ICommand[] _commands;
 
         public MacroCommand(ICommand[] commands)
         {
@@ -13,18 +13,21 @@ namespace Mathc3Project.Classes.Commands
 
         public void Execute()
         {
-            foreach (var command in _commands)
+            if (_commands.Length > 0)
             {
-                command.Execute();
+                foreach (var command in _commands)
+                    command.Execute();
             }
         }
 
         public void Undo()
         {
-            foreach (var command in _commands)
+            if (_commands.Length > 0)
             {
-                command.Undo();
+                foreach (var command in _commands)
+                    command.Undo();
             }
         }
+        
     }
 }

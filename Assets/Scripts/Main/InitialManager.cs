@@ -1,5 +1,6 @@
 ﻿using Mathc3Project.Classes;
 using Mathc3Project.Classes.Observer;
+using Mathc3Project.Classes.StaticClasses;
 using Mathc3Project.Interfaces;
 using Mathc3Project.Interfaces.Observer;
 using UnityEngine;
@@ -33,8 +34,8 @@ namespace Mathc3Project.Main
 
         public void Create()
         {
-            _updateManager = new GameObject("Update Manager").AddComponent<UpdateManager>();
-            _logicManager = new GameObject("Logic Manager").AddComponent<LogicManager>();
+            _updateManager = new GameObject(MagicStrings.Update_Manager).AddComponent<UpdateManager>();
+            _logicManager = new GameObject(MagicStrings.Logic_Manager).AddComponent<LogicManager>();
             GameObject empty = new GameObject("---------------");
 
             _notifier = new Notifier();

@@ -7,10 +7,7 @@ namespace Mathc3Project.Enums
         LMB_Down,
         LMB_Up,
         
-        Swipe_Up,
-        Swipe_Down,
-        Swipe_Left,
-        Swipe_Right,
+        Swipe,
         
         CELL_EndMove,
         CELL_EndMoveBack,

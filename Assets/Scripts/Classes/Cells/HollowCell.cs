@@ -1,3 +1,4 @@
+using Mathc3Project.Classes.StaticClasses;
 using Mathc3Project.Enums;
 using Mathc3Project.Interfaces.Cells;
 using UnityEngine;
@@ -18,22 +19,21 @@ namespace Mathc3Project.Classes.Cells
             _y = y;
             _cellType = CellTypes.Hollow;
             _cellStates = CellStates.Lock;
-            _currentGameObject = null;
         }
 
         public void Move()
         {
-            throw new System.NotImplementedException();
+            // -- no implementation --
         }
 
         public void DoAfterMatch()
         {
-            throw new System.NotImplementedException();
+            // -- no implementation --
         }
 
         public override string ToString()
         {
-            string message = "Данная ячейка [" + _x + "x" + _y + "] полая";
+            string message = MagicStrings.Hollow_Cell + _x + "x" + _y;
             return message;
         }
 

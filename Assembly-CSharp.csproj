@@ -76,14 +76,15 @@
     <Compile Include="Assets\Scripts\Classes\Observer\Notifier.cs" />
     <Compile Include="Assets\Scripts\Classes\SpawnManager.cs" />
     <Compile Include="Assets\Scripts\Classes\StaticClasses\Helper.cs" />
+    <Compile Include="Assets\Scripts\Classes\StaticClasses\MagicStrings.cs" />
     <Compile Include="Assets\Scripts\Classes\UpdateManager.cs" />
+    <Compile Include="Assets\Scripts\Enums\AxisTypes.cs" />
     <Compile Include="Assets\Scripts\Enums\CellStates.cs" />
     <Compile Include="Assets\Scripts\Enums\CellTypes.cs" />
     <Compile Include="Assets\Scripts\Enums\EventTypes.cs" />
     <Compile Include="Assets\Scripts\Enums\GameStates.cs" />
-    <Compile Include="Assets\Scripts\Enums\LineDirectionTypes.cs" />
     <Compile Include="Assets\Scripts\Enums\MoveDirectionTypes.cs" />
-    <Compile Include="Assets\Scripts\Enums\PowerTypes.cs" />
+    <Compile Include="Assets\Scripts\Enums\PowerUpTypes.cs" />
     <Compile Include="Assets\Scripts\Interfaces\Cells\ICell.cs" />
     <Compile Include="Assets\Scripts\Interfaces\Cells\INormalCell.cs" />
     <Compile Include="Assets\Scripts\Interfaces\Command\ICommand.cs" />

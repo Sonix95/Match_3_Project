@@ -13,8 +13,6 @@ namespace Mathc3Project.Classes
 {
     public class LogicManager : MonoBehaviour, ILogicManager
     {
-        private const float SWIPE_D = 0.1f;
-
         private IBoard _board;
         private ICheckManager _checkManager;
         private ISpawnManager _spawnManager;
@@ -22,21 +20,22 @@ namespace Mathc3Project.Classes
         private Vector3 _clickA;
         private Vector3 _clickB;
 
-        private MoveDirectionTypes _swipeDirection;
-
         private ICommand _macroCommand;
 
         private GameStates _gameState = GameStates.Ready;
 
         private bool _isMatchedSwipe;
         private int _swipeCounter;
-
-        private readonly IDictionary<ICell, IList<ICell>> _matchedCellsDictionary = new Dictionary<ICell, IList<ICell>>();
+        
         private readonly IDictionary<GameObject, Vector2> _fallCellsDictionary = new Dictionary<GameObject, Vector2>();
-        private readonly IDictionary<Vector2, PowerTypes> _powersDictionary = new Dictionary<Vector2, PowerTypes>();
+        private readonly IDictionary<Vector2, PowerUpTypes> _powersDictionary = new Dictionary<Vector2, PowerUpTypes>();
+        private readonly IDictionary<Vector3,PowerUpTypes> _spawnedPowerUpDictionary = new Dictionary<Vector3, PowerUpTypes>();
+        private readonly IDictionary<IList<ICell>, AxisTypes> _matchedCellsDictionary = new Dictionary<IList<ICell>,AxisTypes>();
+        private IDictionary<ICell, IDictionary<IList<ICell>, AxisTypes>>
+            _matchedCellsWithAxisDictionary = new Dictionary<ICell, IDictionary<IList<ICell>, AxisTypes>>();
+        
         private ICell _lastFallCell;
         private bool _lastSpawnedCell;
-
 
         public void OnEvent(EventTypes eventType, object messageData)
         {
@@ -49,32 +48,20 @@ namespace Mathc3Project.Classes
                 case EventTypes.LMB_Up:
                     _clickB = (Vector3) messageData;
 
-                    if (_gameState == GameStates.Ready &&
-                        _clickA.x >= 0 && _clickA.x < _board.Width && _clickA.y >= 0 && _clickA.y < _board.Height &&
-                        (Mathf.Abs(_clickB.x - _clickA.x) > SWIPE_D || Mathf.Abs(_clickB.y - _clickA.y) > SWIPE_D))
+                    if (_gameState == GameStates.Ready)
                     {
-                        _swipeDirection = Helper.FindMoveDirection(_clickA, _clickB);
-                        SwipeCells(_swipeDirection);
+                        if (_clickA.x >= 0 && _clickA.x < _board.Width && _clickA.y >= 0 && _clickA.y < _board.Height &&
+                            (Mathf.Abs(_clickB.x - _clickA.x) > MagicStrings.SWIPE_SENSITIVITY ||
+                             Mathf.Abs(_clickB.y - _clickA.y) > MagicStrings.SWIPE_SENSITIVITY))
+                        {
+                            MoveDirectionTypes swipeDirection = Helper.FindMoveDirection(_clickA, _clickB);
+                            SwipeCells(swipeDirection);
+                        }
                     }
 
                     break;
 
-                case EventTypes.Swipe_Up:
-                    _gameState = GameStates.Wait;
-                    ExecuteMacroCommand();
-                    break;
-
-                case EventTypes.Swipe_Down:
-                    _gameState = GameStates.Wait;
-                    ExecuteMacroCommand();
-                    break;
-
-                case EventTypes.Swipe_Left:
-                    _gameState = GameStates.Wait;
-                    ExecuteMacroCommand();
-                    break;
-
-                case EventTypes.Swipe_Right:
+                case EventTypes.Swipe:
                     _gameState = GameStates.Wait;
                     ExecuteMacroCommand();
                     break;
@@ -104,10 +91,10 @@ namespace Mathc3Project.Classes
                 case EventTypes.POWER_Use:
                     ArrayList arr = (ArrayList) messageData;
 
-                    PowerTypes power = Helper.StringToPowerType(arr[0].ToString());
+                    PowerUpTypes powerUp = Helper.StringToPowerType(arr[0].ToString());
                     Vector3 position = (Vector3) arr[1];
 
-                    _powersDictionary.Add(position,power);
+                    _powersDictionary.Add(position, powerUp);
                     break;
 
                 case EventTypes.BOARD_collapse:
@@ -118,31 +105,34 @@ namespace Mathc3Project.Classes
                     if (_powersDictionary.Count > 0)
                     {
                         Vector2 pos = _powersDictionary.First().Key;
-                        PowerTypes powerType = _powersDictionary.First().Value;
-                        
-                        List<ICell> cellsList = new List<ICell>(_checkManager.PowerCheck(powerType,pos));
+                        PowerUpTypes powerUpType = _powersDictionary.First().Value;
+
+                        List<ICell> cellsList = new List<ICell>(_checkManager.PowerCheck(powerUpType, pos));
                         ICell cell = _board.Cells[(int) pos.x, (int) pos.y];
-                        
-                        _matchedCellsDictionary.Add(cell, cellsList);
+
+                        _matchedCellsDictionary.Add(cellsList, AxisTypes.Undefined);
+                        _matchedCellsWithAxisDictionary.Add(cell, _matchedCellsDictionary);
+
                         _powersDictionary.Remove(_powersDictionary.First());
-                        
-                        StartCoroutine(MarkAndDestroy(_matchedCellsDictionary));
+
+                        StartCoroutine(MarkAndDestroy(_matchedCellsWithAxisDictionary));
                     }
                     else
                         StartCoroutine(RefillBoard());
+
                     break;
-                
+
                 //TODO DELETE ON FINISH
                 case EventTypes.UTILITY_BoardCellsInfo:
-                    foreach (var _powers in _powersDictionary)
-                    {
-                        Debug.Log((_powers.Key + " - " + _powers.Value));
-                    }
+                    foreach (var boardCell in _board.Cells)
+                        Debug.Log(boardCell.CellState);
 
+                    _gameState = GameStates.Ready;
+                    
                     break;
 
                 default:
-                    Debug.Log("EVENT NOT FOUND");
+                    Debug.Log(MagicStrings.Event_Not_Found);
                     break;
             }
         }
@@ -151,27 +141,29 @@ namespace Mathc3Project.Classes
         {
             _swipeCounter++;
 
-            IList<ICell> cellsList = new List<ICell>(_checkManager.CheckCell(cell));
+            AxisTypes majorAxis;
+            IList<ICell> cellsList = new List<ICell>(_checkManager.CheckCell(cell, out majorAxis));
 
-            if (cellsList.Count > 2 || cell.CurrentGameObject.CompareTag("Power")) 
+            if (cellsList.Count > 2 || cell.CurrentGameObject.CompareTag(MagicStrings.Tag_Power))
             {
-                if (cell.CurrentGameObject.CompareTag("Power"))
-                {
+                if (cell.CurrentGameObject.CompareTag(MagicStrings.Tag_Power))
                     cellsList.Add(cell);
-                }
-                
+
+                _matchedCellsDictionary.Add(cellsList, majorAxis);
+                _matchedCellsWithAxisDictionary.Add(cell, _matchedCellsDictionary);
+
                 _isMatchedSwipe = true;
-                _matchedCellsDictionary.Add(cell, cellsList);
             }
 
             if (_swipeCounter > 1)
             {
                 if (_isMatchedSwipe)
-                    StartCoroutine(MarkAndDestroy(_matchedCellsDictionary));
+                    StartCoroutine(MarkAndDestroy(_matchedCellsWithAxisDictionary));
                 else
                 {
+                    _matchedCellsWithAxisDictionary.Clear();
                     _matchedCellsDictionary.Clear();
-                    _powersDictionary.Clear();
+                    
                     UndoMacroCommand();
                 }
 
@@ -183,8 +175,11 @@ namespace Mathc3Project.Classes
         private void CheckBoard()
         {
             _lastSpawnedCell = false;
+
             _fallCellsDictionary.Clear();
-            
+            _matchedCellsDictionary.Clear();
+            _matchedCellsWithAxisDictionary.Clear();
+
             if (HaveMatches())
             {
                 FindMatches();
@@ -194,60 +189,103 @@ namespace Mathc3Project.Classes
             _gameState = GameStates.Ready;
         }
 
-        private bool HaveMatches()
+        private bool HaveMatches(
+        )
         {
             for (int i = 0; i < _board.Width; i++)
             for (int j = 0; j < _board.Height; j++)
             {
-                if (_board.Cells[i, j].CellType != CellTypes.Hollow && _board.Cells[i, j].CurrentGameObject != null)
+                if (Helper.CellIsEmpty(_board.Cells[i, j]) == false)
                     if (_checkManager.HaveMatch(_board.Cells[i, j]))
                         return true;
             }
 
             return false;
         }
-       
+
         private void FindMatches()
         {
             foreach (var cell in _board.Cells)
             {
+                AxisTypes majorAxis = AxisTypes.Undefined;
+
                 IList<ICell> matchedCellsList = new List<ICell>();
-                LineDirectionTypes highedDirection = LineDirectionTypes.Undefined;
-                
-                if (cell.CellType != CellTypes.Hollow && cell.CellState != CellStates.Check)
+
+                IDictionary<IList<ICell>, AxisTypes> matchedCellsDictionary =
+                    new Dictionary<IList<ICell>, AxisTypes>();
+
+                if (Helper.CellIsEmpty(cell) == false)
                 {
-                    _checkManager.JustCheckCell(cell, out matchedCellsList);
-                    _matchedCellsDictionary.Add(cell, matchedCellsList);
+                    if (cell.CellState != CellStates.Check)
+                    {
+                        matchedCellsList = _checkManager.CheckCell(cell, out majorAxis);
+                        matchedCellsDictionary.Add(matchedCellsList, majorAxis);
+                        _matchedCellsWithAxisDictionary.Add(cell, matchedCellsDictionary);
+                    }
                 }
             }
 
-            StartCoroutine(MarkAndDestroy(_matchedCellsDictionary));
+            StartCoroutine(MarkAndDestroy(_matchedCellsWithAxisDictionary));
         }
-
-        private IEnumerator MarkAndDestroy(IDictionary<ICell, IList<ICell>> cellsDictionary)
+       
+        private IEnumerator MarkAndDestroy(IDictionary<ICell, IDictionary<IList<ICell>, AxisTypes>> cellsWithAxisDictionary)
         {
-            foreach (var cellList in cellsDictionary)
+            foreach (var cellDictionary in cellsWithAxisDictionary)
             {
-                MarkMatchedCells(cellList.Value);
+                foreach (var cellList in cellDictionary.Value)
+                {
+                    MarkMatchedCells(cellList.Key);
+                }
             }
 
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(MagicStrings.TIME_AFTER_MARK);
 
-            foreach (var cellList in cellsDictionary)
+            foreach (var cellDictionary in cellsWithAxisDictionary)
             {
-                WorkAfterMatch(cellList.Value);
+                foreach (var cellList in cellDictionary.Value)
+                {
+                    if (cellDictionary.Key.CurrentGameObject != null)
+                    {
+                        if (cellList.Key.Count > 3 &&
+                            cellDictionary.Key.CurrentGameObject.CompareTag(MagicStrings.Tag_Power) == false)
+                        {
+                            AxisTypes majorAxis = cellList.Value;
+                            int matchCount = cellList.Key.Count;
+
+                            PowerUpTypes powerUp = Helper.DetectPowerUp(matchCount, majorAxis);
+                            _spawnedPowerUpDictionary.Add(
+                                new Vector3(cellDictionary.Key.TargetX, cellDictionary.Key.TargetY, 0f), powerUp);
+                        }
+                    }
+
+                    WorkAfterMatch(cellList.Key);
+                }
             }
-            
+
+            _matchedCellsWithAxisDictionary.Clear();
             _matchedCellsDictionary.Clear();
 
+            yield return new WaitForSeconds(MagicStrings.TIME_AFTER_DESTROY);
             OnEvent(EventTypes.BOARD_EndDestroyMatchedCells, null);
         }
-        
-        IEnumerator RefillBoard()
-        {            
+
+        private IEnumerator RefillBoard()
+        {
+            if (_spawnedPowerUpDictionary.Count > 0)
+            {
+                foreach (var spawnedPowerUp in _spawnedPowerUpDictionary)
+                {
+                    GameObject spawnedPowerUpGO = _spawnManager.SpawnPowerPrefab(spawnedPowerUp.Value, spawnedPowerUp.Key);
+                    _board.Cells[(int) spawnedPowerUp.Key.x, (int) spawnedPowerUp.Key.y].CurrentGameObject =
+                        spawnedPowerUpGO;
+                }
+            }
+
+            _spawnedPowerUpDictionary.Clear();
+
             DecreaseBoard();
 
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(MagicStrings.TIME_AFTER_DECREASE);
             SpawnNewCells();
         }
 
@@ -366,18 +404,18 @@ namespace Mathc3Project.Classes
             OnEvent(EventTypes.BOARD_collapse, null);
         }
 
-        private void MarkMatchedCells(IList<ICell> cellsToMarkList)
-        {
-            foreach (var cell in cellsToMarkList)
-                if(cell.CurrentGameObject != null && cell.CurrentGameObject.CompareTag("Power") == false)
-                MarkCell(cell);
-        }
-
         private void WorkAfterMatch(IList<ICell> cellsAfterMarkList)
         {
             foreach (var cell in cellsAfterMarkList)
                 cell.DoAfterMatch();
         }
+
+        private void MarkMatchedCells(IList<ICell> cellsToMarkList)
+        {
+            foreach (var cell in cellsToMarkList)
+                if (cell.CurrentGameObject != null && cell.CurrentGameObject.CompareTag(MagicStrings.Tag_Power) == false)
+                    MarkCell(cell);
+        }        
 
         private void MarkCell(ICell cell)
         {
@@ -408,7 +446,7 @@ namespace Mathc3Project.Classes
                                 ICommand[] commands = {new SwipeUpCommand(cellA), new SwipeDownCommand(cellB),};
                                 SetMacroCommand(commands);
 
-                                OnEvent(EventTypes.Swipe_Up, null);
+                                OnEvent(EventTypes.Swipe, null);
                             }
                         }
 
@@ -426,7 +464,7 @@ namespace Mathc3Project.Classes
                                 ICommand[] commands = {new SwipeDownCommand(cellA), new SwipeUpCommand(cellB),};
                                 SetMacroCommand(commands);
 
-                                OnEvent(EventTypes.Swipe_Down, null);
+                                OnEvent(EventTypes.Swipe, null);
                             }
                         }
 
@@ -444,7 +482,7 @@ namespace Mathc3Project.Classes
                                 ICommand[] commands = {new SwipeLeftCommand(cellA), new SwipeRightCommand(cellB),};
                                 SetMacroCommand(commands);
 
-                                OnEvent(EventTypes.Swipe_Left, null);
+                                OnEvent(EventTypes.Swipe, null);
                             }
                         }
 
@@ -462,7 +500,7 @@ namespace Mathc3Project.Classes
                                 ICommand[] commands = {new SwipeRightCommand(cellA), new SwipeLeftCommand(cellB),};
                                 SetMacroCommand(commands);
 
-                                OnEvent(EventTypes.Swipe_Right, null);
+                                OnEvent(EventTypes.Swipe, null);
                             }
                         }
 

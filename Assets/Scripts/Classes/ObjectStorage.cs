@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Mathc3Project.Classes.StaticClasses;
 using Mathc3Project.Enums;
 using Mathc3Project.Interfaces;
 using UnityEngine;
@@ -9,23 +10,23 @@ namespace Mathc3Project.Classes
     public class ObjectStorage : IObjectStorage
     {
         private readonly IList<GameObject> _normalCellsPrefabsList;
-        private IDictionary<PowerTypes, GameObject> _powersPrefabs;
+        private readonly IDictionary<PowerUpTypes, GameObject> _powersPrefabs;
 
         public ObjectStorage()
         {
-            _powersPrefabs = new Dictionary<PowerTypes, GameObject>();
+            _powersPrefabs = new Dictionary<PowerUpTypes, GameObject>();
             _normalCellsPrefabsList = new List<GameObject>();
 
-            Object[] objTempArray = Resources.LoadAll("Prefabs/Gameplay/Elements");
+            Object[] objTempArray = Resources.LoadAll(MagicStrings.Gameplay_Elements);
             for (int i = 0; i < objTempArray.Length; i++)
             {
                 _normalCellsPrefabsList.Add(objTempArray[i] as GameObject);
             }
-            
-            _powersPrefabs.Add(PowerTypes.Horizontal, Resources.Load("Prefabs/Gameplay/Powers/Horizontal") as GameObject);
-            _powersPrefabs.Add(PowerTypes.Vertical, Resources.Load("Prefabs/Gameplay/Powers/Vertical") as GameObject);
-            _powersPrefabs.Add(PowerTypes.Bomb, Resources.Load("Prefabs/Gameplay/Powers/Bomb") as GameObject);
-            _powersPrefabs.Add(PowerTypes.ColorBomb, Resources.Load("Prefabs/Gameplay/Powers/ColorBomb") as GameObject);
+
+            _powersPrefabs.Add(PowerUpTypes.Horizontal, Resources.Load(MagicStrings.Power_Horizontal) as GameObject);
+            _powersPrefabs.Add(PowerUpTypes.Vertical, Resources.Load(MagicStrings.Power_Vertical) as GameObject);
+            _powersPrefabs.Add(PowerUpTypes.Bomb, Resources.Load(MagicStrings.Power_Bomb) as GameObject);
+            _powersPrefabs.Add(PowerUpTypes.ColorBomb, Resources.Load(MagicStrings.Power_ColorBomb) as GameObject);
         }
 
         public GameObject GetRandomGameElement()
@@ -34,10 +35,10 @@ namespace Mathc3Project.Classes
             var prefToUse = _normalCellsPrefabsList.ElementAt(cellIndex);
             return Object.Instantiate(prefToUse);
         }
-        
-        public GameObject GetPowerElement(PowerTypes powerType)
+
+        public GameObject GetPowerElement(PowerUpTypes powerUpType)
         {
-            GameObject powerGameObject = Object.Instantiate(_powersPrefabs[powerType]);
+            GameObject powerGameObject = Object.Instantiate(_powersPrefabs[powerUpType]);
             return powerGameObject;
         }
 

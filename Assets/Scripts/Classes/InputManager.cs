@@ -20,7 +20,7 @@ namespace Mathc3Project.Classes
             _subscribes = new List<ISubscriber>();
             _canUpdate = true;
         }
-       
+
         public void DoUpdate()
         {
             if (Input.GetMouseButtonDown(0))
@@ -40,40 +40,42 @@ namespace Mathc3Project.Classes
                 Notify(EventTypes.LMB_Up, dataMessage);
                 return;
             }
-            
+
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 Notify(EventTypes.UTILITY_BoardCellsInfo, null);
                 return;
             }
-        } 
-        
+        }
+
         public void AddSubscriber(ISubscriber subscriber)
         {
-            if(subscriber != null && !_subscribes.Contains(subscriber))
+            if (subscriber != null && !_subscribes.Contains(subscriber))
                 _notifier.AddSubscriber(subscriber);
         }
-        
+
         public void RemoveSubscriber(ISubscriber subscriber)
-        { 
-            if(subscriber != null && _subscribes.Contains(subscriber) )
+        {
+            if (subscriber != null && _subscribes.Contains(subscriber))
                 _notifier.RemoveSubscriber(subscriber);
         }
 
         public void Notify(EventTypes eventType, Object messageData)
         {
-            _notifier.Notify(eventType,messageData);
+            _notifier.Notify(eventType, messageData);
         }
-        
-        public bool canUpdate  {
+
+        public bool canUpdate
+        {
             get { return _canUpdate; }
             set { _canUpdate = value; }
         }
-        
+
         public INotifier Notifier
         {
             get { return _notifier; }
             set { _notifier = value; }
         }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Mathc3Project.Classes.Cells;
+using Mathc3Project.Classes.StaticClasses;
 using Mathc3Project.Enums;
 using Mathc3Project.Interfaces;
 using Mathc3Project.Interfaces.Cells;
@@ -10,13 +11,13 @@ namespace Mathc3Project.Classes
     {
         private int _width;
         private int _height;
-        
+
         private ISpawnManager _spawnManager;
         private ICheckManager _checkManager;
-        
+
         private ICell[,] _cells;
-        
-        public Board(int width, int height, ISpawnManager spawnManager,ICheckManager checkManager)
+
+        public Board(int width, int height, ISpawnManager spawnManager, ICheckManager checkManager)
         {
             _width = width;
             _height = height;
@@ -29,33 +30,33 @@ namespace Mathc3Project.Classes
             PreSettings();
             Initial();
         }
-        
+
+        //TODO ADD PRESETTING MANAGER
         private void PreSettings()
         {
             GenerateHollowCell(2, 2);
             GenerateHollowCell(2, 3);
             GenerateHollowCell(0, 0);
-            
-            GeneratePower(PowerTypes.Vertical, 4,4);
-            GeneratePower(PowerTypes.Horizontal, 4,3);
-            GeneratePower(PowerTypes.Bomb, 5,3);
-            GeneratePower(PowerTypes.Horizontal, 4,7);
 
+            GeneratePower(PowerUpTypes.Vertical, 4, 4);
+            GeneratePower(PowerUpTypes.Horizontal, 4, 3);
+            GeneratePower(PowerUpTypes.Bomb, 5, 3);
+            GeneratePower(PowerUpTypes.Horizontal, 4, 6);
         }
 
         private void GenerateHollowCell(int x, int y)
         {
-            _cells[x,y] = new HollowCell(x,y);
+            _cells[x, y] = new HollowCell(x, y);
         }
 
-        private void GeneratePower(PowerTypes powerType,int x, int y)
+        private void GeneratePower(PowerUpTypes powerUpType, int x, int y)
         {
-            Vector2 pos = new Vector2(x,y);
+            Vector2 pos = new Vector2(x, y);
             _cells[x, y] = _spawnManager.SpawnNormalCell(pos);
             GameObject.Destroy(_cells[x, y].CurrentGameObject);
-            _cells[x, y].CurrentGameObject = _spawnManager.SpawnPowerPrefab(powerType, pos);
+            _cells[x, y].CurrentGameObject = _spawnManager.SpawnPowerPrefab(powerUpType, pos);
         }
-        
+
         private void Initial()
         {
             for (int i = 0; i < _width; i++)
@@ -69,18 +70,15 @@ namespace Mathc3Project.Classes
                     _checkManager.Board = this;
 
                     int maxLimit = 0;
-
-                    while (_checkManager.SimpleCheck(newCell) && maxLimit < 10)
+                    while (_checkManager.SimpleCheck(newCell) && maxLimit < MagicStrings.MAX_LIMIT_CHECK_COUNTER)
                     {
                         GameObject.Destroy(newCell.CurrentGameObject);
-                        
+
                         newCell = _spawnManager.SpawnNormalCell(tempPos);
                         _checkManager.Board = this;
 
                         maxLimit++;
                     }
-                    
-
                     maxLimit = 0;
 
                     _cells[i, j] = newCell;
@@ -93,18 +91,18 @@ namespace Mathc3Project.Classes
             get { return _width; }
             set { _width = value; }
         }
-        
+
         public int Height
         {
             get { return _height; }
             set { _height = value; }
         }
-        
+
         public ICell[,] Cells
         {
             get { return _cells; }
             set { _cells = value; }
         }
-        
+
     }
 }

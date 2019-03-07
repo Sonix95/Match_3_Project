@@ -10,7 +10,7 @@ namespace Mathc3Project.Classes
         private IUpdateManager _updateManager;
         private INotifier _notifier;
 
-        public ObjectSetter(IUpdateManager updateManager,INotifier notifier)
+        public ObjectSetter(IUpdateManager updateManager, INotifier notifier)
         {
             _updateManager = updateManager;
             _notifier = notifier;
@@ -18,15 +18,16 @@ namespace Mathc3Project.Classes
 
         public void SetGameObject(GameObject go, Vector3 position)
         {
-            go.name = "CELL[" + position.x + "x" + position.y + "]:" + go.tag;
+            go.name = go.tag;
             go.transform.position = position;
         }
 
-        public void SetNormalCell(INormalCell normalCell,GameObject go)
+        public void SetNormalCell(INormalCell normalCell, GameObject go)
         {
             normalCell.CurrentGameObject = go;
             normalCell.Notifier = _notifier;
             _updateManager.AddUpdatable(normalCell);
         }
+
     }
 }

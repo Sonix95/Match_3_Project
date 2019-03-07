@@ -6,7 +6,7 @@ namespace Mathc3Project.Classes.Commands
 {
     public class SwipeUpCommand : ICommand
     {
-        private ICell _cell;
+        private readonly ICell _cell;
 
         public SwipeUpCommand(ICell cell)
         {
@@ -26,5 +26,6 @@ namespace Mathc3Project.Classes.Commands
             _cell.CellState = CellStates.Back;
             _cell.Move();
         }
+        
     }
 }

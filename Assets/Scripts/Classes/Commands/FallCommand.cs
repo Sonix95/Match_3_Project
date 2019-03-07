@@ -20,7 +20,8 @@ namespace Mathc3Project.Classes.Commands
 
         public void Undo()
         {
-            // ---- Why we need undo fall ?
+            // -- no implementation --
         }
+        
     }
 }

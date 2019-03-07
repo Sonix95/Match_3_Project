@@ -8,14 +8,14 @@ namespace Mathc3Project.Classes
     {
         IList<IUpdatable> _updatableList = new List<IUpdatable>();
         private bool isUpdate;
-        
+
         private void Update()
         {
             if (isUpdate)
             {
                 foreach (var updatable in _updatableList)
                 {
-                    if(updatable.canUpdate)
+                    if (updatable.canUpdate)
                         updatable.DoUpdate();
                 }
             }
@@ -25,16 +25,16 @@ namespace Mathc3Project.Classes
         {
             if (updatable != null)
             {
-                if(_updatableList.Contains(updatable) == false)
+                if (_updatableList.Contains(updatable) == false)
                     _updatableList.Add(updatable);
             }
         }
-        
+
         public void RemoveUpdatable(IUpdatable updatable)
         {
             if (updatable != null)
             {
-                if(_updatableList.Contains(updatable))
+                if (_updatableList.Contains(updatable))
                     _updatableList.Remove(updatable);
             }
         }
@@ -44,6 +44,6 @@ namespace Mathc3Project.Classes
             get { return isUpdate; }
             set { isUpdate = value; }
         }
-        
+
     }
 }
