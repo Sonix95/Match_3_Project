@@ -52,6 +52,12 @@ namespace Mathc3Project.Classes.StaticClasses
             return false;
         }
         
+        public static void MarkCell(ICell cell)
+        {
+            SpriteRenderer render = cell.CurrentGameObject.GetComponent<SpriteRenderer>();
+            render.color = new Color(render.color.r, render.color.g, render.color.b, .2f);
+        }
+        
         public static PowerUpTypes DetectPowerUp(int matchCount, AxisTypes axis)
         {
             PowerUpTypes powerUp = PowerUpTypes.None;

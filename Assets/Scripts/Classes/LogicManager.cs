@@ -7,6 +7,7 @@ using Mathc3Project.Enums;
 using Mathc3Project.Interfaces;
 using Mathc3Project.Interfaces.Cells;
 using Mathc3Project.Interfaces.Command;
+using Mathc3Project.Interfaces.Observer;
 using UnityEngine;
 
 namespace Mathc3Project.Classes
@@ -16,26 +17,48 @@ namespace Mathc3Project.Classes
         private IBoard _board;
         private ICheckManager _checkManager;
         private ISpawnManager _spawnManager;
+        
+        private INotifier _notifier;
+        private IList<ISubscriber> _subscribes;
 
         private Vector3 _clickA;
         private Vector3 _clickB;
 
         private ICommand _macroCommand;
 
-        private GameStates _gameState = GameStates.Ready;
+        private GameStates _gameState;
 
         private bool _isMatchedSwipe;
         private int _swipeCounter;
         
-        private readonly IDictionary<GameObject, Vector2> _fallCellsDictionary = new Dictionary<GameObject, Vector2>();
-        private readonly IDictionary<Vector2, PowerUpTypes> _powersDictionary = new Dictionary<Vector2, PowerUpTypes>();
-        private readonly IDictionary<Vector3,PowerUpTypes> _spawnedPowerUpDictionary = new Dictionary<Vector3, PowerUpTypes>();
-        private readonly IDictionary<IList<ICell>, AxisTypes> _matchedCellsDictionary = new Dictionary<IList<ICell>,AxisTypes>();
-        private IDictionary<ICell, IDictionary<IList<ICell>, AxisTypes>>
-            _matchedCellsWithAxisDictionary = new Dictionary<ICell, IDictionary<IList<ICell>, AxisTypes>>();
+        private IDictionary<GameObject, Vector2> _fallCellsDictionary;
         
+        private IDictionary<Vector2, PowerUpTypes> _powersDictionary;
+        private IDictionary<Vector3, PowerUpTypes> _spawnedPowerUpDictionary;
+        
+        private IDictionary<IList<ICell>, AxisTypes> _matchedCellsDictionary;
+        private IDictionary<ICell, IDictionary<IList<ICell>, AxisTypes>> _matchedCellsWithAxisDictionary;
+
         private ICell _lastFallCell;
         private bool _lastSpawnedCell;
+
+
+        public GameObject endPanel;
+        
+        private void Awake()
+        {
+            _subscribes = new List<ISubscriber>();
+
+            _fallCellsDictionary = new Dictionary<GameObject, Vector2>();
+            _powersDictionary = new Dictionary<Vector2, PowerUpTypes>();
+            _spawnedPowerUpDictionary = new Dictionary<Vector3, PowerUpTypes>();
+            _matchedCellsDictionary = new Dictionary<IList<ICell>, AxisTypes>();
+            _matchedCellsWithAxisDictionary = new Dictionary<ICell, IDictionary<IList<ICell>, AxisTypes>>();
+            
+            endPanel = GameObject.Find("PANEL_LevelComplete");
+
+            _gameState = GameStates.Ready;
+        }
 
         public void OnEvent(EventTypes eventType, object messageData)
         {
@@ -63,38 +86,9 @@ namespace Mathc3Project.Classes
 
                 case EventTypes.Swipe:
                     _gameState = GameStates.Wait;
+                    
+                    SetMacroCommand((ICommand[]) messageData);
                     ExecuteMacroCommand();
-                    break;
-
-                case EventTypes.CELL_EndMove:
-                    TryCheckSwipedCells((ICell) messageData);
-                    break;
-
-                case EventTypes.CELL_EndMoveBack:
-                    ICell cellBack = (ICell) messageData;
-
-                    _board.Cells[cellBack.TargetX, cellBack.TargetY] = cellBack;
-                    cellBack.CellState = CellStates.Wait;
-
-                    _gameState = GameStates.Ready;
-                    break;
-
-                case EventTypes.CELL_Fall:
-                    ICell cellFall = (ICell) messageData;
-
-                    cellFall.CellState = CellStates.Wait;
-
-                    if (cellFall == _lastFallCell)
-                        CheckBoard();
-                    break;
-
-                case EventTypes.POWER_Use:
-                    ArrayList arr = (ArrayList) messageData;
-
-                    PowerUpTypes powerUp = Helper.StringToPowerType(arr[0].ToString());
-                    Vector3 position = (Vector3) arr[1];
-
-                    _powersDictionary.Add(position, powerUp);
                     break;
 
                 case EventTypes.BOARD_collapse:
@@ -122,17 +116,49 @@ namespace Mathc3Project.Classes
 
                     break;
 
-                //TODO DELETE ON FINISH
-                case EventTypes.UTILITY_BoardCellsInfo:
-                    foreach (var boardCell in _board.Cells)
-                        Debug.Log(boardCell.CellState);
+                case EventTypes.CELL_EndMove:
+                    TryCheckSwipedCells((ICell) messageData);
+                    break;
+
+                case EventTypes.CELL_EndMoveBack:
+                    ICell cellBack = (ICell) messageData;
+                    
+                    _board.Cells[cellBack.TargetX, cellBack.TargetY] = cellBack;
+                    cellBack.CellState = CellStates.Wait;
 
                     _gameState = GameStates.Ready;
+                    break;
+
+                case EventTypes.CELL_Fall:
+                    ICell cellFall = (ICell) messageData;
                     
+                    cellFall.CellState = CellStates.Wait;
+                    
+                    if (cellFall == _lastFallCell)
+                        CheckBoard();
+                    break;
+                
+                case EventTypes.CELL_Destroy:
+                    string cellTag = (string) messageData;
+                    Notify(EventTypes.CELL_Destroy, cellTag);
+                    break;
+
+                case EventTypes.POWER_Use:
+                    ArrayList arr = (ArrayList) messageData;
+
+                    PowerUpTypes powerUp = Helper.StringToPowerType(arr[0].ToString());
+                    Vector3 position = (Vector3) arr[1];
+
+                    _powersDictionary.Add(position, powerUp);
+                    break;
+                
+                case EventTypes.TASK_Finished:
+                    Debug.Log("Задачи выполненны ");
+                    endPanel.SetActive(true);
                     break;
 
                 default:
-                    Debug.Log(MagicStrings.Event_Not_Found);
+                    Debug.Log("EVENT NOT FOUND");
                     break;
             }
         }
@@ -189,8 +215,7 @@ namespace Mathc3Project.Classes
             _gameState = GameStates.Ready;
         }
 
-        private bool HaveMatches(
-        )
+        private bool HaveMatches()
         {
             for (int i = 0; i < _board.Width; i++)
             for (int j = 0; j < _board.Height; j++)
@@ -414,14 +439,14 @@ namespace Mathc3Project.Classes
         {
             foreach (var cell in cellsToMarkList)
                 if (cell.CurrentGameObject != null && cell.CurrentGameObject.CompareTag(MagicStrings.Tag_Power) == false)
-                    MarkCell(cell);
+                    Helper.MarkCell(cell);
         }        
 
-        private void MarkCell(ICell cell)
-        {
-            SpriteRenderer render = cell.CurrentGameObject.GetComponent<SpriteRenderer>();
-            render.color = new Color(render.color.r, render.color.g, render.color.b, .2f);
-        }
+     //  private void MarkCell(ICell cell)
+     //  {
+     //      SpriteRenderer render = cell.CurrentGameObject.GetComponent<SpriteRenderer>();
+     //      render.color = new Color(render.color.r, render.color.g, render.color.b, .2f);
+     //  }
 
         private void SwipeCells(MoveDirectionTypes direction)
         {
@@ -429,7 +454,7 @@ namespace Mathc3Project.Classes
             int yPos = (int) Mathf.Round(_clickA.y);
 
             ICell cellA = _board.Cells[xPos, yPos];
-
+            
             if (cellA.CellType == CellTypes.Normal && cellA.CurrentGameObject != null)
             {
                 switch (direction)
@@ -444,9 +469,8 @@ namespace Mathc3Project.Classes
                                 _board.Cells[xPos, yPos] = cellB;
 
                                 ICommand[] commands = {new SwipeUpCommand(cellA), new SwipeDownCommand(cellB),};
-                                SetMacroCommand(commands);
 
-                                OnEvent(EventTypes.Swipe, null);
+                                OnEvent(EventTypes.Swipe, commands);
                             }
                         }
 
@@ -462,9 +486,8 @@ namespace Mathc3Project.Classes
                                 _board.Cells[xPos, yPos] = cellB;
 
                                 ICommand[] commands = {new SwipeDownCommand(cellA), new SwipeUpCommand(cellB),};
-                                SetMacroCommand(commands);
 
-                                OnEvent(EventTypes.Swipe, null);
+                                OnEvent(EventTypes.Swipe, commands);
                             }
                         }
 
@@ -480,9 +503,8 @@ namespace Mathc3Project.Classes
                                 _board.Cells[xPos, yPos] = cellB;
 
                                 ICommand[] commands = {new SwipeLeftCommand(cellA), new SwipeRightCommand(cellB),};
-                                SetMacroCommand(commands);
 
-                                OnEvent(EventTypes.Swipe, null);
+                                OnEvent(EventTypes.Swipe, commands);
                             }
                         }
 
@@ -498,9 +520,8 @@ namespace Mathc3Project.Classes
                                 _board.Cells[xPos, yPos] = cellB;
 
                                 ICommand[] commands = {new SwipeRightCommand(cellA), new SwipeLeftCommand(cellB),};
-                                SetMacroCommand(commands);
 
-                                OnEvent(EventTypes.Swipe, null);
+                                OnEvent(EventTypes.Swipe, commands);
                             }
                         }
 
@@ -527,7 +548,32 @@ namespace Mathc3Project.Classes
         }
 
         #endregion
+      
+        #region Notifier implimentation
+        public void AddSubscriber(ISubscriber subscriber)
+        {
+            if (subscriber != null && !_subscribes.Contains(subscriber))
+                _notifier.AddSubscriber(subscriber);
+        }
 
+        public void RemoveSubscriber(ISubscriber subscriber)
+        {
+            if (subscriber != null && _subscribes.Contains(subscriber))
+                _notifier.RemoveSubscriber(subscriber);
+        }
+
+        public void Notify(EventTypes eventType, object messageData)
+        {
+            _notifier.Notify(eventType, messageData);
+        }
+
+        public INotifier Notifier
+        {
+            get { return _notifier; }
+            set { _notifier = value; }
+        }
+        #endregion
+        
         public IBoard Board
         {
             get { return _board; }
@@ -545,5 +591,6 @@ namespace Mathc3Project.Classes
             get { return _spawnManager; }
             set { _spawnManager = value; }
         }
+        
     }
 }

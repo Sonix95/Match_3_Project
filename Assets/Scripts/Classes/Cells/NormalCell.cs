@@ -62,16 +62,23 @@ namespace Mathc3Project.Classes.Cells
 
         public void DoAfterMatch()
         {
-            if (_currentGameObject != null && _currentGameObject.CompareTag(MagicStrings.Tag_Power))
+            if (_currentGameObject != null)
             {
-                GameObject powerGameObject = _currentGameObject.transform.GetChild(0).transform.gameObject;
-                ArrayList typeAndPos = new ArrayList();
-                typeAndPos.Add(powerGameObject.tag);
-                typeAndPos.Add(_currentGameObject.transform.position);
+                if (_currentGameObject.CompareTag(MagicStrings.Tag_Power))
+                {
+                    GameObject powerGameObject = _currentGameObject.transform.GetChild(0).transform.gameObject;
+                
+                    ArrayList typeAndPos = new ArrayList();
+                    typeAndPos.Add(powerGameObject.tag);
+                    typeAndPos.Add(_currentGameObject.transform.position);
 
-                _notifier.Notify(EventTypes.POWER_Use, typeAndPos);
+                    _notifier.Notify(EventTypes.POWER_Use, typeAndPos);
+                }
+                else
+                    _notifier.Notify(EventTypes.CELL_Destroy, _currentGameObject.transform.tag);
             }
 
+            
             GameObject.Destroy(_currentGameObject);
             _currentGameObject = null;
         }
@@ -84,6 +91,11 @@ namespace Mathc3Project.Classes.Cells
             message += ", Current GO: " + (_currentGameObject != null ? _currentGameObject.tag : "missing");
 
             return message;
+        }
+        
+        public void Notify(EventTypes eventType, Object messageData)
+        {
+            _notifier.Notify(eventType, messageData);
         }
 
         public int TargetX

@@ -1,4 +1,6 @@
-﻿using Mathc3Project.Interfaces.Observer;
+﻿using System;
+using Mathc3Project.Enums;
+using Mathc3Project.Interfaces.Observer;
 
 namespace Mathc3Project.Interfaces
 {
@@ -7,5 +9,10 @@ namespace Mathc3Project.Interfaces
         IBoard Board { get; set; }
         ICheckManager CheckManager { get; set; }
         ISpawnManager SpawnManager { get; set; }
+
+        INotifier Notifier { get; set; }
+        void AddSubscriber(ISubscriber subscriber);
+        void RemoveSubscriber(ISubscriber subscriber);
+        void Notify(EventTypes eventType, Object messageData);
     }
 }

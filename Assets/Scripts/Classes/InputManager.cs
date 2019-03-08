@@ -43,7 +43,13 @@ namespace Mathc3Project.Classes
 
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                Notify(EventTypes.UTILITY_BoardCellsInfo, null);
+                Notify(EventTypes.UTILITY_BoardCellsInfo, "Red");
+                return;
+            }
+            
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Notify(EventTypes.UTILITY_BoardCellsInfo, "Blue");
                 return;
             }
         }
