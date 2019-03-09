@@ -21,10 +21,12 @@ namespace Mathc3Project.Enums
         TASK_Finished,
         
         UI_FirstLoad,
-        UI_OpenLevelButton,
+        UI_OpenLevelsMapButton,
         UI_PrevLocationButton,
         UI_NextLocationButton,
         UI_BackToMenuButton,
+        UI_OpenLevelDescription,
+        UI_CloseLevelDescription,
         UI_SelectLevel,
         
         

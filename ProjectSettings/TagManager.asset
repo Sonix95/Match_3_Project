@@ -4,20 +4,22 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - White
-  - Red
-  - Purple
-  - Blue
-  - Green
-  - Yellow
-  - Orange
-  - Brown
+  - -- ELEMENTS --
+  - Red Circle
+  - Blue MultiAngle
+  - Green DownTriangle
+  - Orange Box
+  - Yellow UpTriangle
+  - -- POWER UPS --
+  - Power
   - Bomb
   - ColorBomb
   - Horizontal
   - Vertical
-  - Power
+  - -- UI --
   - LevelBtnPanel
+  - LevelDescription
+  - Level Task
   layers:
   - Default
   - TransparentFX

@@ -30,16 +30,16 @@ namespace Mathc3Project.Classes.StaticClasses
 
             switch (powerTypeString)
             {
-                case MagicStrings.Tag_Horizontal:
+                case Strings.Tag_Horizontal:
                     powerUpType = PowerUpTypes.Horizontal;
                     break;
-                case MagicStrings.Tag_Vertical:
+                case Strings.Tag_Vertical:
                     powerUpType = PowerUpTypes.Vertical;
                     break;
-                case MagicStrings.Tag_Bomb:
+                case Strings.Tag_Bomb:
                     powerUpType = PowerUpTypes.Bomb;
                     break;
-                case MagicStrings.Tag_ColorBomb:
+                case Strings.Tag_ColorBomb:
                     powerUpType = PowerUpTypes.ColorBomb;
                     break;
             }
@@ -86,6 +86,41 @@ namespace Mathc3Project.Classes.StaticClasses
             SpriteRenderer render = cell.CurrentGameObject.GetComponent<SpriteRenderer>();
             render.color = new Color(render.color.r, render.color.g, render.color.b, .2f);
         }
-        
+
+        public static Vector2 SetUITaskPosition(int tasksCount, int currentTask)
+        {
+            Vector2 position = Vector3.zero;
+
+            if (tasksCount == 2)
+            {
+                switch (currentTask)
+                {
+                    case 0:
+                        position = new Vector2(-80, 0);
+                        break;
+                    case 1:
+                        position = new Vector2(80, 0);
+                        break;
+                }
+            }
+            else if (tasksCount == 3)
+            {
+                switch (currentTask)
+                {
+                    case 0:
+                        position = new Vector2(-145, 0);
+                        break;
+                    case 1:
+                        position = new Vector2(0, 0);
+                        break;
+                    case 2:
+                        position = new Vector2(145, 0);
+                        break;
+                }
+            }
+
+            return position;
+        }
+
     }
 }

@@ -119,7 +119,7 @@ namespace Mathc3Project.Classes
                         ? _board.Cells[i, y]
                         : _board.Cells[x, i];
 
-                    if (Helper.CellIsEmpty(sideCell) || sideCell.CurrentGameObject.CompareTag(MagicStrings.Tag_Power))
+                    if (Helper.CellIsEmpty(sideCell) || sideCell.CurrentGameObject.CompareTag(Strings.Tag_Power))
                         break;
                     if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
                         sideCells.Add(sideCell);
@@ -136,7 +136,7 @@ namespace Mathc3Project.Classes
                         ? _board.Cells[i, y]
                         : _board.Cells[x, i];
 
-                    if (Helper.CellIsEmpty(sideCell) || sideCell.CurrentGameObject.CompareTag(MagicStrings.Tag_Power))
+                    if (Helper.CellIsEmpty(sideCell) || sideCell.CurrentGameObject.CompareTag(Strings.Tag_Power))
                         break;
                     if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
                         sideCells.Add(sideCell);

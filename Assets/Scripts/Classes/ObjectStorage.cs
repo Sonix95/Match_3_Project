@@ -17,16 +17,32 @@ namespace Mathc3Project.Classes
             _powersPrefabs = new Dictionary<PowerUpTypes, GameObject>();
             _normalCellsPrefabsList = new List<GameObject>();
 
-            Object[] objTempArray = Resources.LoadAll(MagicStrings.Gameplay_Elements);
-            for (int i = 0; i < objTempArray.Length; i++)
-            {
-                _normalCellsPrefabsList.Add(objTempArray[i] as GameObject);
-            }
+            SetUp();
+        }
 
-            _powersPrefabs.Add(PowerUpTypes.Horizontal, Resources.Load(MagicStrings.Power_Horizontal) as GameObject);
-            _powersPrefabs.Add(PowerUpTypes.Vertical, Resources.Load(MagicStrings.Power_Vertical) as GameObject);
-            _powersPrefabs.Add(PowerUpTypes.Bomb, Resources.Load(MagicStrings.Power_Bomb) as GameObject);
-            _powersPrefabs.Add(PowerUpTypes.ColorBomb, Resources.Load(MagicStrings.Power_ColorBomb) as GameObject);
+        private void SetUp()
+        {
+            // Gameplay Elemnts ===============================
+            _normalCellsPrefabsList.Add(
+                Resources.Load(Strings.Gameplay_Elements + Strings.Tag_OrangeBox) as GameObject);
+            _normalCellsPrefabsList.Add(
+                Resources.Load(Strings.Gameplay_Elements + Strings.Tag_RedCircle) as GameObject);
+            _normalCellsPrefabsList.Add(
+                Resources.Load(Strings.Gameplay_Elements + Strings.Tag_BlueMultiAngle) as GameObject);
+            _normalCellsPrefabsList.Add(
+                Resources.Load(Strings.Gameplay_Elements + Strings.Tag_YellowUpTriangle) as GameObject);
+            _normalCellsPrefabsList.Add(
+                Resources.Load(Strings.Gameplay_Elements + Strings.Tag_GreenDownTriangle) as GameObject);
+
+            // Gameplay Powers ===============================
+            _powersPrefabs.Add(PowerUpTypes.Horizontal,
+                Resources.Load(Strings.Power_Element + Strings.Tag_Horizontal) as GameObject);
+            _powersPrefabs.Add(PowerUpTypes.Vertical,
+                Resources.Load(Strings.Power_Element + Strings.Tag_Vertical) as GameObject);
+            _powersPrefabs.Add(PowerUpTypes.Bomb,
+                Resources.Load(Strings.Power_Element + Strings.Tag_Bomb) as GameObject);
+            _powersPrefabs.Add(PowerUpTypes.ColorBomb,
+                Resources.Load(Strings.Power_Element + Strings.Tag_ColorBomb) as GameObject);
         }
 
         public GameObject GetRandomGameElement()

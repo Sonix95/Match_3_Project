@@ -34,11 +34,11 @@ namespace Mathc3Project.Classes.Cells
         {
             Vector2 tempPos = new Vector2(_x, _y);
 
-            if (Mathf.Abs(_x - _currentGameObject.transform.position.x) > MagicStrings.POSITION_DELTA ||
-                Mathf.Abs(_y - _currentGameObject.transform.position.y) > MagicStrings.POSITION_DELTA)
+            if (Mathf.Abs(_x - _currentGameObject.transform.position.x) > Strings.POSITION_DELTA ||
+                Mathf.Abs(_y - _currentGameObject.transform.position.y) > Strings.POSITION_DELTA)
             {
                 _currentGameObject.transform.position = Vector2.Lerp(_currentGameObject.transform.position, tempPos,
-                    MagicStrings.CELL_SPEED * Time.deltaTime);
+                    Strings.CELL_SPEED * Time.deltaTime);
             }
             else
             {
@@ -64,7 +64,7 @@ namespace Mathc3Project.Classes.Cells
         {
             if (_currentGameObject != null)
             {
-                if (_currentGameObject.CompareTag(MagicStrings.Tag_Power))
+                if (_currentGameObject.CompareTag(Strings.Tag_Power))
                 {
                     GameObject powerGameObject = _currentGameObject.transform.GetChild(0).transform.gameObject;
                 
@@ -85,7 +85,7 @@ namespace Mathc3Project.Classes.Cells
 
         public override string ToString()
         {
-            string message = MagicStrings.Normal_Cell + _x + "x" + _y;
+            string message = Strings.Normal_Cell + _x + "x" + _y;
             message += ", State: " + _cellStates;
             message += ", Update?: " + _canUpdate;
             message += ", Current GO: " + (_currentGameObject != null ? _currentGameObject.tag : "missing");

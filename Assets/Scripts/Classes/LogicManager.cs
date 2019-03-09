@@ -69,8 +69,8 @@ namespace Mathc3Project.Classes
                     if (_gameState == GameStates.Ready)
                     {
                         if (_clickA.x >= 0 && _clickA.x < _board.Width && _clickA.y >= 0 && _clickA.y < _board.Height &&
-                            (Mathf.Abs(_clickB.x - _clickA.x) > MagicStrings.SWIPE_SENSITIVITY ||
-                             Mathf.Abs(_clickB.y - _clickA.y) > MagicStrings.SWIPE_SENSITIVITY))
+                            (Mathf.Abs(_clickB.x - _clickA.x) > Strings.SWIPE_SENSITIVITY ||
+                             Mathf.Abs(_clickB.y - _clickA.y) > Strings.SWIPE_SENSITIVITY))
                         {
                             MoveDirectionTypes swipeDirection = Helper.FindMoveDirection(_clickA, _clickB);
                             SwipeCells(swipeDirection);
@@ -165,9 +165,9 @@ namespace Mathc3Project.Classes
             AxisTypes majorAxis;
             IList<ICell> cellsList = new List<ICell>(_checkManager.CheckCell(cell, out majorAxis));
 
-            if (cellsList.Count > 2 || cell.CurrentGameObject.CompareTag(MagicStrings.Tag_Power))
+            if (cellsList.Count > 2 || cell.CurrentGameObject.CompareTag(Strings.Tag_Power))
             {
-                if (cell.CurrentGameObject.CompareTag(MagicStrings.Tag_Power))
+                if (cell.CurrentGameObject.CompareTag(Strings.Tag_Power))
                     cellsList.Add(cell);
 
                 _matchedCellsDictionary.Add(cellsList, majorAxis);
@@ -258,7 +258,7 @@ namespace Mathc3Project.Classes
                 }
             }
 
-            yield return new WaitForSeconds(MagicStrings.TIME_AFTER_MARK);
+            yield return new WaitForSeconds(Strings.TIME_AFTER_MARK);
 
             foreach (var cellDictionary in cellsWithAxisDictionary)
             {
@@ -267,7 +267,7 @@ namespace Mathc3Project.Classes
                     if (cellDictionary.Key.CurrentGameObject != null)
                     {
                         if (cellList.Key.Count > 3 &&
-                            cellDictionary.Key.CurrentGameObject.CompareTag(MagicStrings.Tag_Power) == false)
+                            cellDictionary.Key.CurrentGameObject.CompareTag(Strings.Tag_Power) == false)
                         {
                             AxisTypes majorAxis = cellList.Value;
                             int matchCount = cellList.Key.Count;
@@ -285,7 +285,7 @@ namespace Mathc3Project.Classes
             _matchedCellsWithAxisDictionary.Clear();
             _matchedCellsDictionary.Clear();
 
-            yield return new WaitForSeconds(MagicStrings.TIME_AFTER_DESTROY);
+            yield return new WaitForSeconds(Strings.TIME_AFTER_DESTROY);
             OnEvent(EventTypes.BOARD_EndDestroyMatchedCells, null);
         }
 
@@ -305,7 +305,7 @@ namespace Mathc3Project.Classes
 
             DecreaseBoard();
 
-            yield return new WaitForSeconds(MagicStrings.TIME_AFTER_DECREASE);
+            yield return new WaitForSeconds(Strings.TIME_AFTER_DECREASE);
             SpawnNewCells();
         }
 
@@ -350,7 +350,7 @@ namespace Mathc3Project.Classes
                 if (row.Value.Count > 0)
                 {
                     SpawnRow(row.Value);
-                    yield return new WaitForSeconds(MagicStrings.TIME_BETWEEN_SPAWN);
+                    yield return new WaitForSeconds(Strings.TIME_BETWEEN_SPAWN);
                 }
             }
         }
@@ -433,7 +433,7 @@ namespace Mathc3Project.Classes
         private void MarkMatchedCells(IList<ICell> cellsToMarkList)
         {
             foreach (var cell in cellsToMarkList)
-                if (cell.CurrentGameObject != null && cell.CurrentGameObject.CompareTag(MagicStrings.Tag_Power) == false)
+                if (cell.CurrentGameObject != null && cell.CurrentGameObject.CompareTag(Strings.Tag_Power) == false)
                     Helper.MarkCell(cell);
         }
         

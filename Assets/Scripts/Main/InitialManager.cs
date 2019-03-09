@@ -37,9 +37,9 @@ namespace Mathc3Project.Main
         {
             _levelTasks = new ILevelTask[]
             {
-                new LevelTask("Red", 5), 
-                new LevelTask("Green", 8), 
-                new LevelTask("Blue", 12)
+                new LevelTask(Strings.Tag_RedCircle, 5), 
+                new LevelTask(Strings.Tag_GreenDownTriangle, 8), 
+                new LevelTask(Strings.Tag_BlueMultiAngle, 12)
             };
             
             StartCoroutine(InitialAndSet());
@@ -55,8 +55,8 @@ namespace Mathc3Project.Main
 
         public void Create()
         {
-            _updateManager = new GameObject(MagicStrings.Update_Manager).AddComponent<UpdateManager>();
-            _logicManager = new GameObject(MagicStrings.Logic_Manager).AddComponent<LogicManager>();
+            _updateManager = new GameObject(Strings.Update_Manager).AddComponent<UpdateManager>();
+            _logicManager = new GameObject(Strings.Logic_Manager).AddComponent<LogicManager>();
             GameObject empty = new GameObject("---------------");
 
             _notifier = new Notifier();

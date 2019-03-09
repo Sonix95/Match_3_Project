@@ -33,7 +33,7 @@ namespace Mathc3Project.Classes.Cells
 
         public override string ToString()
         {
-            string message = MagicStrings.Hollow_Cell + _x + "x" + _y;
+            string message = Strings.Hollow_Cell + _x + "x" + _y;
             return message;
         }
 

@@ -69,7 +69,7 @@ namespace Mathc3Project.Classes
                     _checkManager.Board = this;
 
                     int maxLimit = 0;
-                    while (_checkManager.SimpleCheck(newCell) && maxLimit < MagicStrings.MAX_LIMIT_CHECK_COUNTER)
+                    while (_checkManager.SimpleCheck(newCell) && maxLimit < Strings.MAX_LIMIT_CHECK_COUNTER)
                     {
                         GameObject.Destroy(newCell.CurrentGameObject);
 

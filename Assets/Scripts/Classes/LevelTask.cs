@@ -2,6 +2,7 @@ using System;
 using Mathc3Project.Classes.StaticClasses;
 using Mathc3Project.Interfaces;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Mathc3Project.Classes
 {
@@ -16,7 +17,7 @@ namespace Mathc3Project.Classes
         {
             _elementName = elementName;
             _count = count;
-            _spriteElement = Resources.Load(MagicStrings.Sprites_Elements + elementName) as Sprite;
+            _spriteElement = Resources.Load<Sprite>(Strings.Sprites_Elements + elementName);
             _completed = false;
         }
 

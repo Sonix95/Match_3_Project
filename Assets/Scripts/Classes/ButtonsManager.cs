@@ -12,10 +12,14 @@ namespace Mathc3Project.Classes
         private INotifier _notifier;
         private IList<ISubscriber> _subscribes;
         
-        private readonly Button _openLevelButton;
+        private readonly Button _openLevelsMapButton;
         private readonly Button _toLeftButton;
         private readonly Button _toRightButton;
         private readonly Button _backToMenuButton;
+        private readonly Button _closeLevelDescriptionButton;
+        private readonly Button _hideBackImage;
+        private readonly Button _playLevelButton;
+        
 
         private IDictionary<int, Button> _levelPanelsButtons;
 
@@ -25,26 +29,31 @@ namespace Mathc3Project.Classes
             _subscribes = new List<ISubscriber>();
             _levelPanelsButtons = new Dictionary<int, Button>();
             
-            _openLevelButton = GameObject.Find("Button Open Level Menu").GetComponent<Button>();
+            _openLevelsMapButton = GameObject.Find("Button Open Level Menu").GetComponent<Button>();
             _toLeftButton = GameObject.Find("Button To Left").GetComponent<Button>();
             _toRightButton = GameObject.Find("Button To Right").GetComponent<Button>();
             _backToMenuButton = GameObject.Find("Button Back To Menu").GetComponent<Button>();
+            _closeLevelDescriptionButton = GameObject.Find("Image Close Level Description").GetComponent<Button>();
+            _hideBackImage = GameObject.Find("Image Hide Back").GetComponent<Button>();
+            _playLevelButton = GameObject.Find("Button Play Level").GetComponent<Button>();
 
             GameObject[] levelBtnPanels = GameObject.FindGameObjectsWithTag("LevelBtnPanel");
             
             for(int i = 0; i < levelBtnPanels.Length; i++)
-                _levelPanelsButtons.Add(i+1,levelBtnPanels[i].GetComponent<Button>());
+                _levelPanelsButtons.Add(i,levelBtnPanels[i].GetComponent<Button>());
             
             InitUI();
         }
-
-
+        
         private void InitUI()
         {
-            _openLevelButton.onClick.AddListener(OpenLevelMenu);
+            _openLevelsMapButton.onClick.AddListener(OpenLevelMenu);
             _toLeftButton.onClick.AddListener(PrevLevelLocation);
             _toRightButton.onClick.AddListener(NextLevelLocation);
             _backToMenuButton.onClick.AddListener(BackToMenu);
+            _closeLevelDescriptionButton.onClick.AddListener(CloseLevelDescription);
+            _hideBackImage.onClick.AddListener(CloseLevelDescription);
+            _playLevelButton.onClick.AddListener(PlayLevel);
 
             foreach (var levelBtnPanel in _levelPanelsButtons)
             {
@@ -55,7 +64,7 @@ namespace Mathc3Project.Classes
 
         private void OpenLevelMenu()
         {
-            Notify(EventTypes.UI_OpenLevelButton, null);
+            Notify(EventTypes.UI_OpenLevelsMapButton, null);
         }
         
         private void PrevLevelLocation()
@@ -75,7 +84,17 @@ namespace Mathc3Project.Classes
         
         private void SelectLevel(int level)
         {
-            Notify(EventTypes.UI_SelectLevel, level);
+            Notify(EventTypes.UI_OpenLevelDescription, level);
+        }
+        
+        private void CloseLevelDescription()
+        {
+            Notify(EventTypes.UI_CloseLevelDescription, null);
+        }
+
+        private void PlayLevel()
+        {
+            Notify(EventTypes.UI_SelectLevel, null);
         }
 
         #region Notify implimentation

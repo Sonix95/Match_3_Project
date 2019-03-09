@@ -12,6 +12,7 @@ namespace Mathc3Project.Main
         private IUIManager _uiManager;
         
         private INotifier _uiNotifier;
+        private ILevelsManager _levelsManager;
 
         private void Start()
         {
@@ -23,8 +24,9 @@ namespace Mathc3Project.Main
         {
             _uiNotifier = new Notifier();
             
+            _levelsManager = new LevelsManager();
             _buttonsManager =  new ButtonsManager(_uiNotifier);
-            _uiManager = new UIManager();
+            _uiManager = new UIManager(_levelsManager);
         }
 
         private void SetUp()
