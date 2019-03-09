@@ -30,7 +30,7 @@ namespace Mathc3Project.Classes.Cells
             _canUpdate = true;
         }
 
-        public void DoUpdate()
+        public void CustomUpdate()
         {
             Vector2 tempPos = new Vector2(_x, _y);
 

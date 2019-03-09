@@ -211,11 +211,36 @@ namespace Mathc3Project.Classes
                 case PowerUpTypes.Bomb:
                     checkedCells = BombPower(posX, posY);
                     break;
+                case PowerUpTypes.ColorBomb:
+                    checkedCells = RandomColorBombPower();
+                    break;
 
                 default:
                     checkedCells.Add(_board.Cells[posX, posY]);
                     break;
             }
+
+            return checkedCells;
+        }
+
+        private IList<ICell> RandomColorBombPower()
+        {
+            IList<ICell> checkedCells = new List<ICell>();
+
+            int randomX = Random.Range(0, _board.Width-1);
+            int randomY = Random.Range(0, _board.Height-1);
+
+            while (Helper.CellIsEmpty(_board.Cells[randomX, randomY]))
+            {
+                randomX = Random.Range(0, _board.Width);
+                randomY = Random.Range(0, _board.Height);
+            }
+
+            string cellTag = _board.Cells[randomX, randomY].CurrentGameObject.tag;
+
+            foreach (var cell in _board.Cells)
+                if (Helper.CellIsEmpty(cell) == false && cell.CurrentGameObject.CompareTag(cellTag))
+                    checkedCells.Add(cell);
 
             return checkedCells;
         }

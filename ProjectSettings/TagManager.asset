@@ -17,6 +17,7 @@ TagManager:
   - Horizontal
   - Vertical
   - Power
+  - LevelBtnPanel
   layers:
   - Default
   - TransparentFX

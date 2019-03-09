@@ -41,9 +41,6 @@ namespace Mathc3Project.Classes
 
         private ICell _lastFallCell;
         private bool _lastSpawnedCell;
-
-
-        public GameObject endPanel;
         
         private void Awake()
         {
@@ -55,8 +52,6 @@ namespace Mathc3Project.Classes
             _matchedCellsDictionary = new Dictionary<IList<ICell>, AxisTypes>();
             _matchedCellsWithAxisDictionary = new Dictionary<ICell, IDictionary<IList<ICell>, AxisTypes>>();
             
-            endPanel = GameObject.Find("PANEL_LevelComplete");
-
             _gameState = GameStates.Ready;
         }
 
@@ -65,11 +60,11 @@ namespace Mathc3Project.Classes
             switch (eventType)
             {
                 case EventTypes.LMB_Down:
-                    _clickA = (Vector3) messageData;
+                    _clickA = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     break;
 
                 case EventTypes.LMB_Up:
-                    _clickB = (Vector3) messageData;
+                    _clickB = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
                     if (_gameState == GameStates.Ready)
                     {
@@ -140,6 +135,7 @@ namespace Mathc3Project.Classes
                 
                 case EventTypes.CELL_Destroy:
                     string cellTag = (string) messageData;
+                    Debug.Log(cellTag);
                     Notify(EventTypes.CELL_Destroy, cellTag);
                     break;
 
@@ -154,7 +150,6 @@ namespace Mathc3Project.Classes
                 
                 case EventTypes.TASK_Finished:
                     Debug.Log("Задачи выполненны ");
-                    endPanel.SetActive(true);
                     break;
 
                 default:
@@ -355,7 +350,7 @@ namespace Mathc3Project.Classes
                 if (row.Value.Count > 0)
                 {
                     SpawnRow(row.Value);
-                    yield return new WaitForSeconds(.3f);
+                    yield return new WaitForSeconds(MagicStrings.TIME_BETWEEN_SPAWN);
                 }
             }
         }
@@ -440,14 +435,8 @@ namespace Mathc3Project.Classes
             foreach (var cell in cellsToMarkList)
                 if (cell.CurrentGameObject != null && cell.CurrentGameObject.CompareTag(MagicStrings.Tag_Power) == false)
                     Helper.MarkCell(cell);
-        }        
-
-     //  private void MarkCell(ICell cell)
-     //  {
-     //      SpriteRenderer render = cell.CurrentGameObject.GetComponent<SpriteRenderer>();
-     //      render.color = new Color(render.color.r, render.color.g, render.color.b, .2f);
-     //  }
-
+        }
+        
         private void SwipeCells(MoveDirectionTypes direction)
         {
             int xPos = (int) Mathf.Round(_clickA.x);
@@ -455,7 +444,7 @@ namespace Mathc3Project.Classes
 
             ICell cellA = _board.Cells[xPos, yPos];
             
-            if (cellA.CellType == CellTypes.Normal && cellA.CurrentGameObject != null)
+            if (cellA.CellType == CellTypes.Normal && cellA != null && cellA.CurrentGameObject != null)
             {
                 switch (direction)
                 {

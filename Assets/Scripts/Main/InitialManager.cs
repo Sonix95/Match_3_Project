@@ -10,8 +10,11 @@ namespace Mathc3Project.Main
 {
     public class InitialManager : MonoBehaviour
     {
+        //TODO убрать это в другое место
         public int width;
         public int height;
+        private ILevelTask[] _levelTasks;
+        
 
         private IUpdateManager _updateManager;
         private ILogicManager _logicManager;
@@ -32,6 +35,13 @@ namespace Mathc3Project.Main
 
         private void Start()
         {
+            _levelTasks = new ILevelTask[]
+            {
+                new LevelTask("Red", 5), 
+                new LevelTask("Green", 8), 
+                new LevelTask("Blue", 12)
+            };
+            
             StartCoroutine(InitialAndSet());
         }
 
@@ -58,7 +68,7 @@ namespace Mathc3Project.Main
             
             _spawnManager = new SpawnManager(_objectStorage, _objectSetter);
             _checkManager = new CheckManager();
-            _taskManager = new TaskManager(_notifier);
+            _taskManager = new TaskManager(_levelTasks);
             
             _board = new Board(width, height, _spawnManager, _checkManager);
         }
@@ -68,6 +78,7 @@ namespace Mathc3Project.Main
             _checkManager.Board = _board;
 
             _logicManager.Board = _board;
+            _taskManager.Notifier = _notifier;
             _logicManager.Notifier = _taskNotifier;
             _logicManager.CheckManager = _checkManager;
             _logicManager.SpawnManager = _spawnManager;

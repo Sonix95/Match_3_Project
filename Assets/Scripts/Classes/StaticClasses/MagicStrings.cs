@@ -14,14 +14,18 @@ namespace Mathc3Project.Classes.StaticClasses
         public const float CELL_SPEED = 9.81f;
 
         // ------------- FOR BOARD ------------- 
-        public const int MAX_LIMIT_CHECK_COUNTER = 10;
+        public const int MAX_LIMIT_CHECK_COUNTER = 5;
 
         // ------------- FOR LOGIC MANAGER ------------- 
         public const float TIME_AFTER_MARK = 0.1f;
         public const float TIME_AFTER_DESTROY = 0.02f;
         public const float TIME_AFTER_DECREASE = 0.02f;
+        public const float TIME_BETWEEN_SPAWN = 0.1f;
 
 
+        // ===========================================================================================
+        
+        
         // ============= ||||||| ============= \\
         // ============= STRINGS ============= \\
         // ============= ||||||| ============= \\
@@ -39,6 +43,7 @@ namespace Mathc3Project.Classes.StaticClasses
 
         // ------------- FOR OBJECT STORAGE ------------- 
         public const string Gameplay_Elements = "Prefabs/Gameplay/Elements";
+        public const string Sprites_Elements = "Sprites/Gameplay/Elements/";
         public const string Power_Horizontal = "Prefabs/Gameplay/Powers/Horizontal";
         public const string Power_Vertical = "Prefabs/Gameplay/Powers/Vertical";
         public const string Power_Bomb = "Prefabs/Gameplay/Powers/Bomb";
@@ -49,6 +54,7 @@ namespace Mathc3Project.Classes.StaticClasses
         public const string Tag_Horizontal = "Horizontal";
         public const string Tag_Vertical = "Vertical";
         public const string Tag_Bomb = "Bomb";
+        public const string Tag_ColorBomb = "ColorBomb";
 
     }
 }

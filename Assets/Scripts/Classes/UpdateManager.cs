@@ -16,7 +16,7 @@ namespace Mathc3Project.Classes
                 foreach (var updatable in _updatableList)
                 {
                     if (updatable.canUpdate)
-                        updatable.DoUpdate();
+                        updatable.CustomUpdate();
                 }
             }
         }

@@ -4,6 +4,6 @@ namespace Mathc3Project.Interfaces
     {
         bool canUpdate { get; set; }
 
-        void DoUpdate();
+        void CustomUpdate();
     }
 }

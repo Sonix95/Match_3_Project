@@ -1,12 +1,52 @@
+using System;
+using Mathc3Project.Classes.StaticClasses;
+using Mathc3Project.Interfaces;
 using UnityEngine;
 
 namespace Mathc3Project.Classes
 {
-    public class LevelTask
+    public class LevelTask : ILevelTask
     {
-        public string _elementName;
-        public int _count;
-        public Sprite _spriteElement;
-        public bool Complited;
+        private readonly string _elementName;
+        private int _count;
+        private readonly Sprite _spriteElement;
+        private bool _completed;
+
+        public LevelTask(string elementName, int count)
+        {
+            _elementName = elementName;
+            _count = count;
+            _spriteElement = Resources.Load(MagicStrings.Sprites_Elements + elementName) as Sprite;
+            _completed = false;
+        }
+
+        public string ElementName
+        {
+            get { return _elementName; }
+        }
+
+        public int Count
+        {
+            get { return _count; }
+            set
+            {
+                _count = value;
+                if (_count <= 0)
+                {
+                    _count = 0;
+                    _completed = true;
+                }
+            }
+        }
+
+        public Sprite SpriteElement
+        {
+            get { return _spriteElement; }
+        }
+
+        public bool Completed
+        {
+            get { return _completed; }
+        }
     }
 }

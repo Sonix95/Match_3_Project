@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Classes\Board.cs" />
+    <Compile Include="Assets\Scripts\Classes\ButtonsManager.cs" />
     <Compile Include="Assets\Scripts\Classes\Cells\HollowCell.cs" />
     <Compile Include="Assets\Scripts\Classes\Cells\NormalCell.cs" />
     <Compile Include="Assets\Scripts\Classes\CheckManager.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Assets\Scripts\Classes\StaticClasses\Helper.cs" />
     <Compile Include="Assets\Scripts\Classes\StaticClasses\MagicStrings.cs" />
     <Compile Include="Assets\Scripts\Classes\TaskManager.cs" />
+    <Compile Include="Assets\Scripts\Classes\UIManager.cs" />
     <Compile Include="Assets\Scripts\Classes\UpdateManager.cs" />
     <Compile Include="Assets\Scripts\Enums\AxisTypes.cs" />
     <Compile Include="Assets\Scripts\Enums\CellStates.cs" />
@@ -91,17 +93,21 @@
     <Compile Include="Assets\Scripts\Interfaces\Cells\INormalCell.cs" />
     <Compile Include="Assets\Scripts\Interfaces\Command\ICommand.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IBoard.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IButtonsManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICheckManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IInputManager.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ILevelTask.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ILogicManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IObjectSetter.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IObjectStorage.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ISpawnManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ITaskManager.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IUIManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IUpdatable.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IUpdateManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\Observer\INotifier.cs" />
     <Compile Include="Assets\Scripts\Interfaces\Observer\ISubscriber.cs" />
+    <Compile Include="Assets\Scripts\Main\Bootstrapper.cs" />
     <Compile Include="Assets\Scripts\Main\InitialManager.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

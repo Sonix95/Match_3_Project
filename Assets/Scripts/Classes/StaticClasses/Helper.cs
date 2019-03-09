@@ -39,25 +39,14 @@ namespace Mathc3Project.Classes.StaticClasses
                 case MagicStrings.Tag_Bomb:
                     powerUpType = PowerUpTypes.Bomb;
                     break;
+                case MagicStrings.Tag_ColorBomb:
+                    powerUpType = PowerUpTypes.ColorBomb;
+                    break;
             }
 
             return powerUpType;
         }
-        
-        public static bool CellIsEmpty(ICell cell)
-        {
-            if (cell == null || cell.CellType == CellTypes.Hollow || cell.CurrentGameObject == null)
-                return true;
 
-            return false;
-        }
-        
-        public static void MarkCell(ICell cell)
-        {
-            SpriteRenderer render = cell.CurrentGameObject.GetComponent<SpriteRenderer>();
-            render.color = new Color(render.color.r, render.color.g, render.color.b, .2f);
-        }
-        
         public static PowerUpTypes DetectPowerUp(int matchCount, AxisTypes axis)
         {
             PowerUpTypes powerUp = PowerUpTypes.None;
@@ -74,11 +63,28 @@ namespace Mathc3Project.Classes.StaticClasses
                         break;
                 }
             }
-
-            if (matchCount > 4)
+            else if (matchCount == 5)
+            {
                 powerUp = PowerUpTypes.Bomb;
+            }
+            else
+                powerUp = PowerUpTypes.ColorBomb;
 
             return powerUp;
+        }
+
+        public static bool CellIsEmpty(ICell cell)
+        {
+            if (cell == null || cell.CellType == CellTypes.Hollow || cell.CurrentGameObject == null)
+                return true;
+
+            return false;
+        }
+        
+        public static void MarkCell(ICell cell)
+        {
+            SpriteRenderer render = cell.CurrentGameObject.GetComponent<SpriteRenderer>();
+            render.color = new Color(render.color.r, render.color.g, render.color.b, .2f);
         }
         
     }

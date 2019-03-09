@@ -21,35 +21,17 @@ namespace Mathc3Project.Classes
             _canUpdate = true;
         }
 
-        public void DoUpdate()
+        public void CustomUpdate()
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Object dataMessage = new Object();
-                dataMessage = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-                Notify(EventTypes.LMB_Down, dataMessage);
+                Notify(EventTypes.LMB_Down, null);
                 return;
             }
 
             if (Input.GetMouseButtonUp(0))
             {
-                Object dataMessage = new Object();
-                dataMessage = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-                Notify(EventTypes.LMB_Up, dataMessage);
-                return;
-            }
-
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                Notify(EventTypes.UTILITY_BoardCellsInfo, "Red");
-                return;
-            }
-            
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Notify(EventTypes.UTILITY_BoardCellsInfo, "Blue");
+                Notify(EventTypes.LMB_Up, null);
                 return;
             }
         }

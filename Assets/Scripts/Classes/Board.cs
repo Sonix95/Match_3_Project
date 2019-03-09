@@ -26,37 +26,36 @@ namespace Mathc3Project.Classes
             _cells = new ICell[_width, _height];
 
             _checkManager.Board = this;
-
-            PreSettings();
+            
             Initial();
         }
 
-        //TODO ADD PRESETTING MANAGER
-        private void PreSettings()
-        {
-            GenerateHollowCell(2, 2);
-            GenerateHollowCell(2, 3);
-            GenerateHollowCell(0, 0);
+  //    //TODO ADD PRESETTING MANAGER
+  //    private void PreSettings()
+  //    {
+  //        GenerateHollowCell(2, 2);
+  //        GenerateHollowCell(2, 3);
+  //        GenerateHollowCell(0, 0);
 
-            GeneratePower(PowerUpTypes.Vertical, 4, 4);
-            GeneratePower(PowerUpTypes.Horizontal, 4, 3);
-            GeneratePower(PowerUpTypes.Bomb, 5, 3);
-            GeneratePower(PowerUpTypes.Horizontal, 4, 6);
-        }
+  //        GeneratePower(PowerUpTypes.Vertical, 4, 4);
+  //        GeneratePower(PowerUpTypes.Horizontal, 4, 3);
+  //        GeneratePower(PowerUpTypes.Bomb, 5, 3);
+  //        GeneratePower(PowerUpTypes.Horizontal, 4, 6);
+  //    }
 
-        private void GenerateHollowCell(int x, int y)
-        {
-            _cells[x, y] = new HollowCell(x, y);
-        }
+  //    private void GenerateHollowCell(int x, int y)
+  //    {
+  //        _board.Cells[x, y] = new HollowCell(x, y);
+  //    }
 
-        private void GeneratePower(PowerUpTypes powerUpType, int x, int y)
-        {
-            Vector2 pos = new Vector2(x, y);
-            _cells[x, y] = _spawnManager.SpawnNormalCell(pos);
-            GameObject.Destroy(_cells[x, y].CurrentGameObject);
-            _cells[x, y].CurrentGameObject = _spawnManager.SpawnPowerPrefab(powerUpType, pos);
-        }
-
+  //    private void GeneratePower(PowerUpTypes powerUpType, int x, int y)
+  //    {
+  //        Vector2 pos = new Vector2(x, y);
+  //        _board.Cells[x, y] = _spawnManager.SpawnNormalCell(pos);
+  //        GameObject.Destroy(_board.Cells[x, y].CurrentGameObject);
+  //        _board.Cells[x, y].CurrentGameObject = _spawnManager.SpawnPowerPrefab(powerUpType, pos);
+  //    }
+        
         private void Initial()
         {
             for (int i = 0; i < _width; i++)
