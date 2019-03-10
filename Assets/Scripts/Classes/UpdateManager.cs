@@ -9,6 +9,11 @@ namespace Mathc3Project.Classes
         IList<IUpdatable> _updatableList = new List<IUpdatable>();
         private bool isUpdate;
 
+        private void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
+
         private void Update()
         {
             if (isUpdate)

@@ -20,6 +20,8 @@ TagManager:
   - LevelBtnPanel
   - LevelDescription
   - Level Task
+  - -- Scene --
+  - Base Scene Object
   layers:
   - Default
   - TransparentFX

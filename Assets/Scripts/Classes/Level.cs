@@ -20,6 +20,14 @@ namespace Mathc3Project.Classes
             _boardHeight = boardHeight;
         }
 
+        public override string ToString()
+        {
+            string message = "Level " + _locationID + "-" + _levelID + "\n";
+            message += "Board = " + _boardWidth + "x" + _boardHeight + "\n";
+            
+            return message;
+        }
+
         public int LevelId
         {
             get { return _levelID; }

@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Classes\Board.cs" />
-    <Compile Include="Assets\Scripts\Classes\ButtonsManager.cs" />
+    <Compile Include="Assets\Scripts\Classes\ButtonsMenuManager.cs" />
     <Compile Include="Assets\Scripts\Classes\Cells\HollowCell.cs" />
     <Compile Include="Assets\Scripts\Classes\Cells\NormalCell.cs" />
     <Compile Include="Assets\Scripts\Classes\CheckManager.cs" />
@@ -70,11 +70,12 @@
     <Compile Include="Assets\Scripts\Classes\Commands\SwipeLeftCommand.cs" />
     <Compile Include="Assets\Scripts\Classes\Commands\SwipeRightCommand.cs" />
     <Compile Include="Assets\Scripts\Classes\Commands\SwipeUpCommand.cs" />
+    <Compile Include="Assets\Scripts\Classes\Coroutiner.cs" />
+    <Compile Include="Assets\Scripts\Classes\GameplayLogicManager.cs" />
     <Compile Include="Assets\Scripts\Classes\InputManager.cs" />
     <Compile Include="Assets\Scripts\Classes\Level.cs" />
     <Compile Include="Assets\Scripts\Classes\LevelsManager.cs" />
     <Compile Include="Assets\Scripts\Classes\LevelTask.cs" />
-    <Compile Include="Assets\Scripts\Classes\LogicManager.cs" />
     <Compile Include="Assets\Scripts\Classes\ObjectSetter.cs" />
     <Compile Include="Assets\Scripts\Classes\ObjectStorage.cs" />
     <Compile Include="Assets\Scripts\Classes\Observer\Notifier.cs" />
@@ -82,26 +83,29 @@
     <Compile Include="Assets\Scripts\Classes\StaticClasses\Helper.cs" />
     <Compile Include="Assets\Scripts\Classes\StaticClasses\Strings.cs" />
     <Compile Include="Assets\Scripts\Classes\TaskManager.cs" />
-    <Compile Include="Assets\Scripts\Classes\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Classes\UIMenuManager.cs" />
     <Compile Include="Assets\Scripts\Classes\UpdateManager.cs" />
     <Compile Include="Assets\Scripts\Enums\AxisTypes.cs" />
     <Compile Include="Assets\Scripts\Enums\CellStates.cs" />
     <Compile Include="Assets\Scripts\Enums\CellTypes.cs" />
     <Compile Include="Assets\Scripts\Enums\EventTypes.cs" />
     <Compile Include="Assets\Scripts\Enums\GameStates.cs" />
+    <Compile Include="Assets\Scripts\Enums\ManagerTypes.cs" />
     <Compile Include="Assets\Scripts\Enums\MoveDirectionTypes.cs" />
     <Compile Include="Assets\Scripts\Enums\PowerUpTypes.cs" />
+    <Compile Include="Assets\Scripts\Enums\SceneTypes.cs" />
     <Compile Include="Assets\Scripts\Interfaces\Cells\ICell.cs" />
     <Compile Include="Assets\Scripts\Interfaces\Cells\INormalCell.cs" />
     <Compile Include="Assets\Scripts\Interfaces\Command\ICommand.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IBoard.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IButtonsManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICheckManager.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ICoroutiner.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IGameplayLogicManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IInputManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ILevel.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ILevelsManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ILevelTask.cs" />
-    <Compile Include="Assets\Scripts\Interfaces\ILogicManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IObjectSetter.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IObjectStorage.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ISpawnManager.cs" />
@@ -111,8 +115,15 @@
     <Compile Include="Assets\Scripts\Interfaces\IUpdateManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\Observer\INotifier.cs" />
     <Compile Include="Assets\Scripts\Interfaces\Observer\ISubscriber.cs" />
-    <Compile Include="Assets\Scripts\Main\Bootstrapper.cs" />
-    <Compile Include="Assets\Scripts\Main\InitialManager.cs" />
+    <Compile Include="Assets\Scripts\ToSceneNavigation\Classes\Abstract\BaseScene.cs" />
+    <Compile Include="Assets\Scripts\ToSceneNavigation\Classes\MasterManager.cs" />
+    <Compile Include="Assets\Scripts\ToSceneNavigation\Classes\NavigationManager.cs" />
+    <Compile Include="Assets\Scripts\ToSceneNavigation\Classes\Scenes\BootstrapperScene.cs" />
+    <Compile Include="Assets\Scripts\ToSceneNavigation\Classes\Scenes\GameplayLevelScene.cs" />
+    <Compile Include="Assets\Scripts\ToSceneNavigation\Classes\Scenes\MenuScene.cs" />
+    <Compile Include="Assets\Scripts\ToSceneNavigation\Interfaces\IMasterManager.cs" />
+    <Compile Include="Assets\Scripts\ToSceneNavigation\Interfaces\INavigationManager.cs" />
+    <Compile Include="Assets\Scripts\ToSceneNavigation\Interfaces\IScene.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

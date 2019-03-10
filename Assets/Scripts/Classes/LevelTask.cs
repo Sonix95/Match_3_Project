@@ -21,6 +21,11 @@ namespace Mathc3Project.Classes
             _completed = false;
         }
 
+        public override string ToString()
+        {
+            return _elementName + " | " + _count;
+        }
+
         public string ElementName
         {
             get { return _elementName; }

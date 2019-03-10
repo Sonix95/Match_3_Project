@@ -1,7 +1,35 @@
+using System.Collections.Generic;
+using DefaultNamespace;
+using Mathc3Project.Enums;
+
 namespace Mathc3Project.Classes.StaticClasses
 {
     public static class Strings
     {
+        private static IDictionary<SceneTypes, string> ScenesPath;
+
+        static Strings()
+        {
+            ScenesPath = new Dictionary<SceneTypes, string>();
+            ScenesPathInit();
+        }
+
+        private static void ScenesPathInit()
+        {
+            ScenesPath.Add(SceneTypes.BootstrapperScene, "Scenes/Bootstrapper Scene");
+            ScenesPath.Add(SceneTypes.GameplayLevel, "Scenes/Gameplay Level");
+            ScenesPath.Add(SceneTypes.Menu, "Scenes/Menu");
+        }
+
+        public static string GetScenePath(SceneTypes sceneType)
+        {
+            return ScenesPath[sceneType];
+        }
+        
+
+        // ===========================================================================================
+        
+        
         // ============= ||||||| ============= \\
         // ============= NUMBERS ============= \\
         // ============= ||||||| ============= \\
@@ -33,6 +61,7 @@ namespace Mathc3Project.Classes.StaticClasses
         // ------------- FOR INITIAL MANAGER ------------- 
         public const string Update_Manager = "Update Manager";
         public const string Logic_Manager = "Logic Manager";
+        public const string Coroutiner = "Coroutiner";
 
         // ------------- FOR ON EVENT ------------- 
         public const string Event_Not_Found = "EVENT NOT FOUND";

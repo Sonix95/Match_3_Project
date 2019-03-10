@@ -19,7 +19,7 @@ namespace Mathc3Project.Classes
 
             SetUp();
         }
-
+        
         private void SetUp()
         {
             // Gameplay Elemnts ===============================
@@ -44,7 +44,7 @@ namespace Mathc3Project.Classes
             _powersPrefabs.Add(PowerUpTypes.ColorBomb,
                 Resources.Load(Strings.Power_Element + Strings.Tag_ColorBomb) as GameObject);
         }
-
+        
         public GameObject GetRandomGameElement()
         {
             int cellIndex = Random.Range(0, _normalCellsPrefabsList.Count);
