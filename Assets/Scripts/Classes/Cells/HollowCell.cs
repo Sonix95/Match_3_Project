@@ -11,7 +11,6 @@ namespace Mathc3Project.Classes.Cells
         private int _y;
         private CellTypes _cellType;
         private CellStates _cellStates;
-        private GameObject _currentGameObject;
 
         public HollowCell(int x, int y)
         {
@@ -33,8 +32,7 @@ namespace Mathc3Project.Classes.Cells
 
         public override string ToString()
         {
-            string message = Strings.Hollow_Cell + _x + "x" + _y;
-            return message;
+            return Strings.Hollow_Cell + _x + "x" + _y;
         }
 
         public int TargetX
@@ -63,8 +61,8 @@ namespace Mathc3Project.Classes.Cells
 
         public GameObject CurrentGameObject
         {
-            get { return _currentGameObject; }
-            set { _currentGameObject = value; }
+            get { return null; }
+            set { CurrentGameObject = null; }
         }
     }
 }

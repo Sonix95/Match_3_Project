@@ -16,12 +16,12 @@ TagManager:
   - ColorBomb
   - Horizontal
   - Vertical
-  - -- UI --
-  - LevelBtnPanel
-  - LevelDescription
-  - Level Task
   - -- Scene --
   - Base Scene Object
+  - -- UI --
+  - Level Panel
+  - Level Task
+  - Image Loading
   layers:
   - Default
   - TransparentFX

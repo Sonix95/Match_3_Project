@@ -17,6 +17,7 @@ namespace Mathc3Project.Classes.StaticClasses
         private static void ScenesPathInit()
         {
             ScenesPath.Add(SceneTypes.BootstrapperScene, "Scenes/Bootstrapper Scene");
+            ScenesPath.Add(SceneTypes.StartScreenScene, "Scenes/Start Screen Scene");
             ScenesPath.Add(SceneTypes.GameplayLevel, "Scenes/Gameplay Level");
             ScenesPath.Add(SceneTypes.Menu, "Scenes/Menu");
         }

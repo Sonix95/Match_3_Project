@@ -60,7 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Classes\Board.cs" />
-    <Compile Include="Assets\Scripts\Classes\ButtonsMenuManager.cs" />
+    <Compile Include="Assets\Scripts\Classes\ButtonsManagers\ButtonsMenuManager.cs" />
+    <Compile Include="Assets\Scripts\Classes\ButtonsManagers\ButtonsStartScreenManager.cs" />
     <Compile Include="Assets\Scripts\Classes\Cells\HollowCell.cs" />
     <Compile Include="Assets\Scripts\Classes\Cells\NormalCell.cs" />
     <Compile Include="Assets\Scripts\Classes\CheckManager.cs" />
@@ -83,7 +84,8 @@
     <Compile Include="Assets\Scripts\Classes\StaticClasses\Helper.cs" />
     <Compile Include="Assets\Scripts\Classes\StaticClasses\Strings.cs" />
     <Compile Include="Assets\Scripts\Classes\TaskManager.cs" />
-    <Compile Include="Assets\Scripts\Classes\UIMenuManager.cs" />
+    <Compile Include="Assets\Scripts\Classes\UIManagers\UIMenuManager.cs" />
+    <Compile Include="Assets\Scripts\Classes\UIManagers\UIStartScreenSceneManager.cs" />
     <Compile Include="Assets\Scripts\Classes\UpdateManager.cs" />
     <Compile Include="Assets\Scripts\Enums\AxisTypes.cs" />
     <Compile Include="Assets\Scripts\Enums\CellStates.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="Assets\Scripts\ToSceneNavigation\Classes\Scenes\BootstrapperScene.cs" />
     <Compile Include="Assets\Scripts\ToSceneNavigation\Classes\Scenes\GameplayLevelScene.cs" />
     <Compile Include="Assets\Scripts\ToSceneNavigation\Classes\Scenes\MenuScene.cs" />
+    <Compile Include="Assets\Scripts\ToSceneNavigation\Classes\Scenes\StartScreenScene.cs" />
     <Compile Include="Assets\Scripts\ToSceneNavigation\Interfaces\IMasterManager.cs" />
     <Compile Include="Assets\Scripts\ToSceneNavigation\Interfaces\INavigationManager.cs" />
     <Compile Include="Assets\Scripts\ToSceneNavigation\Interfaces\IScene.cs" />

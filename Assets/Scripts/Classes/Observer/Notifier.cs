@@ -37,6 +37,6 @@ namespace Mathc3Project.Classes.Observer
                 subscriber.OnEvent(eventTypeEnum, messageData);
             }
         }
-
+        
     }
 }

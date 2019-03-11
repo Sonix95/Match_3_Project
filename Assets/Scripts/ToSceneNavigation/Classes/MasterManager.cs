@@ -21,8 +21,8 @@ namespace ToSceneNavigation.Classes
 
         public ICoroutiner Coroutiner { get; private set; }
         public IUpdateManager UpdateManager { get; private set; }
-        public INotifier GameplayNotifier { get; private set; }
-        public INotifier UINotifier { get; private set; }
+        public INotifier GameplayNotifier { get; set; }
+        public INotifier UINotifier { get; set; }
         public IObjectStorage ObjectStorage { get; private set; }
         public IObjectSetter ObjectSetter { get; private set; }
         public ISpawnManager SpawnManager { get; private set; }

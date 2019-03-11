@@ -8,6 +8,7 @@ namespace Mathc3Project.Interfaces
     public interface IGameplayLogicManager : ISubscriber
     {
         IBoard Board { get; set; }
+        IUpdateManager UpdateManager { get; set; }
         INavigationManager NavigationManager { get; set; }
         ICheckManager CheckManager { get; set; }
         ISpawnManager SpawnManager { get; set; }

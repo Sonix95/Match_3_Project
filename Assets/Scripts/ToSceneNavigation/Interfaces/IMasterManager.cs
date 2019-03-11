@@ -7,8 +7,8 @@ namespace DefaultNamespace
     {
         ICoroutiner Coroutiner { get; }
         IUpdateManager UpdateManager { get; }
-        INotifier GameplayNotifier { get; }
-        INotifier UINotifier { get; }
+        INotifier GameplayNotifier { get; set; }
+        INotifier UINotifier { get; set; }
         IObjectStorage ObjectStorage { get; }
         IObjectSetter ObjectSetter { get; }
         ISpawnManager SpawnManager { get; }

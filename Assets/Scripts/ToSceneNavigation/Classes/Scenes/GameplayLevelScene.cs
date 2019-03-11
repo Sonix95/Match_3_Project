@@ -14,7 +14,6 @@ namespace ToSceneNavigation.Classes
         //TODO убрать это в другое место
         private ILevel _level;
         
-
         private IUpdateManager _updateManager;
         private IGameplayLogicManager _gameplayLogicManager;
 
@@ -31,6 +30,7 @@ namespace ToSceneNavigation.Classes
         public override void OnEnter(Object transferObject)
         {
             Debug.Log("Now you will really play");
+            
             Initial(transferObject);
             SetUp();
         }
@@ -58,12 +58,14 @@ namespace ToSceneNavigation.Classes
         {
             _checkManager.Board = _board;
 
-            _gameplayLogicManager.Board = _board;
             _taskManager.Notifier = _gameplayNotifier;
+            
+            _gameplayLogicManager.Board = _board;
             _gameplayLogicManager.Notifier = _taskNotifier;
             _gameplayLogicManager.CheckManager = _checkManager;
             _gameplayLogicManager.SpawnManager = _spawnManager;
             _gameplayLogicManager.NavigationManager = _NavigationManager;
+            _gameplayLogicManager.UpdateManager = _updateManager;
             
             _taskManager.AddSubscriber(_gameplayLogicManager);
             _inputManager.AddSubscriber(_gameplayLogicManager);
@@ -76,6 +78,8 @@ namespace ToSceneNavigation.Classes
         public override void OnExit()
         {
             Debug.Log("Exit from Gameplay Level");
+            _updateManager.RemoveUpdatable(_inputManager as IUpdatable);
+            _updateManager.IsUpdate = false;
         }
 
         

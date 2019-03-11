@@ -16,6 +16,7 @@ namespace Mathc3Project.Classes
     public class GameplayLogicManager : MonoBehaviour, IGameplayLogicManager
     {
         private INavigationManager _navigationManager;
+        private IUpdateManager _updateManager;
         private IBoard _board;
         private ICheckManager _checkManager;
         private ISpawnManager _spawnManager;
@@ -55,9 +56,6 @@ namespace Mathc3Project.Classes
             _matchedCellsWithAxisDictionary = new Dictionary<ICell, IDictionary<IList<ICell>, AxisTypes>>();
             
             _gameState = GameStates.Ready;
-            
-            //TODO удалить
-            StartCoroutine(WaitBeforeExit());
         }
 
         public void OnEvent(EventTypes eventType, object messageData)
@@ -168,7 +166,12 @@ namespace Mathc3Project.Classes
         //TODO добавить окно для выхода вместо корутины
         IEnumerator WaitBeforeExit()
         {
-            yield return new WaitForSeconds(2);
+            for (int i = 5; i >= 0; i--)
+            {
+                Debug.Log(i);
+                yield return new WaitForSeconds(1);
+            }
+            
             _navigationManager.Navigate(SceneTypes.GameplayLevel, SceneTypes.Menu, null);
         }
 
@@ -582,7 +585,13 @@ namespace Mathc3Project.Classes
             get { return _board; }
             set { _board = value; }
         }
-        
+
+        public IUpdateManager UpdateManager
+        {
+            get { return _updateManager; }
+            set { _updateManager = value; }
+        }
+
         public ICheckManager CheckManager
         {
             get { return _checkManager; }

@@ -5,10 +5,9 @@ namespace Mathc3Project.Classes
 {
     public class Coroutiner : MonoBehaviour, ICoroutiner
     {
-        private void Awake()
+        private void Start()
         {
             DontDestroyOnLoad(this);
         }
-        
     }
 }

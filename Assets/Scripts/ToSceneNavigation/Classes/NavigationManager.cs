@@ -12,7 +12,7 @@ namespace ToSceneNavigation.Classes
     public class NavigationManager : INavigationManager
     {
         private AsyncOperation _loadSceneOperation;
-
+        private IScene _currentScene;
         public NavigationManager(IMasterManager masterManager)
         {
             MasterManager = masterManager;
@@ -20,8 +20,10 @@ namespace ToSceneNavigation.Classes
 
         public void Navigate(SceneTypes sceneFrom, SceneTypes sceneTo, Object transferObject)
         {
+            _currentScene = GameObject.FindWithTag("Base Scene Object").GetComponent<BaseScene>();
+            
             var loadedSceneName = Strings.GetScenePath(sceneTo);
-
+            
             _loadSceneOperation = SceneManager.LoadSceneAsync(loadedSceneName);
             
             MasterManager.Coroutiner.StartCoroutine(SceneLoading(sceneTo, transferObject));
@@ -29,6 +31,8 @@ namespace ToSceneNavigation.Classes
 
         private IEnumerator SceneLoading(SceneTypes loadedScene, Object transferObject)
         {
+            
+            
             var isLoaded = _loadSceneOperation.isDone;
 
             while (isLoaded == false)
@@ -37,10 +41,12 @@ namespace ToSceneNavigation.Classes
                 isLoaded = _loadSceneOperation.isDone;
             }
             
-            IScene sceneBaseObject = GameObject.FindWithTag("Base Scene Object").GetComponent<BaseScene>();
-
-            sceneBaseObject.SetDependencies(loadedScene, this);
-            sceneBaseObject.OnEnter(transferObject);
+            _currentScene.OnExit();
+            yield return null;
+            
+            _currentScene = GameObject.FindWithTag("Base Scene Object").GetComponent<BaseScene>();
+            _currentScene.SetDependencies(loadedScene, this);
+            _currentScene.OnEnter(transferObject);
         }
 
         public IMasterManager MasterManager { get; private set; }

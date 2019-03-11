@@ -1,5 +1,8 @@
 using System.Collections;
 using Mathc3Project.Classes;
+using Mathc3Project.Classes.Observer;
+using Mathc3Project.Classes.StaticClasses;
+using Mathc3Project.Enums;
 using Mathc3Project.Interfaces;
 using Mathc3Project.Interfaces.Observer;
 using ToSceneNavigation.Classes.Abstract;
@@ -19,6 +22,12 @@ namespace ToSceneNavigation.Classes
         public override void OnEnter(Object transferObject)
         {
             Debug.Log("Enter in Menu Scene");
+            _NavigationManager.MasterManager.Coroutiner.StartCoroutine(InitialAndSetup());
+        }
+
+        private IEnumerator InitialAndSetup()
+        {
+            yield return null;
             Initial();
             SetUp();
         }
@@ -29,17 +38,20 @@ namespace ToSceneNavigation.Classes
             
             _levelsManager = new LevelsManager();
             _buttonsManager =  new ButtonsMenuManager(_uiNotifier);
-            _uiManager = new UIMenuManager(_NavigationManager, _levelsManager);
+            _uiManager = new UIMenuManager(_levelsManager);
         }
 
         private void SetUp()
         {
+            _uiManager.NavigationManager = _NavigationManager;
             _buttonsManager.AddSubscriber(_uiManager);
+            _buttonsManager.Notify(EventTypes.UI_SceneLoaded,null);
         }
 
         public override void OnExit()
         {
-            Debug.Log("Exit from Menu Scene");
+            Debug.Log("Exit from Menu Scene");            
+            _NavigationManager.MasterManager.UINotifier = new Notifier();
         }
     }
 }

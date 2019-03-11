@@ -41,7 +41,7 @@ namespace ToSceneNavigation.Classes
 
             INavigationManager navigationManager = new NavigationManager(masterManager);
 
-            navigationManager.Navigate(SceneTypes.BootstrapperScene, SceneTypes.Menu, null);
+            navigationManager.Navigate(SceneTypes.BootstrapperScene, SceneTypes.StartScreenScene, null);
         }
 
         public override void OnExit()

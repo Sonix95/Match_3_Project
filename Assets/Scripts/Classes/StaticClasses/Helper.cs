@@ -108,13 +108,13 @@ namespace Mathc3Project.Classes.StaticClasses
                 switch (currentTask)
                 {
                     case 0:
-                        position = new Vector2(-145, 0);
+                        position = new Vector2(-140, 0);
                         break;
                     case 1:
                         position = new Vector2(0, 0);
                         break;
                     case 2:
-                        position = new Vector2(145, 0);
+                        position = new Vector2(140, 0);
                         break;
                 }
             }
