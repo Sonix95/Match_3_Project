@@ -6,10 +6,11 @@ namespace Mathc3Project.Classes
 {
     public class MasterManager : IMasterManager
     {
-        public MasterManager(ICoroutiner coroutiner , INotifier gameplayNotifier,
+        public MasterManager(ICoroutiner coroutiner, IUpdateManager updateManager, INotifier gameplayNotifier,
             INotifier uiNotifier, IObjectStorage objectStorage, ISpawnManager spawnManager)
         {
             Coroutiner = coroutiner;
+            UpdateManager = updateManager;
             GameplayNotifier = gameplayNotifier;
             UINotifier = uiNotifier;
             ObjectStorage = objectStorage;
@@ -17,6 +18,7 @@ namespace Mathc3Project.Classes
         }
 
         public ICoroutiner Coroutiner { get; private set; }
+        public IUpdateManager UpdateManager { get; private set; }
         public INotifier GameplayNotifier { get; set; }
         public INotifier UINotifier { get; set; }
         public IObjectStorage ObjectStorage { get; private set; }

@@ -136,7 +136,6 @@ namespace Mathc3Project.Classes
                 
                 case EventTypes.CELL_Destroy:
                     string cellTag = (string) messageData;
-                    Debug.Log(cellTag);
                     Notify(EventTypes.CELL_Destroy, cellTag);
                     break;
 
@@ -150,9 +149,6 @@ namespace Mathc3Project.Classes
                     break;
                 
                 case EventTypes.TASK_Finished:
-                    Debug.Log("Задачи выполненны ");
-                    // TODO Удалить
-                    
                     if (_gameState != GameStates.End)
                         _navigationManager.MasterManager.Coroutiner.StartCoroutine(WaitBeforeExit());
                     break;
@@ -167,6 +163,12 @@ namespace Mathc3Project.Classes
         IEnumerator WaitBeforeExit()
         {
             _gameState = GameStates.End;
+
+            foreach (var cell in _board.Cells)
+            {
+                _navigationManager.MasterManager.UpdateManager.RemoveUpdatable(cell as IUpdatable);
+            }
+            
             for (int i = 3; i > 0; i--)
             {
                 Debug.Log(i);

@@ -5,6 +5,7 @@ namespace Mathc3Project.Interfaces
     public interface IMasterManager
     {
         ICoroutiner Coroutiner { get; }
+        IUpdateManager UpdateManager { get; }
         INotifier GameplayNotifier { get; set; }
         INotifier UINotifier { get; set; }
         IObjectStorage ObjectStorage { get; }

@@ -11,6 +11,7 @@ namespace Mathc3Project.Classes.Scenes
     public class BootstrapperScene : BaseScene
     {
         private ICoroutiner _coroutiner;
+        private IUpdateManager _updateManager;
 
         private INotifier _gameplayNotifier;
         private INotifier _uiNotifier;
@@ -22,6 +23,7 @@ namespace Mathc3Project.Classes.Scenes
         private void Start()
         {
             _coroutiner = new GameObject(Strings.Coroutiner).AddComponent<Coroutiner>();
+            _updateManager = new GameObject(Strings.Update_Manager).AddComponent<UpdateManager>();
 
             _gameplayNotifier = new Notifier();
             _uiNotifier = new Notifier();
@@ -30,7 +32,7 @@ namespace Mathc3Project.Classes.Scenes
 
             _spawnManager = new SpawnManager(_objectStorage);
 
-            IMasterManager masterManager = new MasterManager(_coroutiner, _gameplayNotifier,
+            IMasterManager masterManager = new MasterManager(_coroutiner, _updateManager, _gameplayNotifier,
                 _uiNotifier, _objectStorage, _spawnManager);
 
             INavigationManager navigationManager = new NavigationManager(masterManager);

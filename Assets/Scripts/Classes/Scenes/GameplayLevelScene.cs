@@ -11,13 +11,9 @@ namespace Mathc3Project.Classes.Scenes
 {
     public class GameplayLevelScene : BaseScene
     {
-        //TODO убрать это в другое место
-        private ILevel _level;
-        
         private IGameplayLogicManager _gameplayLogicManager;
-        private ICellRegistrator _cellRegistrator;
         private IUpdateManager _updateManager;
-
+        
         private INotifier _gameplayNotifier;
         private INotifier _taskNotifier;
         
@@ -26,28 +22,23 @@ namespace Mathc3Project.Classes.Scenes
         private ICheckManager _checkManager;
         private ITaskManager _taskManager;
         
+        private ICellRegistrator _cellRegistrator;
+        
+        private ILevel _level;
         private IBoard _board;
         
         public override void OnEnter(Object transferObject)
         {
             Debug.Log("Now you will really play");
-            _NavigationManager.MasterManager.Coroutiner.StartCoroutine(InitialAndSetup(transferObject));
-        }
-
-        private IEnumerator InitialAndSetup(Object transferObject)
-        {
-            yield return new WaitForSeconds(1f);
-            Initial(transferObject);
+            _level = (ILevel) transferObject;
             
-            yield return new WaitForSeconds(1f);
+            Initial();
             SetUp();
         }
         
-        
-        private void Initial(Object transferObject)
+        private void Initial()
         {
-            _level = (ILevel) transferObject;
-            _updateManager = new GameObject("Update MANAGER").AddComponent<UpdateManager>();
+            _updateManager = _NavigationManager.MasterManager.UpdateManager;
             _gameplayLogicManager = new GameObject("Gameplay Logic Manager").AddComponent<GameplayLogicManager>();
             GameObject empty = new GameObject("---------------");
 
@@ -87,9 +78,7 @@ namespace Mathc3Project.Classes.Scenes
         public override void OnExit()
         {
             Debug.Log("Exit from Gameplay Level");
-       //     _gameplayLogicManager.RemoveSubscriber(_taskManager);
-       //     _taskManager.RemoveSubscriber(_gameplayLogicManager);
-            
+            _updateManager.RemoveUpdatable(_inputManager as IUpdatable);
             _NavigationManager.MasterManager.GameplayNotifier = new Notifier();
         }
 
