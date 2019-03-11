@@ -10,18 +10,18 @@ namespace Mathc3Project.Classes
     public class SpawnManager : ISpawnManager
     {
         private readonly IObjectStorage _objectStorage;
-        private readonly IObjectSetter _objectSetter;
 
-        public SpawnManager(IObjectStorage objectStorage, IObjectSetter objectSetter)
+        public SpawnManager(IObjectStorage objectStorage)
         {
             _objectStorage = objectStorage;
-            _objectSetter = objectSetter;
         }
 
         public GameObject SpawnPrefab(Vector3 position)
         {
             GameObject newGameObject = _objectStorage.GetRandomGameElement();
-            _objectSetter.SetGameObject(newGameObject, position);
+            
+            newGameObject.name = newGameObject.tag;
+            newGameObject.transform.position = position;
             
             return newGameObject;
         }
@@ -29,20 +29,23 @@ namespace Mathc3Project.Classes
         public GameObject SpawnPowerPrefab(PowerUpTypes powerUpType, Vector3 position)
         {
             GameObject powerGameObject = _objectStorage.GetPowerElement(powerUpType);
-            _objectSetter.SetGameObject(powerGameObject, position);
+            
+            powerGameObject.name = powerGameObject.tag;
+            powerGameObject.transform.position = position;
             
             return powerGameObject;
         }
         
         public ICell SpawnNormalCell(Vector3 position)
         {
-            GameObject newGameObject = _objectStorage.GetRandomGameElement();
+            GameObject newGameObject = SpawnPrefab(position);
+     
             ICell newNormalCell = new NormalCell((int) position.x, (int) position.y);
+
+            newNormalCell.CurrentGameObject = newGameObject;
             
-            _objectSetter.SetGameObject(newGameObject, position);
-            _objectSetter.SetNormalCell(newNormalCell as INormalCell, newGameObject);
             return newNormalCell;
         }
-        
+    
     }
 }

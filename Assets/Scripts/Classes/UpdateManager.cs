@@ -9,11 +9,6 @@ namespace Mathc3Project.Classes
         IList<IUpdatable> _updatableList = new List<IUpdatable>();
         private bool isUpdate;
 
-        private void Awake()
-        {
-            DontDestroyOnLoad(this);
-        }
-
         private void Update()
         {
             if (isUpdate)
@@ -42,6 +37,19 @@ namespace Mathc3Project.Classes
                 if (_updatableList.Contains(updatable))
                     _updatableList.Remove(updatable);
             }
+        }
+
+        public void PrintAllSub()
+        {
+            if (_updatableList != null)
+            {
+                foreach (var updatable in _updatableList)
+                {
+                    Debug.Log(updatable);
+                }
+            }
+            else
+                Debug.Log("Null");
         }
 
         public bool IsUpdate

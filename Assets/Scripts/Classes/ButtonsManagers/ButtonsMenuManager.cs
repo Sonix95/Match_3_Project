@@ -1,12 +1,11 @@
 using System.Collections.Generic;
-using DefaultNamespace;
 using Mathc3Project.Enums;
 using Mathc3Project.Interfaces;
 using Mathc3Project.Interfaces.Observer;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Mathc3Project.Classes
+namespace Mathc3Project.Classes.ButtonsManager
 {
     public class ButtonsMenuManager : IButtonsManager
     {

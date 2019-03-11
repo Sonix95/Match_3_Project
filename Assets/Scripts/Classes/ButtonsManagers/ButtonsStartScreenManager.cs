@@ -5,7 +5,7 @@ using Mathc3Project.Interfaces.Observer;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Mathc3Project.Classes
+namespace Mathc3Project.Classes.ButtonsManager
 {
     public class ButtonsStartScreenManager : IButtonsManager
     {

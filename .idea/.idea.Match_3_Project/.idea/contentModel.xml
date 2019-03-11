@@ -8,11 +8,15 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="Classes" t="Include">
+            <e p="Abstract" t="Include">
+              <e p="BaseScene.cs" t="Include" />
+            </e>
             <e p="Board.cs" t="Include" />
             <e p="ButtonsManagers" t="Include">
               <e p="ButtonsMenuManager.cs" t="Include" />
               <e p="ButtonsStartScreenManager.cs" t="Include" />
             </e>
+            <e p="CellRegistrator.cs" t="Include" />
             <e p="Cells" t="Include">
               <e p="HollowCell.cs" t="Include" />
               <e p="NormalCell.cs" t="Include" />
@@ -32,10 +36,17 @@
             <e p="Level.cs" t="Include" />
             <e p="LevelsManager.cs" t="Include" />
             <e p="LevelTask.cs" t="Include" />
-            <e p="ObjectSetter.cs" t="Include" />
+            <e p="MasterManager.cs" t="Include" />
+            <e p="NavigationManager.cs" t="Include" />
             <e p="ObjectStorage.cs" t="Include" />
             <e p="Observer" t="Include">
               <e p="Notifier.cs" t="Include" />
+            </e>
+            <e p="Scenes" t="Include">
+              <e p="BootstrapperScene.cs" t="Include" />
+              <e p="GameplayLevelScene.cs" t="Include" />
+              <e p="MenuScene.cs" t="Include" />
+              <e p="StartScreenScene.cs" t="Include" />
             </e>
             <e p="SpawnManager.cs" t="Include" />
             <e p="StaticClasses" t="Include">
@@ -70,6 +81,7 @@
             </e>
             <e p="IBoard.cs" t="Include" />
             <e p="IButtonsManager.cs" t="Include" />
+            <e p="ICellRegistrator.cs" t="Include" />
             <e p="ICheckManager.cs" t="Include" />
             <e p="ICoroutiner.cs" t="Include" />
             <e p="IGameplayLogicManager.cs" t="Include" />
@@ -77,8 +89,10 @@
             <e p="ILevel.cs" t="Include" />
             <e p="ILevelsManager.cs" t="Include" />
             <e p="ILevelTask.cs" t="Include" />
-            <e p="IObjectSetter.cs" t="Include" />
+            <e p="IMasterManager.cs" t="Include" />
+            <e p="INavigationManager.cs" t="Include" />
             <e p="IObjectStorage.cs" t="Include" />
+            <e p="IScene.cs" t="Include" />
             <e p="ISpawnManager.cs" t="Include" />
             <e p="ITaskManager.cs" t="Include" />
             <e p="IUIManager.cs" t="Include" />
@@ -87,26 +101,6 @@
             <e p="Observer" t="Include">
               <e p="INotifier.cs" t="Include" />
               <e p="ISubscriber.cs" t="Include" />
-            </e>
-          </e>
-          <e p="ToSceneNavigation" t="Include">
-            <e p="Classes" t="Include">
-              <e p="Abstract" t="Include">
-                <e p="BaseScene.cs" t="Include" />
-              </e>
-              <e p="MasterManager.cs" t="Include" />
-              <e p="NavigationManager.cs" t="Include" />
-              <e p="Scenes" t="Include">
-                <e p="BootstrapperScene.cs" t="Include" />
-                <e p="GameplayLevelScene.cs" t="Include" />
-                <e p="MenuScene.cs" t="Include" />
-                <e p="StartScreenScene.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Interfaces" t="Include">
-              <e p="IMasterManager.cs" t="Include" />
-              <e p="INavigationManager.cs" t="Include" />
-              <e p="IScene.cs" t="Include" />
             </e>
           </e>
         </e>

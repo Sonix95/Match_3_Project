@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using DefaultNamespace;
 using Mathc3Project.Classes.Commands;
 using Mathc3Project.Classes.StaticClasses;
 using Mathc3Project.Enums;
@@ -16,7 +15,6 @@ namespace Mathc3Project.Classes
     public class GameplayLogicManager : MonoBehaviour, IGameplayLogicManager
     {
         private INavigationManager _navigationManager;
-        private IUpdateManager _updateManager;
         private IBoard _board;
         private ICheckManager _checkManager;
         private ISpawnManager _spawnManager;
@@ -154,7 +152,9 @@ namespace Mathc3Project.Classes
                 case EventTypes.TASK_Finished:
                     Debug.Log("Задачи выполненны ");
                     // TODO Удалить
-                    StartCoroutine(WaitBeforeExit());
+                    
+                    if (_gameState != GameStates.End)
+                        _navigationManager.MasterManager.Coroutiner.StartCoroutine(WaitBeforeExit());
                     break;
 
                 default:
@@ -163,10 +163,11 @@ namespace Mathc3Project.Classes
             }
         }
         
-        //TODO добавить окно для выхода вместо корутины
+        //TODO добавить окно для выхода вместо корутины | перенаправить в UI
         IEnumerator WaitBeforeExit()
         {
-            for (int i = 5; i >= 0; i--)
+            _gameState = GameStates.End;
+            for (int i = 3; i > 0; i--)
             {
                 Debug.Log(i);
                 yield return new WaitForSeconds(1);
@@ -584,12 +585,6 @@ namespace Mathc3Project.Classes
         {
             get { return _board; }
             set { _board = value; }
-        }
-
-        public IUpdateManager UpdateManager
-        {
-            get { return _updateManager; }
-            set { _updateManager = value; }
         }
 
         public ICheckManager CheckManager

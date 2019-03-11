@@ -1,10 +1,7 @@
-using System.Collections.Generic;
-using DefaultNamespace;
 using Mathc3Project.Classes.StaticClasses;
 using Mathc3Project.Enums;
 using Mathc3Project.Interfaces;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Object = System.Object;
 
@@ -107,6 +104,7 @@ namespace Mathc3Project.Classes
                     _gameObjectDescription_PanelLevels.SetActive(false);
                     Debug.Log("Close Description of Level");
                     break;
+                
                 case EventTypes.UI_PlayLevel:
                     ILevel selectedLevel = _levelsManager.Levels[_selectedLevel];
                     _navigationManager.Navigate(SceneTypes.Menu, SceneTypes.GameplayLevel, selectedLevel);

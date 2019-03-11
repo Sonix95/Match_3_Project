@@ -1,4 +1,5 @@
 ﻿using Mathc3Project.Interfaces.Cells;
+using Mathc3Project.Interfaces.Observer;
 
 namespace Mathc3Project.Interfaces
 {
@@ -7,5 +8,6 @@ namespace Mathc3Project.Interfaces
         int Width { get; set; }
         int Height { get; set; }
         ICell[,] Cells { get; set; }
+        ICellRegistrator CellRegistrator { get; set; }
     }
 }

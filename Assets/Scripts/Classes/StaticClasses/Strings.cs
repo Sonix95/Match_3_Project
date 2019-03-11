@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using DefaultNamespace;
 using Mathc3Project.Enums;
 
 namespace Mathc3Project.Classes.StaticClasses

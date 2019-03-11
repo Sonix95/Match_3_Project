@@ -4,5 +4,6 @@ namespace Mathc3Project.Enums
     {
         Wait,
         Ready,
+        End
     }
 }
