@@ -25,11 +25,14 @@ namespace Mathc3Project.Classes
                         _loadingImage.SetActive(false);
                     break;
                 
-                case EventTypes.UI_Start:
+                case EventTypes.UI_OpenMenu:
                     if (_navigationManager == null)
                         throw new UnityException("Navigation Manager is" + _navigationManager);
                     else
+                    {
+                        _loadingImage.SetActive(true);
                         _navigationManager.Navigate(SceneTypes.StartScreenScene, SceneTypes.Menu, null);
+                    }
                     break;
             }
         }

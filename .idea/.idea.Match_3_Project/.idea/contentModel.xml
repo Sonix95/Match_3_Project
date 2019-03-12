@@ -13,6 +13,7 @@
             </e>
             <e p="Board.cs" t="Include" />
             <e p="ButtonsManagers" t="Include">
+              <e p="ButtonsGameplaySceneManager.cs" t="Include" />
               <e p="ButtonsMenuManager.cs" t="Include" />
               <e p="ButtonsStartScreenManager.cs" t="Include" />
             </e>
@@ -55,6 +56,7 @@
             </e>
             <e p="TaskManager.cs" t="Include" />
             <e p="UIManagers" t="Include">
+              <e p="UIGameplayLevelManager.cs" t="Include" />
               <e p="UIMenuManager.cs" t="Include" />
               <e p="UIStartScreenSceneManager.cs" t="Include" />
             </e>

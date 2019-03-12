@@ -21,7 +21,7 @@ namespace Mathc3Project.Enums
         TASK_Finished,
         
         UI_SceneLoaded,
-        UI_Start,
+        UI_OpenMenu,
         UI_BackToStartScreen,
         UI_PrevLocation,
         UI_NextLocation,

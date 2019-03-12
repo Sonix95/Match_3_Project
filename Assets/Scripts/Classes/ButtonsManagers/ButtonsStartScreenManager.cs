@@ -36,7 +36,7 @@ namespace Mathc3Project.Classes.ButtonsManager
         #region Listener's for Buttons
         private void StartGame()
         {
-            Notify(EventTypes.UI_Start, null);
+            Notify(EventTypes.UI_OpenMenu, null);
         }
         
         #endregion

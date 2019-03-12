@@ -87,37 +87,43 @@ namespace Mathc3Project.Classes.StaticClasses
             render.color = new Color(render.color.r, render.color.g, render.color.b, .2f);
         }
 
-        public static Vector2 SetUITaskPosition(int tasksCount, int currentTask)
+        public static Vector2 SetUITaskPosition(int tasksCount, int currentTask, SceneTypes sceneType)
         {
             Vector2 position = Vector3.zero;
+            int y = sceneType == SceneTypes.Menu ? 0 : -80;
 
             if (tasksCount == 2)
             {
+                int x = sceneType == SceneTypes.Menu ? 80 : 60;
                 switch (currentTask)
                 {
                     case 0:
-                        position = new Vector2(-80, 0);
+
+                        position = new Vector2(-x, y);
                         break;
                     case 1:
-                        position = new Vector2(80, 0);
+                        position = new Vector2(x, y);
                         break;
                 }
             }
             else if (tasksCount == 3)
             {
+                int x = sceneType == SceneTypes.Menu ? 140 : 90;
                 switch (currentTask)
                 {
                     case 0:
-                        position = new Vector2(-140, 0);
+                        position = new Vector2(-x, y);
                         break;
                     case 1:
-                        position = new Vector2(0, 0);
+                        position = new Vector2(0, y);
                         break;
                     case 2:
-                        position = new Vector2(140, 0);
+                        position = new Vector2(x, y);
                         break;
                 }
             }
+            else
+                position = new Vector2(0, y);
 
             return position;
         }

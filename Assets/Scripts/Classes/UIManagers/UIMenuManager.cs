@@ -81,13 +81,13 @@ namespace Mathc3Project.Classes
 
                             taskPrefab.transform.SetParent(tasksHolderPanel.transform);
 
-                            Vector2 tempPos = Helper.SetUITaskPosition(tastsCount, i);
+                            Vector2 tempPos = Helper.SetUITaskPosition(tastsCount, i, SceneTypes.Menu);
                             taskPrefab.transform.localPosition = tempPos;
 
                             Text countTask = taskPrefab.GetComponentInChildren<Text>();
                             countTask.text = level.LevelTasks[i].Count.ToString();
 
-                            Image taskSprite = taskPrefab.GetComponentsInChildren<Image>()[1];
+                            Image taskSprite = taskPrefab.GetComponentsInChildren<Image>()[2];
                             taskSprite.sprite = level.LevelTasks[i].SpriteElement;
                         }
                     }
@@ -107,6 +107,8 @@ namespace Mathc3Project.Classes
                 
                 case EventTypes.UI_PlayLevel:
                     ILevel selectedLevel = _levelsManager.Levels[_selectedLevel];
+                    
+                    _loadingImage.SetActive(true);
                     _navigationManager.Navigate(SceneTypes.Menu, SceneTypes.GameplayLevel, selectedLevel);
                     break;
 

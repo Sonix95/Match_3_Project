@@ -7,7 +7,7 @@ namespace Mathc3Project.Classes
         private int _locationID;
         private int _levelID;
         private ILevelTask[] _levelTasks;
-        //TODO Добавить дред настройщик
+        //TODO Добавить пред настройщик
         private int _boardWidth;
         private int _boardHeight;
 
@@ -26,6 +26,12 @@ namespace Mathc3Project.Classes
             message += "Board = " + _boardWidth + "x" + _boardHeight + "\n";
             
             return message;
+        }
+        
+        public int LocationId
+        {
+            get { return _locationID; }
+            set { _locationID = value; }
         }
 
         public int LevelId

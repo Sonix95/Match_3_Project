@@ -42,7 +42,7 @@ namespace Mathc3Project.Classes.Scenes
 
         public override void OnExit()
         {
-            Debug.Log("Exit From Scene Bootstrapper");
+            // -- no implementation -- //
         }
 
         public override void OnEnter(object transferObject)

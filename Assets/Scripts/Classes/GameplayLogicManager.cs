@@ -150,32 +150,16 @@ namespace Mathc3Project.Classes
                 
                 case EventTypes.TASK_Finished:
                     if (_gameState != GameStates.End)
-                        _navigationManager.MasterManager.Coroutiner.StartCoroutine(WaitBeforeExit());
+                    {
+                        _gameState = GameStates.End;
+                        Notify(EventTypes.TASK_Finished, null);
+                    }
                     break;
 
                 default:
                     Debug.Log("EVENT NOT FOUND");
                     break;
             }
-        }
-        
-        //TODO добавить окно для выхода вместо корутины | перенаправить в UI
-        IEnumerator WaitBeforeExit()
-        {
-            _gameState = GameStates.End;
-
-            foreach (var cell in _board.Cells)
-            {
-                _navigationManager.MasterManager.UpdateManager.RemoveUpdatable(cell as IUpdatable);
-            }
-            
-            for (int i = 3; i > 0; i--)
-            {
-                Debug.Log(i);
-                yield return new WaitForSeconds(1);
-            }
-            
-            _navigationManager.Navigate(SceneTypes.GameplayLevel, SceneTypes.Menu, null);
         }
 
         private void TryCheckSwipedCells(ICell cell)

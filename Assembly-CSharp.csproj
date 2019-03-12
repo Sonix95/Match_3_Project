@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Classes\Abstract\BaseScene.cs" />
     <Compile Include="Assets\Scripts\Classes\Board.cs" />
+    <Compile Include="Assets\Scripts\Classes\ButtonsManagers\ButtonsGameplaySceneManager.cs" />
     <Compile Include="Assets\Scripts\Classes\ButtonsManagers\ButtonsMenuManager.cs" />
     <Compile Include="Assets\Scripts\Classes\ButtonsManagers\ButtonsStartScreenManager.cs" />
     <Compile Include="Assets\Scripts\Classes\CellRegistrator.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Assets\Scripts\Classes\StaticClasses\Helper.cs" />
     <Compile Include="Assets\Scripts\Classes\StaticClasses\Strings.cs" />
     <Compile Include="Assets\Scripts\Classes\TaskManager.cs" />
+    <Compile Include="Assets\Scripts\Classes\UIManagers\UIGameplayLevelManager.cs" />
     <Compile Include="Assets\Scripts\Classes\UIManagers\UIMenuManager.cs" />
     <Compile Include="Assets\Scripts\Classes\UIManagers\UIStartScreenSceneManager.cs" />
     <Compile Include="Assets\Scripts\Classes\UpdateManager.cs" />
