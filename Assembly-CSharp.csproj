@@ -129,6 +129,10 @@
     <Compile Include="Assets\Scripts\Interfaces\IUpdateManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\Observer\INotifier.cs" />
     <Compile Include="Assets\Scripts\Interfaces\Observer\ISubscriber.cs" />
+    <Compile Include="Assets\Tests\PlayMode\CreateBoardFromLevelTest.cs" />
+    <Compile Include="Assets\Tests\PlayMode\CreateBoardTest.cs" />
+    <Compile Include="Assets\Tests\PlayMode\CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.cs" />
+    <Compile Include="Assets\Tests\Static\ObjectsCreator.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

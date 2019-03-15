@@ -67,7 +67,7 @@ namespace Mathc3Project.Classes
                         new LevelTask(Strings.Tag_RedCircle, 13)
 
                     }),
-                new Level(8, 10, 9,
+                new Level(9, 10, 9,
                     new ILevelTask[]
                     {
                         new LevelTask(Strings.Tag_BlueMultiAngle, 12),
