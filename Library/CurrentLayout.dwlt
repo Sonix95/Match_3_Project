@@ -16,8 +16,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 43
-    width: 1858
-    height: 1037
+    width: 1304
+    height: 725
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 9}
@@ -39,14 +39,14 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 677
-    width: 1170
-    height: 310
-  m_MinSize: {x: 102, y: 124}
-  m_MaxSize: {x: 4002, y: 4024}
-  m_ActualView: {fileID: 19}
+    y: 523
+    width: 817
+    height: 152
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 20}
   m_Panes:
-  - {fileID: 19}
+  - {fileID: 20}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &3
@@ -68,12 +68,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1170
-    height: 987
-  m_MinSize: {x: 202, y: 348}
-  m_MaxSize: {x: 4002, y: 8048}
+    width: 817
+    height: 675
+  m_MinSize: {x: 102, y: 224}
+  m_MaxSize: {x: 4002, y: 8024}
   vertical: 1
-  controlID: 11
+  controlID: 62
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -91,13 +91,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 290
-    height: 520
+    width: 206
+    height: 288
   m_MinSize: {x: 204, y: 224}
   m_MaxSize: {x: 4004, y: 4024}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 18}
   m_Panes:
-  - {fileID: 17}
+  - {fileID: 18}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &5
@@ -119,12 +119,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 688
-    height: 520
+    width: 487
+    height: 288
   m_MinSize: {x: 481, y: 224}
   m_MaxSize: {x: 8006, y: 4024}
   vertical: 0
-  controlID: 1663
+  controlID: 12
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,16 +140,16 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 290
+    x: 206
     y: 0
-    width: 398
-    height: 520
+    width: 281
+    height: 288
   m_MinSize: {x: 277, y: 74}
   m_MaxSize: {x: 4002, y: 4024}
-  m_ActualView: {fileID: 20}
+  m_ActualView: {fileID: 21}
   m_Panes:
-  - {fileID: 20}
   - {fileID: 21}
+  - {fileID: 22}
   m_Selected: 0
   m_LastSelected: 1
 --- !u!114 &7
@@ -168,17 +168,16 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 520
-    width: 688
-    height: 467
+    y: 288
+    width: 487
+    height: 387
   m_MinSize: {x: 232, y: 274}
   m_MaxSize: {x: 10002, y: 10024}
-  m_ActualView: {fileID: 18}
+  m_ActualView: {fileID: 19}
   m_Panes:
-  - {fileID: 18}
-  - {fileID: 14}
+  - {fileID: 19}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 0
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,14 +195,14 @@ MonoBehaviour:
   - {fileID: 7}
   m_Position:
     serializedVersion: 2
-    x: 1170
+    x: 817
     y: 0
-    width: 688
-    height: 987
+    width: 487
+    height: 675
   m_MinSize: {x: 481, y: 498}
   m_MaxSize: {x: 10002, y: 14048}
   vertical: 1
-  controlID: 1662
+  controlID: 11
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,8 +223,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1858
-    height: 1037
+    width: 1304
+    height: 725
   m_MinSize: {x: 950, y: 548}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &10
@@ -245,7 +244,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1858
+    width: 1304
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -266,8 +265,8 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 1017
-    width: 1858
+    y: 705
+    width: 1304
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -290,9 +289,9 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
-    width: 1858
-    height: 987
-  m_MinSize: {x: 683, y: 498}
+    width: 1304
+    height: 675
+  m_MinSize: {x: 583, y: 498}
   m_MaxSize: {x: 14004, y: 14048}
   vertical: 0
   controlID: 10
@@ -313,17 +312,629 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1170
-    height: 677
-  m_MinSize: {x: 202, y: 224}
+    width: 817
+    height: 523
+  m_MinSize: {x: 102, y: 124}
   m_MaxSize: {x: 4002, y: 4024}
-  m_ActualView: {fileID: 15}
+  m_ActualView: {fileID: 14}
   m_Panes:
-  - {fileID: 15}
   - {fileID: 16}
-  m_Selected: 0
+  - {fileID: 17}
+  - {fileID: 15}
+  - {fileID: 14}
+  m_Selected: 3
   m_LastSelected: 0
 --- !u!114 &14
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13401, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Test Runner
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 73
+    width: 815
+    height: 503
+  m_PersistentViewDataDictionary: {fileID: 0}
+  m_TestTypeToolbarIndex: 0
+  m_PlayModeTestListGUI:
+    m_Window: {fileID: 14}
+    newResultList:
+    - id: '[Match_3_Project][suite]'
+      name: Match_3_Project
+      fullName: Match_3_Project
+      resultStatus: 0
+      duration: 0.3765945
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: 
+    m_ResultText: NewTestScript (0.000s)
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 0a1d89b8
+      m_LastClickedID: -1198973686
+      m_ExpandedIDs: c67db3ab03fc0bb30a1d89b8805ed4d3095e301a9bac376cffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
+  m_EditModeTestListGUI:
+    m_Window: {fileID: 14}
+    newResultList:
+    - id: '[Match_3_Project][suite]'
+      name: Match_3_Project
+      fullName: Match_3_Project
+      resultStatus: 1
+      duration: 0.6830223
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: 
+    - id: '[E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll][suite]'
+      name: Assembly-CSharp-Editor.dll
+      fullName: E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+      resultStatus: 1
+      duration: 0.4982101
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Match_3_Project][suite]'
+    - id: '[Editor][suite]'
+      name: Editor
+      fullName: Editor
+      resultStatus: 1
+      duration: 0.4051178
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll][suite]'
+    - id: '[Editor.Tests][suite]'
+      name: Tests
+      fullName: Editor.Tests
+      resultStatus: 1
+      duration: 0.3577846
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Editor][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests][suite]'
+      name: ManagersCreateTests
+      fullName: Editor.Tests.ManagersCreateTests
+      resultStatus: 1
+      duration: 0.2425705
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Editor.Tests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests.CheckManagerCreate_Test]'
+      name: CheckManagerCreate_Test
+      fullName: Editor.Tests.ManagersCreateTests.CheckManagerCreate_Test
+      resultStatus: 1
+      duration: 0.0452912
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests.GameplayLogicManager]'
+      name: GameplayLogicManager
+      fullName: Editor.Tests.ManagersCreateTests.GameplayLogicManager
+      resultStatus: 1
+      duration: 0.0075152
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests.GameplayNotifierCreate_Test]'
+      name: GameplayNotifierCreate_Test
+      fullName: Editor.Tests.ManagersCreateTests.GameplayNotifierCreate_Test
+      resultStatus: 1
+      duration: 0.0024699
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests.InputManagerCreateTest]'
+      name: InputManagerCreateTest
+      fullName: Editor.Tests.ManagersCreateTests.InputManagerCreateTest
+      resultStatus: 1
+      duration: 0.0013499
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests.LevelsManagerCreate_Test]'
+      name: LevelsManagerCreate_Test
+      fullName: Editor.Tests.ManagersCreateTests.LevelsManagerCreate_Test
+      resultStatus: 1
+      duration: 0.0288557
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests.MasterManagerCreate_Test]'
+      name: MasterManagerCreate_Test
+      fullName: Editor.Tests.ManagersCreateTests.MasterManagerCreate_Test
+      resultStatus: 1
+      duration: 0.0593374
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests.NavigationManagerCreate_Test]'
+      name: NavigationManagerCreate_Test
+      fullName: Editor.Tests.ManagersCreateTests.NavigationManagerCreate_Test
+      resultStatus: 1
+      duration: 0.0022812
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests.SpawnManagerCreate_Test]'
+      name: SpawnManagerCreate_Test
+      fullName: Editor.Tests.ManagersCreateTests.SpawnManagerCreate_Test
+      resultStatus: 1
+      duration: 0.0013352
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests.TaskManagerCreate_Test]'
+      name: TaskManagerCreate_Test
+      fullName: Editor.Tests.ManagersCreateTests.TaskManagerCreate_Test
+      resultStatus: 1
+      duration: 0.0016696
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests.UINotifierCreate_Test]'
+      name: UINotifierCreate_Test
+      fullName: Editor.Tests.ManagersCreateTests.UINotifierCreate_Test
+      resultStatus: 1
+      duration: 0.0014309
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests.UpdateManagerCreate_Test]'
+      name: UpdateManagerCreate_Test
+      fullName: Editor.Tests.ManagersCreateTests.UpdateManagerCreate_Test
+      resultStatus: 1
+      duration: 0.0021047
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.OtherObjectsCreateTests][suite]'
+      name: OtherObjectsCreateTests
+      fullName: Editor.Tests.OtherObjectsCreateTests
+      resultStatus: 1
+      duration: 0.0747408
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Editor.Tests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.OtherObjectsCreateTests.CellRegistratorCreate_Test]'
+      name: CellRegistratorCreate_Test
+      fullName: Editor.Tests.OtherObjectsCreateTests.CellRegistratorCreate_Test
+      resultStatus: 1
+      duration: 0.0019863
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.OtherObjectsCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.OtherObjectsCreateTests.CoroutineCreate_Test]'
+      name: CoroutineCreate_Test
+      fullName: Editor.Tests.OtherObjectsCreateTests.CoroutineCreate_Test
+      resultStatus: 1
+      duration: 0.0024723
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.OtherObjectsCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.OtherObjectsCreateTests.HollowCellCreate_Test]'
+      name: HollowCellCreate_Test
+      fullName: Editor.Tests.OtherObjectsCreateTests.HollowCellCreate_Test
+      resultStatus: 1
+      duration: 0.0017483
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.OtherObjectsCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.OtherObjectsCreateTests.LevelCreate_Test]'
+      name: LevelCreate_Test
+      fullName: Editor.Tests.OtherObjectsCreateTests.LevelCreate_Test
+      resultStatus: 1
+      duration: 0.0016603
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.OtherObjectsCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.OtherObjectsCreateTests.LevelTaskCreate_Test]'
+      name: LevelTaskCreate_Test
+      fullName: Editor.Tests.OtherObjectsCreateTests.LevelTaskCreate_Test
+      resultStatus: 1
+      duration: 0.0011459
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.OtherObjectsCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.OtherObjectsCreateTests.NormalCellCreate_Test]'
+      name: NormalCellCreate_Test
+      fullName: Editor.Tests.OtherObjectsCreateTests.NormalCellCreate_Test
+      resultStatus: 1
+      duration: 0.0014501
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.OtherObjectsCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.OtherObjectsCreateTests.ObjectStorageCreate_Test]'
+      name: ObjectStorageCreate_Test
+      fullName: Editor.Tests.OtherObjectsCreateTests.ObjectStorageCreate_Test
+      resultStatus: 1
+      duration: 0.0019726
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.OtherObjectsCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.Testssss][suite]'
+      name: Testssss
+      fullName: Editor.Tests.Testssss
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Editor.Tests][suite]'
+    - id: '[Assembly-CSharp-Editor][Editor.Tests.Testssss.Test_Test]'
+      name: Test_Test
+      fullName: Editor.Tests.Testssss.Test_Test
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Editor.Tests.Testssss][suite]'
+    m_ResultText: "BoardCreate_Test (0.547s)\n---\nUnhandled log message: '[Error]
+      Destroy may not be called from edit mode! Use DestroyImmediate instead.\nAlso
+      think twice if you really want to destroy something in edit mode. Since this
+      will destroy objects permanently.'. Use UnityEngine.TestTools.LogAssert.Expect\n---\nUnityEngine.Object:Destroy(Object)\r\nMathc3Project.Classes.Board:Initial()
+      (at Assets/Scripts/Classes/Board.cs:51)\r\nMathc3Project.Classes.Board:.ctor(Int32,
+      Int32, ISpawnManager, ICheckManager, ICellRegistrator) (at Assets/Scripts/Classes/Board.cs:33)\r\nEditor.Tests.OtherObjectsCreateTests:BoardCreate_Test()
+      (at Assets/Editor/Tests/OtherObjectsCreateTests.cs:26)\r\nSystem.Reflection.MethodBase:Invoke(Object,
+      Object[])\r\nNUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object,
+      Object[])\r\nNUnit.Framework.Internal.MethodWrapper:Invoke(Object, Object[])\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunNonAsyncTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:Execute(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestActionCommand:Execute(ITestExecutionContext)\r\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions()\n---\nDestroy
+      may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
+      twice if you really want to destroy something in edit mode. Since this will
+      destroy objects permanently.\r\nDestroy may not be called from edit mode! Use
+      DestroyImmediate instead.\nAlso think twice if you really want to destroy something
+      in edit mode. Since this will destroy objects permanently.\r\nDestroy may not
+      be called from edit mode! Use DestroyImmediate instead.\nAlso think twice if
+      you really want to destroy something in edit mode. Since this will destroy objects
+      permanently.\r\nDestroy may not be called from edit mode! Use DestroyImmediate
+      instead.\nAlso think twice if you really want to destroy something in edit mode.
+      Since this will destroy objects permanently.\r\nDestroy may not be called from
+      edit mode! Use DestroyImmediate instead.\nAlso think twice if you really want
+      to destroy something in edit mode. Since this will destroy objects permanently.\r\nDestroy
+      may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
+      twice if you really want to destroy something in edit mode. Since this will
+      destroy objects permanently.\r\nDestroy may not be called from edit mode! Use
+      DestroyImmediate instead.\nAlso think twice if you really want to destroy something
+      in edit mode. Since this will destroy objects permanently.\r\nDestroy may not
+      be called from edit mode! Use DestroyImmediate instead.\nAlso think twice if
+      you really want to destroy something in edit mode. Since this will destroy objects
+      permanently.\r\nDestroy may not be called from edit mode! Use DestroyImmediate
+      instead.\nAlso think twice if you really want to destroy something in edit mode.
+      Since this will destroy objects permanently.\r\nDestroy may not be called from
+      edit mode! Use DestroyImmediate instead.\nAlso think twice if you really want
+      to destroy something in edit mode. Since this will destroy objects permanently.\r\nDestroy
+      may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
+      twice if you really want to destroy something in edit mode. Since this will
+      destroy objects permanently.\r\nDestroy may not be called from edit mode! Use
+      DestroyImmediate instead.\nAlso think twice if you really want to destroy something
+      in edit mode. Since this will destroy objects permanently.\r\nDestroy may not
+      be called from edit mode! Use DestroyImmediate instead.\nAlso think twice if
+      you really want to destroy something in edit mode. Since this will destroy objects
+      permanently.\r\nDestroy may not be called from edit mode! Use DestroyImmediate
+      instead.\nAlso think twice if you really want to destroy something in edit mode.
+      Since this will destroy objects permanently.\r\nDestroy may not be called from
+      edit mode! Use DestroyImmediate instead.\nAlso think twice if you really want
+      to destroy something in edit mode. Since this will destroy objects permanently.\r\nDestroy
+      may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
+      twice if you really want to destroy something in edit mode. Since this will
+      destroy objects permanently.\r\nDestroy may not be called from edit mode! Use
+      DestroyImmediate instead.\nAlso think twice if you really want to destroy something
+      in edit mode. Since this will destroy objects permanently.\r\nDestroy may not
+      be called from edit mode! Use DestroyImmediate instead.\nAlso think twice if
+      you really want to destroy something in edit mode. Since this will destroy objects
+      permanently.\r\nDestroy may not be called from edit mode! Use DestroyImmediate
+      instead.\nAlso think twice if you really want to destroy something in edit mode.
+      Since this will destroy objects permanently.\r\nDestroy may not be called from
+      edit mode! Use DestroyImmediate instead.\nAlso think twice if you really want
+      to destroy something in edit mode. Since this will destroy objects permanently.\r\nDestroy
+      may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
+      twice if you really want to destroy something in edit mode. Since this will
+      destroy objects permanently.\r\nDestroy may not be called from edit mode! Use
+      DestroyImmediate instead.\nAlso think twice if you really want to destroy something
+      in edit mode. Since this will destroy objects permanently.\r\nDestroy may not
+      be called from edit mode! Use DestroyImmediate instead.\nAlso think twice if
+      you really want to destroy something in edit mode. Since this will destroy objects
+      permanently.\r\nDestroy may not be called from edit mode! Use DestroyImmediate
+      instead.\nAlso think twice if you really want to destroy something in edit mode.
+      Since this will destroy objects permanently.\r\nDestroy may not be called from
+      edit mode! Use DestroyImmediate instead.\nAlso think twice if you really want
+      to destroy something in edit mode. Since this will destroy objects permanently.\r\nDestroy
+      may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
+      twice if you really want to destroy something in edit mode. Since this will
+      destroy objects permanently.\r\nDestroy may not be called from edit mode! Use
+      DestroyImmediate instead.\nAlso think twice if you really want to destroy something
+      in edit mode. Since this will destroy objects permanently.\r\nDestroy may not
+      be called from edit mode! Use DestroyImmediate instead.\nAlso think twice if
+      you really want to destroy something in edit mode. Since this will destroy objects
+      permanently.\r\nDestroy may not be called from edit mode! Use DestroyImmediate
+      instead.\nAlso think twice if you really want to destroy something in edit mode.
+      Since this will destroy objects permanently.\r\nDestroy may not be called from
+      edit mode! Use DestroyImmediate instead.\nAlso think twice if you really want
+      to destroy something in edit mode. Since this will destroy objects permanently.\r\nDestroy
+      may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
+      twice if you really want to destroy something in edit mode. Since this will
+      destroy objects permanently.\r\nDestroy may not be called from edit mode! Use
+      DestroyImmediate instead.\nAlso think twice if you really want to destroy something
+      in edit mode. Since this will destroy objects permanently.\r\nDestroy may not
+      be called from edit mode! Use DestroyImmediate instead.\nAlso think twice if
+      you really want to destroy something in edit mode. Since this will destroy objects
+      permanently.\r\nDestroy may not be called from edit mode! Use DestroyImmediate
+      instead.\nAlso think twice if you really want to destroy something in edit mode.
+      Since this will destroy objects permanently.\r\nDestroy may not be called from
+      edit mode! Use DestroyImmediate instead.\nAlso think twice if you really want
+      to destroy something in edit mode. Since this will destroy objects permanently.\r\nDestroy
+      may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
+      twice if you really want to destroy something in edit mode. Since this will
+      destroy objects permanently.\r\nDestroy may not be called from edit mode! Use
+      DestroyImmediate instead.\nAlso think twice if you really want to destroy something
+      in edit mode. Since this will destroy objects permanently.\r\nDestroy may not
+      be called from edit mode! Use DestroyImmediate instead.\nAlso think twice if
+      you really want to destroy something in edit mode. Since this will destroy objects
+      permanently.\r\nDestroy may not be called from edit mode! Use DestroyImmediate
+      instead.\nAlso think twice if you really want to destroy something in edit mode.
+      Since this will destroy objects permanently.\r\nDestroy may not be called from
+      edit mode! Use DestroyImmediate instead.\nAlso think twice if you really want
+      to destroy something in edit mode. Since this will destroy objects permanently.\r\nDestroy
+      may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
+      twice if you really want to destroy something in edit mode. Since this will
+      destroy objects permanently.\r\nDestroy may not be called from edit mode! Use
+      DestroyImmediate instead.\nAlso think twice if you really want to destroy something
+      in edit mode. Since this will destroy objects permanently.\r\nDestroy may not
+      be called from edit mode! Use DestroyImmediate instead.\nAlso think twice if
+      you really want to destroy something in edit mode. Since this will destroy objects
+      permanently."
+    m_ResultStacktrace: "UnityEngine.Object:Destroy(Object)\r\nMathc3Project.Classes.Board:Initial()
+      (at Assets/Scripts/Classes/Board.cs:51)\r\nMathc3Project.Classes.Board:.ctor(Int32,
+      Int32, ISpawnManager, ICheckManager, ICellRegistrator) (at Assets/Scripts/Classes/Board.cs:33)\r\nEditor.Tests.OtherObjectsCreateTests:BoardCreate_Test()
+      (at Assets/Editor/Tests/OtherObjectsCreateTests.cs:26)\r\nSystem.Reflection.MethodBase:Invoke(Object,
+      Object[])\r\nNUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object,
+      Object[])\r\nNUnit.Framework.Internal.MethodWrapper:Invoke(Object, Object[])\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunNonAsyncTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:Execute(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestActionCommand:Execute(ITestExecutionContext)\r\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions()\r\n\r\n"
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 58875410
+      m_LastClickedID: 273975128
+      m_ExpandedIDs: 52163e82be0483a42bdb47e4dfe0e6eb7b92d4f339a803fd9bac376cffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,10 +955,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1170
-    y: 593
-    width: 686
-    height: 447
+    x: 0
+    y: 73
+    width: 959
+    height: 745
   m_PersistentViewDataDictionary: {fileID: 0}
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
@@ -371,7 +982,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -380,10 +991,10 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
-      width: 686
-      height: 430
-    m_Scale: {x: 0.5359375, y: 0.5359375}
-    m_Translation: {x: 343, y: 215}
+      width: 959
+      height: 728
+    m_Scale: {x: 0.74921876, y: 0.74921876}
+    m_Translation: {x: 479.5, y: 364}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -391,19 +1002,19 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -640
-      y: -401.1662
+      y: -485.83942
       width: 1280
-      height: 802.3324
+      height: 971.67883
     m_MinimalGUI: 1
-  m_defaultScale: 0.5359375
+  m_defaultScale: 0.74921876
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
-  m_LastWindowPixelSize: {x: 686, y: 447}
+  m_LastWindowPixelSize: {x: 959, y: 745}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
   m_XRRenderMode: 0
---- !u!114 &15
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -425,8 +1036,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 1168
-    height: 657
+    width: 1162
+    height: 745
   m_PersistentViewDataDictionary: {fileID: 0}
   m_WindowGUID: 9866fa7976f17c04fbeffe20c25b9f2e
   m_SceneLighting: 1
@@ -434,9 +1045,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 805.7219, y: 322.1091, z: 13.5}
+    m_Target: {x: 0, y: 0, z: 0}
     speed: 2
-    m_Value: {x: 805.7219, y: 322.1091, z: 13.5}
+    m_Value: {x: 0, y: 0, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -468,9 +1079,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: -1}
   m_Size:
-    m_Target: 1078.5516
+    m_Target: 22
     speed: 2
-    m_Value: 1078.5516
+    m_Value: 22
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -482,7 +1093,7 @@ MonoBehaviour:
   m_ReplacementString: 
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &16
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -508,7 +1119,7 @@ MonoBehaviour:
     width: 1213
     height: 483
   m_PersistentViewDataDictionary: {fileID: 0}
---- !u!114 &17
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -529,17 +1140,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1170
+    x: 817
     y: 73
-    width: 286
-    height: 500
+    width: 202
+    height: 268
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 1e0a0000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: d6a6fbffd0a8fbff26aafbff3aaafbffcab1fbffc4b3fbff26c0fbffcecafbff7a58fcffa2cffcffb0cffcffbecffcff78d1fcff62eefcff76eefcff42effcffbef3fcff88f9fcff9e04fdff460dfdff920ffdffec15fdff1420fdff9e21fdff2229fdff4a30fdffba36fdffae3dfdffe042fdff5448fdff1c51fdff1453fdff1c55fdff2871fdff667dfdffaa83fdff1489fdff9e8afdff808efdff66bdfdffcad0fdfff8e2fdffc2e8fdffdafffdff5a03feffae24feff9c28feff042cfeffe42dfeff002efeff122efeff342efeff4e31feff2241feff6043feff4c47feffe849feff364cfeff544cfeffa24cfeffc651feff7454feff6855feffe656feffc45afeffe45bfeff405cfeff645cfeff045efeffb65efeff165ffeff6663feffe864feffa865feff6470feffce73feffd873feffe273feffe473feffe673feffea82feff9c84feff2c86feff8c88fefff689feff2a8dfeff668efeff2492feff5c93feff3895feffc4ccfeff00cffeff4cd0feff54d4feff58d7feff84d8feff2623ffff0026ffff5c27ffff4028ffff6e29ffff222affff902dffff2e33ffff1e34ffff2834ffff1036ffff3836ffff6c36fffff040ffffaa43ffff4c45ffff6c46ffffd653ffffca64ffff2c6dffff4a6dffff5a6dffffae6dffff6c81ffff1482ffffce92ffff5896ffffee96ffffccccffff46dbffff14dcffff70e1ffffa6ebffff56edffff20eeffffb0eeffff7aefffff1af4ffffd4fbfffff4ffffffa43e0000365e00009c5e0000306d0000bcab000026f2000060fa000080fe00009afe0000ac000100a803010060450100dc5e0100b46301008c680100886b010034b0010010b201000cb50100e0b8010088ba01000cbe010026be0100b4bf0100b6c201006cc60100b6c601005ac7010074c7010086c7010084d30100f8d40100aad50100d0d80100d6dc010004e001005ce20100f0e3010098e40100d0e8010084f801002cf9010056f90100d0000200e600020078010200a20102004e0202003a1302007e510200145402006477020092cf0200
+      m_ExpandedIDs: 54d8ffff9cd8ffffacdaffff56dbffff5adeffff94e0ffff0ee1ffffe6e2ffffe4e5ffff2ce6ffff8ae7ffff04e8ffff8ee8ffff00e9ffff36e9ffff80ecffff10edffff5eedffff82edffffd0edffffbeeeffffe8eefffffaefffff02f1ffff56f2ffffcef2ffff38f3ffff76f5ffffa6f5ffffa8f6ffffd8f6ffff90f8ffffaef8ffff24faffff3afaffff4efaffff52faffff7efaffff96faffffb4faffff10fbffffd4fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -563,7 +1174,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: d3a29f9821b0c9949ac92880b22369bf
---- !u!114 &18
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -584,10 +1195,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1170
-    y: 593
-    width: 686
-    height: 447
+    x: 817
+    y: 361
+    width: 485
+    height: 367
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
@@ -601,7 +1212,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -613,7 +1224,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: c22f0000
     m_LastClickedID: 12226
-    m_ExpandedIDs: 00000000d8050000f8090000100a00001a0a0000760a0000c20a0000e60a0000f60a0000160b0000260b0000280b00005a0b0000900b0000b20b0000440c00006e0c0000740c0000ae290000b0290000b2290000b4290000b6290000b8290000ba290000bc290000
+    m_ExpandedIDs: 00000000dc050000080a0000200a0000840a0000ba0a0000d40a0000040b0000240b0000340b0000360b00006a0b0000a20b0000580c0000860c0000ce290000d0290000d2290000d4290000d6290000d8290000da290000dc290000de290000e0290000e2290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -641,23 +1252,23 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000d8050000f8090000100a00001a0a0000760a0000c20a0000e60a0000f60a0000160b0000260b0000280b00005a0b0000900b0000b20b0000440c00006e0c0000740c0000ae290000b0290000b2290000b4290000b6290000b8290000ba290000bc290000
+    m_ExpandedIDs: ffffffff00000000dc050000080a0000320a0000980a0000ba0a0000d40a0000240b00006a0b0000ba0b0000c40b00002a0c0000580c0000860c0000ce290000d0290000d2290000d4290000d6290000d8290000da290000dc290000de290000e0290000e2290000002d0000e22d0000bc320000c8320000123300005c330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Bootstrapper Scene
-      m_OriginalName: Bootstrapper Scene
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 2590
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 7}
+      m_ClientGUIView: {fileID: 6}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -696,7 +1307,7 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_DirectoriesAreaWidth: 115
---- !u!114 &19
+--- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -718,11 +1329,11 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 750
-    width: 1168
-    height: 290
+    y: 596
+    width: 815
+    height: 132
   m_PersistentViewDataDictionary: {fileID: 0}
---- !u!114 &20
+--- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -743,10 +1354,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1460
+    x: 1023
     y: 73
-    width: 396
-    height: 500
+    width: 279
+    height: 268
   m_PersistentViewDataDictionary: {fileID: 0}
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
@@ -757,7 +1368,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
---- !u!114 &21
+--- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}

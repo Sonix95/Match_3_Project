@@ -7,7 +7,7 @@ namespace Mathc3Project.Classes
         private int _locationID;
         private int _levelID;
         private ILevelTask[] _levelTasks;
-        //TODO Добавить пред настройщик
+        //TODO ADD PreSetter in furure
         private int _boardWidth;
         private int _boardHeight;
 

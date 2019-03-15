@@ -18,7 +18,7 @@ namespace Mathc3Project.Classes.Abstract
         public abstract void OnExit();
 
         public abstract void OnEnter(Object transferObject);
-        
+                
         public SceneTypes SceneType { get; private set; }
     }
 }
