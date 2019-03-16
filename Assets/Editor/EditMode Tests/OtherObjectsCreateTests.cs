@@ -1,17 +1,17 @@
-using Mathc3Project.Classes;
+﻿using Mathc3Project.Classes;
 using Mathc3Project.Classes.Cells;
 using Mathc3Project.Classes.StaticClasses;
 using Mathc3Project.Interfaces;
 using Mathc3Project.Interfaces.Cells;
 using NUnit.Framework;
-using Test.Static;
+using Tests.Static;
 
-namespace Editor.Tests.EditModeTests
+namespace Tests.EditMode
 {
     public class OtherObjectsCreateTests
     {
         [Test]
-        public void CellRegistratorCreate_Test()
+        public void CellRegistrator_Create_NotNull()
         {
             ICellRegistrator cellRegistrator = ObjectsCreator.CreateCellRegistrator();
 
@@ -19,7 +19,7 @@ namespace Editor.Tests.EditModeTests
         }
 
         [Test]
-        public void CoroutineCreate_Test()
+        public void Coroutine_Create_NotNull()
         {
             ICoroutiner coroutiner = ObjectsCreator.CreateCoroutiner();
 
@@ -27,7 +27,7 @@ namespace Editor.Tests.EditModeTests
         }
 
         [Test]
-        public void LevelCreate_Test()
+        public void Level_Create_NotNull()
         {
             int levelId = 2;
             int boardWidth = 3;
@@ -44,7 +44,7 @@ namespace Editor.Tests.EditModeTests
         }
 
         [Test]
-        public void LevelTaskCreate_Test()
+        public void LevelTask_Create_NotNull()
         {
             ILevelTask levelTask = ObjectsCreator.CreateLevelTask(Strings.Tag_RedCircle, 5);
             
@@ -52,7 +52,7 @@ namespace Editor.Tests.EditModeTests
         }
 
         [Test]
-        public void ObjectStorageCreate_Test()
+        public void ObjectStorage_Create_NotNull()
         {
             IObjectStorage objectStorage = new ObjectStorage();
             
@@ -60,7 +60,7 @@ namespace Editor.Tests.EditModeTests
         }
 
         [Test]
-        public void NormalCellCreate_Test()
+        public void NormalCell_Create_NotNull()
         {
             ICell normalCell = new NormalCell(0,0);
             
@@ -68,12 +68,11 @@ namespace Editor.Tests.EditModeTests
         }
         
         [Test]
-        public void HollowCellCreate_Test()
+        public void HollowCell_Create_NotNull()
         {
             ICell hollowCell = new HollowCell(0,0);
             
             Assert.IsNotNull(hollowCell);
         }
-        
     }
 }

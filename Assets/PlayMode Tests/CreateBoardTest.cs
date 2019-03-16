@@ -1,15 +1,15 @@
 ﻿using System.Collections;
 using Mathc3Project.Interfaces;
 using NUnit.Framework;
-using Test.Static;
+using Tests.Static;
 using UnityEngine.TestTools;
 
-namespace  Editor.Tests.PlayModeTests
+namespace Tests.PlayMode
 {
     public class CreateBoardTest
     {
         [UnityTest]
-        public IEnumerator CreateBoard_Test()
+        public IEnumerator Board_Create_NotNull()
         {
             IBoard board = ObjectsCreator.CreateBoard(9, 12);
             
@@ -17,5 +17,7 @@ namespace  Editor.Tests.PlayModeTests
 
             Assert.IsNotNull(board);
         }
+        
     }
 }
+

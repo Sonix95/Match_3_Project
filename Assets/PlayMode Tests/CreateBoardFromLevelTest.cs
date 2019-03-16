@@ -1,16 +1,16 @@
-using System.Collections;
+﻿using System.Collections;
 using Mathc3Project.Classes.StaticClasses;
 using Mathc3Project.Interfaces;
 using NUnit.Framework;
-using Test.Static;
+using Tests.Static;
 using UnityEngine.TestTools;
 
-namespace Editor.Tests.PlayModeTests
+namespace Tests.PlayMode
 {
     public class CreateBoardFromLevelTest
     {
         [UnityTest]
-        public IEnumerator CreateBoardFromLevel_Test()
+        public IEnumerator Board_CreateFromLevel_NotNull()
         {
             int levelID = 1;
             int boardWidth = 5;
@@ -31,5 +31,6 @@ namespace Editor.Tests.PlayModeTests
 
             Assert.IsNotNull(board);
         }
+        
     }
 }

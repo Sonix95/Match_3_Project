@@ -20,10 +20,61 @@ MonoBehaviour:
     height: 1037
   m_ShowMode: 4
   m_Title: 
-  m_RootView: {fileID: 9}
-  m_MinSize: {x: 950, y: 548}
+  m_RootView: {fileID: 11}
+  m_MinSize: {x: 950, y: 498}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 231
+    height: 421
+  m_MinSize: {x: 204, y: 224}
+  m_MaxSize: {x: 4004, y: 4024}
+  m_ActualView: {fileID: 20}
+  m_Panes:
+  - {fileID: 20}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &3
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 2}
+  - {fileID: 8}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 694
+    height: 421
+  m_MinSize: {x: 481, y: 224}
+  m_MaxSize: {x: 8006, y: 4024}
+  vertical: 0
+  controlID: 368
+--- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,18 +89,18 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 673
+    x: 688
     y: 0
-    width: 491
+    width: 476
     height: 764
-  m_MinSize: {x: 104, y: 124}
-  m_MaxSize: {x: 4004, y: 4024}
-  m_ActualView: {fileID: 14}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 16}
   m_Panes:
-  - {fileID: 14}
+  - {fileID: 16}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &3
+--- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,19 +113,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 13}
-  - {fileID: 2}
+  - {fileID: 15}
+  - {fileID: 4}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1164
     height: 764
-  m_MinSize: {x: 206, y: 124}
-  m_MaxSize: {x: 8006, y: 4024}
+  m_MinSize: {x: 200, y: 100}
+  m_MaxSize: {x: 8000, y: 4000}
   vertical: 0
-  controlID: 96
---- !u!114 &4
+  controlID: 12
+--- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,14 +144,14 @@ MonoBehaviour:
     y: 764
     width: 1164
     height: 223
-  m_MinSize: {x: 102, y: 124}
-  m_MaxSize: {x: 4002, y: 4024}
-  m_ActualView: {fileID: 20}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 22}
   m_Panes:
-  - {fileID: 20}
+  - {fileID: 22}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &5
+--- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,19 +164,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 3}
-  - {fileID: 4}
+  - {fileID: 5}
+  - {fileID: 6}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1164
     height: 987
-  m_MinSize: {x: 206, y: 248}
-  m_MaxSize: {x: 8006, y: 8048}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 8000, y: 8000}
   vertical: 1
-  controlID: 95
---- !u!114 &6
+  controlID: 11
+--- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,20 +191,19 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 0
+    x: 231
     y: 0
-    width: 694
+    width: 463
     height: 421
-  m_MinSize: {x: 202, y: 224}
+  m_MinSize: {x: 277, y: 74}
   m_MaxSize: {x: 4002, y: 4024}
-  m_ActualView: {fileID: 18}
+  m_ActualView: {fileID: 23}
   m_Panes:
-  - {fileID: 21}
-  - {fileID: 22}
-  - {fileID: 18}
-  m_Selected: 2
+  - {fileID: 23}
+  - {fileID: 24}
+  m_Selected: 0
   m_LastSelected: 0
---- !u!114 &7
+--- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,15 +222,15 @@ MonoBehaviour:
     y: 421
     width: 694
     height: 566
-  m_MinSize: {x: 232, y: 274}
-  m_MaxSize: {x: 10002, y: 10024}
-  m_ActualView: {fileID: 19}
+  m_MinSize: {x: 202, y: 224}
+  m_MaxSize: {x: 4002, y: 4024}
+  m_ActualView: {fileID: 18}
   m_Panes:
-  - {fileID: 19}
-  - {fileID: 16}
-  m_Selected: 0
-  m_LastSelected: 1
---- !u!114 &8
+  - {fileID: 21}
+  - {fileID: 18}
+  m_Selected: 1
+  m_LastSelected: 0
+--- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,19 +243,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 6}
-  - {fileID: 7}
+  - {fileID: 3}
+  - {fileID: 9}
   m_Position:
     serializedVersion: 2
     x: 1164
     y: 0
     width: 694
     height: 987
-  m_MinSize: {x: 232, y: 498}
-  m_MaxSize: {x: 10002, y: 14048}
+  m_MinSize: {x: 481, y: 448}
+  m_MaxSize: {x: 8006, y: 8048}
   vertical: 1
-  controlID: 48
---- !u!114 &9
+  controlID: 44
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,18 +268,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 10}
   - {fileID: 12}
-  - {fileID: 11}
+  - {fileID: 14}
+  - {fileID: 13}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1858
     height: 1037
-  m_MinSize: {x: 950, y: 548}
+  m_MinSize: {x: 950, y: 498}
   m_MaxSize: {x: 10000, y: 10000}
---- !u!114 &10
+--- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,7 +301,7 @@ MonoBehaviour:
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
---- !u!114 &11
+--- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -272,7 +322,7 @@ MonoBehaviour:
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
---- !u!114 &12
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -285,19 +335,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 5}
-  - {fileID: 8}
+  - {fileID: 7}
+  - {fileID: 10}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 30
     width: 1858
     height: 987
-  m_MinSize: {x: 438, y: 498}
-  m_MaxSize: {x: 18008, y: 14048}
+  m_MinSize: {x: 681, y: 448}
+  m_MaxSize: {x: 16006, y: 8048}
   vertical: 0
-  controlID: 47
---- !u!114 &13
+  controlID: 43
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -314,17 +364,17 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 673
+    width: 688
     height: 764
-  m_MinSize: {x: 102, y: 124}
-  m_MaxSize: {x: 4002, y: 4024}
-  m_ActualView: {fileID: 15}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 17}
   m_Panes:
+  - {fileID: 19}
   - {fileID: 17}
-  - {fileID: 15}
   m_Selected: 1
   m_LastSelected: 1
---- !u!114 &14
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,20 +394,20 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 673
+    x: 688
     y: 73
-    width: 487
+    width: 472
     height: 744
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TestTypeToolbarIndex: 0
   m_PlayModeTestListGUI:
-    m_Window: {fileID: 14}
+    m_Window: {fileID: 16}
     newResultList:
     - id: '[Match_3_Project][suite]'
       name: Match_3_Project
       fullName: Match_3_Project
       resultStatus: 1
-      duration: 0.4585309
+      duration: 0.4253999
       messages: 
       output: 
       stacktrace: 
@@ -371,7 +421,7 @@ MonoBehaviour:
       name: Assembly-CSharp.dll
       fullName: E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp.dll
       resultStatus: 1
-      duration: 0.3533499
+      duration: 0.2955451
       messages: 
       output: 
       stacktrace: 
@@ -381,11 +431,11 @@ MonoBehaviour:
       isSuite: 1
       categories: []
       parentID: '[Match_3_Project][suite]'
-    - id: '[Editor][suite]'
-      name: Editor
-      fullName: Editor
+    - id: '[Tests][suite]'
+      name: Tests
+      fullName: Tests
       resultStatus: 1
-      duration: 0.3108214
+      duration: 0.2589845
       messages: 
       output: 
       stacktrace: 
@@ -395,11 +445,11 @@ MonoBehaviour:
       isSuite: 1
       categories: []
       parentID: '[E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp.dll][suite]'
-    - id: '[Editor.Tests][suite]'
-      name: Tests
-      fullName: Editor.Tests
+    - id: '[Tests.PlayMode][suite]'
+      name: PlayMode
+      fullName: Tests.PlayMode
       resultStatus: 1
-      duration: 0.2787102
+      duration: 0.231265
       messages: 
       output: 
       stacktrace: 
@@ -408,26 +458,12 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Editor][suite]'
-    - id: '[Editor.Tests.PlayModeTests][suite]'
-      name: PlayModeTests
-      fullName: Editor.Tests.PlayModeTests
-      resultStatus: 1
-      duration: 0.2507526
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentID: '[Editor.Tests][suite]'
-    - id: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreateBoardFromLevelTest][suite]'
+      parentID: '[Tests][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardFromLevelTest][suite]'
       name: CreateBoardFromLevelTest
-      fullName: Editor.Tests.PlayModeTests.CreateBoardFromLevelTest
+      fullName: Tests.PlayMode.CreateBoardFromLevelTest
       resultStatus: 1
-      duration: 0.2199546
+      duration: 0.2255885
       messages: 
       output: 
       stacktrace: 
@@ -436,12 +472,12 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Editor.Tests.PlayModeTests][suite]'
-    - id: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreateBoardFromLevelTest.CreateBoardFromLevel_Test]'
-      name: CreateBoardFromLevel_Test
-      fullName: Editor.Tests.PlayModeTests.CreateBoardFromLevelTest.CreateBoardFromLevel_Test
+      parentID: '[Tests.PlayMode][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardFromLevelTest.Board_CreateFromLevel_NotNull]'
+      name: Board_CreateFromLevel_NotNull
+      fullName: Tests.PlayMode.CreateBoardFromLevelTest.Board_CreateFromLevel_NotNull
       resultStatus: 1
-      duration: 0.1563883
+      duration: 0.1542743
       messages: 
       output: 
       stacktrace: 
@@ -451,12 +487,12 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreateBoardFromLevelTest][suite]'
-    - id: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreateBoardTest][suite]'
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardFromLevelTest][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest][suite]'
       name: CreateBoardTest
-      fullName: Editor.Tests.PlayModeTests.CreateBoardTest
+      fullName: Tests.PlayMode.CreateBoardTest
       resultStatus: 1
-      duration: 0.1123775
+      duration: 0.1223156
       messages: 
       output: 
       stacktrace: 
@@ -465,12 +501,12 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Editor.Tests.PlayModeTests][suite]'
-    - id: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreateBoardTest.CreateBoard_Test]'
-      name: CreateBoard_Test
-      fullName: Editor.Tests.PlayModeTests.CreateBoardTest.CreateBoard_Test
+      parentID: '[Tests.PlayMode][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest.Board_Create_NotNull]'
+      name: Board_Create_NotNull
+      fullName: Tests.PlayMode.CreateBoardTest.Board_Create_NotNull
       resultStatus: 1
-      duration: 0.0765977
+      duration: 0.0830789
       messages: 
       output: 
       stacktrace: 
@@ -480,12 +516,12 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreateBoardTest][suite]'
-    - id: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest][suite]'
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest][suite]'
       name: CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest
+      fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest
       resultStatus: 1
-      duration: 0.2258178
+      duration: 0.2058565
       messages: 
       output: 
       stacktrace: 
@@ -494,12 +530,12 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Editor.Tests.PlayModeTests][suite]'
-    - id: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test][suite]'
-      name: CreateBoardFromLevel_ExpectedEqualHeight_Test
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test
+      parentID: '[Tests.PlayMode][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight][suite]'
+      name: Board_CreateFromLevel_ExpectedEqualHeight
+      fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight
       resultStatus: 1
-      duration: 0.2003003
+      duration: 0.1149911
       messages: 
       output: 
       stacktrace: 
@@ -508,12 +544,12 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest][suite]'
-    - id: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(22,22)]'
-      name: CreateBoardFromLevel_ExpectedEqualHeight_Test(22,22)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(22,22)
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(22,22)]'
+      name: Board_CreateFromLevel_ExpectedEqualHeight(22,22)
+      fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(22,22)
       resultStatus: 1
-      duration: 0.138359
+      duration: 0.0601338
       messages: 
       output: 
       stacktrace: 
@@ -523,12 +559,12 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test][suite]'
-    - id: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(12,12)]'
-      name: CreateBoardFromLevel_ExpectedEqualHeight_Test(12,12)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(12,12)
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(12,12)]'
+      name: Board_CreateFromLevel_ExpectedEqualHeight(12,12)
+      fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(12,12)
       resultStatus: 1
-      duration: 0.0122804
+      duration: 0.015245
       messages: 
       output: 
       stacktrace: 
@@ -538,12 +574,12 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test][suite]'
-    - id: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(8,8)]'
-      name: CreateBoardFromLevel_ExpectedEqualHeight_Test(8,8)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(8,8)
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(8,8)]'
+      name: Board_CreateFromLevel_ExpectedEqualHeight(8,8)
+      fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(8,8)
       resultStatus: 1
-      duration: 0.0092297
+      duration: 0.0087903
       messages: 
       output: 
       stacktrace: 
@@ -553,12 +589,12 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test][suite]'
-    - id: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(4,4)]'
-      name: CreateBoardFromLevel_ExpectedEqualHeight_Test(4,4)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(4,4)
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(4,4)]'
+      name: Board_CreateFromLevel_ExpectedEqualHeight(4,4)
+      fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(4,4)
       resultStatus: 1
-      duration: 0.0040632
+      duration: 0.0033772
       messages: 
       output: 
       stacktrace: 
@@ -568,12 +604,12 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test][suite]'
-    - id: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(2,2)]'
-      name: CreateBoardFromLevel_ExpectedEqualHeight_Test(2,2)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(2,2)
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(2,2)]'
+      name: Board_CreateFromLevel_ExpectedEqualHeight(2,2)
+      fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(2,2)
       resultStatus: 1
-      duration: 0.0025393
+      duration: 0.0030522
       messages: 
       output: 
       stacktrace: 
@@ -583,13 +619,13 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test][suite]'
-    - id: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test][suite]'
-      name: CreateBoardFromLevel_ExpectedEqualWidth_Test
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test
-      resultStatus: 2
-      duration: 0.0455326
-      messages: One or more child tests had errors
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth][suite]'
+      name: Board_CreateFromLevel_ExpectedEqualWidth
+      fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth
+      resultStatus: 1
+      duration: 0.1791837
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -597,12 +633,12 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest][suite]'
-    - id: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(15,15)]'
-      name: CreateBoardFromLevel_ExpectedEqualWidth_Test(15,15)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(15,15)
-      resultStatus: 0
-      duration: 0
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(15,15)]'
+      name: Board_CreateFromLevel_ExpectedEqualWidth(15,15)
+      fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(15,15)
+      resultStatus: 1
+      duration: 0.0190207
       messages: 
       output: 
       stacktrace: 
@@ -612,12 +648,12 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test][suite]'
-    - id: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(9,9)]'
-      name: CreateBoardFromLevel_ExpectedEqualWidth_Test(9,9)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(9,9)
-      resultStatus: 0
-      duration: 0
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(9,9)]'
+      name: Board_CreateFromLevel_ExpectedEqualWidth(9,9)
+      fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(9,9)
+      resultStatus: 1
+      duration: 0.0110112
       messages: 
       output: 
       stacktrace: 
@@ -627,12 +663,12 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test][suite]'
-    - id: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(5,5)]'
-      name: CreateBoardFromLevel_ExpectedEqualWidth_Test(5,5)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(5,5)
-      resultStatus: 0
-      duration: 0
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(5,5)]'
+      name: Board_CreateFromLevel_ExpectedEqualWidth(5,5)
+      fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(5,5)
+      resultStatus: 1
+      duration: 0.0055924
       messages: 
       output: 
       stacktrace: 
@@ -642,12 +678,12 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test][suite]'
-    - id: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(3,3)]'
-      name: CreateBoardFromLevel_ExpectedEqualWidth_Test(3,3)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(3,3)
-      resultStatus: 0
-      duration: 0
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(3,3)]'
+      name: Board_CreateFromLevel_ExpectedEqualWidth(3,3)
+      fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(3,3)
+      resultStatus: 1
+      duration: 0.0042142
       messages: 
       output: 
       stacktrace: 
@@ -657,12 +693,12 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test][suite]'
-    - id: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(1,1)]'
-      name: CreateBoardFromLevel_ExpectedEqualWidth_Test(1,1)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(1,1)
-      resultStatus: 0
-      duration: 0
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(1,1)]'
+      name: Board_CreateFromLevel_ExpectedEqualWidth(1,1)
+      fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(1,1)
+      resultStatus: 1
+      duration: 0.1179768
       messages: 
       output: 
       stacktrace: 
@@ -672,1434 +708,14 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test][suite]'
-    m_ResultText: CreateBoardFromLevel_ExpectedEqualHeight_Test(22,22) (0.138s)
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth][suite]'
+    m_ResultText: Board_CreateFromLevel_ExpectedEqualWidth(1,1) (0.118s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: e9d16a3b
-      m_LastClickedID: 996856297
-      m_ExpandedIDs: fc9f5e9367145f97be0483a4150de8a5144df2a85ab1b2ae9e3035c4805ed4d3a5e5cae026d0eae12bdb47e4c64473ea095e301a8d0c551d9dab0b3ae20ff0549bac376cffffff7f
-      m_RenameOverlay:
-        m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
-        m_EditFieldRect:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        m_UserData: 0
-        m_IsWaitingForDelay: 0
-        m_IsRenaming: 0
-        m_OriginalEventType: 11
-        m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 0}
-      m_SearchString: 
-    m_TestRunnerUIFilter:
-      PassedHidden: 0
-      FailedHidden: 1
-      NotRunHidden: 1
-      m_SearchString: 
-      selectedCategoryMask: 0
-      availableCategories:
-      - Uncategorized
-  m_EditModeTestListGUI:
-    m_Window: {fileID: 14}
-    newResultList:
-    - id: '[Match_3_Project][suite]'
-      name: Match_3_Project
-      fullName: Match_3_Project
-      resultStatus: 2
-      duration: 7.974837
-      messages: One or more child tests had errors
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentID: 
-    - id: '[E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll][suite]'
-      name: Assembly-CSharp-Editor.dll
-      fullName: E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
-      resultStatus: 2
-      duration: 6.5926933
-      messages: One or more child tests had errors
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentID: '[Match_3_Project][suite]'
-    - id: '[Editor][suite]'
-      name: Editor
-      fullName: Editor
-      resultStatus: 2
-      duration: 5.438982
-      messages: One or more child tests had errors
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentID: '[E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll][suite]'
-    - id: '[Editor.Tests][suite]'
-      name: Tests
-      fullName: Editor.Tests
-      resultStatus: 2
-      duration: 4.5488267
-      messages: One or more child tests had errors
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentID: '[Editor][suite]'
-    - id: '[Editor.Tests.EditModeTests][suite]'
-      name: EditModeTests
-      fullName: Editor.Tests.EditModeTests
-      resultStatus: 1
-      duration: 0.3066077
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentID: '[Editor.Tests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests][suite]'
-      name: ManagersCreateTests
-      fullName: Editor.Tests.EditModeTests.ManagersCreateTests
-      resultStatus: 1
-      duration: 0.1817352
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentID: '[Editor.Tests.EditModeTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests.CheckManagerCreate_Test]'
-      name: CheckManagerCreate_Test
-      fullName: Editor.Tests.EditModeTests.ManagersCreateTests.CheckManagerCreate_Test
-      resultStatus: 1
-      duration: 0.0398659
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests.GameplayLogicManager]'
-      name: GameplayLogicManager
-      fullName: Editor.Tests.EditModeTests.ManagersCreateTests.GameplayLogicManager
-      resultStatus: 1
-      duration: 0.0060309
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests.GameplayNotifierCreate_Test]'
-      name: GameplayNotifierCreate_Test
-      fullName: Editor.Tests.EditModeTests.ManagersCreateTests.GameplayNotifierCreate_Test
-      resultStatus: 1
-      duration: 0.0021579
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests.InputManagerCreateTest]'
-      name: InputManagerCreateTest
-      fullName: Editor.Tests.EditModeTests.ManagersCreateTests.InputManagerCreateTest
-      resultStatus: 1
-      duration: 0.0013737
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests.LevelsManagerCreate_Test]'
-      name: LevelsManagerCreate_Test
-      fullName: Editor.Tests.EditModeTests.ManagersCreateTests.LevelsManagerCreate_Test
-      resultStatus: 1
-      duration: 0.0156586
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests.MasterManagerCreate_Test]'
-      name: MasterManagerCreate_Test
-      fullName: Editor.Tests.EditModeTests.ManagersCreateTests.MasterManagerCreate_Test
-      resultStatus: 1
-      duration: 0.0296086
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests.NavigationManagerCreate_Test]'
-      name: NavigationManagerCreate_Test
-      fullName: Editor.Tests.EditModeTests.ManagersCreateTests.NavigationManagerCreate_Test
-      resultStatus: 1
-      duration: 0.0024611
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests.SpawnManagerCreate_Test]'
-      name: SpawnManagerCreate_Test
-      fullName: Editor.Tests.EditModeTests.ManagersCreateTests.SpawnManagerCreate_Test
-      resultStatus: 1
-      duration: 0.0014242
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests.TaskManagerCreate_Test]'
-      name: TaskManagerCreate_Test
-      fullName: Editor.Tests.EditModeTests.ManagersCreateTests.TaskManagerCreate_Test
-      resultStatus: 1
-      duration: 0.00163
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests.UINotifierCreate_Test]'
-      name: UINotifierCreate_Test
-      fullName: Editor.Tests.EditModeTests.ManagersCreateTests.UINotifierCreate_Test
-      resultStatus: 1
-      duration: 0.0013117
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests.UpdateManagerCreate_Test]'
-      name: UpdateManagerCreate_Test
-      fullName: Editor.Tests.EditModeTests.ManagersCreateTests.UpdateManagerCreate_Test
-      resultStatus: 1
-      duration: 0.0013924
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.ManagersCreateTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.OtherObjectsCreateTests][suite]'
-      name: OtherObjectsCreateTests
-      fullName: Editor.Tests.EditModeTests.OtherObjectsCreateTests
-      resultStatus: 1
-      duration: 0.0744465
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentID: '[Editor.Tests.EditModeTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.OtherObjectsCreateTests.CellRegistratorCreate_Test]'
-      name: CellRegistratorCreate_Test
-      fullName: Editor.Tests.EditModeTests.OtherObjectsCreateTests.CellRegistratorCreate_Test
-      resultStatus: 1
-      duration: 0.0018573
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.OtherObjectsCreateTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.OtherObjectsCreateTests.CoroutineCreate_Test]'
-      name: CoroutineCreate_Test
-      fullName: Editor.Tests.EditModeTests.OtherObjectsCreateTests.CoroutineCreate_Test
-      resultStatus: 1
-      duration: 0.0014564
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.OtherObjectsCreateTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.OtherObjectsCreateTests.HollowCellCreate_Test]'
-      name: HollowCellCreate_Test
-      fullName: Editor.Tests.EditModeTests.OtherObjectsCreateTests.HollowCellCreate_Test
-      resultStatus: 1
-      duration: 0.0013039
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.OtherObjectsCreateTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.OtherObjectsCreateTests.LevelCreate_Test]'
-      name: LevelCreate_Test
-      fullName: Editor.Tests.EditModeTests.OtherObjectsCreateTests.LevelCreate_Test
-      resultStatus: 1
-      duration: 0.0020831
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.OtherObjectsCreateTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.OtherObjectsCreateTests.LevelTaskCreate_Test]'
-      name: LevelTaskCreate_Test
-      fullName: Editor.Tests.EditModeTests.OtherObjectsCreateTests.LevelTaskCreate_Test
-      resultStatus: 1
-      duration: 0.0012526
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.OtherObjectsCreateTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.OtherObjectsCreateTests.NormalCellCreate_Test]'
-      name: NormalCellCreate_Test
-      fullName: Editor.Tests.EditModeTests.OtherObjectsCreateTests.NormalCellCreate_Test
-      resultStatus: 1
-      duration: 0.0012398
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.OtherObjectsCreateTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.OtherObjectsCreateTests.ObjectStorageCreate_Test]'
-      name: ObjectStorageCreate_Test
-      fullName: Editor.Tests.EditModeTests.OtherObjectsCreateTests.ObjectStorageCreate_Test
-      resultStatus: 1
-      duration: 0.0012594
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.EditModeTests.OtherObjectsCreateTests][suite]'
-    - id: '[Editor.Tests.PlayModeTests][suite]'
-      name: PlayModeTests
-      fullName: Editor.Tests.PlayModeTests
-      resultStatus: 2
-      duration: 3.8306844
-      messages: One or more child tests had errors
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentID: '[Editor.Tests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest][suite]'
-      name: CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest
-      resultStatus: 2
-      duration: 3.2834525
-      messages: One or more child tests had errors
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentID: '[Editor.Tests.PlayModeTests][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test][suite]'
-      name: CreateBoardFromLevel_ExpectedEqualHeight_Test
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test
-      resultStatus: 2
-      duration: 2.8291974
-      messages: One or more child tests had errors
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(22,22)]'
-      name: CreateBoardFromLevel_ExpectedEqualHeight_Test(22,22)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(22,22)
-      resultStatus: 2
-      duration: 1.3503518
-      messages: 'Unhandled log message: ''[Error] Destroy may not be called from edit
-        mode! Use DestroyImmediate instead.
-
-        Also think twice if you really want to destroy something in edit mode. Since
-        this will destroy objects permanently.''. Use UnityEngine.TestTools.LogAssert.Expect'
-      output: "Destroy may not be called from edit mode! Use DestroyImmediate instead.\nAlso
-        think twice if you really want to destroy something in edit mode. Since this
-        will destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\n"
-      stacktrace: "UnityEngine.Object:Destroy(Object)\r\nMathc3Project.Classes.Board:Initial()
-        (at Assets/Scripts/Classes/Board.cs:51)\r\nMathc3Project.Classes.Board:.ctor(Int32,
-        Int32, ISpawnManager, ICheckManager, ICellRegistrator) (at Assets/Scripts/Classes/Board.cs:33)\r\nTest.Static.ObjectsCreator:CreateBoard(Int32,
-        Int32) (at Assets/Tests/Static/ObjectsCreator.cs:86)\r\nEditor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest:CreateBoardFromLevel_ExpectedEqualHeight_Test(Int32,
-        Int32) (at Assets/Editor/EditMode Tests/CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.cs:59)\r\nSystem.Reflection.MethodBase:Invoke(Object,
-        Object[])\r\nNUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object,
-        Object[])\r\nNUnit.Framework.Internal.MethodWrapper:Invoke(Object, Object[])\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunNonAsyncTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:Execute(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestActionCommand:Execute(ITestExecutionContext)\r\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions()\r\n\r\n"
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(12,12)]'
-      name: CreateBoardFromLevel_ExpectedEqualHeight_Test(12,12)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(12,12)
-      resultStatus: 2
-      duration: 0.7114307
-      messages: 'Unhandled log message: ''[Error] Destroy may not be called from edit
-        mode! Use DestroyImmediate instead.
-
-        Also think twice if you really want to destroy something in edit mode. Since
-        this will destroy objects permanently.''. Use UnityEngine.TestTools.LogAssert.Expect'
-      output: "Destroy may not be called from edit mode! Use DestroyImmediate instead.\nAlso
-        think twice if you really want to destroy something in edit mode. Since this
-        will destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\n"
-      stacktrace: "UnityEngine.Object:Destroy(Object)\r\nMathc3Project.Classes.Board:Initial()
-        (at Assets/Scripts/Classes/Board.cs:51)\r\nMathc3Project.Classes.Board:.ctor(Int32,
-        Int32, ISpawnManager, ICheckManager, ICellRegistrator) (at Assets/Scripts/Classes/Board.cs:33)\r\nTest.Static.ObjectsCreator:CreateBoard(Int32,
-        Int32) (at Assets/Tests/Static/ObjectsCreator.cs:86)\r\nEditor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest:CreateBoardFromLevel_ExpectedEqualHeight_Test(Int32,
-        Int32) (at Assets/Editor/EditMode Tests/CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.cs:59)\r\nSystem.Reflection.MethodBase:Invoke(Object,
-        Object[])\r\nNUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object,
-        Object[])\r\nNUnit.Framework.Internal.MethodWrapper:Invoke(Object, Object[])\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunNonAsyncTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:Execute(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestActionCommand:Execute(ITestExecutionContext)\r\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions()\r\n\r\n"
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(8,8)]'
-      name: CreateBoardFromLevel_ExpectedEqualHeight_Test(8,8)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(8,8)
-      resultStatus: 2
-      duration: 0.3530419
-      messages: 'Unhandled log message: ''[Error] Destroy may not be called from edit
-        mode! Use DestroyImmediate instead.
-
-        Also think twice if you really want to destroy something in edit mode. Since
-        this will destroy objects permanently.''. Use UnityEngine.TestTools.LogAssert.Expect'
-      output: "Destroy may not be called from edit mode! Use DestroyImmediate instead.\nAlso
-        think twice if you really want to destroy something in edit mode. Since this
-        will destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\n"
-      stacktrace: "UnityEngine.Object:Destroy(Object)\r\nMathc3Project.Classes.Board:Initial()
-        (at Assets/Scripts/Classes/Board.cs:51)\r\nMathc3Project.Classes.Board:.ctor(Int32,
-        Int32, ISpawnManager, ICheckManager, ICellRegistrator) (at Assets/Scripts/Classes/Board.cs:33)\r\nTest.Static.ObjectsCreator:CreateBoard(Int32,
-        Int32) (at Assets/Tests/Static/ObjectsCreator.cs:86)\r\nEditor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest:CreateBoardFromLevel_ExpectedEqualHeight_Test(Int32,
-        Int32) (at Assets/Editor/EditMode Tests/CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.cs:59)\r\nSystem.Reflection.MethodBase:Invoke(Object,
-        Object[])\r\nNUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object,
-        Object[])\r\nNUnit.Framework.Internal.MethodWrapper:Invoke(Object, Object[])\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunNonAsyncTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:Execute(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestActionCommand:Execute(ITestExecutionContext)\r\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions()\r\n\r\n"
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(4,4)]'
-      name: CreateBoardFromLevel_ExpectedEqualHeight_Test(4,4)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(4,4)
-      resultStatus: 2
-      duration: 0.1718675
-      messages: 'Unhandled log message: ''[Error] Destroy may not be called from edit
-        mode! Use DestroyImmediate instead.
-
-        Also think twice if you really want to destroy something in edit mode. Since
-        this will destroy objects permanently.''. Use UnityEngine.TestTools.LogAssert.Expect'
-      output: "Destroy may not be called from edit mode! Use DestroyImmediate instead.\nAlso
-        think twice if you really want to destroy something in edit mode. Since this
-        will destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\nDestroy
-        may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-        twice if you really want to destroy something in edit mode. Since this will
-        destroy objects permanently.\r\n"
-      stacktrace: "UnityEngine.Object:Destroy(Object)\r\nMathc3Project.Classes.Board:Initial()
-        (at Assets/Scripts/Classes/Board.cs:51)\r\nMathc3Project.Classes.Board:.ctor(Int32,
-        Int32, ISpawnManager, ICheckManager, ICellRegistrator) (at Assets/Scripts/Classes/Board.cs:33)\r\nTest.Static.ObjectsCreator:CreateBoard(Int32,
-        Int32) (at Assets/Tests/Static/ObjectsCreator.cs:86)\r\nEditor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest:CreateBoardFromLevel_ExpectedEqualHeight_Test(Int32,
-        Int32) (at Assets/Editor/EditMode Tests/CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.cs:59)\r\nSystem.Reflection.MethodBase:Invoke(Object,
-        Object[])\r\nNUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object,
-        Object[])\r\nNUnit.Framework.Internal.MethodWrapper:Invoke(Object, Object[])\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunNonAsyncTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:Execute(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestActionCommand:Execute(ITestExecutionContext)\r\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions()\r\n\r\n"
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(2,2)]'
-      name: CreateBoardFromLevel_ExpectedEqualHeight_Test(2,2)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test(2,2)
-      resultStatus: 2
-      duration: 0.0202522
-      messages: 'Unhandled log message: ''[Error] Destroy may not be called from edit
-        mode! Use DestroyImmediate instead.
-
-        Also think twice if you really want to destroy something in edit mode. Since
-        this will destroy objects permanently.''. Use UnityEngine.TestTools.LogAssert.Expect'
-      output: "Destroy may not be called from edit mode! Use DestroyImmediate instead.\nAlso
-        think twice if you really want to destroy something in edit mode. Since this
-        will destroy objects permanently.\r\nDestroy may not be called from edit mode!
-        Use DestroyImmediate instead.\nAlso think twice if you really want to destroy
-        something in edit mode. Since this will destroy objects permanently.\r\n"
-      stacktrace: "UnityEngine.Object:Destroy(Object)\r\nMathc3Project.Classes.Board:Initial()
-        (at Assets/Scripts/Classes/Board.cs:51)\r\nMathc3Project.Classes.Board:.ctor(Int32,
-        Int32, ISpawnManager, ICheckManager, ICellRegistrator) (at Assets/Scripts/Classes/Board.cs:33)\r\nTest.Static.ObjectsCreator:CreateBoard(Int32,
-        Int32) (at Assets/Tests/Static/ObjectsCreator.cs:86)\r\nEditor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest:CreateBoardFromLevel_ExpectedEqualHeight_Test(Int32,
-        Int32) (at Assets/Editor/EditMode Tests/CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.cs:59)\r\nSystem.Reflection.MethodBase:Invoke(Object,
-        Object[])\r\nNUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object,
-        Object[])\r\nNUnit.Framework.Internal.MethodWrapper:Invoke(Object, Object[])\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunNonAsyncTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:Execute(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestActionCommand:Execute(ITestExecutionContext)\r\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions()\r\n\r\n"
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualHeight_Test][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test][suite]'
-      name: CreateBoardFromLevel_ExpectedEqualWidth_Test
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test
-      resultStatus: 2
-      duration: 0.0860689
-      messages: One or more child tests had errors
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(15,15)]'
-      name: CreateBoardFromLevel_ExpectedEqualWidth_Test(15,15)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(15,15)
-      resultStatus: 2
-      duration: 0.0051319
-      messages: Method has non-void return value, but no result is expected
-      output: 
-      stacktrace: 
-      notRunnable: 1
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(9,9)]'
-      name: CreateBoardFromLevel_ExpectedEqualWidth_Test(9,9)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(9,9)
-      resultStatus: 2
-      duration: 0.0000093
-      messages: Method has non-void return value, but no result is expected
-      output: 
-      stacktrace: 
-      notRunnable: 1
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(5,5)]'
-      name: CreateBoardFromLevel_ExpectedEqualWidth_Test(5,5)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(5,5)
-      resultStatus: 2
-      duration: 0.0000103
-      messages: Method has non-void return value, but no result is expected
-      output: 
-      stacktrace: 
-      notRunnable: 1
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(3,3)]'
-      name: CreateBoardFromLevel_ExpectedEqualWidth_Test(3,3)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(3,3)
-      resultStatus: 2
-      duration: 0.0000127
-      messages: Method has non-void return value, but no result is expected
-      output: 
-      stacktrace: 
-      notRunnable: 1
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test][suite]'
-    - id: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(1,1)]'
-      name: CreateBoardFromLevel_ExpectedEqualWidth_Test(1,1)
-      fullName: Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test(1,1)
-      resultStatus: 2
-      duration: 0.0000084
-      messages: Method has non-void return value, but no result is expected
-      output: 
-      stacktrace: 
-      notRunnable: 1
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Editor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.CreateBoardFromLevel_ExpectedEqualWidth_Test][suite]'
-    m_ResultText: "CreateBoardFromLevel_ExpectedEqualHeight_Test(2,2) (0.020s)\n---\nUnhandled
-      log message: '[Error] Destroy may not be called from edit mode! Use DestroyImmediate
-      instead.\nAlso think twice if you really want to destroy something in edit mode.
-      Since this will destroy objects permanently.'. Use UnityEngine.TestTools.LogAssert.Expect\n---\nUnityEngine.Object:Destroy(Object)\r\nMathc3Project.Classes.Board:Initial()
-      (at Assets/Scripts/Classes/Board.cs:51)\r\nMathc3Project.Classes.Board:.ctor(Int32,
-      Int32, ISpawnManager, ICheckManager, ICellRegistrator) (at Assets/Scripts/Classes/Board.cs:33)\r\nTest.Static.ObjectsCreator:CreateBoard(Int32,
-      Int32) (at Assets/Tests/Static/ObjectsCreator.cs:86)\r\nEditor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest:CreateBoardFromLevel_ExpectedEqualHeight_Test(Int32,
-      Int32) (at Assets/Editor/EditMode Tests/CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.cs:59)\r\nSystem.Reflection.MethodBase:Invoke(Object,
-      Object[])\r\nNUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object,
-      Object[])\r\nNUnit.Framework.Internal.MethodWrapper:Invoke(Object, Object[])\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunNonAsyncTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:Execute(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestActionCommand:Execute(ITestExecutionContext)\r\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions()\n---\nDestroy
-      may not be called from edit mode! Use DestroyImmediate instead.\nAlso think
-      twice if you really want to destroy something in edit mode. Since this will
-      destroy objects permanently.\r\nDestroy may not be called from edit mode! Use
-      DestroyImmediate instead.\nAlso think twice if you really want to destroy something
-      in edit mode. Since this will destroy objects permanently."
-    m_ResultStacktrace: "UnityEngine.Object:Destroy(Object)\r\nMathc3Project.Classes.Board:Initial()
-      (at Assets/Scripts/Classes/Board.cs:51)\r\nMathc3Project.Classes.Board:.ctor(Int32,
-      Int32, ISpawnManager, ICheckManager, ICellRegistrator) (at Assets/Scripts/Classes/Board.cs:33)\r\nTest.Static.ObjectsCreator:CreateBoard(Int32,
-      Int32) (at Assets/Tests/Static/ObjectsCreator.cs:86)\r\nEditor.Tests.PlayModeTests.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest:CreateBoardFromLevel_ExpectedEqualHeight_Test(Int32,
-      Int32) (at Assets/Editor/EditMode Tests/CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.cs:59)\r\nSystem.Reflection.MethodBase:Invoke(Object,
-      Object[])\r\nNUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object,
-      Object[])\r\nNUnit.Framework.Internal.MethodWrapper:Invoke(Object, Object[])\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunNonAsyncTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:RunTestMethod(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestMethodCommand:Execute(ITestExecutionContext)\r\nNUnit.Framework.Internal.Commands.TestActionCommand:Execute(ITestExecutionContext)\r\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions()\r\n\r\n"
-    m_TestListState:
-      scrollPos: {x: 0, y: 117}
-      m_SelectedIDs: 291cf344
-      m_LastClickedID: 1156783145
-      m_ExpandedIDs: 9956808fbe0483a45ab1b2aef39fb2de2bdb47e4d27961ebdfe0e6eb3f90f22e810764440833104c9bac376c44158b7dffffff7f
+      m_SelectedIDs: 6acb7c1b
+      m_LastClickedID: 461163370
+      m_ExpandedIDs: 9e6e8d90fc9f5e9367145f97be0483a4150de8a5144df2a85ab1b2ae9e3035c446e4c9c7805ed4d3cb68dfdba5e5cae026d0eae12bdb47e4c64473ea9dff48fc095e301a8d0c551d4d9be32a9dab0b3ae20ff0541e2eaa570264bb5e68546b6a9bac376cffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2125,7 +741,396 @@ MonoBehaviour:
       selectedCategoryMask: 0
       availableCategories:
       - Uncategorized
---- !u!114 &15
+  m_EditModeTestListGUI:
+    m_Window: {fileID: 16}
+    newResultList:
+    - id: '[Match_3_Project][suite]'
+      name: Match_3_Project
+      fullName: Match_3_Project
+      resultStatus: 1
+      duration: 0.6068182
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: 
+    - id: '[E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll][suite]'
+      name: Assembly-CSharp-Editor.dll
+      fullName: E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+      resultStatus: 1
+      duration: 0.4485933
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Match_3_Project][suite]'
+    - id: '[Tests][suite]'
+      name: Tests
+      fullName: Tests
+      resultStatus: 1
+      duration: 0.3617324
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll][suite]'
+    - id: '[Tests.EditMode][suite]'
+      name: EditMode
+      fullName: Tests.EditMode
+      resultStatus: 1
+      duration: 0.3142857
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Tests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+      name: ManagersCreateTests
+      fullName: Tests.EditMode.ManagersCreateTests
+      resultStatus: 1
+      duration: 0.1921441
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Tests.EditMode][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.CheckManager_Create_NotNull]'
+      name: CheckManager_Create_NotNull
+      fullName: Tests.EditMode.ManagersCreateTests.CheckManager_Create_NotNull
+      resultStatus: 1
+      duration: 0.0429318
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.GameplayLogicManager_Create_NotNull]'
+      name: GameplayLogicManager_Create_NotNull
+      fullName: Tests.EditMode.ManagersCreateTests.GameplayLogicManager_Create_NotNull
+      resultStatus: 1
+      duration: 0.0058481
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.GameplayNotifier_Create_NotNull]'
+      name: GameplayNotifier_Create_NotNull
+      fullName: Tests.EditMode.ManagersCreateTests.GameplayNotifier_Create_NotNull
+      resultStatus: 1
+      duration: 0.0022655
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.InputManager_Create_NotNull]'
+      name: InputManager_Create_NotNull
+      fullName: Tests.EditMode.ManagersCreateTests.InputManager_Create_NotNull
+      resultStatus: 1
+      duration: 0.001785
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.LevelsManager_Create_NotNull]'
+      name: LevelsManager_Create_NotNull
+      fullName: Tests.EditMode.ManagersCreateTests.LevelsManager_Create_NotNull
+      resultStatus: 1
+      duration: 0.0165201
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.MasterManager_Create_NotNull]'
+      name: MasterManager_Create_NotNull
+      fullName: Tests.EditMode.ManagersCreateTests.MasterManager_Create_NotNull
+      resultStatus: 1
+      duration: 0.0311496
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.NavigationManager_Create_NotNull]'
+      name: NavigationManager_Create_NotNull
+      fullName: Tests.EditMode.ManagersCreateTests.NavigationManager_Create_NotNull
+      resultStatus: 1
+      duration: 0.0021306
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.SpawnManager_Create_NotNull]'
+      name: SpawnManager_Create_NotNull
+      fullName: Tests.EditMode.ManagersCreateTests.SpawnManager_Create_NotNull
+      resultStatus: 1
+      duration: 0.001275
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.TaskManager_Create_NotNull]'
+      name: TaskManager_Create_NotNull
+      fullName: Tests.EditMode.ManagersCreateTests.TaskManager_Create_NotNull
+      resultStatus: 1
+      duration: 0.0018456
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.UINotifier_Create_NotNull]'
+      name: UINotifier_Create_NotNull
+      fullName: Tests.EditMode.ManagersCreateTests.UINotifier_Create_NotNull
+      resultStatus: 1
+      duration: 0.0012868
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.UpdateManager_Create_NotNull]'
+      name: UpdateManager_Create_NotNull
+      fullName: Tests.EditMode.ManagersCreateTests.UpdateManager_Create_NotNull
+      resultStatus: 1
+      duration: 0.0014188
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests][suite]'
+      name: OtherObjectsCreateTests
+      fullName: Tests.EditMode.OtherObjectsCreateTests
+      resultStatus: 1
+      duration: 0.0797197
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Tests.EditMode][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests.CellRegistrator_Create_NotNull]'
+      name: CellRegistrator_Create_NotNull
+      fullName: Tests.EditMode.OtherObjectsCreateTests.CellRegistrator_Create_NotNull
+      resultStatus: 1
+      duration: 0.0021795
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests.Coroutine_Create_NotNull]'
+      name: Coroutine_Create_NotNull
+      fullName: Tests.EditMode.OtherObjectsCreateTests.Coroutine_Create_NotNull
+      resultStatus: 1
+      duration: 0.0016964
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests.HollowCell_Create_NotNull]'
+      name: HollowCell_Create_NotNull
+      fullName: Tests.EditMode.OtherObjectsCreateTests.HollowCell_Create_NotNull
+      resultStatus: 1
+      duration: 0.0012511
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests.Level_Create_NotNull]'
+      name: Level_Create_NotNull
+      fullName: Tests.EditMode.OtherObjectsCreateTests.Level_Create_NotNull
+      resultStatus: 1
+      duration: 0.0013997
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests.LevelTask_Create_NotNull]'
+      name: LevelTask_Create_NotNull
+      fullName: Tests.EditMode.OtherObjectsCreateTests.LevelTask_Create_NotNull
+      resultStatus: 1
+      duration: 0.0014725
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests.NormalCell_Create_NotNull]'
+      name: NormalCell_Create_NotNull
+      fullName: Tests.EditMode.OtherObjectsCreateTests.NormalCell_Create_NotNull
+      resultStatus: 1
+      duration: 0.0014593
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests][suite]'
+    - id: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests.ObjectStorage_Create_NotNull]'
+      name: ObjectStorage_Create_NotNull
+      fullName: Tests.EditMode.OtherObjectsCreateTests.ObjectStorage_Create_NotNull
+      resultStatus: 1
+      duration: 0.0011845
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests][suite]'
+    m_ResultText: Match_3_Project (0.607s)
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 9bac376c
+      m_LastClickedID: 1815587995
+      m_ExpandedIDs: 9956808fbe0483a415cb7cac5ab1b2ae133ebfaed33d84b9f39fb2de2bdb47e4d27961ebdfe0e6eb095e301a3f90f22e81076444d8b5fa440833104c9bac376c44158b7dffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2141,14 +1146,13 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Scene
-    m_Image: {fileID: 2318424515335265636, guid: 0000000000000000d000000000000000,
-      type: 0}
+    m_Image: {fileID: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 671
+    width: 686
     height: 744
   m_PersistentViewDataDictionary: {fileID: 0}
   m_WindowGUID: e43ac9dea63546e4a8596c2c6717c165
@@ -2157,9 +1161,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.7370921, y: 1.4478996, z: -0.115234375}
+    m_Target: {x: 1.596891, y: 2.7657206, z: -0.115234375}
     speed: 2
-    m_Value: {x: 1.7370921, y: 1.4478996, z: -0.115234375}
+    m_Value: {x: 1.596891, y: 2.7657206, z: -0.115234375}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2205,7 +1209,7 @@ MonoBehaviour:
   m_ReplacementString: 
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &16
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2253,7 +1257,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -2285,7 +1289,7 @@ MonoBehaviour:
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
   m_XRRenderMode: 0
---- !u!114 &17
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2311,7 +1315,7 @@ MonoBehaviour:
     width: 774
     height: 743
   m_PersistentViewDataDictionary: {fileID: 0}
---- !u!114 &18
+--- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2334,7 +1338,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1164
     y: 73
-    width: 692
+    width: 227
     height: 401
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
@@ -2342,7 +1346,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 5e88ffff7e88ffffca8dffff928effffb28effff54a1ffff8eaefffff0baffffeebbffff42bcffff6abcffff08bdffff2cbdffffc2bdffffe8bdffff3abeffff5abeffffb2befffffabeffff1abfffff72bfffffdabffffffabfffff52c0ffff62c0ffff82c0fffff0c1fffffac3ffff0ec4ffff2ec4ffff90caffffd8cafffff8caffff50cbffff60cbffff80cbffffb0d1ffffbad2ffffdad2ffffead9ffff3cdcffff5cdcffffb4dcfffffcdcffff1cddffff74ddffff36deffff4adeffff6adeffff70e1ffffd2e1fffff2e1ffffece4ffff42e5ffffeee7ffff0ee8ffff94e9ffff86ebffff66ecffff86ecffff26eeffffcaeeffff
+      m_ExpandedIDs: b8d1ffffd8d1ffff74d2ffffced2ffffeed2ffff96edffff06f0ffffc4f0ffffe0f2ffff00f3ffff44f4ffff54f4ffff74f4ffff1cfaffffd4fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2366,7 +1370,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 54c17ea3982e1924db55b0426588e6a7
---- !u!114 &19
+--- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2415,7 +1419,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: c22f0000
     m_LastClickedID: 12226
-    m_ExpandedIDs: 00000000e4050000343100004c310000b4310000d4310000e0310000ec310000f03100001c3200002c3200003c3200004032000052320000b6320000ca3200001c3300003a330000603300008633000006340000083400000a3400000c3400000e34000010340000123400001434000016340000183400001a3400001c3400001e34000020340000223400002434000026340000283400002a3400002c3400002e34000030340000323400003434000036340000383400003a3400003c340000
+    m_ExpandedIDs: 00000000e80500000a0a0000860a00009a0a0000d20a0000fc0a0000060b0000160b0000260b00002a0b0000a80b0000300c00005e0c00008c0c0000d6290000d8290000da290000dc290000de290000e0290000e2290000e4290000e6290000e8290000ea290000ec290000ee290000f0290000f2290000f4290000f6290000f8290000fa290000fc290000fe290000002a0000022a0000042a0000062a0000082a00000a2a00000c2a00000e2a0000102a0000122a0000142a0000162a0000182a00001a2a00001c2a00001e2a0000202a0000222a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2443,7 +1447,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000e405000034310000b4310000d4310000e0310000ec3100001c3200002c3200003c32000040320000b6320000ca3200001c3300003a330000603300008633000006340000083400000a3400000c3400000e34000010340000123400001434000016340000183400001a3400001c3400001e34000020340000223400002434000026340000283400002a3400002c3400002e34000030340000323400003434000036340000383400003a3400003c340000f83400003a35000048350000a4350000aa350000b6350000
+    m_ExpandedIDs: ffffffff00000000e80500000a0a0000740a0000860a00009a0a0000d20a0000fc0a0000060b0000160b0000260b00002a0b0000a80b0000300c00005e0c00008c0c0000d6290000d8290000da290000dc290000de290000e0290000e2290000e4290000e6290000e8290000ea290000ec290000ee290000f0290000f2290000f4290000f6290000f8290000fa290000fc290000fe290000002a0000022a0000042a0000062a0000082a00000a2a00000c2a00000e2a0000102a0000122a0000142a0000162a0000182a00001a2a00001c2a00001e2a0000202a0000222a00003e2a0000a22b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2459,7 +1463,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 7}
+      m_ClientGUIView: {fileID: 4}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -2498,7 +1502,7 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_DirectoriesAreaWidth: 115
---- !u!114 &20
+--- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2520,11 +1524,11 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 837
+    y: 786
     width: 1162
-    height: 203
+    height: 199
   m_PersistentViewDataDictionary: {fileID: 0}
---- !u!114 &21
+--- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2545,10 +1549,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 2
-    y: 22
-    width: 692
-    height: 397
+    x: 1395
+    y: 73
+    width: 461
+    height: 401
   m_PersistentViewDataDictionary: {fileID: 0}
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
@@ -2559,7 +1563,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
---- !u!114 &22
+--- !u!114 &24
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}

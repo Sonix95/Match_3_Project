@@ -1,16 +1,16 @@
-using Mathc3Project.Classes;
+﻿using Mathc3Project.Classes;
 using Mathc3Project.Classes.Observer;
 using Mathc3Project.Interfaces;
 using Mathc3Project.Interfaces.Observer;
 using NUnit.Framework;
-using Test.Static;
+using Tests.Static;
 
-namespace Editor.Tests.EditModeTests
+namespace Tests.EditMode
 {
-   public class ManagersCreateTests
-   {
-      [Test]
-      public void CheckManagerCreate_Test()
+    public class ManagersCreateTests
+    {
+        [Test]
+      public void CheckManager_Create_NotNull()
       {
          ICheckManager checkManager = new CheckManager();
          
@@ -18,7 +18,7 @@ namespace Editor.Tests.EditModeTests
       }
       
       [Test]
-      public void GameplayLogicManager()
+      public void GameplayLogicManager_Create_NotNull()
       {
          IGameplayLogicManager gameplayLogicManager =  ObjectsCreator.CreateGameplayLogicManager();
 
@@ -26,7 +26,7 @@ namespace Editor.Tests.EditModeTests
       }
       
       [Test]
-      public void InputManagerCreateTest()
+      public void InputManager_Create_NotNull()
       {
          INotifier somethingNotifier = new Notifier();
          IInputManager inputManager = new InputManager(somethingNotifier);
@@ -35,7 +35,7 @@ namespace Editor.Tests.EditModeTests
       }
       
       [Test]
-      public void LevelsManagerCreate_Test()
+      public void LevelsManager_Create_NotNull()
       {
          ILevelsManager levelManager = new LevelsManager();
 
@@ -43,7 +43,7 @@ namespace Editor.Tests.EditModeTests
       }
       
       [Test]
-      public void MasterManagerCreate_Test()
+      public void MasterManager_Create_NotNull()
       {
          IMasterManager masterManager =  ObjectsCreator.CreateMasterManager();
 
@@ -51,7 +51,7 @@ namespace Editor.Tests.EditModeTests
       }
       
       [Test]
-      public void NavigationManagerCreate_Test()
+      public void NavigationManager_Create_NotNull()
       {
          IMasterManager masterManager =  ObjectsCreator.CreateMasterManager();
 
@@ -61,7 +61,7 @@ namespace Editor.Tests.EditModeTests
       }
       
       [Test]
-      public void SpawnManagerCreate_Test()
+      public void SpawnManager_Create_NotNull()
       {
          IObjectStorage objectStorage = new ObjectStorage();
          ISpawnManager spawnManager = new SpawnManager(objectStorage);
@@ -70,7 +70,7 @@ namespace Editor.Tests.EditModeTests
       }
       
       [Test]
-      public void TaskManagerCreate_Test()
+      public void TaskManager_Create_NotNull()
       {
          ITaskManager taskManager = ObjectsCreator.CreateTaskManager();
 
@@ -78,7 +78,7 @@ namespace Editor.Tests.EditModeTests
       }
 
       [Test]
-      public void UpdateManagerCreate_Test()
+      public void UpdateManager_Create_NotNull()
       {
          IUpdateManager updateManager =  ObjectsCreator.CreateUpdateManager();
 
@@ -86,7 +86,7 @@ namespace Editor.Tests.EditModeTests
       }
 
       [Test]
-      public void GameplayNotifierCreate_Test()
+      public void GameplayNotifier_Create_NotNull()
       {
          INotifier gameplayNotifier = new Notifier();
          
@@ -94,12 +94,12 @@ namespace Editor.Tests.EditModeTests
       }
 
       [Test]
-      public void UINotifierCreate_Test()
+      public void UINotifier_Create_NotNull()
       {
          INotifier uiNotifier = new Notifier();
 
          Assert.IsNotNull(uiNotifier);
       }
 
-   }
+    }
 }

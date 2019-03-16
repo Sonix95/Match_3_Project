@@ -1,11 +1,11 @@
-using Mathc3Project.Classes;
+﻿using Mathc3Project.Classes;
 using Mathc3Project.Classes.Observer;
 using Mathc3Project.Classes.StaticClasses;
 using Mathc3Project.Interfaces;
 using Mathc3Project.Interfaces.Observer;
 using UnityEngine;
 
-namespace Test.Static
+namespace Tests.Static
 {
     public static class ObjectsCreator
     {
