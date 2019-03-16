@@ -56,6 +56,6 @@ namespace Tests.PlayMode
 
             Assert.That(board.Height, Is.EqualTo(expectedResult));
         }
-        
+
     }
 }

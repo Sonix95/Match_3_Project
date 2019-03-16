@@ -140,6 +140,7 @@ namespace Mathc3Project.Classes
                     break;
 
                 case EventTypes.POWER_Use:
+                    Debug.Log("USE POWER");
                     ArrayList arr = (ArrayList) messageData;
 
                     PowerUpTypes powerUp = Helper.StringToPowerType(arr[0].ToString());
@@ -252,8 +253,8 @@ namespace Mathc3Project.Classes
 
             StartCoroutine(MarkAndDestroy(_matchedCellsWithAxisDictionary));
         }
-       
-        private IEnumerator MarkAndDestroy(IDictionary<ICell, IDictionary<IList<ICell>, AxisTypes>> cellsWithAxisDictionary)
+        
+        public IEnumerator MarkAndDestroy(IDictionary<ICell, IDictionary<IList<ICell>, AxisTypes>> cellsWithAxisDictionary)
         {
             foreach (var cellDictionary in cellsWithAxisDictionary)
             {

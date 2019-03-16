@@ -3,6 +3,7 @@ using Mathc3Project.Classes.StaticClasses;
 using Mathc3Project.Interfaces;
 using NUnit.Framework;
 using Tests.Static;
+using UnityEngine;
 using UnityEngine.TestTools;
 
 namespace Tests.PlayMode
@@ -32,6 +33,10 @@ namespace Tests.PlayMode
             board.Initial();
 
             Assert.IsNotNull(board);
+
+            //Remove from Scene    
+            foreach (var cell in board.Cells)
+                GameObject.Destroy(cell.CurrentGameObject);
         }
         
     }

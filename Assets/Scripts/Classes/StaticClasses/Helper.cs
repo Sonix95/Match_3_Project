@@ -26,7 +26,7 @@ namespace Mathc3Project.Classes.StaticClasses
 
         public static GameElementTypes StringToGameElementType(string gameElementTypeString)
         {
-            GameElementTypes gameElementType = GameElementTypes.None;
+            GameElementTypes gameElementType = GameElementTypes.OrangeBox;
 
             switch (gameElementTypeString)
             {
@@ -56,7 +56,7 @@ namespace Mathc3Project.Classes.StaticClasses
         
         public static PowerUpTypes StringToPowerType(string powerTypeString)
         {
-            PowerUpTypes powerUpType = PowerUpTypes.None;
+            PowerUpTypes powerUpType = PowerUpTypes.Vertical;
 
             switch (powerTypeString)
             {
@@ -83,7 +83,7 @@ namespace Mathc3Project.Classes.StaticClasses
 
         public static PowerUpTypes DetectPowerUp(int matchCount, AxisTypes axis)
         {
-            PowerUpTypes powerUp = PowerUpTypes.None;
+            PowerUpTypes powerUp = PowerUpTypes.Vertical;
 
             if (matchCount == 4)
             {
