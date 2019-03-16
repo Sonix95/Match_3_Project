@@ -9,11 +9,16 @@ namespace Tests.PlayMode
     public class CreateBoardTest
     {
         [UnityTest]
-        public IEnumerator Board_Create_NotNull()
+        [TestCase(3, 5, ExpectedResult = null)]
+        [TestCase(7, 4, ExpectedResult = null)]
+        [TestCase(6, 6, ExpectedResult = null)]
+        public IEnumerator Board_Create_NotNull(int width, int height)
         {
-            IBoard board = ObjectsCreator.CreateBoard(9, 12);
+            IBoard board = ObjectsCreator.CreateBoard(width, height);
             
             yield return null;
+            
+            board.Initial();
 
             Assert.IsNotNull(board);
         }

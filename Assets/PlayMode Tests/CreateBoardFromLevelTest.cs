@@ -28,6 +28,8 @@ namespace Tests.PlayMode
             IBoard board = ObjectsCreator.CreateBoard(width, height);
             
             yield return null; 
+            
+            board.Initial();
 
             Assert.IsNotNull(board);
         }

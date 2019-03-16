@@ -30,10 +30,9 @@ namespace Mathc3Project.Classes
 
             _checkManager.Board = this;
             
-            Initial();
         }
         
-        private void Initial()
+        public void Initial()
         {
             for (int i = 0; i < _width; i++)
             for (int j = 0; j < _height; j++)
@@ -42,7 +41,7 @@ namespace Mathc3Project.Classes
                 {
                     Vector2 tempPos = new Vector2(i, j);
 
-                    ICell newCell = _spawnManager.SpawnNormalCell(tempPos);
+                    ICell newCell = _spawnManager.SpawnRandomNormalCell(tempPos);
                     _checkManager.Board = this;
 
                     int maxLimit = 0;
@@ -50,7 +49,7 @@ namespace Mathc3Project.Classes
                     {
                         GameObject.Destroy(newCell.CurrentGameObject);
 
-                        newCell = _spawnManager.SpawnNormalCell(tempPos);
+                        newCell = _spawnManager.SpawnRandomNormalCell(tempPos);
                         _checkManager.Board = this;
 
                         maxLimit++;

@@ -16,9 +16,19 @@ namespace Mathc3Project.Classes
             _objectStorage = objectStorage;
         }
 
-        public GameObject SpawnPrefab(Vector3 position)
+        public GameObject SpawnRandomPrefab(Vector3 position)
         {
             GameObject newGameObject = _objectStorage.GetRandomGameElement();
+            
+            newGameObject.name = newGameObject.tag;
+            newGameObject.transform.position = position;
+            
+            return newGameObject;
+        }
+
+        public GameObject SpawnPrefab(GameElementTypes elementType, Vector3 position)
+        {
+            GameObject newGameObject = _objectStorage.GetGameElement(elementType);
             
             newGameObject.name = newGameObject.tag;
             newGameObject.transform.position = position;
@@ -36,9 +46,20 @@ namespace Mathc3Project.Classes
             return powerGameObject;
         }
         
-        public ICell SpawnNormalCell(Vector3 position)
+        public ICell SpawnRandomNormalCell(Vector3 position)
         {
-            GameObject newGameObject = SpawnPrefab(position);
+            GameObject newGameObject = SpawnRandomPrefab(position);
+     
+            ICell newNormalCell = new NormalCell((int) position.x, (int) position.y);
+
+            newNormalCell.CurrentGameObject = newGameObject;
+            
+            return newNormalCell;
+        }
+        
+        public ICell SpawnNormalCell(GameElementTypes gameElement, Vector3 position)
+        {
+            GameObject newGameObject = SpawnPrefab(gameElement,position);
      
             ICell newNormalCell = new NormalCell((int) position.x, (int) position.y);
 

@@ -67,6 +67,8 @@ namespace Mathc3Project.Classes.Scenes
 
         public void SetUp()
         {
+            _board.Initial();
+            
             _checkManager.Board = _board;
 
             _uiManager.NavigationManager = _NavigationManager;

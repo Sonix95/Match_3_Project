@@ -151,6 +151,7 @@ namespace Mathc3Project.Classes
                 case EventTypes.TASK_Finished:
                     if (_gameState != GameStates.End)
                     {
+                        _navigationManager.MasterManager.UpdateManager.IsUpdate = false;
                         _gameState = GameStates.End;
                         Notify(EventTypes.TASK_Finished, null);
                     }
@@ -366,7 +367,7 @@ namespace Mathc3Project.Classes
             foreach (var position in positionsList)
             {
                 Vector3 tempPosition = new Vector3(position.x, _board.Height, 0f);
-                GameObject spawnedGameObject = _spawnManager.SpawnPrefab(tempPosition);
+                GameObject spawnedGameObject = _spawnManager.SpawnRandomPrefab(tempPosition);
 
                 ICell tempCell = _board.Cells[(int) position.x, (int) position.y];
                 tempCell.CurrentGameObject = spawnedGameObject;

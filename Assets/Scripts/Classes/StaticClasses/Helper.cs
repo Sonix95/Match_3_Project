@@ -24,6 +24,36 @@ namespace Mathc3Project.Classes.StaticClasses
             return moveDirection;
         }
 
+        public static GameElementTypes StringToGameElementType(string gameElementTypeString)
+        {
+            GameElementTypes gameElementType = GameElementTypes.None;
+
+            switch (gameElementTypeString)
+            {
+                case Strings.Tag_BlueMultiAngle:
+                    gameElementType = GameElementTypes.BlueMultiAngle;
+                    break;
+                case Strings.Tag_GreenDownTriangle:
+                    gameElementType = GameElementTypes.GreenDownTriangle;
+                    break;
+                case Strings.Tag_OrangeBox:
+                    gameElementType = GameElementTypes.OrangeBox;
+                    break;
+                case Strings.Tag_RedCircle:
+                    gameElementType = GameElementTypes.RedCircle;
+                    break;
+                case Strings.Tag_YellowUpTriangle:
+                    gameElementType = GameElementTypes.YellowUpTriangle;
+                    break;
+                
+                default:
+                    Debug.LogWarning("Element with this tag no found: " + gameElementTypeString);
+                    break;
+            }
+
+            return gameElementType;
+        }
+        
         public static PowerUpTypes StringToPowerType(string powerTypeString)
         {
             PowerUpTypes powerUpType = PowerUpTypes.None;
@@ -41,6 +71,10 @@ namespace Mathc3Project.Classes.StaticClasses
                     break;
                 case Strings.Tag_ColorBomb:
                     powerUpType = PowerUpTypes.ColorBomb;
+                    break;
+                
+                default:
+                    Debug.LogWarning("PowerUp with this tag no found: " + powerTypeString);
                     break;
             }
 

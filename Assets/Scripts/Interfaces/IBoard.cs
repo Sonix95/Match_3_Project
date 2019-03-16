@@ -9,5 +9,7 @@ namespace Mathc3Project.Interfaces
         int Height { get; set; }
         ICell[,] Cells { get; set; }
         ICellRegistrator CellRegistrator { get; set; }
+
+        void Initial();
     }
 }

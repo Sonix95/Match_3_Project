@@ -9,13 +9,13 @@ namespace Mathc3Project.Classes
 {
     public class ObjectStorage : IObjectStorage
     {
-        private readonly IList<GameObject> _normalCellsPrefabsList;
         private readonly IDictionary<PowerUpTypes, GameObject> _powersPrefabs;
+        private readonly IDictionary<GameElementTypes, GameObject> _normalCellsPrefabs;
 
         public ObjectStorage()
         {
             _powersPrefabs = new Dictionary<PowerUpTypes, GameObject>();
-            _normalCellsPrefabsList = new List<GameObject>();
+            _normalCellsPrefabs = new Dictionary<GameElementTypes, GameObject>();
 
             SetUp();
         }
@@ -23,17 +23,17 @@ namespace Mathc3Project.Classes
         private void SetUp()
         {
             // Gameplay Elemnts ===============================
-            _normalCellsPrefabsList.Add(
+            _normalCellsPrefabs.Add(GameElementTypes.OrangeBox,
                 Resources.Load(Strings.Gameplay_Elements + Strings.Tag_OrangeBox) as GameObject);
-            _normalCellsPrefabsList.Add(
+            _normalCellsPrefabs.Add(GameElementTypes.RedCircle,
                 Resources.Load(Strings.Gameplay_Elements + Strings.Tag_RedCircle) as GameObject);
-            _normalCellsPrefabsList.Add(
+            _normalCellsPrefabs.Add(GameElementTypes.BlueMultiAngle,
                 Resources.Load(Strings.Gameplay_Elements + Strings.Tag_BlueMultiAngle) as GameObject);
-            _normalCellsPrefabsList.Add(
+            _normalCellsPrefabs.Add(GameElementTypes.YellowUpTriangle,
                 Resources.Load(Strings.Gameplay_Elements + Strings.Tag_YellowUpTriangle) as GameObject);
-            _normalCellsPrefabsList.Add(
+            _normalCellsPrefabs.Add(GameElementTypes.GreenDownTriangle,
                 Resources.Load(Strings.Gameplay_Elements + Strings.Tag_GreenDownTriangle) as GameObject);
-
+            
             // Gameplay Powers ===============================
             _powersPrefabs.Add(PowerUpTypes.Horizontal,
                 Resources.Load(Strings.Power_Element + Strings.Tag_Horizontal) as GameObject);
@@ -47,9 +47,15 @@ namespace Mathc3Project.Classes
         
         public GameObject GetRandomGameElement()
         {
-            int cellIndex = Random.Range(0, _normalCellsPrefabsList.Count);
-            var prefToUse = _normalCellsPrefabsList.ElementAt(cellIndex);
-            return Object.Instantiate(prefToUse);
+            int cellIndex = Random.Range(0, _normalCellsPrefabs.Keys.Count);
+            var prefToUse = _normalCellsPrefabs.ElementAt(cellIndex);
+            return Object.Instantiate(prefToUse.Value);
+        }
+
+        public GameObject GetGameElement(GameElementTypes gameElementType)
+        {
+            GameObject gameElement =  Object.Instantiate(_normalCellsPrefabs[gameElementType]);
+            return gameElement;
         }
 
         public GameObject GetPowerElement(PowerUpTypes powerUpType)
