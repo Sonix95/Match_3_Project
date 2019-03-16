@@ -4,8 +4,32 @@
     <e p="C:\Users\User\.Rider2018.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\User\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Match_3_Project.110013616.00" t="ExcludeRecursive" />
     <e p="E:\Documents\UNITY couses\Match_3_Project" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Editor" t="Include">
+          <e p="EditMode Tests" t="Include">
+            <e p="ManagersCreateTests.cs" t="Include" />
+            <e p="OtherObjectsCreateTests.cs" t="Include" />
+          </e>
+        </e>
+        <e p="PlayMode Tests" t="Include">
+          <e p="CreateBoardFromLevelTest.cs" t="Include" />
+          <e p="CreateBoardTest.cs" t="Include" />
+          <e p="CreateBoardWithOnlyOneElementTypeTest.cs" t="Include" />
+          <e p="CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.cs" t="Include" />
+          <e p="Enum For Tests" t="Include">
+            <e p="SwapTypes.cs" t="Include" />
+          </e>
+          <e p="GameplayElementReviewTest.cs" t="Include" />
+          <e p="Static Helpers For Tests" t="Include">
+            <e p="ObjectsCreator.cs" t="Include" />
+            <e p="TestHelper.cs" t="Include" />
+          </e>
+          <e p="SwapAndUndoCellTest.cs" t="Include" />
+          <e p="SwapCellTest.cs" t="Include" />
+          <e p="UsePowerUpTest.cs" t="Include" />
+        </e>
         <e p="Scripts" t="Include">
           <e p="Classes" t="Include">
             <e p="Abstract" t="Include">
@@ -67,6 +91,7 @@
             <e p="CellStates.cs" t="Include" />
             <e p="CellTypes.cs" t="Include" />
             <e p="EventTypes.cs" t="Include" />
+            <e p="GameElementTypes.cs" t="Include" />
             <e p="GameStates.cs" t="Include" />
             <e p="ManagerTypes.cs" t="Include" />
             <e p="MoveDirectionTypes.cs" t="Include" />

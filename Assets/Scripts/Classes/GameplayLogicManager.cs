@@ -140,7 +140,6 @@ namespace Mathc3Project.Classes
                     break;
 
                 case EventTypes.POWER_Use:
-                    Debug.Log("USE POWER");
                     ArrayList arr = (ArrayList) messageData;
 
                     PowerUpTypes powerUp = Helper.StringToPowerType(arr[0].ToString());

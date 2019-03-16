@@ -87,8 +87,7 @@ namespace Tests.Static
             return board;
         }
 
-        public static IBoard CreateBoard(int width, int height, out IMasterManager masterManager
-            )
+        public static IBoard CreateBoard(int width, int height, out IMasterManager masterManager)
         {
             masterManager = CreateMasterManager();
 

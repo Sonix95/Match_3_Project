@@ -24,6 +24,7 @@ namespace Tests.PlayMode
             Assert.IsNotNull(board);
             
             //Remove from Scene
+            yield return new WaitForSeconds(0.25f);
             foreach (var cell in board.Cells)
                 GameObject.Destroy(cell.CurrentGameObject);
         }
