@@ -24,11 +24,17 @@ namespace Tests.PlayMode
         public IEnumerator Board_CreateWithOnlyOneElementType(GameElementTypes gameElement, int boardWidth,
             int boardHeight)
         {
+            #region Create Board
+
             IObjectStorage objectStorage = new ObjectStorage();
             ISpawnManager spawnManager = new SpawnManager(objectStorage);
             IBoard board = ObjectsCreator.CreateBoard(boardWidth, boardHeight);
 
+            #endregion
+
             yield return null;
+
+            #region Fill Board
 
             for (int i = 0; i < board.Width; i++)
             for (int j = 0; j < board.Height; j++)
@@ -44,10 +50,15 @@ namespace Tests.PlayMode
                 }
             }
 
-            //Remove from Scene
+            #endregion
+
+            #region Remove From Scene
+
             yield return new WaitForSeconds(.5f);
             foreach (var cell in board.Cells)
                 GameObject.Destroy(cell.CurrentGameObject);
+
+            #endregion
         }
 
     }

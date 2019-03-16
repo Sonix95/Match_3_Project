@@ -13,6 +13,8 @@ namespace Tests.PlayMode
         [UnityTest]
         public IEnumerator Board_CreateFromLevel_NotNull()
         {
+            #region create level
+            
             int levelID = 1;
             int boardWidth = 5;
             int boardHeight = 5;
@@ -23,21 +25,30 @@ namespace Tests.PlayMode
             
             ILevel level = ObjectsCreator.CreateLevel(levelID, boardWidth, boardHeight,levelTasks);
             
+            #endregion
+            
+            #region create Board
             int width = level.BoardWidth;
             int height = level.BoardHeight;
             
             IBoard board = ObjectsCreator.CreateBoard(width, height);
             
-            yield return null; 
+            #endregion
+            
+            #region Check board
             
             board.Initial();
-
             Assert.IsNotNull(board);
 
-            //Remove from Scene    
+            #endregion 
+            
+            #region Remove From Scene
+            
             yield return new WaitForSeconds(0.25f);
             foreach (var cell in board.Cells)
                 GameObject.Destroy(cell.CurrentGameObject);
+            
+            #endregion
         }
         
     }

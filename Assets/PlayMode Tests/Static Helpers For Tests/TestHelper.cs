@@ -1,7 +1,10 @@
+using System.Collections.Generic;
 using Mathc3Project.Classes.Commands;
+using Mathc3Project.Enums;
 using Mathc3Project.Interfaces.Cells;
 using Mathc3Project.Interfaces.Command;
 using Tests.Enum;
+using UnityEngine;
 
 namespace Tests.Static
 {

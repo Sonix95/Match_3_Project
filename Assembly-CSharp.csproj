@@ -69,6 +69,7 @@
     <Compile Include="Assets\PlayMode Tests\Static Helpers For Tests\TestHelper.cs" />
     <Compile Include="Assets\PlayMode Tests\SwapAndUndoCellTest.cs" />
     <Compile Include="Assets\PlayMode Tests\SwapCellTest.cs" />
+    <Compile Include="Assets\PlayMode Tests\TryCheckSwipedCells.cs" />
     <Compile Include="Assets\PlayMode Tests\UsePowerUpTest.cs" />
     <Compile Include="Assets\Scripts\Classes\Abstract\BaseScene.cs" />
     <Compile Include="Assets\Scripts\Classes\Board.cs" />

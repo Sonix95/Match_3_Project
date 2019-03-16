@@ -18,6 +18,8 @@ namespace Tests.PlayMode
         [TestCase(15, 15, ExpectedResult = null)]
         public IEnumerator Board_CreateFromLevel_ExpectedEqualWidth(int boardWidth, int expectedResult)
         {
+            #region Create Level
+
             int levelID = 1;
             int boardHeight = 5;
 
@@ -27,18 +29,32 @@ namespace Tests.PlayMode
 
             ILevel level = ObjectsCreator.CreateLevel(levelID, boardWidth, boardHeight, levelTasks);
 
+            #endregion
+
+            #region Create Board
+
             int width = level.BoardWidth;
             int height = level.BoardHeight;
 
             IBoard board = ObjectsCreator.CreateBoard(width, height);
+
+            #endregion
+
+            #region Fill And Check board
+
             board.Initial();
 
             Assert.That(board.Width, Is.EqualTo(expectedResult));
 
-            yield return new WaitForSeconds(0.25f);
+            #endregion
+
+            #region Remove From Scene
+
+            yield return new WaitForSeconds(.5f);
             foreach (var cell in board.Cells)
                 GameObject.Destroy(cell.CurrentGameObject);
 
+            #endregion
         }
 
         [UnityTest]
@@ -49,6 +65,8 @@ namespace Tests.PlayMode
         [TestCase(22, 22, ExpectedResult = null)]
         public IEnumerator Board_CreateFromLevel_ExpectedEqualHeight(int boardHeight, int expectedResult)
         {
+            #region Create Level
+
             int levelID = 1;
             int boardWidth = 5;
 
@@ -58,17 +76,32 @@ namespace Tests.PlayMode
 
             ILevel level = ObjectsCreator.CreateLevel(levelID, boardWidth, boardHeight, levelTasks);
 
+            #endregion
+
+            #region Create Board
+
             int width = level.BoardWidth;
             int height = level.BoardHeight;
 
             IBoard board = ObjectsCreator.CreateBoard(width, height);
+
+            #endregion
+
+            #region Fill And Check Board
+
             board.Initial();
 
             Assert.That(board.Height, Is.EqualTo(expectedResult));
 
-            yield return new WaitForSeconds(0.25f);
+            #endregion
+
+            #region Remove From Scene
+
+            yield return new WaitForSeconds(.5f);
             foreach (var cell in board.Cells)
                 GameObject.Destroy(cell.CurrentGameObject);
+
+            #endregion
         }
 
     }

@@ -15,20 +15,28 @@ namespace Tests.PlayMode
         [TestCase(6, 6, ExpectedResult = null)]
         public IEnumerator Board_Create_NotNull(int width, int height)
         {
-            IBoard board = ObjectsCreator.CreateBoard(width, height);
-            
-            yield return null;
-            
-            board.Initial();
+            #region Create Board
 
+            IBoard board = ObjectsCreator.CreateBoard(width, height);
+
+            #endregion
+
+            #region Check Board
+
+            board.Initial();
             Assert.IsNotNull(board);
-            
-            //Remove from Scene
+
+            #endregion
+
+            #region Remove From Scene
+
             yield return new WaitForSeconds(0.25f);
             foreach (var cell in board.Cells)
                 GameObject.Destroy(cell.CurrentGameObject);
+
+            #endregion
         }
-        
+
     }
 }
 

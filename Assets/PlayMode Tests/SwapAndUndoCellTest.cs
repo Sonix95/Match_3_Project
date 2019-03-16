@@ -22,6 +22,8 @@ namespace Tests.PlayMode
         [TestCase(SwapTypes.Right, ExpectedResult = null)]
         public IEnumerator Cell_SwapAndUndo(SwapTypes swapType)
         {
+            #region Create Managers
+
             IMasterManager masterManager = ObjectsCreator.CreateMasterManager();
 
             ISpawnManager spawnManager = masterManager.SpawnManager;
@@ -29,26 +31,43 @@ namespace Tests.PlayMode
             IUpdateManager updateManager = masterManager.UpdateManager;
             ICellRegistrator cellRegistrator = new CellRegistrator(notifier, updateManager);
 
-            Vector3 position = new Vector3(1,1,0);
+            #endregion
+
+            #region Create Cell
+
+            Vector3 position = new Vector3(1, 1, 0);
             ICell cellA = spawnManager.SpawnRandomNormalCell(position);
             cellRegistrator.RegistrateNormalCell(cellA as NormalCell);
+
+            #endregion
+
+            #region SetUp UpdateManager
 
             updateManager.AddUpdatable(cellA as IUpdatable);
             updateManager.IsUpdate = true;
 
+            #endregion
+
             yield return new WaitForSeconds(0.3f);
-            
+
+            #region Swap Cell and do Undo
+
             ICommand swapCommand = TestHelper.GetSwapCommand(swapType, cellA);
             swapCommand.Execute();
 
-            yield return new WaitForSeconds(1f);
-            
+            yield return new WaitForSeconds(0.5f);
+
             swapCommand.Undo();
-            
-            //Remove from Scene
+
+            #endregion
+
+            #region Remove From Scene
+
             yield return new WaitForSeconds(0.5f);
             GameObject.Destroy(cellA.CurrentGameObject);
+
+            #endregion
         }
-        
+
     }
 }

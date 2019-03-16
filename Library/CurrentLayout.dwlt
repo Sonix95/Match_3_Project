@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 11}
-  m_MinSize: {x: 950, y: 498}
+  m_MinSize: {x: 950, y: 548}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_MinSize: {x: 481, y: 224}
   m_MaxSize: {x: 8006, y: 4024}
   vertical: 0
-  controlID: 49
+  controlID: 187
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -89,10 +89,10 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 688
+    x: 581
     y: 0
-    width: 476
-    height: 764
+    width: 583
+    height: 766
   m_MinSize: {x: 104, y: 124}
   m_MaxSize: {x: 4004, y: 4024}
   m_ActualView: {fileID: 16}
@@ -120,11 +120,11 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 1164
-    height: 764
+    height: 766
   m_MinSize: {x: 206, y: 124}
   m_MaxSize: {x: 8006, y: 4024}
   vertical: 0
-  controlID: 63
+  controlID: 45
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,9 +141,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 764
+    y: 766
     width: 1164
-    height: 223
+    height: 221
   m_MinSize: {x: 102, y: 124}
   m_MaxSize: {x: 4002, y: 4024}
   m_ActualView: {fileID: 22}
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_MinSize: {x: 206, y: 248}
   m_MaxSize: {x: 8006, y: 8048}
   vertical: 1
-  controlID: 62
+  controlID: 44
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -222,14 +222,14 @@ MonoBehaviour:
     y: 421
     width: 694
     height: 566
-  m_MinSize: {x: 202, y: 224}
-  m_MaxSize: {x: 4002, y: 4024}
-  m_ActualView: {fileID: 18}
+  m_MinSize: {x: 232, y: 274}
+  m_MaxSize: {x: 10002, y: 10024}
+  m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
   - {fileID: 18}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,10 +251,10 @@ MonoBehaviour:
     y: 0
     width: 694
     height: 987
-  m_MinSize: {x: 481, y: 448}
-  m_MaxSize: {x: 8006, y: 8048}
+  m_MinSize: {x: 481, y: 498}
+  m_MaxSize: {x: 10002, y: 14048}
   vertical: 1
-  controlID: 48
+  controlID: 186
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -277,7 +277,7 @@ MonoBehaviour:
     y: 0
     width: 1858
     height: 1037
-  m_MinSize: {x: 950, y: 498}
+  m_MinSize: {x: 950, y: 548}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &12
 MonoBehaviour:
@@ -343,10 +343,10 @@ MonoBehaviour:
     y: 30
     width: 1858
     height: 987
-  m_MinSize: {x: 687, y: 448}
-  m_MaxSize: {x: 16012, y: 8048}
+  m_MinSize: {x: 687, y: 498}
+  m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
-  controlID: 47
+  controlID: 185
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -364,8 +364,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 688
-    height: 764
+    width: 581
+    height: 766
   m_MinSize: {x: 102, y: 124}
   m_MaxSize: {x: 4002, y: 4024}
   m_ActualView: {fileID: 17}
@@ -394,10 +394,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 688
+    x: 581
     y: 73
-    width: 472
-    height: 744
+    width: 579
+    height: 746
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TestTypeToolbarIndex: 0
   m_PlayModeTestListGUI:
@@ -407,7 +407,7 @@ MonoBehaviour:
       name: Match_3_Project
       fullName: Match_3_Project
       resultStatus: 1
-      duration: 0.4253999
+      duration: 63.130325
       messages: 
       output: 
       stacktrace: 
@@ -421,7 +421,7 @@ MonoBehaviour:
       name: Assembly-CSharp.dll
       fullName: E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp.dll
       resultStatus: 1
-      duration: 0.2955451
+      duration: 62.780407
       messages: 
       output: 
       stacktrace: 
@@ -435,7 +435,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 1
-      duration: 0.2589845
+      duration: 62.51208
       messages: 
       output: 
       stacktrace: 
@@ -449,7 +449,7 @@ MonoBehaviour:
       name: PlayMode
       fullName: Tests.PlayMode
       resultStatus: 1
-      duration: 0.231265
+      duration: 58.155823
       messages: 
       output: 
       stacktrace: 
@@ -463,7 +463,7 @@ MonoBehaviour:
       name: CreateBoardFromLevelTest
       fullName: Tests.PlayMode.CreateBoardFromLevelTest
       resultStatus: 1
-      duration: 0.2255885
+      duration: 0.4141618
       messages: 
       output: 
       stacktrace: 
@@ -477,7 +477,7 @@ MonoBehaviour:
       name: Board_CreateFromLevel_NotNull
       fullName: Tests.PlayMode.CreateBoardFromLevelTest.Board_CreateFromLevel_NotNull
       resultStatus: 1
-      duration: 0.1542743
+      duration: 0.3381571
       messages: 
       output: 
       stacktrace: 
@@ -492,7 +492,7 @@ MonoBehaviour:
       name: CreateBoardTest
       fullName: Tests.PlayMode.CreateBoardTest
       resultStatus: 1
-      duration: 0.1223156
+      duration: 1.0244609
       messages: 
       output: 
       stacktrace: 
@@ -502,11 +502,25 @@ MonoBehaviour:
       isSuite: 1
       categories: []
       parentID: '[Tests.PlayMode][suite]'
-    - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest.Board_Create_NotNull]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest.Board_Create_NotNull][suite]'
       name: Board_Create_NotNull
       fullName: Tests.PlayMode.CreateBoardTest.Board_Create_NotNull
       resultStatus: 1
-      duration: 0.0830789
+      duration: 0.9901702
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest.Board_Create_NotNull(6,6)]'
+      name: Board_Create_NotNull(6,6)
+      fullName: Tests.PlayMode.CreateBoardTest.Board_Create_NotNull(6,6)
+      resultStatus: 1
+      duration: 0.3081917
       messages: 
       output: 
       stacktrace: 
@@ -516,12 +530,145 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest][suite]'
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest.Board_Create_NotNull][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest.Board_Create_NotNull(7,4)]'
+      name: Board_Create_NotNull(7,4)
+      fullName: Tests.PlayMode.CreateBoardTest.Board_Create_NotNull(7,4)
+      resultStatus: 1
+      duration: 0.3210798
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest.Board_Create_NotNull][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest.Board_Create_NotNull(3,5)]'
+      name: Board_Create_NotNull(3,5)
+      fullName: Tests.PlayMode.CreateBoardTest.Board_Create_NotNull(3,5)
+      resultStatus: 1
+      duration: 0.3382578
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest.Board_Create_NotNull][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest][suite]'
+      name: CreateBoardWithOnlyOneElementTypeTest
+      fullName: Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest
+      resultStatus: 1
+      duration: 18.169155
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Tests.PlayMode][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType][suite]'
+      name: Board_CreateWithOnlyOneElementType
+      fullName: Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType
+      resultStatus: 1
+      duration: 18.12214
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(BlueMultiAngle,9,4)]'
+      name: Board_CreateWithOnlyOneElementType(BlueMultiAngle,9,4)
+      fullName: Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(BlueMultiAngle,9,4)
+      resultStatus: 1
+      duration: 4.550827
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(YellowUpTriangle,5,2)]'
+      name: Board_CreateWithOnlyOneElementType(YellowUpTriangle,5,2)
+      fullName: Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(YellowUpTriangle,5,2)
+      resultStatus: 1
+      duration: 1.6671822
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(GreenDownTriangle,3,3)]'
+      name: Board_CreateWithOnlyOneElementType(GreenDownTriangle,3,3)
+      fullName: Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(GreenDownTriangle,3,3)
+      resultStatus: 1
+      duration: 1.5999634
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(RedCircle,7,8)]'
+      name: Board_CreateWithOnlyOneElementType(RedCircle,7,8)
+      fullName: Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(RedCircle,7,8)
+      resultStatus: 1
+      duration: 6.8873587
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(OrangeBox,5,5)]'
+      name: Board_CreateWithOnlyOneElementType(OrangeBox,5,5)
+      fullName: Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(OrangeBox,5,5)
+      resultStatus: 1
+      duration: 3.3827922
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType][suite]'
     - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest][suite]'
       name: CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest
       resultStatus: 1
-      duration: 0.2058565
+      duration: 5.8813825
       messages: 
       output: 
       stacktrace: 
@@ -535,7 +682,7 @@ MonoBehaviour:
       name: Board_CreateFromLevel_ExpectedEqualHeight
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight
       resultStatus: 1
-      duration: 0.1149911
+      duration: 2.8945887
       messages: 
       output: 
       stacktrace: 
@@ -549,7 +696,7 @@ MonoBehaviour:
       name: Board_CreateFromLevel_ExpectedEqualHeight(22,22)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(22,22)
       resultStatus: 1
-      duration: 0.0601338
+      duration: 0.5508904
       messages: 
       output: 
       stacktrace: 
@@ -564,7 +711,7 @@ MonoBehaviour:
       name: Board_CreateFromLevel_ExpectedEqualHeight(12,12)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(12,12)
       resultStatus: 1
-      duration: 0.015245
+      duration: 0.5738046
       messages: 
       output: 
       stacktrace: 
@@ -579,7 +726,7 @@ MonoBehaviour:
       name: Board_CreateFromLevel_ExpectedEqualHeight(8,8)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(8,8)
       resultStatus: 1
-      duration: 0.0087903
+      duration: 0.5653409
       messages: 
       output: 
       stacktrace: 
@@ -594,7 +741,7 @@ MonoBehaviour:
       name: Board_CreateFromLevel_ExpectedEqualHeight(4,4)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(4,4)
       resultStatus: 1
-      duration: 0.0033772
+      duration: 0.6000936
       messages: 
       output: 
       stacktrace: 
@@ -609,7 +756,7 @@ MonoBehaviour:
       name: Board_CreateFromLevel_ExpectedEqualHeight(2,2)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(2,2)
       resultStatus: 1
-      duration: 0.0030522
+      duration: 0.5764231
       messages: 
       output: 
       stacktrace: 
@@ -624,7 +771,7 @@ MonoBehaviour:
       name: Board_CreateFromLevel_ExpectedEqualWidth
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth
       resultStatus: 1
-      duration: 0.1791837
+      duration: 2.9362495
       messages: 
       output: 
       stacktrace: 
@@ -638,7 +785,7 @@ MonoBehaviour:
       name: Board_CreateFromLevel_ExpectedEqualWidth(15,15)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(15,15)
       resultStatus: 1
-      duration: 0.0190207
+      duration: 0.5580892
       messages: 
       output: 
       stacktrace: 
@@ -653,7 +800,7 @@ MonoBehaviour:
       name: Board_CreateFromLevel_ExpectedEqualWidth(9,9)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(9,9)
       resultStatus: 1
-      duration: 0.0110112
+      duration: 0.5786636
       messages: 
       output: 
       stacktrace: 
@@ -668,7 +815,7 @@ MonoBehaviour:
       name: Board_CreateFromLevel_ExpectedEqualWidth(5,5)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(5,5)
       resultStatus: 1
-      duration: 0.0055924
+      duration: 0.5747104
       messages: 
       output: 
       stacktrace: 
@@ -683,7 +830,7 @@ MonoBehaviour:
       name: Board_CreateFromLevel_ExpectedEqualWidth(3,3)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(3,3)
       resultStatus: 1
-      duration: 0.0042142
+      duration: 0.5835173
       messages: 
       output: 
       stacktrace: 
@@ -698,7 +845,7 @@ MonoBehaviour:
       name: Board_CreateFromLevel_ExpectedEqualWidth(1,1)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(1,1)
       resultStatus: 1
-      duration: 0.1179768
+      duration: 0.5947505
       messages: 
       output: 
       stacktrace: 
@@ -709,13 +856,409 @@ MonoBehaviour:
       categories:
       - Uncategorized
       parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth][suite]'
-    m_ResultText: Board_CreateFromLevel_ExpectedEqualWidth(1,1) (0.118s)
+    - id: '[Assembly-CSharp][Tests.PlayMode.GameplayElementReviewTest][suite]'
+      name: GameplayElementReviewTest
+      fullName: Tests.PlayMode.GameplayElementReviewTest
+      resultStatus: 1
+      duration: 5.7577114
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Tests.PlayMode][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.GameplayElementReviewTest.GameplayElement_Review]'
+      name: GameplayElement_Review
+      fullName: Tests.PlayMode.GameplayElementReviewTest.GameplayElement_Review
+      resultStatus: 1
+      duration: 3.1193516
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.GameplayElementReviewTest][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.GameplayElementReviewTest.PowerUp_Review]'
+      name: PowerUp_Review
+      fullName: Tests.PlayMode.GameplayElementReviewTest.PowerUp_Review
+      resultStatus: 1
+      duration: 2.6058774
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.GameplayElementReviewTest][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest][suite]'
+      name: SwapAndUndoCellTest
+      fullName: Tests.PlayMode.SwapAndUndoCellTest
+      resultStatus: 1
+      duration: 5.656062
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Tests.PlayMode][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo][suite]'
+      name: Cell_SwapAndUndo
+      fullName: Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo
+      resultStatus: 1
+      duration: 5.6197624
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo(Right)]'
+      name: Cell_SwapAndUndo(Right)
+      fullName: Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo(Right)
+      resultStatus: 1
+      duration: 1.3989904
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo(Left)]'
+      name: Cell_SwapAndUndo(Left)
+      fullName: Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo(Left)
+      resultStatus: 1
+      duration: 1.389677
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo(Down)]'
+      name: Cell_SwapAndUndo(Down)
+      fullName: Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo(Down)
+      resultStatus: 1
+      duration: 1.4097768
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo(Up)]'
+      name: Cell_SwapAndUndo(Up)
+      fullName: Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo(Up)
+      resultStatus: 1
+      duration: 1.3860911
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest][suite]'
+      name: SwapCellTest
+      fullName: Tests.PlayMode.SwapCellTest
+      resultStatus: 1
+      duration: 3.5684817
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Tests.PlayMode][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap][suite]'
+      name: Cell_Swap
+      fullName: Tests.PlayMode.SwapCellTest.Cell_Swap
+      resultStatus: 1
+      duration: 3.5316248
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap(Right)]'
+      name: Cell_Swap(Right)
+      fullName: Tests.PlayMode.SwapCellTest.Cell_Swap(Right)
+      resultStatus: 1
+      duration: 0.8595934
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap(Left)]'
+      name: Cell_Swap(Left)
+      fullName: Tests.PlayMode.SwapCellTest.Cell_Swap(Left)
+      resultStatus: 1
+      duration: 0.8792908
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap(Down)]'
+      name: Cell_Swap(Down)
+      fullName: Tests.PlayMode.SwapCellTest.Cell_Swap(Down)
+      resultStatus: 1
+      duration: 0.8720385
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap(Up)]'
+      name: Cell_Swap(Up)
+      fullName: Tests.PlayMode.SwapCellTest.Cell_Swap(Up)
+      resultStatus: 1
+      duration: 0.8994833
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest][suite]'
+      name: UsePowerUpTest
+      fullName: Tests.PlayMode.UsePowerUpTest
+      resultStatus: 1
+      duration: 17.544636
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Tests.PlayMode][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review][suite]'
+      name: PowerUp_UseOnePowerUp_Review
+      fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review
+      resultStatus: 1
+      duration: 7.4778485
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review(Horizontal)]'
+      name: PowerUp_UseOnePowerUp_Review(Horizontal)
+      fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review(Horizontal)
+      resultStatus: 1
+      duration: 2.4667346
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review(Vertical)]'
+      name: PowerUp_UseOnePowerUp_Review(Vertical)
+      fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review(Vertical)
+      resultStatus: 1
+      duration: 2.4819846
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review(Bomb)]'
+      name: PowerUp_UseOnePowerUp_Review(Bomb)
+      fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review(Bomb)
+      resultStatus: 1
+      duration: 2.5047667
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review][suite]'
+      name: PowerUp_UseTwoPowerUp_Review
+      fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review
+      resultStatus: 1
+      duration: 10.022342
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review(Horizontal,Vertical)]'
+      name: PowerUp_UseTwoPowerUp_Review(Horizontal,Vertical)
+      fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review(Horizontal,Vertical)
+      resultStatus: 1
+      duration: 2.4922283
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review(Vertical,Horizontal)]'
+      name: PowerUp_UseTwoPowerUp_Review(Vertical,Horizontal)
+      fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review(Vertical,Horizontal)
+      resultStatus: 1
+      duration: 2.4930074
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review(Bomb,Horizontal)]'
+      name: PowerUp_UseTwoPowerUp_Review(Bomb,Horizontal)
+      fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review(Bomb,Horizontal)
+      resultStatus: 1
+      duration: 2.5071902
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review][suite]'
+    - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review(Bomb,Vertical)]'
+      name: PowerUp_UseTwoPowerUp_Review(Bomb,Vertical)
+      fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review(Bomb,Vertical)
+      resultStatus: 1
+      duration: 2.4918127
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review][suite]'
+    - id: '[Assembly-CSharp][Tests.TryCheckSwipedCells][suite]'
+      name: TryCheckSwipedCells
+      fullName: Tests.TryCheckSwipedCells
+      resultStatus: 1
+      duration: 4.141859
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentID: '[Tests][suite]'
+    - id: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck]'
+      name: Cells_TryCheck
+      fullName: Tests.TryCheckSwipedCells.Cells_TryCheck
+      resultStatus: 1
+      duration: 4.1115174
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentID: '[Assembly-CSharp][Tests.TryCheckSwipedCells][suite]'
+    m_ResultText: Match_3_Project (63.130s)
     m_ResultStacktrace: 
     m_TestListState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 6acb7c1b
-      m_LastClickedID: 461163370
-      m_ExpandedIDs: 9e6e8d90fc9f5e9367145f97be0483a4150de8a5144df2a85ab1b2ae9e3035c446e4c9c7805ed4d3cb68dfdba5e5cae026d0eae12bdb47e4c64473ea9dff48fc095e301a8d0c551d4d9be32a9dab0b3ae20ff0541e2eaa570264bb5e68546b6a9bac376cffffff7f
+      scrollPos: {x: 0, y: 291.4035}
+      m_SelectedIDs: 9bac376c
+      m_LastClickedID: 1815587995
+      m_ExpandedIDs: 9e6e8d90fc9f5e9367145f971e0b549d0c4dc09fbe0483a4150de8a52a4bafa6144df2a80898d2ab9777a6ac5ab1b2ae758720b2398e28b603d571b6073127b79e3035c446e4c9c7805ed4d3cb68dfdba5e5cae026d0eae12bdb47e4c64473eac52f7ceb93c630ef9dff48fce8b22b14086af014095e301a9fc5731a8d0c551d4d9be32a9dab0b3abce3433ce3f38c464615554be20ff0541e2eaa570264bb5eb61db46368546b6a9bac376c3114bb77ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -748,7 +1291,7 @@ MonoBehaviour:
       name: Match_3_Project
       fullName: Match_3_Project
       resultStatus: 1
-      duration: 0.6068182
+      duration: 0.4312235
       messages: 
       output: 
       stacktrace: 
@@ -762,7 +1305,7 @@ MonoBehaviour:
       name: Assembly-CSharp-Editor.dll
       fullName: E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
       resultStatus: 1
-      duration: 0.4485933
+      duration: 0.2946592
       messages: 
       output: 
       stacktrace: 
@@ -776,7 +1319,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 1
-      duration: 0.3617324
+      duration: 0.2094469
       messages: 
       output: 
       stacktrace: 
@@ -790,7 +1333,7 @@ MonoBehaviour:
       name: EditMode
       fullName: Tests.EditMode
       resultStatus: 1
-      duration: 0.3142857
+      duration: 0.1603737
       messages: 
       output: 
       stacktrace: 
@@ -804,7 +1347,7 @@ MonoBehaviour:
       name: ManagersCreateTests
       fullName: Tests.EditMode.ManagersCreateTests
       resultStatus: 1
-      duration: 0.1921441
+      duration: 0.044352
       messages: 
       output: 
       stacktrace: 
@@ -818,7 +1361,7 @@ MonoBehaviour:
       name: CheckManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.CheckManager_Create_NotNull
       resultStatus: 1
-      duration: 0.0429318
+      duration: 0.0014618
       messages: 
       output: 
       stacktrace: 
@@ -833,7 +1376,7 @@ MonoBehaviour:
       name: GameplayLogicManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.GameplayLogicManager_Create_NotNull
       resultStatus: 1
-      duration: 0.0058481
+      duration: 0.0033674
       messages: 
       output: 
       stacktrace: 
@@ -848,7 +1391,7 @@ MonoBehaviour:
       name: GameplayNotifier_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.GameplayNotifier_Create_NotNull
       resultStatus: 1
-      duration: 0.0022655
+      duration: 0.0015092
       messages: 
       output: 
       stacktrace: 
@@ -863,7 +1406,7 @@ MonoBehaviour:
       name: InputManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.InputManager_Create_NotNull
       resultStatus: 1
-      duration: 0.001785
+      duration: 0.001828
       messages: 
       output: 
       stacktrace: 
@@ -878,7 +1421,7 @@ MonoBehaviour:
       name: LevelsManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.LevelsManager_Create_NotNull
       resultStatus: 1
-      duration: 0.0165201
+      duration: 0.001495
       messages: 
       output: 
       stacktrace: 
@@ -893,7 +1436,7 @@ MonoBehaviour:
       name: MasterManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.MasterManager_Create_NotNull
       resultStatus: 1
-      duration: 0.0311496
+      duration: 0.0033934
       messages: 
       output: 
       stacktrace: 
@@ -908,7 +1451,7 @@ MonoBehaviour:
       name: NavigationManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.NavigationManager_Create_NotNull
       resultStatus: 1
-      duration: 0.0021306
+      duration: 0.0026008
       messages: 
       output: 
       stacktrace: 
@@ -923,7 +1466,7 @@ MonoBehaviour:
       name: SpawnManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.SpawnManager_Create_NotNull
       resultStatus: 1
-      duration: 0.001275
+      duration: 0.0016118
       messages: 
       output: 
       stacktrace: 
@@ -938,7 +1481,7 @@ MonoBehaviour:
       name: TaskManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.TaskManager_Create_NotNull
       resultStatus: 1
-      duration: 0.0018456
+      duration: 0.0019585
       messages: 
       output: 
       stacktrace: 
@@ -953,7 +1496,7 @@ MonoBehaviour:
       name: UINotifier_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.UINotifier_Create_NotNull
       resultStatus: 1
-      duration: 0.0012868
+      duration: 0.0014046
       messages: 
       output: 
       stacktrace: 
@@ -968,7 +1511,7 @@ MonoBehaviour:
       name: UpdateManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.UpdateManager_Create_NotNull
       resultStatus: 1
-      duration: 0.0014188
+      duration: 0.0016921
       messages: 
       output: 
       stacktrace: 
@@ -983,7 +1526,7 @@ MonoBehaviour:
       name: OtherObjectsCreateTests
       fullName: Tests.EditMode.OtherObjectsCreateTests
       resultStatus: 1
-      duration: 0.0797197
+      duration: 0.0721732
       messages: 
       output: 
       stacktrace: 
@@ -997,7 +1540,7 @@ MonoBehaviour:
       name: CellRegistrator_Create_NotNull
       fullName: Tests.EditMode.OtherObjectsCreateTests.CellRegistrator_Create_NotNull
       resultStatus: 1
-      duration: 0.0021795
+      duration: 0.0020166
       messages: 
       output: 
       stacktrace: 
@@ -1012,7 +1555,7 @@ MonoBehaviour:
       name: Coroutine_Create_NotNull
       fullName: Tests.EditMode.OtherObjectsCreateTests.Coroutine_Create_NotNull
       resultStatus: 1
-      duration: 0.0016964
+      duration: 0.002044
       messages: 
       output: 
       stacktrace: 
@@ -1027,7 +1570,7 @@ MonoBehaviour:
       name: HollowCell_Create_NotNull
       fullName: Tests.EditMode.OtherObjectsCreateTests.HollowCell_Create_NotNull
       resultStatus: 1
-      duration: 0.0012511
+      duration: 0.0015048
       messages: 
       output: 
       stacktrace: 
@@ -1042,7 +1585,7 @@ MonoBehaviour:
       name: Level_Create_NotNull
       fullName: Tests.EditMode.OtherObjectsCreateTests.Level_Create_NotNull
       resultStatus: 1
-      duration: 0.0013997
+      duration: 0.0022719
       messages: 
       output: 
       stacktrace: 
@@ -1057,7 +1600,7 @@ MonoBehaviour:
       name: LevelTask_Create_NotNull
       fullName: Tests.EditMode.OtherObjectsCreateTests.LevelTask_Create_NotNull
       resultStatus: 1
-      duration: 0.0014725
+      duration: 0.0015195
       messages: 
       output: 
       stacktrace: 
@@ -1072,7 +1615,7 @@ MonoBehaviour:
       name: NormalCell_Create_NotNull
       fullName: Tests.EditMode.OtherObjectsCreateTests.NormalCell_Create_NotNull
       resultStatus: 1
-      duration: 0.0014593
+      duration: 0.0013088
       messages: 
       output: 
       stacktrace: 
@@ -1087,7 +1630,7 @@ MonoBehaviour:
       name: ObjectStorage_Create_NotNull
       fullName: Tests.EditMode.OtherObjectsCreateTests.ObjectStorage_Create_NotNull
       resultStatus: 1
-      duration: 0.0011845
+      duration: 0.0018373
       messages: 
       output: 
       stacktrace: 
@@ -1098,12 +1641,12 @@ MonoBehaviour:
       categories:
       - Uncategorized
       parentID: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests][suite]'
-    m_ResultText: Match_3_Project (0.607s)
+    m_ResultText: LevelsManager_Create_NotNull (0.001s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 9bac376c
-      m_LastClickedID: 1815587995
+      m_SelectedIDs: 47682de6
+      m_LastClickedID: -433231801
       m_ExpandedIDs: 9956808fbe0483a415cb7cac5ab1b2ae133ebfaed33d84b9f39fb2de2bdb47e4d27961ebdfe0e6eb095e301a3f90f22e81076444d8b5fa440833104c9bac376c44158b7dffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -1152,8 +1695,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 686
-    height: 744
+    width: 579
+    height: 746
   m_PersistentViewDataDictionary: {fileID: 0}
   m_WindowGUID: e43ac9dea63546e4a8596c2c6717c165
   m_SceneLighting: 1
@@ -1161,9 +1704,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.596891, y: 2.7657206, z: -0.115234375}
+    m_Target: {x: 4.35933, y: 0.84787005, z: -0.13085938}
     speed: 2
-    m_Value: {x: 1.596891, y: 2.7657206, z: -0.115234375}
+    m_Value: {x: 4.35933, y: 0.84787005, z: -0.13085938}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1195,9 +1738,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 13.838078
+    m_Target: 15.185816
     speed: 2
-    m_Value: 13.838078
+    m_Value: 15.185816
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1257,7 +1800,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -1344,9 +1887,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a4070000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: d4fbffff
+      m_ExpandedIDs: 9e34fcffbe34fcfffa76fcff9882fcffb882fcff268afcff468afcff1e8ffcff588ffcff788ffcffd293fcff0a94fcff2a94fcff4e99fcff8699fcffa699fcff3c9efcff749efcff949efcff66a3fcffb0a3fcffd0a3fcff66a8fcff9ea8fcffbea8fcff9cadfcffd4adfcfff4adfcffa8b3fcffe0b3fcff00b4fcff78b9fcffb0b9fcffd0b9fcff46befcff80befcffa0befcffacc3fcffe4c3fcff04c4fcff72c8fcffacc8fcffccc8fcff38cdfcff70cdfcff90cdfcffe6cdfcff3ccffcff56cffcff60cffcff80cffcffc80afdff040bfdff240bfdff601dfdffca1dfdffea1dfdff4022fdff7a22fdff9a22fdfff838fdff0239fdff2239fdff1a3efdff723efdff923efdffb23efdffa842fdfff042fdff1043fdff7247fdff1e48fdff3e48fdff6c4cfdffb84cfdffd84cfdff7851fdff8a51fdffaa51fdff8a60fdff1861fdff3861fdff026ffdffba82fdffda82fdffac90fdff5c91fdff7c91fdff06a0fdff1aa0fdff3aa0fdff58a5fdffa4a5fdffc4a5fdff46aafdff8eaafdffaeaafdff4aaffdff00b0fdff20b0fdff94dbfdffdedbfdfffedbfdff00eafdff12eafdff32eafdff4eecfdff14edfdff34edfdff3205feff9005feffb005feffde1cfeffee1cfeff0e1dfeff822bfeff522cfeff722cfeffec39feff6e3afeff8e3afeff6a48fefff048feff1049feff0a56feff5656feff7656feffc264feff1265feff3265feffba6dfeffca6dfeffea6dfeffd076feff1677feff3677feff1284feff5c84feff7c84feffe690feff6691feff8691feff169ffeff5c9ffeff7c9ffeffdaabfeff88acfeffa8acfeff74b1feffeeb1feff0eb2feffc8b6feff10b7feff30b7feffb8bbfeff32bcfeff52bcfeff42c1feff92c1feffb2c1feff3cc6feffbac6feffdac6feff64cbfeff24ccfeff44ccfeffbcd0feff0ed1feff2ed1feffbed5feff06d6feff26d6feff7adafeffc6dafeffe6dafeff46dffeff9cdffeffbcdffeff0ae4feff5ee4feff7ee4feffcce8feff36e9feff4ef0feff6ef0feff0af5feff54f5feff74f5fefffef9feffdafafefffafafeff36fffeffc4fffeffe4fffeff4a04ffff9404ffffb404ffff2009ffffa809ffffc809ffff3e0affff2c0bffff4c0bfffff40bffff720cffff920cffff7a10ffffca10ffffea10ffff0e15ffff6015ffff8015ffff221affff0a1bffff2a1bffffd21bffff941cffffb41cffffd426ffff1827ffff3827ffff582effff702effff902effffda2fffff5a30ffff7a30ffff2432ffff3a32ffff5a32ffff6038ffff0e39ffff2e39ffffd43effff543fffff743fffffba44ffff3e5effff5e5effffe05effff2a5fffff4a5fffffa45fffffb25fffffd25fffff4a60ffff9c60ffffbc60ffff3461ffff426dffff5e6dffff9e6effffd06fffffea6ffffffa6fffff9c70ffffbc70ffff1c71ffff9c71ffffbc71ffff1c72ffff9672ffffb672ffff1073ffff6874ffff9274ffffa674ffffc674ffff6c7effff827effffa27effff4a7fffff4a80ffff6a80ffff1281ffffc881ffffe881ffff9082ffff9e82ffffbe82ffffd885ffff5686ffff7686ffffe286ffff0c88ffff2c88ffff9888ffffe888ffff0889ffff7489ffffbc89ffffdc89ffff488affff948affffb48affff208bffff328bffff528bffff208fffff728fffff928fffff7690ffff1893ffff3893ffff1c94ffff6a94ffff8a94ffff6295ffff7095ffff9095ffff2097ffff2e97ffff4e97ffff3a99ffff009affff129affff329affffb0a5ffffcea5ffffeea5ffffeaa6fffff8a6ffff18a7ffffcea8ffffdca8fffffca8ffff98a9ffffbea9ffffdea9ffff80aaffff8eaaffffaeaaffffecabffff8cacffffacacffff94adffff16aeffff36aeffff32afffff7eafffff9eafffff44b0ffff2eb1ffff4eb1ffff30b2ffff3eb2ffff5eb2fffffcb2ffff30d5ffff76d5ffff90d5ffffb4d5fffffcdcffff14ddffff38ddffffcadeffff20dfffff44dfffffaedfffffd4fbfffff4ffffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1407,8 +1950,7 @@ MonoBehaviour:
     m_SceneHandles: 
     m_ShowAllHits: 0
     m_SearchArea: 1
-    m_Folders:
-    - Assets/Scripts/Classes
+    m_Folders: []
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -1420,7 +1962,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: c22f0000
     m_LastClickedID: 12226
-    m_ExpandedIDs: 00000000ec050000100a0000320a00007c0a0000a00a0000d80a0000020b00000c0b00001c0b00002c0b0000300b0000ae0b0000360c0000640c0000920c0000e0290000e2290000e4290000e6290000e8290000ea290000ec290000ee290000f0290000f2290000f4290000f6290000f8290000fa290000fc290000fe290000002a0000022a0000042a0000062a0000082a00000a2a00000c2a00000e2a0000102a0000122a0000142a0000162a0000182a00001a2a00001c2a00001e2a0000202a0000222a0000242a0000262a0000282a00002a2a00002c2a00002e2a0000302a0000
+    m_ExpandedIDs: 00000000ec050000100a0000280a0000320a00007c0a0000a00a0000d80a0000020b00000c0b00001c0b00002c0b0000300b0000ae0b0000ce0b0000360c0000640c0000920c0000e0290000e2290000e4290000e6290000e8290000ea290000ec290000ee290000f0290000f2290000f4290000f6290000f8290000fa290000fc290000fe290000002a0000022a0000042a0000062a0000082a00000a2a00000c2a00000e2a0000102a0000122a0000142a0000162a0000182a00001a2a00001c2a00001e2a0000202a0000222a0000242a0000262a0000282a00002a2a00002c2a00002e2a0000302a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1445,26 +1987,26 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 212}
-    m_SelectedIDs: a4070000
-    m_LastClickedID: 1956
-    m_ExpandedIDs: ffffffff00000000ec050000100a0000280a0000320a00007c0a0000a00a0000d80a0000020b00000c0b00001c0b00002c0b0000300b0000ae0b0000ce0b0000360c0000640c0000920c0000e0290000e2290000e4290000e6290000e8290000ea290000ec290000ee290000f0290000f2290000f4290000f6290000f8290000fa290000fc290000fe290000002a0000022a0000042a0000062a0000082a00000a2a00000c2a00000e2a0000102a0000122a0000142a0000162a0000182a00001a2a00001c2a00001e2a0000202a0000222a0000242a0000262a0000282a00002a2a00002c2a00002e2a0000302a0000
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: ffffffff00000000ec050000100a0000320a0000a00a0000d80a0000020b00000c0b00001c0b00002c0b0000300b0000ae0b0000ce0b0000360c0000640c0000920c0000e0290000e2290000e4290000e6290000e8290000ea290000ec290000ee290000f0290000f2290000f4290000f6290000f8290000fa290000fc290000fe290000002a0000022a0000042a0000062a0000082a00000a2a00000c2a00000e2a0000102a0000122a0000142a0000162a0000182a00001a2a00001c2a00001e2a0000202a0000222a0000242a0000262a0000282a00002a2a00002c2a00002e2a0000302a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: TryCheckSwipedCells
+      m_OriginalName: TryCheckSwipedCells
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 28014
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 4}
+      m_ClientGUIView: {fileID: 9}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -1473,8 +2015,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: a4070000
-    m_LastClickedInstanceID: 1956
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
@@ -1525,9 +2067,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 837
+    y: 839
     width: 1162
-    height: 203
+    height: 201
   m_PersistentViewDataDictionary: {fileID: 0}
 --- !u!114 &23
 MonoBehaviour:

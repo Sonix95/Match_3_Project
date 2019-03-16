@@ -163,8 +163,11 @@ namespace Mathc3Project.Classes
             }
         }
 
-        private void TryCheckSwipedCells(ICell cell)
+        public void TryCheckSwipedCells(ICell cell, int swipeCount = -1)
         {
+            if (swipeCount > 0)
+            _swipeCounter = swipeCount;
+            else
             _swipeCounter++;
 
             AxisTypes majorAxis;
@@ -253,7 +256,7 @@ namespace Mathc3Project.Classes
             StartCoroutine(MarkAndDestroy(_matchedCellsWithAxisDictionary));
         }
         
-        public IEnumerator MarkAndDestroy(IDictionary<ICell, IDictionary<IList<ICell>, AxisTypes>> cellsWithAxisDictionary)
+        private IEnumerator MarkAndDestroy(IDictionary<ICell, IDictionary<IList<ICell>, AxisTypes>> cellsWithAxisDictionary)
         {
             foreach (var cellDictionary in cellsWithAxisDictionary)
             {
@@ -591,5 +594,12 @@ namespace Mathc3Project.Classes
             get { return _navigationManager; }
             set { _navigationManager = value; }
         }
+
+        public ICommand MacroCommand
+        {
+            get { return _macroCommand; }
+            set { _macroCommand = value; }
+        }
+
     }
 }
