@@ -19,43 +19,68 @@ namespace Tests
     public class TryCheckSwipedCells
     {
         [UnityTest]
-        public IEnumerator Cells_TryCheck()
+        [TestCase(2, true, ExpectedResult = null)]
+        [TestCase(2, false, ExpectedResult = null)]
+        [TestCase(3, true, ExpectedResult = null)]
+        [TestCase(3, false, ExpectedResult = null)]
+        [TestCase(4, true, ExpectedResult = null)]
+        [TestCase(4, false, ExpectedResult = null)]
+        [TestCase(7, true, ExpectedResult = null)]
+        [TestCase(7, false, ExpectedResult = null)]
+        public IEnumerator Cells_TryCheck(int equalsCellsCount, bool isVertical)
         {
             #region Create Managers And Board
 
             IMasterManager masterManager;
-            IBoard board = ObjectsCreator.CreateBoard(9, 9, out masterManager);
+            ICellRegistrator cellRegistrator;
+            IBoard board = ObjectsCreator.CreateBoard(equalsCellsCount + 3, equalsCellsCount + 3, out masterManager, out cellRegistrator);
             IUpdateManager updateManager = masterManager.UpdateManager;
             IGameplayLogicManager gameplayLogicManager = ObjectsCreator.CreateGameplayLogicManager();
             INotifier gameplayNotifier = masterManager.GameplayNotifier;
             ISpawnManager spawnManager = masterManager.SpawnManager;
             IInputManager inputManager = new InputManager(gameplayNotifier);
             ICheckManager checkManager = new CheckManager();
-            ICellRegistrator cellRegistrator = new CellRegistrator(gameplayNotifier, updateManager);
 
             #endregion
 
             #region Create Cells
 
-            ICell cellA = new NormalCell(2, 2);
-            ICell cellB = new NormalCell(2, 3);
-            ICell cellC = new NormalCell(3, 4);
-            ICell cellD = new NormalCell(2, 5);
+            int startX = 2;
+            int startY = 2;
+            ICell swipedCell = null;
 
-            cellA.CurrentGameObject = spawnManager.SpawnPrefab(GameElementTypes.RedCircle, new Vector3(2, 2, 0));
-            cellB.CurrentGameObject = spawnManager.SpawnPrefab(GameElementTypes.RedCircle, new Vector3(2, 3, 0));
-            cellC.CurrentGameObject = spawnManager.SpawnPrefab(GameElementTypes.RedCircle, new Vector3(3, 4, 0));
-            cellD.CurrentGameObject = spawnManager.SpawnPrefab(GameElementTypes.RedCircle, new Vector3(2, 5, 0));
+            for (int i = 0; i < equalsCellsCount; i++)
+            {
+                int x = startX;
+                int y = startY;
 
-            cellRegistrator.RegistrateNormalCell(cellA as NormalCell);
-            cellRegistrator.RegistrateNormalCell(cellB as NormalCell);
-            cellRegistrator.RegistrateNormalCell(cellC as NormalCell);
-            cellRegistrator.RegistrateNormalCell(cellD as NormalCell);
+                if (isVertical)
+                {
+                    if (i == Mathf.Floor(equalsCellsCount / 2))
+                        x = startX + 1;
+                    else
+                        x = startX;
 
-            board.Cells[cellA.TargetX, cellA.TargetY] = cellA;
-            board.Cells[cellB.TargetX, cellB.TargetY] = cellB;
-            board.Cells[cellC.TargetX, cellC.TargetY] = cellC;
-            board.Cells[cellD.TargetX, cellD.TargetY] = cellD;
+                    y = startY + i;
+                }
+                else
+                {
+                    if (i == Mathf.Floor(equalsCellsCount / 2))
+                        y = startY + 1;
+                    else
+                        y = startY;
+
+                    x = startX + i;
+                }
+
+                ICell cell = new NormalCell(x, y);
+                cell.CurrentGameObject = spawnManager.SpawnPrefab(GameElementTypes.RedCircle, new Vector3(x, y, 0));
+                cellRegistrator.RegistrateNormalCell(cell as NormalCell);
+                board.Cells[cell.TargetX, cell.TargetY] = cell;
+
+                if (i == Mathf.Floor(equalsCellsCount / 2))
+                    swipedCell = board.Cells[cell.TargetX, cell.TargetY];
+            }
 
             #endregion
 
@@ -83,11 +108,24 @@ namespace Tests
 
             #region Create And SetUp MacroCommand to use swap cells
 
-            ICommand[] commands = new ICommand[]
+            ICommand[] commands;
+
+            if (isVertical)
             {
-                new SwipeLeftCommand(cellC),
-                new SwipeRightCommand(board.Cells[cellC.TargetX - 1, cellC.TargetY]),
-            };
+                commands = new ICommand[]
+                {
+                    new SwipeLeftCommand(swipedCell),
+                    new SwipeRightCommand(board.Cells[swipedCell.TargetX - 1, swipedCell.TargetY]),
+                };
+            }
+            else
+            {
+                commands = new ICommand[]
+                {
+                    new SwipeDownCommand(swipedCell),
+                    new SwipeUpCommand(board.Cells[swipedCell.TargetX, swipedCell.TargetY - 1]),
+                };
+            }
 
             ICommand macroCommand = new MacroCommand(commands);
 
@@ -101,14 +139,16 @@ namespace Tests
 
             yield return new WaitForSeconds(1f);
 
-            gameplayLogicManager.TryCheckSwipedCells(cellC);
+            gameplayLogicManager.TryCheckSwipedCells(swipedCell);
 
             #endregion
 
             #region Remove From Scene
-            
-            yield return new WaitForSeconds(1f);
+
+            yield return new WaitForSeconds(0.2f);
             updateManager.IsUpdate = false;
+            foreach (var boadrdCell in board.Cells)
+                updateManager.RemoveUpdatable(boadrdCell as IUpdatable);
             foreach (var cell in board.Cells)
                 GameObject.Destroy(cell.CurrentGameObject);
 

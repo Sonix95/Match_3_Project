@@ -87,15 +87,16 @@ namespace Tests.Static
             return board;
         }
 
-        public static IBoard CreateBoard(int width, int height, out IMasterManager masterManager)
+        public static IBoard CreateBoard(int width, int height, out IMasterManager masterManager, out ICellRegistrator cellRegistrator)
         {
+            
             masterManager = CreateMasterManager();
 
             ISpawnManager spawnManager = masterManager.SpawnManager;
             INotifier notifier = masterManager.GameplayNotifier;
             IUpdateManager updateManager = masterManager.UpdateManager;
             ICheckManager checkManager = new CheckManager();
-            ICellRegistrator cellRegistrator = new CellRegistrator(notifier, updateManager);
+            cellRegistrator = new CellRegistrator(notifier, updateManager);
 
             IBoard board = new Board(width, height, spawnManager, checkManager, cellRegistrator);
             return board;

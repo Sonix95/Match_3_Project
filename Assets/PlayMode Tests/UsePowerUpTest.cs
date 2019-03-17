@@ -25,14 +25,15 @@ namespace Tests.PlayMode
             #region Create Managers
 
             IMasterManager masterManager;
-            IBoard board = ObjectsCreator.CreateBoard(9, 9, out masterManager);
+            ICellRegistrator cellRegistrator;
+            IBoard board = ObjectsCreator.CreateBoard(9, 9, out masterManager, out cellRegistrator);
             IUpdateManager updateManager = masterManager.UpdateManager;
             IGameplayLogicManager gameplayLogicManager = ObjectsCreator.CreateGameplayLogicManager();
             INotifier gameplayNotifier = masterManager.GameplayNotifier;
             ISpawnManager spawnManager = masterManager.SpawnManager;
             IInputManager inputManager = new InputManager(gameplayNotifier);
             ICheckManager checkManager = new CheckManager();
-            ICellRegistrator cellRegistrator = new CellRegistrator(gameplayNotifier, updateManager);
+            
 
             #endregion
 
@@ -95,15 +96,15 @@ namespace Tests.PlayMode
             #region Create Managers
 
             IMasterManager masterManager;
-            IBoard board = ObjectsCreator.CreateBoard(9, 9, out masterManager);
+            ICellRegistrator cellRegistrator;
+            IBoard board = ObjectsCreator.CreateBoard(9, 9, out masterManager, out cellRegistrator);
             IUpdateManager updateManager = masterManager.UpdateManager;
             IGameplayLogicManager gameplayLogicManager = ObjectsCreator.CreateGameplayLogicManager();
             INotifier gameplayNotifier = masterManager.GameplayNotifier;
             ISpawnManager spawnManager = masterManager.SpawnManager;
             IInputManager inputManager = new InputManager(gameplayNotifier);
             ICheckManager checkManager = new CheckManager();
-            ICellRegistrator cellRegistrator = new CellRegistrator(gameplayNotifier, updateManager);
-
+            
             #endregion
 
             #region Create And SetUp Cells with PowerUp
