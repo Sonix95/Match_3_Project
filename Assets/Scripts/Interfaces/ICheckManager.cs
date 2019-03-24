@@ -11,8 +11,8 @@ namespace Mathc3Project.Interfaces
 
         bool SimpleCheck(ICell cell);
         bool HaveMatch(ICell cell);
-        IList<ICell> CheckCell(ICell cell, out AxisTypes majorAxis);
-        IList<ICell> PowerCheck(PowerUpTypes powerUpType, Vector2 position);
+        IList<ICell> CheckCell(ICell cell, out AxisTypesEnum majorAxis);
+        IList<ICell> PowerCheck(PowerUpTypesEnum powerUpTypeEnum, Vector2 position);
 
     }
 }

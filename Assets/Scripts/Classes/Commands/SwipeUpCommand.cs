@@ -16,14 +16,14 @@ namespace Mathc3Project.Classes.Commands
         public void Execute()
         {
             _cell.TargetY += 1;
-            _cell.CellState = CellStates.Swipe;
+            _cell.CellStateEnum = CellStatesEnum.Swipe;
             _cell.Move();
         }
 
         public void Undo()
         {
             _cell.TargetY -= 1;
-            _cell.CellState = CellStates.Back;
+            _cell.CellStateEnum = CellStatesEnum.Back;
             _cell.Move();
         }
         

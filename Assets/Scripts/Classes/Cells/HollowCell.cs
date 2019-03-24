@@ -9,15 +9,15 @@ namespace Mathc3Project.Classes.Cells
     {
         private int _x;
         private int _y;
-        private CellTypes _cellType;
-        private CellStates _cellStates;
+        private CellTypesEnum _cellTypeEnum;
+        private CellStatesEnum _cellStatesEnum;
 
         public HollowCell(int x, int y)
         {
             _x = x;
             _y = y;
-            _cellType = CellTypes.Hollow;
-            _cellStates = CellStates.Lock;
+            _cellTypeEnum = CellTypesEnum.Hollow;
+            _cellStatesEnum = CellStatesEnum.Lock;
         }
 
         public void Move()
@@ -32,7 +32,7 @@ namespace Mathc3Project.Classes.Cells
 
         public override string ToString()
         {
-            return Strings.Hollow_Cell + _x + "x" + _y;
+            return Strings.HOLLOW_CELL + _x + "x" + _y;
         }
 
         public int TargetX
@@ -47,16 +47,16 @@ namespace Mathc3Project.Classes.Cells
             set { _y = value; }
         }
 
-        public CellTypes CellType
+        public CellTypesEnum CellTypeEnum
         {
-            get { return _cellType; }
-            set { _cellType = value; }
+            get { return _cellTypeEnum; }
+            set { _cellTypeEnum = value; }
         }
 
-        public CellStates CellState
+        public CellStatesEnum CellStateEnum
         {
-            get { return _cellStates; }
-            set { _cellStates = value; }
+            get { return _cellStatesEnum; }
+            set { _cellStatesEnum = value; }
         }
 
         public GameObject CurrentGameObject

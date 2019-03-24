@@ -33,8 +33,8 @@ namespace Tests.EditMode
             int boardWidth = 3;
             int boardHeight = 9;
 
-            ILevelTask levelTaskA = ObjectsCreator.CreateLevelTask(Strings.Tag_RedCircle, 5);
-            ILevelTask levelTaskB = ObjectsCreator.CreateLevelTask(Strings.Tag_BlueMultiAngle, 2); 
+            ILevelTask levelTaskA = ObjectsCreator.CreateLevelTask(Strings.TAG_REDCIRCLE, 5);
+            ILevelTask levelTaskB = ObjectsCreator.CreateLevelTask(Strings.TAG_BLUEMULTIANGLE, 2); 
             
             ILevelTask[] levelTasks = new ILevelTask[] {levelTaskA, levelTaskB};
 
@@ -46,7 +46,7 @@ namespace Tests.EditMode
         [Test]
         public void LevelTask_Create_NotNull()
         {
-            ILevelTask levelTask = ObjectsCreator.CreateLevelTask(Strings.Tag_RedCircle, 5);
+            ILevelTask levelTask = ObjectsCreator.CreateLevelTask(Strings.TAG_REDCIRCLE, 5);
             
             Assert.IsNotNull(levelTask);
         }

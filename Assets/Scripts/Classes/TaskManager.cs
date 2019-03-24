@@ -19,11 +19,11 @@ namespace Mathc3Project.Classes
             _levelTasks = levelTask;
         }
 
-        public void OnEvent(EventTypes eventType, object messageData)
+        public void OnEvent(EventTypesEnum eventTypeEnum, object messageData)
         {
-            switch (eventType)
+            switch (eventTypeEnum)
             {
-                case EventTypes.CELL_Destroy:
+                case EventTypesEnum.CELL_Destroy:
                     string destroyedCellTag = (string) messageData;
 
                     foreach (var levelTask in _levelTasks)
@@ -32,14 +32,14 @@ namespace Mathc3Project.Classes
                         {
                             levelTask.Count -= 1;
                             if (levelTask.Count == 0)
-                                OnEvent(EventTypes.TASK_ComplitedTask, null);
+                                OnEvent(EventTypesEnum.TASK_ComplitedTask, null);
                             return;
                         }
                     }
 
                     break;
 
-                case EventTypes.TASK_ComplitedTask:
+                case EventTypesEnum.TASK_ComplitedTask:
                     
                     foreach (var levelTask in _levelTasks)
                     {
@@ -47,7 +47,7 @@ namespace Mathc3Project.Classes
                             return;
                     }
                     
-                    Notify(EventTypes.TASK_Finished, this);
+                    Notify(EventTypesEnum.TASK_Finished, this);
                     break;
 
                 default:
@@ -69,9 +69,9 @@ namespace Mathc3Project.Classes
                 _notifier.RemoveSubscriber(subscriber);
         }
 
-        public void Notify(EventTypes eventType, Object messageData)
+        public void Notify(EventTypesEnum eventTypeEnum, Object messageData)
         {
-            _notifier.Notify(eventType, messageData);
+            _notifier.Notify(eventTypeEnum, messageData);
         }
 
         public INotifier Notifier

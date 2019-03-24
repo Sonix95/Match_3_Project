@@ -25,13 +25,13 @@ namespace Mathc3Project.Classes
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Notify(EventTypes.LMB_Down, null);
+                Notify(EventTypesEnum.LMB_Down, null);
                 return;
             }
 
             if (Input.GetMouseButtonUp(0))
             {
-                Notify(EventTypes.LMB_Up, null);
+                Notify(EventTypesEnum.LMB_Up, null);
                 return;
             }
         }
@@ -48,9 +48,9 @@ namespace Mathc3Project.Classes
                 _notifier.RemoveSubscriber(subscriber);
         }
 
-        public void Notify(EventTypes eventType, Object messageData)
+        public void Notify(EventTypesEnum eventTypeEnum, Object messageData)
         {
-            _notifier.Notify(eventType, messageData);
+            _notifier.Notify(eventTypeEnum, messageData);
         }
 
         public bool canUpdate

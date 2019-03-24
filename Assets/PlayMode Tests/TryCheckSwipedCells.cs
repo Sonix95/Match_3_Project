@@ -74,7 +74,7 @@ namespace Tests
                 }
 
                 ICell cell = new NormalCell(x, y);
-                cell.CurrentGameObject = spawnManager.SpawnPrefab(GameElementTypes.RedCircle, new Vector3(x, y, 0));
+                cell.CurrentGameObject = spawnManager.SpawnPrefab(GameElementTypesEnum.RedCircle, new Vector3(x, y, 0));
                 cellRegistrator.RegistrateNormalCell(cell as NormalCell);
                 board.Cells[cell.TargetX, cell.TargetY] = cell;
 

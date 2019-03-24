@@ -29,7 +29,7 @@ namespace Tests.PlayMode
 
             ICell cell = new NormalCell(0, 0);
 
-            foreach (GameElementTypes gameElement in System.Enum.GetValues(typeof(GameElementTypes)))
+            foreach (GameElementTypesEnum gameElement in System.Enum.GetValues(typeof(GameElementTypesEnum)))
             {
                 cell.CurrentGameObject = spawnManager.SpawnPrefab(gameElement, position);
 
@@ -59,7 +59,7 @@ namespace Tests.PlayMode
 
             ICell cell = new NormalCell(0, 0);
 
-            foreach (PowerUpTypes powerUp in System.Enum.GetValues(typeof(PowerUpTypes)))
+            foreach (PowerUpTypesEnum powerUp in System.Enum.GetValues(typeof(PowerUpTypesEnum)))
             {
                 cell.CurrentGameObject = spawnManager.SpawnPowerPrefab(powerUp, position);
 

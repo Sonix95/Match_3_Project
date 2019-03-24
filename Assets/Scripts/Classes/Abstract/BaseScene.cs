@@ -9,16 +9,16 @@ namespace Mathc3Project.Classes.Abstract
     {
         protected INavigationManager _NavigationManager;
         
-        public void SetDependencies(SceneTypes sceneType, INavigationManager navigationManager)
+        public void SetDependencies(SceneTypesEnum sceneTypeEnum, INavigationManager navigationManager)
         {
             _NavigationManager = navigationManager;
-            SceneType = sceneType;
+            SceneTypeEnum = sceneTypeEnum;
         }
 
         public abstract void OnExit();
 
         public abstract void OnEnter(Object transferObject);
                 
-        public SceneTypes SceneType { get; private set; }
+        public SceneTypesEnum SceneTypeEnum { get; private set; }
     }
 }

@@ -14,7 +14,7 @@ namespace Mathc3Project.Classes.Commands
         }
         public void Execute()
         {
-            _cell.CellState = CellStates.Fall;  
+            _cell.CellStateEnum = CellStatesEnum.Fall;  
             _cell.Move();
         }
 

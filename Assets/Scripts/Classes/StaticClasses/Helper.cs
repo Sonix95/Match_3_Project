@@ -6,44 +6,44 @@ namespace Mathc3Project.Classes.StaticClasses
 {
     public static class Helper
     {
-        public static MoveDirectionTypes FindMoveDirection(Vector3 a, Vector3 b)
+        public static MoveDirectionTypesEnum FindMoveDirection(Vector3 a, Vector3 b)
         {
-            MoveDirectionTypes moveDirection = MoveDirectionTypes.None;
+            MoveDirectionTypesEnum moveDirection = MoveDirectionTypesEnum.None;
 
             float angle = Mathf.Atan2(b.y - a.y, b.x - a.x) * 180 / Mathf.PI;
             
             if (angle > -45 && angle <= 45)
-                moveDirection = MoveDirectionTypes.Right;
+                moveDirection = MoveDirectionTypesEnum.Right;
             else if (angle > 45 && angle <= 135)
-                moveDirection = MoveDirectionTypes.Up;
+                moveDirection = MoveDirectionTypesEnum.Up;
             else if (angle > 135 || angle <= -135)
-                moveDirection = MoveDirectionTypes.Left;
+                moveDirection = MoveDirectionTypesEnum.Left;
             else if (angle >= -135 && angle < -45)
-                moveDirection = MoveDirectionTypes.Down;
+                moveDirection = MoveDirectionTypesEnum.Down;
             
             return moveDirection;
         }
 
-        public static GameElementTypes StringToGameElementType(string gameElementTypeString)
+        public static GameElementTypesEnum StringToGameElementType(string gameElementTypeString)
         {
-            GameElementTypes gameElementType = GameElementTypes.OrangeBox;
+            GameElementTypesEnum gameElementTypeEnum = GameElementTypesEnum.OrangeBox;
 
             switch (gameElementTypeString)
             {
-                case Strings.Tag_BlueMultiAngle:
-                    gameElementType = GameElementTypes.BlueMultiAngle;
+                case Strings.TAG_BLUEMULTIANGLE:
+                    gameElementTypeEnum = GameElementTypesEnum.BlueMultiAngle;
                     break;
-                case Strings.Tag_GreenDownTriangle:
-                    gameElementType = GameElementTypes.GreenDownTriangle;
+                case Strings.TAG_GREENDOWNTIRANGLE:
+                    gameElementTypeEnum = GameElementTypesEnum.GreenDownTriangle;
                     break;
-                case Strings.Tag_OrangeBox:
-                    gameElementType = GameElementTypes.OrangeBox;
+                case Strings.TAG_ORANGEBOX:
+                    gameElementTypeEnum = GameElementTypesEnum.OrangeBox;
                     break;
-                case Strings.Tag_RedCircle:
-                    gameElementType = GameElementTypes.RedCircle;
+                case Strings.TAG_REDCIRCLE:
+                    gameElementTypeEnum = GameElementTypesEnum.RedCircle;
                     break;
-                case Strings.Tag_YellowUpTriangle:
-                    gameElementType = GameElementTypes.YellowUpTriangle;
+                case Strings.TAG_YELLOWUPTRIANGLE:
+                    gameElementTypeEnum = GameElementTypesEnum.YellowUpTriangle;
                     break;
                 
                 default:
@@ -51,26 +51,26 @@ namespace Mathc3Project.Classes.StaticClasses
                     break;
             }
 
-            return gameElementType;
+            return gameElementTypeEnum;
         }
         
-        public static PowerUpTypes StringToPowerType(string powerTypeString)
+        public static PowerUpTypesEnum StringToPowerType(string powerTypeString)
         {
-            PowerUpTypes powerUpType = PowerUpTypes.Vertical;
+            PowerUpTypesEnum powerUpTypeEnum = PowerUpTypesEnum.Vertical;
 
             switch (powerTypeString)
             {
-                case Strings.Tag_Horizontal:
-                    powerUpType = PowerUpTypes.Horizontal;
+                case Strings.TAG_HORIZONTAL:
+                    powerUpTypeEnum = PowerUpTypesEnum.Horizontal;
                     break;
-                case Strings.Tag_Vertical:
-                    powerUpType = PowerUpTypes.Vertical;
+                case Strings.TAG_VERICAL:
+                    powerUpTypeEnum = PowerUpTypesEnum.Vertical;
                     break;
-                case Strings.Tag_Bomb:
-                    powerUpType = PowerUpTypes.Bomb;
+                case Strings.TAG_BOMB:
+                    powerUpTypeEnum = PowerUpTypesEnum.Bomb;
                     break;
-                case Strings.Tag_ColorBomb:
-                    powerUpType = PowerUpTypes.ColorBomb;
+                case Strings.TAG_COLORBOMB:
+                    powerUpTypeEnum = PowerUpTypesEnum.ColorBomb;
                     break;
                 
                 default:
@@ -78,38 +78,38 @@ namespace Mathc3Project.Classes.StaticClasses
                     break;
             }
 
-            return powerUpType;
+            return powerUpTypeEnum;
         }
 
-        public static PowerUpTypes DetectPowerUp(int matchCount, AxisTypes axis)
+        public static PowerUpTypesEnum DetectPowerUp(int matchCount, AxisTypesEnum axis)
         {
-            PowerUpTypes powerUp = PowerUpTypes.Vertical;
+            PowerUpTypesEnum powerUp = PowerUpTypesEnum.Vertical;
 
             if (matchCount == 4)
             {
                 switch (axis)
                 {
-                    case AxisTypes.Vertical:
-                        powerUp = PowerUpTypes.Vertical;
+                    case AxisTypesEnum.Vertical:
+                        powerUp = PowerUpTypesEnum.Vertical;
                         break;
-                    case AxisTypes.Horizontal:
-                        powerUp = PowerUpTypes.Horizontal;
+                    case AxisTypesEnum.Horizontal:
+                        powerUp = PowerUpTypesEnum.Horizontal;
                         break;
                 }
             }
             else if (matchCount == 5)
             {
-                powerUp = PowerUpTypes.Bomb;
+                powerUp = PowerUpTypesEnum.Bomb;
             }
             else
-                powerUp = PowerUpTypes.ColorBomb;
+                powerUp = PowerUpTypesEnum.ColorBomb;
 
             return powerUp;
         }
 
         public static bool CellIsEmpty(ICell cell)
         {
-            if (cell == null || cell.CellType == CellTypes.Hollow || cell.CurrentGameObject == null)
+            if (cell == null || cell.CellTypeEnum == CellTypesEnum.Hollow || cell.CurrentGameObject == null)
                 return true;
 
             return false;
@@ -121,14 +121,14 @@ namespace Mathc3Project.Classes.StaticClasses
             render.color = new Color(render.color.r, render.color.g, render.color.b, .2f);
         }
 
-        public static Vector2 SetUITaskPosition(int tasksCount, int currentTask, SceneTypes sceneType)
+        public static Vector2 SetUITaskPosition(int tasksCount, int currentTask, SceneTypesEnum sceneTypeEnum)
         {
             Vector2 position = Vector3.zero;
-            int y = sceneType == SceneTypes.Menu ? 0 : -80;
+            int y = sceneTypeEnum == SceneTypesEnum.Menu ? 0 : -80;
 
             if (tasksCount == 2)
             {
-                int x = sceneType == SceneTypes.Menu ? 80 : 60;
+                int x = sceneTypeEnum == SceneTypesEnum.Menu ? 80 : 60;
                 switch (currentTask)
                 {
                     case 0:
@@ -142,7 +142,7 @@ namespace Mathc3Project.Classes.StaticClasses
             }
             else if (tasksCount == 3)
             {
-                int x = sceneType == SceneTypes.Menu ? 140 : 90;
+                int x = sceneTypeEnum == SceneTypesEnum.Menu ? 140 : 90;
                 switch (currentTask)
                 {
                     case 0:

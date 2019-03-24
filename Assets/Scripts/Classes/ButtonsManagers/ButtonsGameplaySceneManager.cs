@@ -42,12 +42,12 @@ namespace Mathc3Project.Classes.ButtonsManager
 
         private void BackToMenu()
         {
-            Notify(EventTypes.UI_OpenMenu, null);
+            Notify(EventTypesEnum.UI_OpenMenu, null);
         }
 
         private void StartLevel()
         {
-            Notify(EventTypes.UI_PlayLevel, null);
+            Notify(EventTypesEnum.UI_PlayLevel, null);
         }
 
         #endregion
@@ -66,9 +66,9 @@ namespace Mathc3Project.Classes.ButtonsManager
                 _notifier.RemoveSubscriber(subscriber);
         }
 
-        public void Notify(EventTypes eventType, object messageData)
+        public void Notify(EventTypesEnum eventTypeEnum, object messageData)
         {
-            _notifier.Notify(eventType, messageData);
+            _notifier.Notify(eventTypeEnum, messageData);
         }
 
         public INotifier Notifier

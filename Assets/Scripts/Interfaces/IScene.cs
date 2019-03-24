@@ -5,9 +5,9 @@ namespace Mathc3Project.Interfaces
 {
     public interface IScene
     {
-        SceneTypes SceneType { get; }
+        SceneTypesEnum SceneTypeEnum { get; }
         
-        void SetDependencies(SceneTypes sceneType, INavigationManager navigationManager);
+        void SetDependencies(SceneTypesEnum sceneTypeEnum, INavigationManager navigationManager);
         void OnExit();
         void OnEnter(Object transferObject);
     }

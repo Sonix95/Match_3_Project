@@ -68,32 +68,32 @@ namespace Mathc3Project.Classes.ButtonsManager
         
         private void BackToStartScreen()
         {
-            Notify(EventTypes.UI_BackToStartScreen, null);
+            Notify(EventTypesEnum.UI_BackToStartScreen, null);
         }
 
         private void LoadPrevLocation()
         {
-            Notify(EventTypes.UI_PrevLocation, null);
+            Notify(EventTypesEnum.UI_PrevLocation, null);
         }
         
         private void LoadNextLocation()
         {
-            Notify(EventTypes.UI_NextLocation, null);
+            Notify(EventTypesEnum.UI_NextLocation, null);
         }
 
         private void OpenLevelDescription(int level)
         {
-            Notify(EventTypes.UI_OpenLevelDescription, level);
+            Notify(EventTypesEnum.UI_OpenLevelDescription, level);
         }
         
         private void CloseLevelDescription()
         {
-            Notify(EventTypes.UI_CLoseLevelDescription, null);
+            Notify(EventTypesEnum.UI_CLoseLevelDescription, null);
         }
 
         private void StartLevel()
         {
-            Notify(EventTypes.UI_PlayLevel, null);
+            Notify(EventTypesEnum.UI_PlayLevel, null);
         }
         
         #endregion
@@ -112,9 +112,9 @@ namespace Mathc3Project.Classes.ButtonsManager
                 _notifier.RemoveSubscriber(subscriber);
         }
 
-        public void Notify(EventTypes eventType, object messageData)
+        public void Notify(EventTypesEnum eventTypeEnum, object messageData)
         {
-            _notifier.Notify(eventType, messageData);
+            _notifier.Notify(eventTypeEnum, messageData);
         }
         
         public INotifier Notifier

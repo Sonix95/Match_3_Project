@@ -30,11 +30,11 @@ namespace Mathc3Project.Classes.Observer
             }
         }
 
-        public void Notify(EventTypes eventTypeEnum, Object messageData)
+        public void Notify(EventTypesEnum eventTypeEnumEnum, Object messageData)
         {
             foreach (var subscriber in _subscribersList)
             {
-                subscriber.OnEvent(eventTypeEnum, messageData);
+                subscriber.OnEvent(eventTypeEnumEnum, messageData);
             }
         }
         

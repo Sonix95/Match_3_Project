@@ -16,12 +16,12 @@ namespace Tests.PlayMode
     public class CreateBoardWithOnlyOneElementTypeTest
     {
         [UnityTest]
-        [TestCase(GameElementTypes.OrangeBox, 5, 5, ExpectedResult = null)]
-        [TestCase(GameElementTypes.RedCircle, 7, 8, ExpectedResult = null)]
-        [TestCase(GameElementTypes.GreenDownTriangle, 3, 3, ExpectedResult = null)]
-        [TestCase(GameElementTypes.YellowUpTriangle, 5, 2, ExpectedResult = null)]
-        [TestCase(GameElementTypes.BlueMultiAngle, 9, 4, ExpectedResult = null)]
-        public IEnumerator Board_CreateWithOnlyOneElementType(GameElementTypes gameElement, int boardWidth,
+        [TestCase(GameElementTypesEnum.OrangeBox, 5, 5, ExpectedResult = null)]
+        [TestCase(GameElementTypesEnum.RedCircle, 7, 8, ExpectedResult = null)]
+        [TestCase(GameElementTypesEnum.GreenDownTriangle, 3, 3, ExpectedResult = null)]
+        [TestCase(GameElementTypesEnum.YellowUpTriangle, 5, 2, ExpectedResult = null)]
+        [TestCase(GameElementTypesEnum.BlueMultiAngle, 9, 4, ExpectedResult = null)]
+        public IEnumerator Board_CreateWithOnlyOneElementType(GameElementTypesEnum gameElement, int boardWidth,
             int boardHeight)
         {
             #region Create Board

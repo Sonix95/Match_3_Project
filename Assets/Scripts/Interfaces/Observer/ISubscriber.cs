@@ -5,6 +5,6 @@ namespace Mathc3Project.Interfaces.Observer
 {
     public interface ISubscriber
     {
-        void OnEvent(EventTypes eventType, Object messageData);
+        void OnEvent(EventTypesEnum eventTypeEnum, Object messageData);
     }
 }

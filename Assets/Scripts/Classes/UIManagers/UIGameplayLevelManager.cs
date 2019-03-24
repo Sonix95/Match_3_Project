@@ -52,7 +52,7 @@ namespace Mathc3Project.Classes
 
                 taskPrefab.transform.SetParent(_tasksHolderPanel.transform);
 
-                Vector2 tempPos = Helper.SetUITaskPosition(tastsCount, i, SceneTypes.GameplayLevel);
+                Vector2 tempPos = Helper.SetUITaskPosition(tastsCount, i, SceneTypesEnum.GameplayLevel);
                 taskPrefab.transform.localPosition = tempPos;
                 taskPrefab.transform.localScale *= 0.7f;
 
@@ -68,30 +68,30 @@ namespace Mathc3Project.Classes
             }
         }
 
-        public void OnEvent(EventTypes eventType, Object messageData)
+        public void OnEvent(EventTypesEnum eventTypeEnum, Object messageData)
         {
-            switch (eventType)
+            switch (eventTypeEnum)
             {
-                case EventTypes.UI_SceneLoaded:
+                case EventTypesEnum.UI_SceneLoaded:
                     _levelCompletePanel.SetActive(false);
                     _loadingImage.SetActive(false);
                     break;
 
-                case EventTypes.UI_OpenMenu:
+                case EventTypesEnum.UI_OpenMenu:
                     _loadingImage.SetActive(true);
-                    _navigationManager.Navigate(SceneTypes.GameplayLevel, SceneTypes.Menu, null);
+                    _navigationManager.Navigate(SceneTypesEnum.GameplayLevel, SceneTypesEnum.Menu, null);
                     break;
 
-                case EventTypes.UI_PlayLevel:
+                case EventTypesEnum.UI_PlayLevel:
                     _loadingImage.SetActive(true);
                     
                     for (int i = 0; i < _level.LevelTasks.Length; i++)
                         _level.LevelTasks[i].Count = _tasksMaxCount[_level.LevelTasks[i].ElementName];
                     
-                    _navigationManager.Navigate(SceneTypes.GameplayLevel, SceneTypes.GameplayLevel, _level);
+                    _navigationManager.Navigate(SceneTypesEnum.GameplayLevel, SceneTypesEnum.GameplayLevel, _level);
                     break;
 
-                case EventTypes.CELL_Destroy:
+                case EventTypesEnum.CELL_Destroy:
                     string elementName = (string) messageData;
                     if (_tasksPanel.ContainsKey(elementName))
                     {
@@ -107,7 +107,7 @@ namespace Mathc3Project.Classes
 
                     break;
 
-                case EventTypes.TASK_Finished:
+                case EventTypesEnum.TASK_Finished:
                     _levelCompletePanel.SetActive(true);
                     
                     for (int i = 0; i < _level.LevelTasks.Length; i++)

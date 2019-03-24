@@ -18,9 +18,9 @@ namespace Mathc3Project.Classes
             MasterManager = masterManager;
         }
 
-        public void Navigate(SceneTypes sceneFrom, SceneTypes sceneTo, Object transferObject)
+        public void Navigate(SceneTypesEnum sceneFrom, SceneTypesEnum sceneTo, Object transferObject)
         {
-            _currentScene = GameObject.FindWithTag("Base Scene Object").GetComponent<BaseScene>();
+            _currentScene = GameObject.FindWithTag(Strings.BASE_SCENE_OBJECT).GetComponent<BaseScene>();
             
             var loadedSceneName = Strings.GetScenePath(sceneTo);
             
@@ -29,7 +29,7 @@ namespace Mathc3Project.Classes
             MasterManager.Coroutiner.StartCoroutine(SceneLoading(sceneTo, transferObject));
         }
 
-        private IEnumerator SceneLoading(SceneTypes loadedScene, Object transferObject)
+        private IEnumerator SceneLoading(SceneTypesEnum loadedScene, Object transferObject)
         {
             
             
@@ -41,10 +41,10 @@ namespace Mathc3Project.Classes
                 isLoaded = _loadSceneOperation.isDone;
             }
             
-            _currentScene.OnExit();
-            yield return null;
+           
+            yield return null; _currentScene.OnExit();
             
-            _currentScene = GameObject.FindWithTag("Base Scene Object").GetComponent<BaseScene>();
+            _currentScene = GameObject.FindWithTag(Strings.BASE_SCENE_OBJECT).GetComponent<BaseScene>();
             _currentScene.SetDependencies(loadedScene, this);
             _currentScene.OnEnter(transferObject);
         }

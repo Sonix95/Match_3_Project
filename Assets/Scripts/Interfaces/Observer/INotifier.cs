@@ -8,6 +8,6 @@ namespace Mathc3Project.Interfaces.Observer
     {
         void AddSubscriber(ISubscriber subscriber);
         void RemoveSubscriber(ISubscriber subscriber);
-        void Notify(EventTypes eventType, Object messageData);
+        void Notify(EventTypesEnum eventTypeEnum, Object messageData);
     }
 }

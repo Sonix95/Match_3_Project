@@ -7,13 +7,12 @@ namespace Mathc3Project.Classes
         private int _locationID;
         private int _levelID;
         private ILevelTask[] _levelTasks;
-        //TODO ADD PreSetter in furure
         private int _boardWidth;
         private int _boardHeight;
 
         public Level(int levelID, int boardWidth, int boardHeight,ILevelTask[] levelTasks)
         {
-            _locationID = 1; // TODO ADD IN FUTURE FOR NEW LOCATION
+            _locationID = 1; 
             _levelID = levelID;
             _levelTasks = levelTasks;
             _boardWidth = boardWidth;

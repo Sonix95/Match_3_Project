@@ -11,7 +11,7 @@ namespace Tests.Static
     {
         public static ICoroutiner CreateCoroutiner()
         {
-            GameObject coroutinerGO = new GameObject("Coroutiner");
+            GameObject coroutinerGO = new GameObject("COROUTINER");
             coroutinerGO.AddComponent<Coroutiner>();
             ICoroutiner coroutiner = coroutinerGO.GetComponent<Coroutiner>();
 
@@ -54,8 +54,8 @@ namespace Tests.Static
 
         public static ITaskManager CreateTaskManager()
         {
-            ILevelTask simpleTaskA = new LevelTask(Strings.Tag_RedCircle, 1);
-            ILevelTask simpleTaskB = new LevelTask(Strings.Tag_BlueMultiAngle, 1);
+            ILevelTask simpleTaskA = new LevelTask(Strings.TAG_REDCIRCLE, 1);
+            ILevelTask simpleTaskB = new LevelTask(Strings.TAG_BLUEMULTIANGLE, 1);
 
             ILevelTask[] levelTasks = new ILevelTask[] {simpleTaskA, simpleTaskB};
 

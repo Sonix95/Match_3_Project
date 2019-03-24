@@ -7,8 +7,8 @@ namespace Mathc3Project.Interfaces.Cells
     {
         int TargetX { get; set; }
         int TargetY { get; set; }
-        CellTypes CellType { get; set; }
-        CellStates CellState { get; set; }
+        CellTypesEnum CellTypeEnum { get; set; }
+        CellStatesEnum CellStateEnum { get; set; }
         GameObject CurrentGameObject { get; set; }
 
         void Move();

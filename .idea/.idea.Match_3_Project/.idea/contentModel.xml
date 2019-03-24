@@ -28,6 +28,7 @@
           </e>
           <e p="SwapAndUndoCellTest.cs" t="Include" />
           <e p="SwapCellTest.cs" t="Include" />
+          <e p="TryCheckSwipedCells.cs" t="Include" />
           <e p="UsePowerUpTest.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
@@ -87,16 +88,16 @@
             <e p="UpdateManager.cs" t="Include" />
           </e>
           <e p="Enums" t="Include">
-            <e p="AxisTypes.cs" t="Include" />
-            <e p="CellStates.cs" t="Include" />
-            <e p="CellTypes.cs" t="Include" />
-            <e p="EventTypes.cs" t="Include" />
-            <e p="GameElementTypes.cs" t="Include" />
-            <e p="GameStates.cs" t="Include" />
-            <e p="ManagerTypes.cs" t="Include" />
-            <e p="MoveDirectionTypes.cs" t="Include" />
-            <e p="PowerUpTypes.cs" t="Include" />
-            <e p="SceneTypes.cs" t="Include" />
+            <e p="AxisTypesEnum.cs" t="Include" />
+            <e p="CellStatesEnum.cs" t="Include" />
+            <e p="CellTypesEnum.cs" t="Include" />
+            <e p="EventTypesEnum.cs" t="Include" />
+            <e p="GameElementTypesEnum.cs" t="Include" />
+            <e p="GameStatesEnum.cs" t="Include" />
+            <e p="ManagerTypesEnum.cs" t="Include" />
+            <e p="MoveDirectionTypesEnum.cs" t="Include" />
+            <e p="PowerUpTypesEnum.cs" t="Include" />
+            <e p="SceneTypesEnum.cs" t="Include" />
           </e>
           <e p="Interfaces" t="Include">
             <e p="Cells" t="Include">

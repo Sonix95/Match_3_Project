@@ -42,7 +42,7 @@ namespace Mathc3Project.Classes.Scenes
         {
             _uiManager.NavigationManager = _NavigationManager;
             _buttonsManager.AddSubscriber(_uiManager);
-            _buttonsManager.Notify(EventTypes.UI_SceneLoaded,null);
+            _buttonsManager.Notify(EventTypesEnum.UI_SceneLoaded,null);
         }
 
         public override void OnExit()

@@ -13,7 +13,7 @@ namespace Mathc3Project.Classes
 
         public bool SimpleCheck(ICell cell)
         {
-            if (cell.CellType == CellTypes.Hollow)
+            if (cell.CellTypeEnum == CellTypesEnum.Hollow)
                 return false;
 
             int x = cell.TargetX;
@@ -85,7 +85,7 @@ namespace Mathc3Project.Classes
             return false;
         }
 
-        private IList<ICell> CheckLine(AxisTypes axisType, ICell cell)
+        private IList<ICell> CheckLine(AxisTypesEnum axisTypeEnum, ICell cell)
         {
             if (Helper.CellIsEmpty(cell))
                 return null;
@@ -100,7 +100,7 @@ namespace Mathc3Project.Classes
 
             ICell sideCell = null;
 
-            if (axisType == AxisTypes.Horizontal)
+            if (axisTypeEnum == AxisTypesEnum.Horizontal)
             {
                 boardLimit = _board.Width;
                 axis = x;
@@ -115,11 +115,11 @@ namespace Mathc3Project.Classes
             {
                 for (int i = axis - 1; i >= 0; i--)
                 {
-                    sideCell = (axisType == AxisTypes.Horizontal)
+                    sideCell = (axisTypeEnum == AxisTypesEnum.Horizontal)
                         ? _board.Cells[i, y]
                         : _board.Cells[x, i];
 
-                    if (Helper.CellIsEmpty(sideCell) || sideCell.CurrentGameObject.CompareTag(Strings.Tag_Power))
+                    if (Helper.CellIsEmpty(sideCell) || sideCell.CurrentGameObject.CompareTag(Strings.TAG_POWER))
                         break;
                     if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
                         sideCells.Add(sideCell);
@@ -132,11 +132,11 @@ namespace Mathc3Project.Classes
             {
                 for (int i = axis + 1; i < boardLimit; i++)
                 {
-                    sideCell = (axisType == AxisTypes.Horizontal)
+                    sideCell = (axisTypeEnum == AxisTypesEnum.Horizontal)
                         ? _board.Cells[i, y]
                         : _board.Cells[x, i];
 
-                    if (Helper.CellIsEmpty(sideCell) || sideCell.CurrentGameObject.CompareTag(Strings.Tag_Power))
+                    if (Helper.CellIsEmpty(sideCell) || sideCell.CurrentGameObject.CompareTag(Strings.TAG_POWER))
                         break;
                     if (sideCell.CurrentGameObject.CompareTag(cell.CurrentGameObject.tag))
                         sideCells.Add(sideCell);
@@ -150,8 +150,8 @@ namespace Mathc3Project.Classes
 
         public bool HaveMatch(ICell cell)
         {
-            IList<ICell> horizontalCellsList = CheckLine(AxisTypes.Horizontal, cell);
-            IList<ICell> verticalCellsList = CheckLine(AxisTypes.Vertical, cell);
+            IList<ICell> horizontalCellsList = CheckLine(AxisTypesEnum.Horizontal, cell);
+            IList<ICell> verticalCellsList = CheckLine(AxisTypesEnum.Vertical, cell);
 
             if (horizontalCellsList.Count > 1 || verticalCellsList.Count > 1)
                 return true;
@@ -159,12 +159,12 @@ namespace Mathc3Project.Classes
             return false;
         }
 
-        public IList<ICell> CheckCell(ICell cell, out AxisTypes majorAxis)
+        public IList<ICell> CheckCell(ICell cell, out AxisTypesEnum majorAxis)
         {
             IList<ICell> allCellList = new List<ICell>();
 
-            IList<ICell> horizontalCellsList = CheckLine(AxisTypes.Horizontal, cell);
-            IList<ICell> verticalCellsList = CheckLine(AxisTypes.Vertical, cell);
+            IList<ICell> horizontalCellsList = CheckLine(AxisTypesEnum.Horizontal, cell);
+            IList<ICell> verticalCellsList = CheckLine(AxisTypesEnum.Vertical, cell);
 
             if (horizontalCellsList.Count > 1)
                 foreach (var horCell in horizontalCellsList)
@@ -178,40 +178,40 @@ namespace Mathc3Project.Classes
                 allCellList.Add(cell);
 
             if (horizontalCellsList.Count > verticalCellsList.Count)
-                majorAxis = AxisTypes.Horizontal;
+                majorAxis = AxisTypesEnum.Horizontal;
             else if (horizontalCellsList.Count < verticalCellsList.Count)
-                majorAxis = AxisTypes.Vertical;
+                majorAxis = AxisTypesEnum.Vertical;
             else
-                majorAxis = AxisTypes.Undefined;
+                majorAxis = AxisTypesEnum.Undefined;
 
             foreach (var oneCell in allCellList)
-                if (oneCell.CellState != CellStates.Lock)
-                    oneCell.CellState = CellStates.Check;
+                if (oneCell.CellStateEnum != CellStatesEnum.Lock)
+                    oneCell.CellStateEnum = CellStatesEnum.Check;
             
             return allCellList;
         }
 
         #region Powers
 
-        public IList<ICell> PowerCheck(PowerUpTypes powerUpType, Vector2 position)
+        public IList<ICell> PowerCheck(PowerUpTypesEnum powerUpTypeEnum, Vector2 position)
         {
             IList<ICell> checkedCells = new List<ICell>();
 
             int posX = (int) position.x;
             int posY = (int) position.y;
 
-            switch (powerUpType)
+            switch (powerUpTypeEnum)
             {
-                case PowerUpTypes.Horizontal:
+                case PowerUpTypesEnum.Horizontal:
                     checkedCells = HorizontalPower(posY);
                     break;
-                case PowerUpTypes.Vertical:
+                case PowerUpTypesEnum.Vertical:
                     checkedCells = VerticalPower(posX);
                     break;
-                case PowerUpTypes.Bomb:
+                case PowerUpTypesEnum.Bomb:
                     checkedCells = BombPower(posX, posY);
                     break;
-                case PowerUpTypes.ColorBomb:
+                case PowerUpTypesEnum.ColorBomb:
                     checkedCells = RandomColorBombPower();
                     break;
 
@@ -250,7 +250,7 @@ namespace Mathc3Project.Classes
             IList<ICell> checkedCells = new List<ICell>();
 
             foreach (var cell in _board.Cells)
-                if (cell.CellType != CellTypes.Hollow && cell.TargetY == positionY)
+                if (cell.CellTypeEnum != CellTypesEnum.Hollow && cell.TargetY == positionY)
                     checkedCells.Add(cell);
 
             return checkedCells;
@@ -261,7 +261,7 @@ namespace Mathc3Project.Classes
             IList<ICell> checkedCells = new List<ICell>();
 
             foreach (var cell in _board.Cells)
-                if (cell.CellType != CellTypes.Hollow && cell.TargetX == positionX)
+                if (cell.CellTypeEnum != CellTypesEnum.Hollow && cell.TargetX == positionX)
                     checkedCells.Add(cell);
 
             return checkedCells;
@@ -272,7 +272,7 @@ namespace Mathc3Project.Classes
             IList<ICell> checkedCells = new List<ICell>();
 
             foreach (var cell in _board.Cells)
-                if (cell.CellType != CellTypes.Hollow)
+                if (cell.CellTypeEnum != CellTypesEnum.Hollow)
                 {
                     int x = Mathf.Abs(cell.TargetX - posX);
                     int y = Mathf.Abs(cell.TargetY - posY);

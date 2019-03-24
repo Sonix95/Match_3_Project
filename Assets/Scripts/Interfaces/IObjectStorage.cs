@@ -6,7 +6,7 @@ namespace Mathc3Project.Interfaces
     public interface IObjectStorage
     {
         GameObject GetRandomGameElement();
-        GameObject GetGameElement(GameElementTypes gameElementType);
-        GameObject GetPowerElement(PowerUpTypes powerUpType);
+        GameObject GetGameElement(GameElementTypesEnum gameElementTypeEnum);
+        GameObject GetPowerElement(PowerUpTypesEnum powerUpTypeEnum);
     }
 }

@@ -22,8 +22,8 @@ namespace Mathc3Project.Classes.Scenes
 
         private void Start()
         {
-            _coroutiner = new GameObject(Strings.Coroutiner).AddComponent<Coroutiner>();
-            _updateManager = new GameObject(Strings.Update_Manager).AddComponent<UpdateManager>();
+            _coroutiner = new GameObject(Strings.COROUTINER).AddComponent<Coroutiner>();
+            _updateManager = new GameObject(Strings.UPDATE_MANAGER).AddComponent<UpdateManager>();
 
             _gameplayNotifier = new Notifier();
             _uiNotifier = new Notifier();
@@ -37,7 +37,7 @@ namespace Mathc3Project.Classes.Scenes
 
             INavigationManager navigationManager = new NavigationManager(masterManager);
 
-            navigationManager.Navigate(SceneTypes.BootstrapperScene, SceneTypes.StartScreenScene, null);
+            navigationManager.Navigate(SceneTypesEnum.BootstrapperScene, SceneTypesEnum.StartScreenScene, null);
         }
 
         public override void OnExit()

@@ -17,10 +17,10 @@ namespace Tests.PlayMode
     public class UsePowerUpTest
     {
         [UnityTest]
-        [TestCase(PowerUpTypes.Bomb, ExpectedResult = null)]
-        [TestCase(PowerUpTypes.Vertical, ExpectedResult = null)]
-        [TestCase(PowerUpTypes.Horizontal, ExpectedResult = null)]
-        public IEnumerator PowerUp_UseOnePowerUp_Review(PowerUpTypes powerUpType)
+        [TestCase(PowerUpTypesEnum.Bomb, ExpectedResult = null)]
+        [TestCase(PowerUpTypesEnum.Vertical, ExpectedResult = null)]
+        [TestCase(PowerUpTypesEnum.Horizontal, ExpectedResult = null)]
+        public IEnumerator PowerUp_UseOnePowerUp_Review(PowerUpTypesEnum powerUpTypeEnum)
         {
             #region Create Managers
 
@@ -41,7 +41,7 @@ namespace Tests.PlayMode
 
             ICell cellWithPowerUp = new NormalCell(4, 4);
             Vector3 cellPosition = new Vector2(4, 4);
-            cellWithPowerUp.CurrentGameObject = spawnManager.SpawnPowerPrefab(powerUpType, cellPosition);
+            cellWithPowerUp.CurrentGameObject = spawnManager.SpawnPowerPrefab(powerUpTypeEnum, cellPosition);
             cellRegistrator.RegistrateNormalCell(cellWithPowerUp as NormalCell);
             board.Cells[cellWithPowerUp.TargetX, cellWithPowerUp.TargetY] = cellWithPowerUp;
 
@@ -87,11 +87,11 @@ namespace Tests.PlayMode
         }
 
         [UnityTest]
-        [TestCase(PowerUpTypes.Bomb, PowerUpTypes.Vertical, ExpectedResult = null)]
-        [TestCase(PowerUpTypes.Bomb, PowerUpTypes.Horizontal, ExpectedResult = null)]
-        [TestCase(PowerUpTypes.Vertical, PowerUpTypes.Horizontal, ExpectedResult = null)]
-        [TestCase(PowerUpTypes.Horizontal, PowerUpTypes.Vertical, ExpectedResult = null)]
-        public IEnumerator PowerUp_UseTwoPowerUp_Review(PowerUpTypes powerUpTypeA, PowerUpTypes powerUpTypeB)
+        [TestCase(PowerUpTypesEnum.Bomb, PowerUpTypesEnum.Vertical, ExpectedResult = null)]
+        [TestCase(PowerUpTypesEnum.Bomb, PowerUpTypesEnum.Horizontal, ExpectedResult = null)]
+        [TestCase(PowerUpTypesEnum.Vertical, PowerUpTypesEnum.Horizontal, ExpectedResult = null)]
+        [TestCase(PowerUpTypesEnum.Horizontal, PowerUpTypesEnum.Vertical, ExpectedResult = null)]
+        public IEnumerator PowerUp_UseTwoPowerUp_Review(PowerUpTypesEnum powerUpTypeEnumA, PowerUpTypesEnum powerUpTypeEnumB)
         {
             #region Create Managers
 
@@ -113,17 +113,17 @@ namespace Tests.PlayMode
 
             IList<Vector3> positions = new List<Vector3>();
 
-            switch (powerUpTypeA)
+            switch (powerUpTypeEnumA)
             {
-                case PowerUpTypes.Bomb:
+                case PowerUpTypesEnum.Bomb:
                     positions.Add(new Vector2(4, 4));
                     positions.Add(new Vector2(2, 4));
                     break;
-                case PowerUpTypes.Vertical:
+                case PowerUpTypesEnum.Vertical:
                     positions.Add(new Vector2(3, 3));
                     positions.Add(new Vector2(3, 6));
                     break;
-                case PowerUpTypes.Horizontal:
+                case PowerUpTypesEnum.Horizontal:
                     positions.Add(new Vector2(3, 3));
                     positions.Add(new Vector2(6, 3));
                     break;
@@ -134,7 +134,7 @@ namespace Tests.PlayMode
                 ICell cell = new NormalCell((int) positions[i].x, (int) positions[i].y);
                 Vector3 cellPosition = new Vector2((int) positions[i].x, (int) positions[i].y);
                 cell.CurrentGameObject =
-                    spawnManager.SpawnPowerPrefab(i == 0 ? powerUpTypeA : powerUpTypeB, positions[i]);
+                    spawnManager.SpawnPowerPrefab(i == 0 ? powerUpTypeEnumA : powerUpTypeEnumB, positions[i]);
                 cellRegistrator.RegistrateNormalCell(cell as NormalCell);
                 board.Cells[cell.TargetX, cell.TargetY] = cell;
                 cellsWithPowerUp.Add(cell);

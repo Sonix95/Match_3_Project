@@ -27,18 +27,18 @@ namespace Mathc3Project.Classes
 
         private ICommand _macroCommand;
 
-        private GameStates _gameState;
+        private GameStatesEnum _gameStateEnum;
 
         private bool _isMatchedSwipe;
         private int _swipeCounter;
         
         private IDictionary<GameObject, Vector2> _fallCellsDictionary;
         
-        private IDictionary<Vector2, PowerUpTypes> _powersDictionary;
-        private IDictionary<Vector3, PowerUpTypes> _spawnedPowerUpDictionary;
+        private IDictionary<Vector2, PowerUpTypesEnum> _powersDictionary;
+        private IDictionary<Vector3, PowerUpTypesEnum> _spawnedPowerUpDictionary;
         
-        private IDictionary<IList<ICell>, AxisTypes> _matchedCellsDictionary;
-        private IDictionary<ICell, IDictionary<IList<ICell>, AxisTypes>> _matchedCellsWithAxisDictionary;
+        private IDictionary<IList<ICell>, AxisTypesEnum> _matchedCellsDictionary;
+        private IDictionary<ICell, IDictionary<IList<ICell>, AxisTypesEnum>> _matchedCellsWithAxisDictionary;
 
         private ICell _lastFallCell;
         private bool _lastSpawnedCell;
@@ -48,59 +48,59 @@ namespace Mathc3Project.Classes
             _subscribes = new List<ISubscriber>();
 
             _fallCellsDictionary = new Dictionary<GameObject, Vector2>();
-            _powersDictionary = new Dictionary<Vector2, PowerUpTypes>();
-            _spawnedPowerUpDictionary = new Dictionary<Vector3, PowerUpTypes>();
-            _matchedCellsDictionary = new Dictionary<IList<ICell>, AxisTypes>();
-            _matchedCellsWithAxisDictionary = new Dictionary<ICell, IDictionary<IList<ICell>, AxisTypes>>();
+            _powersDictionary = new Dictionary<Vector2, PowerUpTypesEnum>();
+            _spawnedPowerUpDictionary = new Dictionary<Vector3, PowerUpTypesEnum>();
+            _matchedCellsDictionary = new Dictionary<IList<ICell>, AxisTypesEnum>();
+            _matchedCellsWithAxisDictionary = new Dictionary<ICell, IDictionary<IList<ICell>, AxisTypesEnum>>();
             
-            _gameState = GameStates.Ready;
+            _gameStateEnum = GameStatesEnum.Ready;
         }
 
-        public void OnEvent(EventTypes eventType, object messageData)
+        public void OnEvent(EventTypesEnum eventTypeEnum, object messageData)
         {
-            switch (eventType)
+            switch (eventTypeEnum)
             {
-                case EventTypes.LMB_Down:
+                case EventTypesEnum.LMB_Down:
                     _clickA = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     break;
 
-                case EventTypes.LMB_Up:
+                case EventTypesEnum.LMB_Up:
                     _clickB = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                    if (_gameState == GameStates.Ready)
+                    if (_gameStateEnum == GameStatesEnum.Ready)
                     {
                         if (_clickA.x >= 0 && _clickA.x < _board.Width && _clickA.y >= 0 && _clickA.y < _board.Height &&
                             (Mathf.Abs(_clickB.x - _clickA.x) > Strings.SWIPE_SENSITIVITY ||
                              Mathf.Abs(_clickB.y - _clickA.y) > Strings.SWIPE_SENSITIVITY))
                         {
-                            MoveDirectionTypes swipeDirection = Helper.FindMoveDirection(_clickA, _clickB);
+                            MoveDirectionTypesEnum swipeDirection = Helper.FindMoveDirection(_clickA, _clickB);
                             SwipeCells(swipeDirection);
                         }
                     }
 
                     break;
 
-                case EventTypes.Swipe:
-                    _gameState = GameStates.Wait;
+                case EventTypesEnum.Swipe:
+                    _gameStateEnum = GameStatesEnum.Wait;
                     
                     SetMacroCommand((ICommand[]) messageData);
                     ExecuteMacroCommand();
                     break;
 
-                case EventTypes.BOARD_collapse:
+                case EventTypesEnum.BOARD_collapse:
                     ExecuteMacroCommand();
                     break;
 
-                case EventTypes.BOARD_EndDestroyMatchedCells:
+                case EventTypesEnum.BOARD_EndDestroyMatchedCells:
                     if (_powersDictionary.Count > 0)
                     {
                         Vector2 pos = _powersDictionary.First().Key;
-                        PowerUpTypes powerUpType = _powersDictionary.First().Value;
+                        PowerUpTypesEnum powerUpTypeEnum = _powersDictionary.First().Value;
 
-                        List<ICell> cellsList = new List<ICell>(_checkManager.PowerCheck(powerUpType, pos));
+                        List<ICell> cellsList = new List<ICell>(_checkManager.PowerCheck(powerUpTypeEnum, pos));
                         ICell cell = _board.Cells[(int) pos.x, (int) pos.y];
 
-                        _matchedCellsDictionary.Add(cellsList, AxisTypes.Undefined);
+                        _matchedCellsDictionary.Add(cellsList, AxisTypesEnum.Undefined);
                         _matchedCellsWithAxisDictionary.Add(cell, _matchedCellsDictionary);
 
                         _powersDictionary.Remove(_powersDictionary.First());
@@ -112,48 +112,48 @@ namespace Mathc3Project.Classes
 
                     break;
 
-                case EventTypes.CELL_EndMove:
+                case EventTypesEnum.CELL_EndMove:
                     TryCheckSwipedCells((ICell) messageData);
                     break;
 
-                case EventTypes.CELL_EndMoveBack:
+                case EventTypesEnum.CELL_EndMoveBack:
                     ICell cellBack = (ICell) messageData;
                     
                     _board.Cells[cellBack.TargetX, cellBack.TargetY] = cellBack;
-                    cellBack.CellState = CellStates.Wait;
+                    cellBack.CellStateEnum = CellStatesEnum.Wait;
 
-                    _gameState = GameStates.Ready;
+                    _gameStateEnum = GameStatesEnum.Ready;
                     break;
 
-                case EventTypes.CELL_Fall:
+                case EventTypesEnum.CELL_Fall:
                     ICell cellFall = (ICell) messageData;
                     
-                    cellFall.CellState = CellStates.Wait;
+                    cellFall.CellStateEnum = CellStatesEnum.Wait;
                     
                     if (cellFall == _lastFallCell)
                         CheckBoard();
                     break;
                 
-                case EventTypes.CELL_Destroy:
+                case EventTypesEnum.CELL_Destroy:
                     string cellTag = (string) messageData;
-                    Notify(EventTypes.CELL_Destroy, cellTag);
+                    Notify(EventTypesEnum.CELL_Destroy, cellTag);
                     break;
 
-                case EventTypes.POWER_Use:
+                case EventTypesEnum.POWER_Use:
                     ArrayList arr = (ArrayList) messageData;
 
-                    PowerUpTypes powerUp = Helper.StringToPowerType(arr[0].ToString());
+                    PowerUpTypesEnum powerUp = Helper.StringToPowerType(arr[0].ToString());
                     Vector3 position = (Vector3) arr[1];
 
                     _powersDictionary.Add(position, powerUp);
                     break;
                 
-                case EventTypes.TASK_Finished:
-                    if (_gameState != GameStates.End)
+                case EventTypesEnum.TASK_Finished:
+                    if (_gameStateEnum != GameStatesEnum.End)
                     {
                         _navigationManager.MasterManager.UpdateManager.IsUpdate = false;
-                        _gameState = GameStates.End;
-                        Notify(EventTypes.TASK_Finished, null);
+                        _gameStateEnum = GameStatesEnum.End;
+                        Notify(EventTypesEnum.TASK_Finished, null);
                     }
                     break;
 
@@ -170,12 +170,12 @@ namespace Mathc3Project.Classes
             else
             _swipeCounter++;
 
-            AxisTypes majorAxis;
+            AxisTypesEnum majorAxis;
             IList<ICell> cellsList = new List<ICell>(_checkManager.CheckCell(cell, out majorAxis));
 
-            if (cellsList.Count > 2 || cell.CurrentGameObject.CompareTag(Strings.Tag_Power))
+            if (cellsList.Count > 2 || cell.CurrentGameObject.CompareTag(Strings.TAG_POWER))
             {
-                if (cell.CurrentGameObject.CompareTag(Strings.Tag_Power))
+                if (cell.CurrentGameObject.CompareTag(Strings.TAG_POWER))
                     cellsList.Add(cell);
 
                 _matchedCellsDictionary.Add(cellsList, majorAxis);
@@ -215,7 +215,7 @@ namespace Mathc3Project.Classes
                 return;
             }
 
-            _gameState = GameStates.Ready;
+            _gameStateEnum = GameStatesEnum.Ready;
         }
 
         private bool HaveMatches()
@@ -235,16 +235,16 @@ namespace Mathc3Project.Classes
         {
             foreach (var cell in _board.Cells)
             {
-                AxisTypes majorAxis = AxisTypes.Undefined;
+                AxisTypesEnum majorAxis = AxisTypesEnum.Undefined;
 
                 IList<ICell> matchedCellsList = new List<ICell>();
 
-                IDictionary<IList<ICell>, AxisTypes> matchedCellsDictionary =
-                    new Dictionary<IList<ICell>, AxisTypes>();
+                IDictionary<IList<ICell>, AxisTypesEnum> matchedCellsDictionary =
+                    new Dictionary<IList<ICell>, AxisTypesEnum>();
 
                 if (Helper.CellIsEmpty(cell) == false)
                 {
-                    if (cell.CellState != CellStates.Check)
+                    if (cell.CellStateEnum != CellStatesEnum.Check)
                     {
                         matchedCellsList = _checkManager.CheckCell(cell, out majorAxis);
                         matchedCellsDictionary.Add(matchedCellsList, majorAxis);
@@ -256,7 +256,7 @@ namespace Mathc3Project.Classes
             StartCoroutine(MarkAndDestroy(_matchedCellsWithAxisDictionary));
         }
         
-        private IEnumerator MarkAndDestroy(IDictionary<ICell, IDictionary<IList<ICell>, AxisTypes>> cellsWithAxisDictionary)
+        private IEnumerator MarkAndDestroy(IDictionary<ICell, IDictionary<IList<ICell>, AxisTypesEnum>> cellsWithAxisDictionary)
         {
             foreach (var cellDictionary in cellsWithAxisDictionary)
             {
@@ -275,12 +275,12 @@ namespace Mathc3Project.Classes
                     if (cellDictionary.Key.CurrentGameObject != null)
                     {
                         if (cellList.Key.Count > 3 &&
-                            cellDictionary.Key.CurrentGameObject.CompareTag(Strings.Tag_Power) == false)
+                            cellDictionary.Key.CurrentGameObject.CompareTag(Strings.TAG_POWER) == false)
                         {
-                            AxisTypes majorAxis = cellList.Value;
+                            AxisTypesEnum majorAxis = cellList.Value;
                             int matchCount = cellList.Key.Count;
 
-                            PowerUpTypes powerUp = Helper.DetectPowerUp(matchCount, majorAxis);
+                            PowerUpTypesEnum powerUp = Helper.DetectPowerUp(matchCount, majorAxis);
                             _spawnedPowerUpDictionary.Add(
                                 new Vector3(cellDictionary.Key.TargetX, cellDictionary.Key.TargetY, 0f), powerUp);
                         }
@@ -294,7 +294,7 @@ namespace Mathc3Project.Classes
             _matchedCellsDictionary.Clear();
 
             yield return new WaitForSeconds(Strings.TIME_AFTER_DESTROY);
-            OnEvent(EventTypes.BOARD_EndDestroyMatchedCells, null);
+            OnEvent(EventTypesEnum.BOARD_EndDestroyMatchedCells, null);
         }
 
         private IEnumerator RefillBoard()
@@ -324,7 +324,7 @@ namespace Mathc3Project.Classes
             for (int j = 0; j < _board.Height; j++)
             for (int i = 0; i < _board.Width; i++)
             {
-                if (_board.Cells[i, j].CellType != CellTypes.Hollow && _board.Cells[i, j].CurrentGameObject == null)
+                if (_board.Cells[i, j].CellTypeEnum != CellTypesEnum.Hollow && _board.Cells[i, j].CurrentGameObject == null)
                 {
                     spawnTarget.Add(new Vector2(i, j));
                 }
@@ -388,7 +388,7 @@ namespace Mathc3Project.Classes
         {
             for (int i = 0; i < _board.Width; i++)
             for (int j = 0; j < _board.Height; j++)
-                if (_board.Cells[i, j].CellType != CellTypes.Hollow && _board.Cells[i, j].CurrentGameObject == null)
+                if (_board.Cells[i, j].CellTypeEnum != CellTypesEnum.Hollow && _board.Cells[i, j].CurrentGameObject == null)
                 {
                     for (int k = j + 1; k < _board.Height; k++)
                     {
@@ -429,7 +429,7 @@ namespace Mathc3Project.Classes
                 commands[i] = new FallCommand(cellsList[i]);
 
             SetMacroCommand(commands);
-            OnEvent(EventTypes.BOARD_collapse, null);
+            OnEvent(EventTypesEnum.BOARD_collapse, null);
         }
 
         private void WorkAfterMatch(IList<ICell> cellsAfterMarkList)
@@ -441,84 +441,84 @@ namespace Mathc3Project.Classes
         private void MarkMatchedCells(IList<ICell> cellsToMarkList)
         {
             foreach (var cell in cellsToMarkList)
-                if (cell.CurrentGameObject != null && cell.CurrentGameObject.CompareTag(Strings.Tag_Power) == false)
+                if (cell.CurrentGameObject != null && cell.CurrentGameObject.CompareTag(Strings.TAG_POWER) == false)
                     Helper.MarkCell(cell);
         }
         
-        private void SwipeCells(MoveDirectionTypes direction)
+        private void SwipeCells(MoveDirectionTypesEnum direction)
         {
             int xPos = (int) Mathf.Round(_clickA.x);
             int yPos = (int) Mathf.Round(_clickA.y);
 
             ICell cellA = _board.Cells[xPos, yPos];
             
-            if (cellA.CellType == CellTypes.Normal && cellA != null && cellA.CurrentGameObject != null)
+            if (cellA.CellTypeEnum == CellTypesEnum.Normal && cellA != null && cellA.CurrentGameObject != null)
             {
                 switch (direction)
                 {
-                    case MoveDirectionTypes.Up:
+                    case MoveDirectionTypesEnum.Up:
                         if (yPos < _board.Height - 1)
                         {
                             ICell cellB = _board.Cells[xPos, yPos + 1];
-                            if (cellB.CellType == CellTypes.Normal && cellB.CurrentGameObject != null)
+                            if (cellB.CellTypeEnum == CellTypesEnum.Normal && cellB.CurrentGameObject != null)
                             {
                                 _board.Cells[xPos, yPos + 1] = cellA;
                                 _board.Cells[xPos, yPos] = cellB;
 
                                 ICommand[] commands = {new SwipeUpCommand(cellA), new SwipeDownCommand(cellB),};
 
-                                OnEvent(EventTypes.Swipe, commands);
+                                OnEvent(EventTypesEnum.Swipe, commands);
                             }
                         }
 
                         break;
 
-                    case MoveDirectionTypes.Down:
+                    case MoveDirectionTypesEnum.Down:
                         if (yPos > 0)
                         {
                             ICell cellB = _board.Cells[xPos, yPos - 1];
-                            if (cellB.CellType == CellTypes.Normal && cellB.CurrentGameObject != null)
+                            if (cellB.CellTypeEnum == CellTypesEnum.Normal && cellB.CurrentGameObject != null)
                             {
                                 _board.Cells[xPos, yPos - 1] = cellA;
                                 _board.Cells[xPos, yPos] = cellB;
 
                                 ICommand[] commands = {new SwipeDownCommand(cellA), new SwipeUpCommand(cellB),};
 
-                                OnEvent(EventTypes.Swipe, commands);
+                                OnEvent(EventTypesEnum.Swipe, commands);
                             }
                         }
 
                         break;
 
-                    case MoveDirectionTypes.Left:
+                    case MoveDirectionTypesEnum.Left:
                         if (xPos > 0)
                         {
                             ICell cellB = _board.Cells[xPos - 1, yPos];
-                            if (cellB.CellType == CellTypes.Normal && cellB.CurrentGameObject != null)
+                            if (cellB.CellTypeEnum == CellTypesEnum.Normal && cellB.CurrentGameObject != null)
                             {
                                 _board.Cells[xPos - 1, yPos] = cellA;
                                 _board.Cells[xPos, yPos] = cellB;
 
                                 ICommand[] commands = {new SwipeLeftCommand(cellA), new SwipeRightCommand(cellB),};
 
-                                OnEvent(EventTypes.Swipe, commands);
+                                OnEvent(EventTypesEnum.Swipe, commands);
                             }
                         }
 
                         break;
 
-                    case MoveDirectionTypes.Right:
+                    case MoveDirectionTypesEnum.Right:
                         if (xPos < _board.Width - 1)
                         {
                             ICell cellB = _board.Cells[xPos + 1, yPos];
-                            if (cellB.CellType == CellTypes.Normal && cellB.CurrentGameObject != null)
+                            if (cellB.CellTypeEnum == CellTypesEnum.Normal && cellB.CurrentGameObject != null)
                             {
                                 _board.Cells[xPos + 1, yPos] = cellA;
                                 _board.Cells[xPos, yPos] = cellB;
 
                                 ICommand[] commands = {new SwipeRightCommand(cellA), new SwipeLeftCommand(cellB),};
 
-                                OnEvent(EventTypes.Swipe, commands);
+                                OnEvent(EventTypesEnum.Swipe, commands);
                             }
                         }
 
@@ -559,9 +559,9 @@ namespace Mathc3Project.Classes
                 _notifier.RemoveSubscriber(subscriber);
         }
 
-        public void Notify(EventTypes eventType, object messageData)
+        public void Notify(EventTypesEnum eventTypeEnum, object messageData)
         {
-            _notifier.Notify(eventType, messageData);
+            _notifier.Notify(eventTypeEnum, messageData);
         }
 
         public INotifier Notifier

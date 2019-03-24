@@ -14,24 +14,24 @@ namespace Mathc3Project.Classes
             _loadingImage = GameObject.FindWithTag("Image Loading");
         }
         
-        public void OnEvent(EventTypes eventType, object messageData)
+        public void OnEvent(EventTypesEnum eventTypeEnum, object messageData)
         {
-            switch (eventType)
+            switch (eventTypeEnum)
             {
-                case EventTypes.UI_SceneLoaded:
+                case EventTypesEnum.UI_SceneLoaded:
                     if (_loadingImage == null)
                         throw new UnityException("Loading image is " + _loadingImage);
                     else
                         _loadingImage.SetActive(false);
                     break;
                 
-                case EventTypes.UI_OpenMenu:
+                case EventTypesEnum.UI_OpenMenu:
                     if (_navigationManager == null)
                         throw new UnityException("Navigation Manager is" + _navigationManager);
                     else
                     {
                         _loadingImage.SetActive(true);
-                        _navigationManager.Navigate(SceneTypes.StartScreenScene, SceneTypes.Menu, null);
+                        _navigationManager.Navigate(SceneTypesEnum.StartScreenScene, SceneTypesEnum.Menu, null);
                     }
                     break;
             }

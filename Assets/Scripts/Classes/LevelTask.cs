@@ -10,14 +10,14 @@ namespace Mathc3Project.Classes
     {
         private readonly string _elementName;
         private int _count;
-        private readonly Sprite _spriteElement;
+        private readonly Sprite _spriteElement; //TODO ADD IN SPRITES_TASKS_MANAGER
         private bool _completed;
 
         public LevelTask(string elementName, int count)
         {
             _elementName = elementName;
             _count = count;
-            _spriteElement = Resources.Load<Sprite>(Strings.Sprites_Elements + elementName);
+            _spriteElement = Resources.Load<Sprite>(Strings.SPRITE_ELEMENTS + elementName);
             _completed = false;
         }
 

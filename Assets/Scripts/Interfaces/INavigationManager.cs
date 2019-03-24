@@ -7,7 +7,7 @@ namespace Mathc3Project.Interfaces
     {
         IMasterManager MasterManager { get; }
 
-        void Navigate(SceneTypes sceneFrom, SceneTypes sceneTo, Object transferObject);
+        void Navigate(SceneTypesEnum sceneFrom, SceneTypesEnum sceneTo, Object transferObject);
     }
     
 }

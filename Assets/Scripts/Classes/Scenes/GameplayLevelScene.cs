@@ -89,7 +89,7 @@ namespace Mathc3Project.Classes.Scenes
             _updateManager.AddUpdatable(_inputManager as IUpdatable);
 
             _updateManager.IsUpdate = true;
-            _buttonsManager.Notify(EventTypes.UI_SceneLoaded, null);
+            _buttonsManager.Notify(EventTypesEnum.UI_SceneLoaded, null);
         }
 
         public override void OnExit()

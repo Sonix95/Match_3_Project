@@ -19,8 +19,8 @@ namespace Tests.PlayMode
             int boardWidth = 5;
             int boardHeight = 5;
 
-            ILevelTask levelTaskA = ObjectsCreator.CreateLevelTask(Strings.Tag_RedCircle, 5);
-            ILevelTask levelTaskB = ObjectsCreator.CreateLevelTask(Strings.Tag_BlueMultiAngle, 12);
+            ILevelTask levelTaskA = ObjectsCreator.CreateLevelTask(Strings.TAG_REDCIRCLE, 5);
+            ILevelTask levelTaskB = ObjectsCreator.CreateLevelTask(Strings.TAG_BLUEMULTIANGLE, 12);
             ILevelTask[] levelTasks = new[] {levelTaskA, levelTaskB};
             
             ILevel level = ObjectsCreator.CreateLevel(levelID, boardWidth, boardHeight,levelTasks);

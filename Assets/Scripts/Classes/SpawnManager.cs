@@ -26,9 +26,9 @@ namespace Mathc3Project.Classes
             return newGameObject;
         }
 
-        public GameObject SpawnPrefab(GameElementTypes elementType, Vector3 position)
+        public GameObject SpawnPrefab(GameElementTypesEnum elementTypeEnum, Vector3 position)
         {
-            GameObject newGameObject = _objectStorage.GetGameElement(elementType);
+            GameObject newGameObject = _objectStorage.GetGameElement(elementTypeEnum);
             
             newGameObject.name = newGameObject.tag;
             newGameObject.transform.position = position;
@@ -36,9 +36,9 @@ namespace Mathc3Project.Classes
             return newGameObject;
         }
 
-        public GameObject SpawnPowerPrefab(PowerUpTypes powerUpType, Vector3 position)
+        public GameObject SpawnPowerPrefab(PowerUpTypesEnum powerUpTypeEnum, Vector3 position)
         {
-            GameObject powerGameObject = _objectStorage.GetPowerElement(powerUpType);
+            GameObject powerGameObject = _objectStorage.GetPowerElement(powerUpTypeEnum);
             
             powerGameObject.name = powerGameObject.tag;
             powerGameObject.transform.position = position;
@@ -57,7 +57,7 @@ namespace Mathc3Project.Classes
             return newNormalCell;
         }
         
-        public ICell SpawnNormalCell(GameElementTypes gameElement, Vector3 position)
+        public ICell SpawnNormalCell(GameElementTypesEnum gameElement, Vector3 position)
         {
             GameObject newGameObject = SpawnPrefab(gameElement,position);
      

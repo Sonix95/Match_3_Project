@@ -11,8 +11,8 @@ namespace Mathc3Project.Classes.Cells
     {
         private int _x;
         private int _y;
-        private CellTypes _cellType;
-        private CellStates _cellStates;
+        private CellTypesEnum _cellTypeEnum;
+        private CellStatesEnum _cellStatesEnum;
         private GameObject _currentGameObject;
         private INotifier _notifier;
         private bool _canUpdate;
@@ -21,8 +21,8 @@ namespace Mathc3Project.Classes.Cells
         {
             _x = x;
             _y = y;
-            _cellType = CellTypes.Normal;
-            _cellStates = CellStates.Wait;
+            _cellTypeEnum = CellTypesEnum.Normal;
+            _cellStatesEnum = CellStatesEnum.Wait;
         }
 
         public void Move()
@@ -45,16 +45,16 @@ namespace Mathc3Project.Classes.Cells
                 _currentGameObject.transform.position = tempPos;
                 _canUpdate = false;
 
-                switch (CellState)
+                switch (CellStateEnum)
                 {
-                    case CellStates.Swipe:
-                        _notifier.Notify(EventTypes.CELL_EndMove, this);
+                    case CellStatesEnum.Swipe:
+                        _notifier.Notify(EventTypesEnum.CELL_EndMove, this);
                         break;
-                    case CellStates.Back:
-                        _notifier.Notify(EventTypes.CELL_EndMoveBack, this);
+                    case CellStatesEnum.Back:
+                        _notifier.Notify(EventTypesEnum.CELL_EndMoveBack, this);
                         break;
-                    case CellStates.Fall:
-                        _notifier.Notify(EventTypes.CELL_Fall, this);
+                    case CellStatesEnum.Fall:
+                        _notifier.Notify(EventTypesEnum.CELL_Fall, this);
                         break;
                 }
             }
@@ -64,7 +64,7 @@ namespace Mathc3Project.Classes.Cells
         {
             if (_currentGameObject != null)
             {
-                if (_currentGameObject.CompareTag(Strings.Tag_Power))
+                if (_currentGameObject.CompareTag(Strings.TAG_POWER))
                 {
                     GameObject powerGameObject = _currentGameObject.transform.GetChild(0).transform.gameObject;
                 
@@ -72,10 +72,10 @@ namespace Mathc3Project.Classes.Cells
                     typeAndPos.Add(powerGameObject.tag);
                     typeAndPos.Add(_currentGameObject.transform.position);
 
-                    _notifier.Notify(EventTypes.POWER_Use, typeAndPos);
+                    _notifier.Notify(EventTypesEnum.POWER_Use, typeAndPos);
                 }
                 else
-                    _notifier.Notify(EventTypes.CELL_Destroy, _currentGameObject.transform.tag);
+                    _notifier.Notify(EventTypesEnum.CELL_Destroy, _currentGameObject.transform.tag);
             }
 
             
@@ -85,17 +85,17 @@ namespace Mathc3Project.Classes.Cells
 
         public override string ToString()
         {
-            string message = Strings.Normal_Cell + _x + "x" + _y;
-            message += ", State: " + _cellStates;
+            string message = Strings.NORMAL_CELL + _x + "x" + _y;
+            message += ", State: " + _cellStatesEnum;
             message += ", Update?: " + _canUpdate;
             message += ", Current GO: " + (_currentGameObject != null ? _currentGameObject.tag : "missing");
 
             return message;
         }
         
-        public void Notify(EventTypes eventType, Object messageData)
+        public void Notify(EventTypesEnum eventTypeEnum, Object messageData)
         {
-            _notifier.Notify(eventType, messageData);
+            _notifier.Notify(eventTypeEnum, messageData);
         }
 
         public int TargetX
@@ -118,16 +118,16 @@ namespace Mathc3Project.Classes.Cells
             }
         }
 
-        public CellTypes CellType
+        public CellTypesEnum CellTypeEnum
         {
-            get { return _cellType; }
-            set { _cellType = value; }
+            get { return _cellTypeEnum; }
+            set { _cellTypeEnum = value; }
         }
 
-        public CellStates CellState
+        public CellStatesEnum CellStateEnum
         {
-            get { return _cellStates; }
-            set { _cellStates = value; }
+            get { return _cellStatesEnum; }
+            set { _cellStatesEnum = value; }
         }
 
         public GameObject CurrentGameObject

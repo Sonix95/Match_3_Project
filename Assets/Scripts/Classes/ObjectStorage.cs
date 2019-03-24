@@ -9,40 +9,38 @@ namespace Mathc3Project.Classes
 {
     public class ObjectStorage : IObjectStorage
     {
-        private readonly IDictionary<PowerUpTypes, GameObject> _powersPrefabs;
-        private readonly IDictionary<GameElementTypes, GameObject> _normalCellsPrefabs;
+        private readonly IDictionary<PowerUpTypesEnum, GameObject> _powersPrefabs;
+        private readonly IDictionary<GameElementTypesEnum, GameObject> _normalCellsPrefabs;
 
         public ObjectStorage()
         {
-            _powersPrefabs = new Dictionary<PowerUpTypes, GameObject>();
-            _normalCellsPrefabs = new Dictionary<GameElementTypes, GameObject>();
+            _powersPrefabs = new Dictionary<PowerUpTypesEnum, GameObject>();
+            _normalCellsPrefabs = new Dictionary<GameElementTypesEnum, GameObject>();
 
             SetUp();
         }
         
         private void SetUp()
         {
-            // Gameplay Elemnts ===============================
-            _normalCellsPrefabs.Add(GameElementTypes.OrangeBox,
-                Resources.Load(Strings.Gameplay_Elements + Strings.Tag_OrangeBox) as GameObject);
-            _normalCellsPrefabs.Add(GameElementTypes.RedCircle,
-                Resources.Load(Strings.Gameplay_Elements + Strings.Tag_RedCircle) as GameObject);
-            _normalCellsPrefabs.Add(GameElementTypes.BlueMultiAngle,
-                Resources.Load(Strings.Gameplay_Elements + Strings.Tag_BlueMultiAngle) as GameObject);
-            _normalCellsPrefabs.Add(GameElementTypes.YellowUpTriangle,
-                Resources.Load(Strings.Gameplay_Elements + Strings.Tag_YellowUpTriangle) as GameObject);
-            _normalCellsPrefabs.Add(GameElementTypes.GreenDownTriangle,
-                Resources.Load(Strings.Gameplay_Elements + Strings.Tag_GreenDownTriangle) as GameObject);
+            _normalCellsPrefabs.Add(GameElementTypesEnum.OrangeBox,
+                Resources.Load(Strings.GAMEPLAY_ELEMENTS + Strings.TAG_ORANGEBOX) as GameObject);
+            _normalCellsPrefabs.Add(GameElementTypesEnum.RedCircle,
+                Resources.Load(Strings.GAMEPLAY_ELEMENTS + Strings.TAG_REDCIRCLE) as GameObject);
+            _normalCellsPrefabs.Add(GameElementTypesEnum.BlueMultiAngle,
+                Resources.Load(Strings.GAMEPLAY_ELEMENTS + Strings.TAG_BLUEMULTIANGLE) as GameObject);
+            _normalCellsPrefabs.Add(GameElementTypesEnum.YellowUpTriangle,
+                Resources.Load(Strings.GAMEPLAY_ELEMENTS + Strings.TAG_YELLOWUPTRIANGLE) as GameObject);
+            _normalCellsPrefabs.Add(GameElementTypesEnum.GreenDownTriangle,
+                Resources.Load(Strings.GAMEPLAY_ELEMENTS + Strings.TAG_GREENDOWNTIRANGLE) as GameObject);
             
-            // Gameplay Powers ===============================
-            _powersPrefabs.Add(PowerUpTypes.Horizontal,
-                Resources.Load(Strings.Power_Element + Strings.Tag_Horizontal) as GameObject);
-            _powersPrefabs.Add(PowerUpTypes.Vertical,
-                Resources.Load(Strings.Power_Element + Strings.Tag_Vertical) as GameObject);
-            _powersPrefabs.Add(PowerUpTypes.Bomb,
-                Resources.Load(Strings.Power_Element + Strings.Tag_Bomb) as GameObject);
-            _powersPrefabs.Add(PowerUpTypes.ColorBomb,
-                Resources.Load(Strings.Power_Element + Strings.Tag_ColorBomb) as GameObject);
+            _powersPrefabs.Add(PowerUpTypesEnum.Horizontal,
+                Resources.Load(Strings.POWERUP_ELEMENTS + Strings.TAG_HORIZONTAL) as GameObject);
+            _powersPrefabs.Add(PowerUpTypesEnum.Vertical,
+                Resources.Load(Strings.POWERUP_ELEMENTS + Strings.TAG_VERICAL) as GameObject);
+            _powersPrefabs.Add(PowerUpTypesEnum.Bomb,
+                Resources.Load(Strings.POWERUP_ELEMENTS + Strings.TAG_BOMB) as GameObject);
+            _powersPrefabs.Add(PowerUpTypesEnum.ColorBomb,
+                Resources.Load(Strings.POWERUP_ELEMENTS + Strings.TAG_COLORBOMB) as GameObject);
         }
         
         public GameObject GetRandomGameElement()
@@ -52,15 +50,15 @@ namespace Mathc3Project.Classes
             return Object.Instantiate(prefToUse.Value);
         }
 
-        public GameObject GetGameElement(GameElementTypes gameElementType)
+        public GameObject GetGameElement(GameElementTypesEnum gameElementTypeEnum)
         {
-            GameObject gameElement =  Object.Instantiate(_normalCellsPrefabs[gameElementType]);
+            GameObject gameElement =  Object.Instantiate(_normalCellsPrefabs[gameElementTypeEnum]);
             return gameElement;
         }
 
-        public GameObject GetPowerElement(PowerUpTypes powerUpType)
+        public GameObject GetPowerElement(PowerUpTypesEnum powerUpTypeEnum)
         {
-            GameObject powerGameObject = Object.Instantiate(_powersPrefabs[powerUpType]);
+            GameObject powerGameObject = Object.Instantiate(_powersPrefabs[powerUpTypeEnum]);
             return powerGameObject;
         }
 

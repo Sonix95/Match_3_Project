@@ -28,31 +28,31 @@ namespace Mathc3Project.Classes
             _gameObjectDescription_PanelLevels = GameObject.Find("GameObject Description");
         }
 
-        public void OnEvent(EventTypes eventType, Object messageData)
+        public void OnEvent(EventTypesEnum eventTypeEnum, Object messageData)
         {
-            switch (eventType)
+            switch (eventTypeEnum)
             {
-                case EventTypes.UI_SceneLoaded:
+                case EventTypesEnum.UI_SceneLoaded:
                     _gameObjectDescription_PanelLevels.SetActive(false);
                     _loadingImage.SetActive(false);
                     break;
 
-                case EventTypes.UI_BackToStartScreen:
+                case EventTypesEnum.UI_BackToStartScreen:
                     if (_navigationManager == null)
                         throw new UnityException("Navigation Manager is" + _navigationManager);
                     else
-                        _navigationManager.Navigate(SceneTypes.Menu, SceneTypes.StartScreenScene, null);
+                        _navigationManager.Navigate(SceneTypesEnum.Menu, SceneTypesEnum.StartScreenScene, null);
                     break;
 
-                case EventTypes.UI_PrevLocation:
+                case EventTypesEnum.UI_PrevLocation:
                     Debug.Log("go to Previous location");
                     break;
 
-                case EventTypes.UI_NextLocation:
+                case EventTypesEnum.UI_NextLocation:
                     Debug.Log("go to Next location");
                     break;
 
-                case EventTypes.UI_OpenLevelDescription:
+                case EventTypesEnum.UI_OpenLevelDescription:
                     _selectedLevel = (int) messageData;
 
                     if (_selectedLevel > _levelsManager.Levels.Length - 1)
@@ -81,7 +81,7 @@ namespace Mathc3Project.Classes
 
                             taskPrefab.transform.SetParent(tasksHolderPanel.transform);
 
-                            Vector2 tempPos = Helper.SetUITaskPosition(tastsCount, i, SceneTypes.Menu);
+                            Vector2 tempPos = Helper.SetUITaskPosition(tastsCount, i, SceneTypesEnum.Menu);
                             taskPrefab.transform.localPosition = tempPos;
 
                             Text countTask = taskPrefab.GetComponentInChildren<Text>();
@@ -94,7 +94,7 @@ namespace Mathc3Project.Classes
 
                     break;
 
-                case EventTypes.UI_CLoseLevelDescription:
+                case EventTypesEnum.UI_CLoseLevelDescription:
                     GameObject[] levelTaskPanels = GameObject.FindGameObjectsWithTag("Level Task");
 
                     foreach (var levelTaskPanel in levelTaskPanels)
@@ -105,11 +105,11 @@ namespace Mathc3Project.Classes
                     Debug.Log("Close Description of Level");
                     break;
                 
-                case EventTypes.UI_PlayLevel:
+                case EventTypesEnum.UI_PlayLevel:
                     ILevel selectedLevel = _levelsManager.Levels[_selectedLevel];
                     
                     _loadingImage.SetActive(true);
-                    _navigationManager.Navigate(SceneTypes.Menu, SceneTypes.GameplayLevel, selectedLevel);
+                    _navigationManager.Navigate(SceneTypesEnum.Menu, SceneTypesEnum.GameplayLevel, selectedLevel);
                     break;
 
             }
