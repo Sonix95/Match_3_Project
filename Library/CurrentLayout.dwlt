@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 9}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 544}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -38,12 +38,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1025
+    x: 881
     y: 0
-    width: 438
+    width: 582
     height: 398
-  m_MinSize: {x: 234, y: 274}
-  m_MaxSize: {x: 10004, y: 10024}
+  m_MinSize: {x: 234, y: 272}
+  m_MaxSize: {x: 10004, y: 10022}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 16}
@@ -71,10 +71,10 @@ MonoBehaviour:
     y: 589
     width: 1463
     height: 398
-  m_MinSize: {x: 336, y: 274}
-  m_MaxSize: {x: 14006, y: 10024}
+  m_MinSize: {x: 336, y: 272}
+  m_MaxSize: {x: 14006, y: 10022}
   vertical: 0
-  controlID: 54
+  controlID: 96
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -94,8 +94,8 @@ MonoBehaviour:
     y: 0
     width: 437
     height: 589
-  m_MinSize: {x: 204, y: 224}
-  m_MaxSize: {x: 4004, y: 4024}
+  m_MinSize: {x: 204, y: 222}
+  m_MaxSize: {x: 4004, y: 4022}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -122,10 +122,10 @@ MonoBehaviour:
     y: 0
     width: 1463
     height: 589
-  m_MinSize: {x: 306, y: 224}
-  m_MaxSize: {x: 8006, y: 4024}
+  m_MinSize: {x: 306, y: 222}
+  m_MaxSize: {x: 8006, y: 4022}
   vertical: 0
-  controlID: 256
+  controlID: 38
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,10 +143,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1025
+    width: 881
     height: 398
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 122}
+  m_MaxSize: {x: 4002, y: 4022}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -173,10 +173,10 @@ MonoBehaviour:
     y: 0
     width: 1463
     height: 987
-  m_MinSize: {x: 336, y: 498}
-  m_MaxSize: {x: 14006, y: 14048}
+  m_MinSize: {x: 336, y: 494}
+  m_MaxSize: {x: 14006, y: 14044}
   vertical: 1
-  controlID: 34
+  controlID: 37
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,8 +196,8 @@ MonoBehaviour:
     y: 0
     width: 395
     height: 987
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 72}
+  m_MaxSize: {x: 4002, y: 4022}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 22}
@@ -227,7 +227,7 @@ MonoBehaviour:
     y: 0
     width: 1858
     height: 1037
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 544}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &10
 MonoBehaviour:
@@ -293,10 +293,10 @@ MonoBehaviour:
     y: 30
     width: 1858
     height: 987
-  m_MinSize: {x: 611, y: 498}
-  m_MaxSize: {x: 18006, y: 14048}
+  m_MinSize: {x: 613, y: 494}
+  m_MaxSize: {x: 18008, y: 14044}
   vertical: 0
-  controlID: 33
+  controlID: 135
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -316,8 +316,8 @@ MonoBehaviour:
     y: 0
     width: 1026
     height: 589
-  m_MinSize: {x: 102, y: 124}
-  m_MaxSize: {x: 4002, y: 4024}
+  m_MinSize: {x: 102, y: 122}
+  m_MaxSize: {x: 4002, y: 4022}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 17}
@@ -348,12 +348,13 @@ MonoBehaviour:
     y: 73
     width: 429
     height: 967
-  m_PersistentViewDataDictionary: {fileID: 0}
+  m_ViewDataDictionary: {fileID: 0}
   m_TestTypeToolbarIndex: 0
   m_PlayModeTestListGUI:
     m_Window: {fileID: 14}
     newResultList:
     - id: '[Match_3_Project][suite]'
+      uniqueId: 
       name: Match_3_Project
       fullName: Match_3_Project
       resultStatus: 1
@@ -366,8 +367,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: 
+      parentId: 
+      parentUniqueId: 
     - id: '[E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp.dll][suite]'
+      uniqueId: 
       name: Assembly-CSharp.dll
       fullName: E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp.dll
       resultStatus: 1
@@ -380,8 +383,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Match_3_Project][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Tests][suite]'
+      uniqueId: 
       name: Tests
       fullName: Tests
       resultStatus: 1
@@ -394,8 +399,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp.dll][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Tests.PlayMode][suite]'
+      uniqueId: 
       name: PlayMode
       fullName: Tests.PlayMode
       resultStatus: 1
@@ -408,8 +415,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Tests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardFromLevelTest][suite]'
+      uniqueId: 
       name: CreateBoardFromLevelTest
       fullName: Tests.PlayMode.CreateBoardFromLevelTest
       resultStatus: 1
@@ -422,8 +431,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Tests.PlayMode][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardFromLevelTest.Board_CreateFromLevel_NotNull]'
+      uniqueId: 
       name: Board_CreateFromLevel_NotNull
       fullName: Tests.PlayMode.CreateBoardFromLevelTest.Board_CreateFromLevel_NotNull
       resultStatus: 1
@@ -437,8 +448,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardFromLevelTest][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest][suite]'
+      uniqueId: 
       name: CreateBoardTest
       fullName: Tests.PlayMode.CreateBoardTest
       resultStatus: 1
@@ -451,8 +464,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Tests.PlayMode][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest.Board_Create_NotNull][suite]'
+      uniqueId: 
       name: Board_Create_NotNull
       fullName: Tests.PlayMode.CreateBoardTest.Board_Create_NotNull
       resultStatus: 1
@@ -465,8 +480,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest.Board_Create_NotNull(3,5)]'
+      uniqueId: 
       name: Board_Create_NotNull(3,5)
       fullName: Tests.PlayMode.CreateBoardTest.Board_Create_NotNull(3,5)
       resultStatus: 1
@@ -480,8 +497,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest.Board_Create_NotNull][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest.Board_Create_NotNull(7,4)]'
+      uniqueId: 
       name: Board_Create_NotNull(7,4)
       fullName: Tests.PlayMode.CreateBoardTest.Board_Create_NotNull(7,4)
       resultStatus: 1
@@ -495,8 +514,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest.Board_Create_NotNull][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest.Board_Create_NotNull(6,6)]'
+      uniqueId: 
       name: Board_Create_NotNull(6,6)
       fullName: Tests.PlayMode.CreateBoardTest.Board_Create_NotNull(6,6)
       resultStatus: 1
@@ -510,8 +531,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardTest.Board_Create_NotNull][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest][suite]'
+      uniqueId: 
       name: CreateBoardWithOnlyOneElementTypeTest
       fullName: Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest
       resultStatus: 1
@@ -524,8 +547,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Tests.PlayMode][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType][suite]'
+      uniqueId: 
       name: Board_CreateWithOnlyOneElementType
       fullName: Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType
       resultStatus: 1
@@ -538,8 +563,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(OrangeBox,5,5)]'
+      uniqueId: 
       name: Board_CreateWithOnlyOneElementType(OrangeBox,5,5)
       fullName: Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(OrangeBox,5,5)
       resultStatus: 1
@@ -553,8 +580,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(RedCircle,7,8)]'
+      uniqueId: 
       name: Board_CreateWithOnlyOneElementType(RedCircle,7,8)
       fullName: Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(RedCircle,7,8)
       resultStatus: 1
@@ -568,8 +597,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(GreenDownTriangle,3,3)]'
+      uniqueId: 
       name: Board_CreateWithOnlyOneElementType(GreenDownTriangle,3,3)
       fullName: Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(GreenDownTriangle,3,3)
       resultStatus: 1
@@ -583,8 +614,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(YellowUpTriangle,5,2)]'
+      uniqueId: 
       name: Board_CreateWithOnlyOneElementType(YellowUpTriangle,5,2)
       fullName: Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(YellowUpTriangle,5,2)
       resultStatus: 1
@@ -598,8 +631,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(BlueMultiAngle,9,4)]'
+      uniqueId: 
       name: Board_CreateWithOnlyOneElementType(BlueMultiAngle,9,4)
       fullName: Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType(BlueMultiAngle,9,4)
       resultStatus: 1
@@ -613,8 +648,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreateBoardWithOnlyOneElementTypeTest.Board_CreateWithOnlyOneElementType][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest][suite]'
+      uniqueId: 
       name: CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest
       resultStatus: 1
@@ -627,8 +664,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Tests.PlayMode][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight][suite]'
+      uniqueId: 
       name: Board_CreateFromLevel_ExpectedEqualHeight
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight
       resultStatus: 1
@@ -641,8 +680,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(2,2)]'
+      uniqueId: 
       name: Board_CreateFromLevel_ExpectedEqualHeight(2,2)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(2,2)
       resultStatus: 1
@@ -656,8 +697,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(4,4)]'
+      uniqueId: 
       name: Board_CreateFromLevel_ExpectedEqualHeight(4,4)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(4,4)
       resultStatus: 1
@@ -671,8 +714,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(8,8)]'
+      uniqueId: 
       name: Board_CreateFromLevel_ExpectedEqualHeight(8,8)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(8,8)
       resultStatus: 1
@@ -686,8 +731,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(12,12)]'
+      uniqueId: 
       name: Board_CreateFromLevel_ExpectedEqualHeight(12,12)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(12,12)
       resultStatus: 1
@@ -701,8 +748,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(22,22)]'
+      uniqueId: 
       name: Board_CreateFromLevel_ExpectedEqualHeight(22,22)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight(22,22)
       resultStatus: 1
@@ -716,8 +765,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualHeight][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth][suite]'
+      uniqueId: 
       name: Board_CreateFromLevel_ExpectedEqualWidth
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth
       resultStatus: 1
@@ -730,8 +781,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(1,1)]'
+      uniqueId: 
       name: Board_CreateFromLevel_ExpectedEqualWidth(1,1)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(1,1)
       resultStatus: 1
@@ -745,8 +798,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(3,3)]'
+      uniqueId: 
       name: Board_CreateFromLevel_ExpectedEqualWidth(3,3)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(3,3)
       resultStatus: 1
@@ -760,8 +815,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(5,5)]'
+      uniqueId: 
       name: Board_CreateFromLevel_ExpectedEqualWidth(5,5)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(5,5)
       resultStatus: 1
@@ -775,8 +832,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(9,9)]'
+      uniqueId: 
       name: Board_CreateFromLevel_ExpectedEqualWidth(9,9)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(9,9)
       resultStatus: 1
@@ -790,8 +849,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(15,15)]'
+      uniqueId: 
       name: Board_CreateFromLevel_ExpectedEqualWidth(15,15)
       fullName: Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth(15,15)
       resultStatus: 1
@@ -805,8 +866,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.CreatedBoardFromLevel_ExpectedEqualWidthAndHeightTest.Board_CreateFromLevel_ExpectedEqualWidth][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.GameplayElementReviewTest][suite]'
+      uniqueId: 
       name: GameplayElementReviewTest
       fullName: Tests.PlayMode.GameplayElementReviewTest
       resultStatus: 1
@@ -819,8 +882,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Tests.PlayMode][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.GameplayElementReviewTest.GameplayElement_Review]'
+      uniqueId: 
       name: GameplayElement_Review
       fullName: Tests.PlayMode.GameplayElementReviewTest.GameplayElement_Review
       resultStatus: 1
@@ -834,8 +899,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.GameplayElementReviewTest][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.GameplayElementReviewTest.PowerUp_Review]'
+      uniqueId: 
       name: PowerUp_Review
       fullName: Tests.PlayMode.GameplayElementReviewTest.PowerUp_Review
       resultStatus: 1
@@ -849,8 +916,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.GameplayElementReviewTest][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest][suite]'
+      uniqueId: 
       name: SwapAndUndoCellTest
       fullName: Tests.PlayMode.SwapAndUndoCellTest
       resultStatus: 1
@@ -863,8 +932,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Tests.PlayMode][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo][suite]'
+      uniqueId: 
       name: Cell_SwapAndUndo
       fullName: Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo
       resultStatus: 1
@@ -877,8 +948,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo(Up)]'
+      uniqueId: 
       name: Cell_SwapAndUndo(Up)
       fullName: Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo(Up)
       resultStatus: 1
@@ -892,8 +965,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo(Down)]'
+      uniqueId: 
       name: Cell_SwapAndUndo(Down)
       fullName: Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo(Down)
       resultStatus: 1
@@ -907,8 +982,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo(Left)]'
+      uniqueId: 
       name: Cell_SwapAndUndo(Left)
       fullName: Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo(Left)
       resultStatus: 1
@@ -922,8 +999,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo(Right)]'
+      uniqueId: 
       name: Cell_SwapAndUndo(Right)
       fullName: Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo(Right)
       resultStatus: 1
@@ -937,8 +1016,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapAndUndoCellTest.Cell_SwapAndUndo][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest][suite]'
+      uniqueId: 
       name: SwapCellTest
       fullName: Tests.PlayMode.SwapCellTest
       resultStatus: 1
@@ -951,8 +1032,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Tests.PlayMode][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap][suite]'
+      uniqueId: 
       name: Cell_Swap
       fullName: Tests.PlayMode.SwapCellTest.Cell_Swap
       resultStatus: 1
@@ -965,8 +1048,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap(Up)]'
+      uniqueId: 
       name: Cell_Swap(Up)
       fullName: Tests.PlayMode.SwapCellTest.Cell_Swap(Up)
       resultStatus: 1
@@ -980,8 +1065,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap(Down)]'
+      uniqueId: 
       name: Cell_Swap(Down)
       fullName: Tests.PlayMode.SwapCellTest.Cell_Swap(Down)
       resultStatus: 1
@@ -995,8 +1082,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap(Left)]'
+      uniqueId: 
       name: Cell_Swap(Left)
       fullName: Tests.PlayMode.SwapCellTest.Cell_Swap(Left)
       resultStatus: 1
@@ -1010,8 +1099,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap(Right)]'
+      uniqueId: 
       name: Cell_Swap(Right)
       fullName: Tests.PlayMode.SwapCellTest.Cell_Swap(Right)
       resultStatus: 1
@@ -1025,8 +1116,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.SwapCellTest.Cell_Swap][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest][suite]'
+      uniqueId: 
       name: UsePowerUpTest
       fullName: Tests.PlayMode.UsePowerUpTest
       resultStatus: 1
@@ -1039,8 +1132,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Tests.PlayMode][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review][suite]'
+      uniqueId: 
       name: PowerUp_UseOnePowerUp_Review
       fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review
       resultStatus: 1
@@ -1053,8 +1148,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review(Bomb)]'
+      uniqueId: 
       name: PowerUp_UseOnePowerUp_Review(Bomb)
       fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review(Bomb)
       resultStatus: 1
@@ -1068,8 +1165,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review(Vertical)]'
+      uniqueId: 
       name: PowerUp_UseOnePowerUp_Review(Vertical)
       fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review(Vertical)
       resultStatus: 1
@@ -1083,8 +1182,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review(Horizontal)]'
+      uniqueId: 
       name: PowerUp_UseOnePowerUp_Review(Horizontal)
       fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review(Horizontal)
       resultStatus: 1
@@ -1098,8 +1199,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseOnePowerUp_Review][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review][suite]'
+      uniqueId: 
       name: PowerUp_UseTwoPowerUp_Review
       fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review
       resultStatus: 1
@@ -1112,8 +1215,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review(Bomb,Vertical)]'
+      uniqueId: 
       name: PowerUp_UseTwoPowerUp_Review(Bomb,Vertical)
       fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review(Bomb,Vertical)
       resultStatus: 1
@@ -1127,8 +1232,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review(Bomb,Horizontal)]'
+      uniqueId: 
       name: PowerUp_UseTwoPowerUp_Review(Bomb,Horizontal)
       fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review(Bomb,Horizontal)
       resultStatus: 1
@@ -1142,8 +1249,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review(Vertical,Horizontal)]'
+      uniqueId: 
       name: PowerUp_UseTwoPowerUp_Review(Vertical,Horizontal)
       fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review(Vertical,Horizontal)
       resultStatus: 1
@@ -1157,8 +1266,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review(Horizontal,Vertical)]'
+      uniqueId: 
       name: PowerUp_UseTwoPowerUp_Review(Horizontal,Vertical)
       fullName: Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review(Horizontal,Vertical)
       resultStatus: 1
@@ -1172,8 +1283,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.PlayMode.UsePowerUpTest.PowerUp_UseTwoPowerUp_Review][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.TryCheckSwipedCells][suite]'
+      uniqueId: 
       name: TryCheckSwipedCells
       fullName: Tests.TryCheckSwipedCells
       resultStatus: 1
@@ -1186,8 +1299,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Tests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck][suite]'
+      uniqueId: 
       name: Cells_TryCheck
       fullName: Tests.TryCheckSwipedCells.Cells_TryCheck
       resultStatus: 1
@@ -1200,8 +1315,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Assembly-CSharp][Tests.TryCheckSwipedCells][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck(2,True)]'
+      uniqueId: 
       name: Cells_TryCheck(2,True)
       fullName: Tests.TryCheckSwipedCells.Cells_TryCheck(2,True)
       resultStatus: 1
@@ -1215,8 +1332,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck(2,False)]'
+      uniqueId: 
       name: Cells_TryCheck(2,False)
       fullName: Tests.TryCheckSwipedCells.Cells_TryCheck(2,False)
       resultStatus: 1
@@ -1230,8 +1349,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck(3,True)]'
+      uniqueId: 
       name: Cells_TryCheck(3,True)
       fullName: Tests.TryCheckSwipedCells.Cells_TryCheck(3,True)
       resultStatus: 1
@@ -1245,8 +1366,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck(3,False)]'
+      uniqueId: 
       name: Cells_TryCheck(3,False)
       fullName: Tests.TryCheckSwipedCells.Cells_TryCheck(3,False)
       resultStatus: 1
@@ -1260,8 +1383,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck(4,True)]'
+      uniqueId: 
       name: Cells_TryCheck(4,True)
       fullName: Tests.TryCheckSwipedCells.Cells_TryCheck(4,True)
       resultStatus: 1
@@ -1275,8 +1400,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck(4,False)]'
+      uniqueId: 
       name: Cells_TryCheck(4,False)
       fullName: Tests.TryCheckSwipedCells.Cells_TryCheck(4,False)
       resultStatus: 1
@@ -1290,8 +1417,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck(7,True)]'
+      uniqueId: 
       name: Cells_TryCheck(7,True)
       fullName: Tests.TryCheckSwipedCells.Cells_TryCheck(7,True)
       resultStatus: 1
@@ -1305,8 +1434,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck(7,False)]'
+      uniqueId: 
       name: Cells_TryCheck(7,False)
       fullName: Tests.TryCheckSwipedCells.Cells_TryCheck(7,False)
       resultStatus: 1
@@ -1320,7 +1451,8 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp][Tests.TryCheckSwipedCells.Cells_TryCheck][suite]'
+      parentId: 
+      parentUniqueId: 
     m_ResultText: Match_3_Project (86.007s)
     m_ResultStacktrace: 
     m_TestListState:
@@ -1357,6 +1489,7 @@ MonoBehaviour:
     m_Window: {fileID: 14}
     newResultList:
     - id: '[Match_3_Project][suite]'
+      uniqueId: 
       name: Match_3_Project
       fullName: Match_3_Project
       resultStatus: 1
@@ -1369,8 +1502,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: 
+      parentId: 
+      parentUniqueId: 
     - id: '[E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll][suite]'
+      uniqueId: 
       name: Assembly-CSharp-Editor.dll
       fullName: E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
       resultStatus: 1
@@ -1383,8 +1518,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Match_3_Project][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Tests][suite]'
+      uniqueId: 
       name: Tests
       fullName: Tests
       resultStatus: 1
@@ -1397,8 +1534,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[E:/Documents/UNITY couses/Match_3_Project/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Tests.EditMode][suite]'
+      uniqueId: 
       name: EditMode
       fullName: Tests.EditMode
       resultStatus: 1
@@ -1411,8 +1550,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Tests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+      uniqueId: 
       name: ManagersCreateTests
       fullName: Tests.EditMode.ManagersCreateTests
       resultStatus: 1
@@ -1425,8 +1566,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Tests.EditMode][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.CheckManager_Create_NotNull]'
+      uniqueId: 
       name: CheckManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.CheckManager_Create_NotNull
       resultStatus: 1
@@ -1440,8 +1583,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.GameplayLogicManager_Create_NotNull]'
+      uniqueId: 
       name: GameplayLogicManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.GameplayLogicManager_Create_NotNull
       resultStatus: 1
@@ -1455,8 +1600,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.GameplayNotifier_Create_NotNull]'
+      uniqueId: 
       name: GameplayNotifier_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.GameplayNotifier_Create_NotNull
       resultStatus: 1
@@ -1470,8 +1617,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.InputManager_Create_NotNull]'
+      uniqueId: 
       name: InputManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.InputManager_Create_NotNull
       resultStatus: 1
@@ -1485,8 +1634,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.LevelsManager_Create_NotNull]'
+      uniqueId: 
       name: LevelsManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.LevelsManager_Create_NotNull
       resultStatus: 1
@@ -1500,8 +1651,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.MasterManager_Create_NotNull]'
+      uniqueId: 
       name: MasterManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.MasterManager_Create_NotNull
       resultStatus: 1
@@ -1515,8 +1668,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.NavigationManager_Create_NotNull]'
+      uniqueId: 
       name: NavigationManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.NavigationManager_Create_NotNull
       resultStatus: 1
@@ -1530,8 +1685,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.SpawnManager_Create_NotNull]'
+      uniqueId: 
       name: SpawnManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.SpawnManager_Create_NotNull
       resultStatus: 1
@@ -1545,8 +1702,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.TaskManager_Create_NotNull]'
+      uniqueId: 
       name: TaskManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.TaskManager_Create_NotNull
       resultStatus: 1
@@ -1560,8 +1719,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.UINotifier_Create_NotNull]'
+      uniqueId: 
       name: UINotifier_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.UINotifier_Create_NotNull
       resultStatus: 1
@@ -1575,8 +1736,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests.UpdateManager_Create_NotNull]'
+      uniqueId: 
       name: UpdateManager_Create_NotNull
       fullName: Tests.EditMode.ManagersCreateTests.UpdateManager_Create_NotNull
       resultStatus: 1
@@ -1590,8 +1753,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.ManagersCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests][suite]'
+      uniqueId: 
       name: OtherObjectsCreateTests
       fullName: Tests.EditMode.OtherObjectsCreateTests
       resultStatus: 1
@@ -1604,8 +1769,10 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentID: '[Tests.EditMode][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests.CellRegistrator_Create_NotNull]'
+      uniqueId: 
       name: CellRegistrator_Create_NotNull
       fullName: Tests.EditMode.OtherObjectsCreateTests.CellRegistrator_Create_NotNull
       resultStatus: 1
@@ -1619,8 +1786,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests.Coroutine_Create_NotNull]'
+      uniqueId: 
       name: Coroutine_Create_NotNull
       fullName: Tests.EditMode.OtherObjectsCreateTests.Coroutine_Create_NotNull
       resultStatus: 1
@@ -1634,8 +1803,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests.HollowCell_Create_NotNull]'
+      uniqueId: 
       name: HollowCell_Create_NotNull
       fullName: Tests.EditMode.OtherObjectsCreateTests.HollowCell_Create_NotNull
       resultStatus: 1
@@ -1649,8 +1820,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests.Level_Create_NotNull]'
+      uniqueId: 
       name: Level_Create_NotNull
       fullName: Tests.EditMode.OtherObjectsCreateTests.Level_Create_NotNull
       resultStatus: 1
@@ -1664,8 +1837,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests.LevelTask_Create_NotNull]'
+      uniqueId: 
       name: LevelTask_Create_NotNull
       fullName: Tests.EditMode.OtherObjectsCreateTests.LevelTask_Create_NotNull
       resultStatus: 1
@@ -1679,8 +1854,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests.NormalCell_Create_NotNull]'
+      uniqueId: 
       name: NormalCell_Create_NotNull
       fullName: Tests.EditMode.OtherObjectsCreateTests.NormalCell_Create_NotNull
       resultStatus: 1
@@ -1694,8 +1871,10 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     - id: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests.ObjectStorage_Create_NotNull]'
+      uniqueId: 
       name: ObjectStorage_Create_NotNull
       fullName: Tests.EditMode.OtherObjectsCreateTests.ObjectStorage_Create_NotNull
       resultStatus: 1
@@ -1709,7 +1888,8 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentID: '[Assembly-CSharp-Editor][Tests.EditMode.OtherObjectsCreateTests][suite]'
+      parentId: 
+      parentUniqueId: 
     m_ResultText: GameplayLogicManager_Create_NotNull (0.046s)
     m_ResultStacktrace: 
     m_TestListState:
@@ -1758,19 +1938,24 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Scene
-    m_Image: {fileID: 0}
+    m_Image: {fileID: 2318424515335265636, guid: 0000000000000000d000000000000000,
+      type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 1024
-    height: 569
-  m_PersistentViewDataDictionary: {fileID: 0}
+    width: 1026
+    height: 570
+  m_ViewDataDictionary: {fileID: 0}
+  m_ShowContextualTools: 0
   m_WindowGUID: e43ac9dea63546e4a8596c2c6717c165
+  m_Gizmos: 1
+  m_SceneIsLit: 1
   m_SceneLighting: 1
   m_2DMode: 1
   m_isRotationLocked: 0
+  m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
     m_Target: {x: 603.8162, y: 340.03845, z: 15.875}
@@ -1782,6 +1967,7 @@ MonoBehaviour:
     name: Shaded
     section: Shading Mode
   m_ValidateTrueMetals: 0
+  m_DoValidateTrueMetals: 0
   m_SceneViewState:
     showFog: 0
     showMaterialUpdate: 0
@@ -1805,7 +1991,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0, w: 1}
+    m_Value: {x: -0.000000066571275, y: 0.0000006869945, z: -0.00000016071726, w: -1}
   m_Size:
     m_Target: 830.3382
     speed: 2
@@ -1814,11 +2000,24 @@ MonoBehaviour:
     m_Target: 1
     speed: 2
     m_Value: 1
+  m_CameraSettings:
+    m_Speed: 1
+    m_SpeedNormalized: 0.5
+    m_SpeedMin: 0.01
+    m_SpeedMax: 2
+    m_EasingEnabled: 1
+    m_EasingDuration: 0.4
+    m_FieldOfView: 90
+    m_NearClip: 0.03
+    m_FarClip: 10000
+    m_DynamicClip: 1
+    m_OcclusionCulling: 0
   m_ShowGlobalGrid: 1
   m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
+  m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
 --- !u!114 &16
@@ -1842,11 +2041,12 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 896
-    y: 22
-    width: 443
-    height: 374
-  m_PersistentViewDataDictionary: {fileID: 0}
+    x: 881
+    y: 662
+    width: 580
+    height: 379
+  m_ViewDataDictionary: {fileID: 0}
+  m_VSyncEnabled: 0
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
   m_Stats: 0
@@ -1869,7 +2069,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -1878,10 +2078,10 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
-      width: 443
-      height: 357
-    m_Scale: {x: 0.34609374, y: 0.34609374}
-    m_Translation: {x: 221.5, y: 178.5}
+      width: 580
+      height: 362
+    m_Scale: {x: 0.453125, y: 0.453125}
+    m_Translation: {x: 290, y: 181}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -1889,14 +2089,14 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -640
-      y: -515.7562
+      y: -399.44827
       width: 1280
-      height: 1031.5125
+      height: 798.89655
     m_MinimalGUI: 1
-  m_defaultScale: 0.34609374
+  m_defaultScale: 0.453125
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 1
-  m_LastWindowPixelSize: {x: 443, y: 374}
+  m_LastWindowPixelSize: {x: 580, y: 379}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
@@ -1926,7 +2126,7 @@ MonoBehaviour:
     y: 92
     width: 774
     height: 743
-  m_PersistentViewDataDictionary: {fileID: 0}
+  m_ViewDataDictionary: {fileID: 0}
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1950,31 +2150,31 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1026
     y: 73
-    width: 433
-    height: 569
-  m_PersistentViewDataDictionary: {fileID: 0}
+    width: 435
+    height: 570
+  m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 76010000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: bcf9ffff
+      m_ExpandedIDs: 70e5ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: '-----------------------'
+        m_OriginalName: '-----------------------'
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 17884
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 0}
+        m_ClientGUIView: {fileID: 4}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -2003,11 +2203,11 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1025
+    x: 881
     y: 662
-    width: 434
-    height: 378
-  m_PersistentViewDataDictionary: {fileID: 0}
+    width: 580
+    height: 379
+  m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
     m_ClassNames: []
@@ -2032,7 +2232,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: c22f0000
     m_LastClickedID: 12226
-    m_ExpandedIDs: 00000000f0050000e42b0000fc2b0000742c0000ac2c0000d62c0000e02c0000ec2c0000f02c0000042d00004a2d0000642d0000822d0000a22d00000a2e0000382e0000682e0000022f0000042f0000062f0000082f00000a2f00000c2f00000e2f0000102f0000122f0000142f0000162f0000182f00001a2f00001c2f00001e2f0000202f0000222f0000242f0000262f0000282f00002a2f00002c2f00002e2f0000302f0000322f0000342f0000362f0000382f00003a2f00003c2f00003e2f0000402f0000422f0000442f0000462f0000482f00004a2f00004c2f00004e2f0000502f0000522f0000
+    m_ExpandedIDs: 000000009c24000054420000704200001c430000584300009043000098430000a4430000ae430000ce4300002e4400004e4400006c4400009244000028450000504500009645000020460000224600002446000026460000284600002a4600002c4600002e46000030460000324600003446000036460000384600003a4600003c4600003e46000040460000424600004446000046460000484600004a4600004c4600004e46000050460000524600005446000056460000584600005a4600005c4600005e46000060460000624600006446000066460000684600006a4600006c4600006e46000070460000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2060,7 +2260,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000f0050000e42b0000fc2b0000742c0000ac2c0000d62c0000e02c0000ec2c0000f02c0000042d00004a2d0000642d0000822d0000a22d00000a2e0000382e0000682e0000022f0000042f0000062f0000082f00000a2f00000c2f00000e2f0000102f0000122f0000142f0000162f0000182f00001a2f00001c2f00001e2f0000202f0000222f0000242f0000262f0000282f00002a2f00002c2f00002e2f0000302f0000322f0000342f0000362f0000382f00003a2f00003c2f00003e2f0000402f0000422f0000442f0000462f0000482f00004a2f00004c2f00004e2f0000502f0000522f0000
+    m_ExpandedIDs: ffffffff000000009c24000054420000704200001c430000584300009043000098430000a4430000ae430000ce4300002e4400004e4400006c4400009244000028450000504500009645000020460000224600002446000026460000284600002a4600002c4600002e46000030460000324600003446000036460000384600003a4600003c4600003e46000040460000424600004446000046460000484600004a4600004c4600004e46000050460000524600005446000056460000584600005a4600005c4600005e46000060460000624600006446000066460000684600006a4600006c4600006e46000070460000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2138,9 +2338,9 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 662
-    width: 1023
-    height: 378
-  m_PersistentViewDataDictionary: {fileID: 0}
+    width: 881
+    height: 379
+  m_ViewDataDictionary: {fileID: 0}
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -2165,8 +2365,9 @@ MonoBehaviour:
     x: 1463
     y: 73
     width: 393
-    height: 967
-  m_PersistentViewDataDictionary: {fileID: 0}
+    height: 968
+  m_ViewDataDictionary: {fileID: 0}
+  m_OpenAddComponentMenu: 0
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_LockTracker:
@@ -2201,4 +2402,4 @@ MonoBehaviour:
     y: 73
     width: 452
     height: 204
-  m_PersistentViewDataDictionary: {fileID: 0}
+  m_ViewDataDictionary: {fileID: 0}
